@@ -3,137 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad | STIKMANIA</title>
+    <title data-es="Política de Privacidad | STIKMANIA" data-en="Privacy Policy | STIKMANIA">Política de Privacidad | STIKMANIA</title>
     <meta name="description" content="Política de privacidad de STIKMANIA. Cómo protegemos tus datos personales.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --neon-green: #00FF00;
+            --dark-green: #003300;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray: #1a1a1a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background: #000;
-            color: #fff;
+            background: var(--black);
+            color: var(--white);
             line-height: 1.8;
             padding: 100px 20px;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+        
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        h1 {
+            font-family: 'Pirata One', display;
+            color: var(--neon-green);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        h1, h2, h3 {
-            font-family: 'Long Shot', display;
-            color: #00FF00;
+        
+        h2 {
+            font-family: 'Inter', sans-serif;
+            color: var(--neon-green);
+            font-size: 1.5rem;
             margin-top: 40px;
             margin-bottom: 20px;
+            font-weight: 600;
         }
-        p {
-            margin-bottom: 20px;
-            color: #ccc;
+        
+        .last-update {
+            text-align: center;
+            color: var(--neon-green);
+            margin-bottom: 40px;
+            font-size: 0.9rem;
         }
-        ul, ol {
-            margin-bottom: 20px;
-            padding-left: 30px;
-            color: #ccc;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        a {
-            color: #00FF00;
-        }
+        
+        p { margin-bottom: 20px; color: #ccc; }
+        ul, ol { margin-bottom: 20px; padding-left: 30px; color: #ccc; }
+        li { margin-bottom: 10px; }
+        a { color: var(--neon-green); }
+        a:hover { text-decoration: underline; }
+        
         .back-link {
             display: inline-block;
             margin-top: 40px;
             padding: 12px 24px;
-            background: #00FF00;
-            color: #000;
+            background: var(--neon-green);
+            color: var(--black);
             text-decoration: none;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .back-link:hover { background: var(--white); text-decoration: none; }
+        
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+        
+        .lang-btn {
+            background: var(--black);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
+        
+        @media (max-width: 768px) {
+            body { padding: 80px 15px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.3rem; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>POLÍTICA DE PRIVACIDAD</h1>
-        <p><strong>Última actualización:</strong> Enero 2026</p>
-        
-        <h2>1. RESPONSABLE DEL TRATAMIENTO</h2>
-        <p><strong>STIKMANIA</strong><br>
-        La Habana, Cuba<br>
-        Email: stikmania795@gmail.com<br>
-        Teléfono: +53 5 975 8756</p>
-        
-        <h2>2. DATOS QUE RECOPILAMOS</h2>
-        <p>Recopilamos únicamente los datos necesarios para prestar nuestros servicios:</p>
-        <ul>
-            <li><strong>Datos de contacto:</strong> Nombre completo, número de teléfono, correo electrónico</li>
-            <li><strong>Datos del proyecto:</strong> Descripción del negocio, requisitos del diseño, archivos proporcionados</li>
-            <li><strong>Datos de pago:</strong> Método de pago preferido (no almacenamos datos bancarios)</li>
-        </ul>
-        
-        <h2>3. FINALIDAD DEL TRATAMIENTO</h2>
-        <p>Usamos tus datos exclusivamente para:</p>
-        <ul>
-            <li>Comunicación sobre el proyecto (presupuestos, avances, entregas)</li>
-            <li>Procesamiento de pagos</li>
-            <li>Envío de productos físicos (stickers)</li>
-            <li>Soporte post-venta</li>
-            <li>Facturación (cuando aplique)</li>
-        </ul>
-        
-        <h2>4. BASE LEGAL</h2>
-        <p>El tratamiento de tus datos se basa en:</p>
-        <ul>
-            <li><strong>Ejecución de contrato:</strong> Para prestar los servicios contratados</li>
-            <li><strong>Consentimiento:</strong> Para envío de comunicaciones comerciales (puedes darte de baja cuando quieras)</li>
-            <li><strong>Obligación legal:</strong> Para facturación y contabilidad</li>
-        </ul>
-        
-        <h2>5. DESTINATARIOS</h2>
-        <p><strong>No compartimos tus datos con terceros.</strong></p>
-        <p>Excepciones:</p>
-        <ul>
-            <li>Proveedores de hosting (solo para proyectos web, bajo contrato de confidencialidad)</li>
-            <li>Autoridades competentes (solo por obligación legal)</li>
-        </ul>
-        
-        <h2>6. CONSERVACIÓN DE DATOS</h2>
-        <p>Conservamos tus datos durante:</p>
-        <ul>
-            <li><strong>Proyectos activos:</strong> Mientras dure el proyecto + 1 año</li>
-            <li><strong>Facturación:</strong> 5 años (obligación legal)</li>
-            <li><strong>Comunicaciones comerciales:</strong> Hasta que te des de baja</li>
-        </ul>
-        
-        <h2>7. TUS DERECHOS</h2>
-        <p>Tienes derecho a:</p>
-        <ul>
-            <li><strong>Acceso:</strong> Solicitar copia de tus datos</li>
-            <li><strong>Rectificación:</strong> Corregir datos incorrectos</li>
-            <li><strong>Supresión:</strong> Solicitar eliminación de datos (cuando no haya obligación legal de conservarlos)</li>
-            <li><strong>Oposición:</strong> Oponerte al tratamiento para comunicaciones comerciales</li>
-            <li><strong>Portabilidad:</strong> Recibir tus datos en formato estructurado</li>
-        </ul>
-        <p>Para ejercer tus derechos: stikmania795@gmail.com</p>
-        
-        <h2>8. SEGURIDAD</h2>
-        <p>Implementamos medidas técnicas y organizativas para proteger tus datos:</p>
-        <ul>
-            <li>Almacenamiento en dispositivos con contraseña</li>
-            <li>Comunicación cifrada (WhatsApp, email)</li>
-            <li>Acceso restringido al CEO (Adrián González)</li>
-        </ul>
-        
-        <h2>9. COOKIES</h2>
-        <p>Nuestra web usa Google Analytics (cookies analíticas anónimas). Puedes desactivarlas en tu navegador.</p>
-        
-        <h2>10. MENORES DE EDAD</h2>
-        <p>No recopilamos datos de menores de 18 años. Si eres menor, necesitas autorización de un tutor para contratar nuestros servicios.</p>
-        
-        <h2>11. CAMBIOS EN LA POLÍTICA</h2>
-        <p>Nos reservamos el derecho de modificar esta política. Los cambios se publicarán en esta página con fecha de actualización.</p>
-        
-        <h2>12. RECLAMACIONES</h2>
-        <p>Si consideras que tus derechos han sido vulnerados, puedes presentar una reclamación ante la Oficina Nacional de Protección de Datos Personales de Cuba.</p>
-        
-        <a href="index.html" class="back-link">← Volver al Inicio</a>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
+
+    <div class="container">
+        <h1 data-es="POLÍTICA DE PRIVACIDAD" data-en="PRIVACY POLICY">POLÍTICA DE PRIVACIDAD</h1>
+        <p class="last-update">
+            <strong data-es="Última actualización:" data-en="Last updated:">Última actualización:</strong> <span data-es="Enero 2026" data-en="January 2026">Enero 2026</span>
+        </p>
+        
+        <h2 data-es="1. RESPONSABLE DEL TRATAMIENTO" data-en="1. DATA CONTROLLER">1. RESPONSABLE DEL TRATAMIENTO</h2>
+        <p>
+            <strong>STIKMANIA</strong><br>
+            <span data-es="La Habana, Cuba" data-en="Havana, Cuba">La Habana, Cuba</span><br>
+            <span data-es="Email: stikmania795@gmail.com" data-en="Email: stikmania795@gmail.com">Email: stikmania795@gmail.com</span><br>
+            <span data-es="Teléfono: +53 5 975 8756" data-en="Phone: +53 5 975 8756">Teléfono: +53 5 975 8756</span>
+        </p>
+        
+        <h2 data-es="2. DATOS QUE RECOPILAMOS" data-en="2. DATA WE COLLECT">2. DATOS QUE RECOPILAMOS</h2>
+        <p data-es="Recopilamos únicamente los datos necesarios para prestar nuestros servicios:" data-en="We collect only the data necessary to provide our services:">Recopilamos únicamente los datos necesarios para prestar nuestros servicios:</p>
+        <ul>
+            <li data-es="Datos de contacto: Nombre completo, número de teléfono, correo electrónico" data-en="Contact data: Full name, phone number, email address">Datos de contacto: Nombre completo, número de teléfono, correo electrónico</li>
+            <li data-es="Datos del proyecto: Descripción del negocio, requisitos del diseño, archivos proporcionados" data-en="Project data: Business description, design requirements, provided files">Datos del proyecto: Descripción del negocio, requisitos del diseño, archivos proporcionados</li>
+            <li data-es="Datos de pago: Método de pago preferido (no almacenamos datos bancarios)" data-en="Payment data: Preferred payment method (we do not store bank data)">Datos de pago: Método de pago preferido (no almacenamos datos bancarios)</li>
+        </ul>
+        
+        <h2 data-es="3. FINALIDAD DEL TRATAMIENTO" data-en="3. PURPOSE OF PROCESSING">3. FINALIDAD DEL TRATAMIENTO</h2>
+        <p data-es="Usamos tus datos exclusivamente para:" data-en="We use your data exclusively for:">Usamos tus datos exclusivamente para:</p>
+        <ul>
+            <li data-es="Comunicación sobre el proyecto (presupuestos, avances, entregas)" data-en="Project communication (quotes, progress, deliveries)">Comunicación sobre el proyecto (presupuestos, avances, entregas)</li>
+            <li data-es="Procesamiento de pagos" data-en="Payment processing">Procesamiento de pagos</li>
+            <li data-es="Envío de productos físicos (stickers)" data-en="Shipping of physical products (stickers)">Envío de productos físicos (stickers)</li>
+            <li data-es="Soporte post-venta" data-en="After-sales support">Soporte post-venta</li>
+            <li data-es="Facturación (cuando aplique)" data-en="Billing (when applicable)">Facturación (cuando aplique)</li>
+        </ul>
+        
+        <h2 data-es="4. BASE LEGAL" data-en="4. LEGAL BASIS">4. BASE LEGAL</h2>
+        <p data-es="El tratamiento de tus datos se basa en:" data-en="The processing of your data is based on:">El tratamiento de tus datos se basa en:</p>
+        <ul>
+            <li data-es="Ejecución de contrato: Para prestar los servicios contratados" data-en="Contract execution: To provide contracted services">Ejecución de contrato: Para prestar los servicios contratados</li>
+            <li data-es="Consentimiento: Para envío de comunicaciones comerciales (puedes darte de baja cuando quieras)" data-en="Consent: For sending commercial communications (you can unsubscribe anytime)">Consentimiento: Para envío de comunicaciones comerciales (puedes darte de baja cuando quieras)</li>
+            <li data-es="Obligación legal: Para facturación y contabilidad" data-en="Legal obligation: For billing and accounting">Obligación legal: Para facturación y contabilidad</li>
+        </ul>
+        
+        <h2 data-es="5. DESTINATARIOS" data-en="5. RECIPIENTS">5. DESTINATARIOS</h2>
+        <p data-es="No compartimos tus datos con terceros." data-en="We do not share your data with third parties.">No compartimos tus datos con terceros.</p>
+        <p data-es="Excepciones:" data-en="Exceptions:">Excepciones:</p>
+        <ul>
+            <li data-es="Proveedores de hosting (solo para proyectos web, bajo contrato de confidencialidad)" data-en="Hosting providers (only for web projects, under confidentiality agreement)">Proveedores de hosting (solo para proyectos web, bajo contrato de confidencialidad)</li>
+            <li data-es="Autoridades competentes (solo por obligación legal)" data-en="Competent authorities (only by legal obligation)">Autoridades competentes (solo por obligación legal)</li>
+        </ul>
+        
+        <h2 data-es="6. CONSERVACIÓN DE DATOS" data-en="6. DATA RETENTION">6. CONSERVACIÓN DE DATOS</h2>
+        <p data-es="Conservamos tus datos durante:" data-en="We retain your data for:">Conservamos tus datos durante:</p>
+        <ul>
+            <li data-es="Proyectos activos: Mientras dure el proyecto + 1 año" data-en="Active projects: Duration of project + 1 year">Proyectos activos: Mientras dure el proyecto + 1 año</li>
+            <li data-es="Facturación: 5 años (obligación legal)" data-en="Billing: 5 years (legal obligation)">Facturación: 5 años (obligación legal)</li>
+            <li data-es="Comunicaciones comerciales: Hasta que te des de baja" data-en="Commercial communications: Until you unsubscribe">Comunicaciones comerciales: Hasta que te des de baja</li>
+        </ul>
+        
+        <h2 data-es="7. TUS DERECHOS" data-en="7. YOUR RIGHTS">7. TUS DERECHOS</h2>
+        <p data-es="Tienes derecho a:" data-en="You have the right to:">Tienes derecho a:</p>
+        <ul>
+            <li data-es="Acceso: Solicitar copia de tus datos" data-en="Access: Request copy of your data">Acceso: Solicitar copia de tus datos</li>
+            <li data-es="Rectificación: Corregir datos incorrectos" data-en="Rectification: Correct incorrect data">Rectificación: Corregir datos incorrectos</li>
+            <li data-es="Supresión: Solicitar eliminación de datos (cuando no haya obligación legal de conservarlos)" data-en="Erasure: Request data deletion (when no legal obligation to retain)">Supresión: Solicitar eliminación de datos (cuando no haya obligación legal de conservarlos)</li>
+            <li data-es="Oposición: Oponerte al tratamiento para comunicaciones comerciales" data-en="Objection: Object to processing for commercial communications">Oposición: Oponerte al tratamiento para comunicaciones comerciales</li>
+            <li data-es="Portabilidad: Recibir tus datos en formato estructurado" data-en="Portability: Receive your data in structured format">Portabilidad: Recibir tus datos en formato estructurado</li>
+        </ul>
+        <p data-es="Para ejercer tus derechos: stikmania795@gmail.com" data-en="To exercise your rights: stikmania795@gmail.com">Para ejercer tus derechos: stikmania795@gmail.com</p>
+        
+        <h2 data-es="8. SEGURIDAD" data-en="8. SECURITY">8. SEGURIDAD</h2>
+        <p data-es="Implementamos medidas técnicas y organizativas para proteger tus datos:" data-en="We implement technical and organizational measures to protect your data:">Implementamos medidas técnicas y organizativas para proteger tus datos:</p>
+        <ul>
+            <li data-es="Almacenamiento en dispositivos con contraseña" data-en="Storage on password-protected devices">Almacenamiento en dispositivos con contraseña</li>
+            <li data-es="Comunicación cifrada (WhatsApp, email)" data-en="Encrypted communication (WhatsApp, email)">Comunicación cifrada (WhatsApp, email)</li>
+            <li data-es="Acceso restringido al CEO (Adrián González)" data-en="Restricted access to CEO (Adrián González)">Acceso restringido al CEO (Adrián González)</li>
+        </ul>
+        
+        <h2 data-es="9. COOKIES" data-en="9. COOKIES">9. COOKIES</h2>
+        <p data-es="Nuestra web usa Google Analytics (cookies analíticas anónimas). Puedes desactivarlas en tu navegador." data-en="Our website uses Google Analytics (anonymous analytical cookies). You can disable them in your browser.">Nuestra web usa Google Analytics (cookies analíticas anónimas). Puedes desactivarlas en tu navegador.</p>
+        
+        <h2 data-es="10. MENORES DE EDAD" data-en="10. MINORS">10. MENORES DE EDAD</h2>
+        <p data-es="No recopilamos datos de menores de 18 años. Si eres menor, necesitas autorización de un tutor para contratar nuestros servicios." data-en="We do not collect data from minors under 18. If you are a minor, you need guardian authorization to contract our services.">No recopilamos datos de menores de 18 años. Si eres menor, necesitas autorización de un tutor para contratar nuestros servicios.</p>
+        
+        <h2 data-es="11. CAMBIOS EN LA POLÍTICA" data-en="11. POLICY CHANGES">11. CAMBIOS EN LA POLÍTICA</h2>
+        <p data-es="Nos reservamos el derecho de modificar esta política. Los cambios se publicarán en esta página con fecha de actualización." data-en="We reserve the right to modify this policy. Changes will be published on this page with update date.">Nos reservamos el derecho de modificar esta política. Los cambios se publicarán en esta página con fecha de actualización.</p>
+        
+        <h2 data-es="12. RECLAMACIONES" data-en="12. COMPLAINTS">12. RECLAMACIONES</h2>
+        <p data-es="Si consideras que tus derechos han sido vulnerados, puedes presentar una reclamación ante la Oficina Nacional de Protección de Datos Personales de Cuba." data-en="If you consider your rights have been violated, you can file a complaint with the National Office of Personal Data Protection of Cuba.">Si consideras que tus derechos han sido vulnerados, puedes presentar una reclamación ante la Oficina Nacional de Protección de Datos Personales de Cuba.</p>
+        
+        <div style="text-align: center;">
+            <a href="index.html" class="back-link" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('stikmania_lang', currentLang);
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+            document.documentElement.lang = currentLang;
+        }
+        
+        updateLanguage();
+    </script>
+
 </body>
 </html>

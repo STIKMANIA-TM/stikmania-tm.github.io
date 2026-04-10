@@ -20,11 +20,7 @@
             --gray-light: #2a2a2a;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -39,16 +35,9 @@
             letter-spacing: 2px;
         }
         
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+        a { color: inherit; text-decoration: none; }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         .btn {
             display: inline-block;
@@ -63,10 +52,7 @@
             transition: all 0.3s ease;
         }
         
-        .btn:hover {
-            background: var(--white);
-            transform: translateY(-2px);
-        }
+        .btn:hover { background: var(--white); transform: translateY(-2px); }
         
         .btn-outline {
             background: transparent;
@@ -74,15 +60,31 @@
             color: var(--neon-green);
         }
         
-        .btn-outline:hover {
-            background: var(--neon-green);
-            color: var(--black);
+        .btn-outline:hover { background: var(--neon-green); color: var(--black); }
+        
+        .btn-small { padding: 6px 14px; font-size: 0.8rem; }
+        
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
         }
         
-        .btn-small {
-            padding: 6px 14px;
-            font-size: 0.8rem;
+        .lang-btn {
+            background: var(--black);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
+        
+        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
         
         /* HEADER */
         header {
@@ -107,39 +109,8 @@
             color: var(--neon-green);
         }
         
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        nav a:hover {
-            color: var(--neon-green);
-        }
-        
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--neon-green);
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--neon-green);
-            color: var(--black);
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a:hover { color: var(--neon-green); }
         
         /* HERO */
         .hero {
@@ -148,18 +119,8 @@
             text-align: center;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--neon-green);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--white);
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--neon-green); }
+        .hero p { font-size: 1.2rem; color: var(--white); max-width: 600px; margin: 0 auto 30px auto; }
         
         .production-time {
             display: inline-block;
@@ -171,9 +132,7 @@
         }
         
         /* PRODUCTS */
-        .products {
-            padding: 80px 0;
-        }
+        .products { padding: 80px 0; }
         
         .section-title {
             text-align: center;
@@ -192,8 +151,9 @@
         .product-card {
             background: var(--gray);
             border: 1px solid var(--dark-green);
-            padding: 25px;
+            padding: 30px;
             transition: all 0.3s ease;
+            position: relative;
         }
         
         .product-card:hover {
@@ -202,34 +162,18 @@
         }
         
         .product-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
             border-bottom: 1px solid var(--dark-green);
-            padding-bottom: 15px;
         }
         
         .product-type {
-            font-size: 1.3rem;
-            color: var(--neon-green);
-        }
-        
-        .product-icon {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--white);
+            color: var(--neon-green);
+            margin-bottom: 10px;
         }
         
-        .product-description {
-            color: var(--white);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-        
-        .product-options {
-            margin-bottom: 20px;
-        }
+        .product-options { margin-bottom: 20px; }
         
         .option-row {
             display: grid;
@@ -240,20 +184,9 @@
             gap: 10px;
         }
         
-        .option-info {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .option-qty {
-            font-weight: 600;
-            color: var(--white);
-        }
-        
-        .option-size {
-            font-size: 0.8rem;
-            color: var(--neon-green);
-        }
+        .option-info { display: flex; flex-direction: column; }
+        .option-qty { font-weight: 600; color: var(--white); }
+        .option-size { font-size: 0.8rem; color: var(--neon-green); }
         
         .option-price {
             font-family: 'Pirata One', display;
@@ -262,17 +195,10 @@
             white-space: nowrap;
         }
         
-        .add-option-btn {
-            padding: 6px 14px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-        }
+        .add-option-btn { padding: 6px 14px; font-size: 0.8rem; white-space: nowrap; }
         
         /* GALLERY */
-        .gallery {
-            padding: 80px 0;
-            background: var(--gray);
-        }
+        .gallery { padding: 80px 0; background: var(--gray); }
         
         .gallery-grid {
             display: grid;
@@ -294,9 +220,7 @@
             transition: transform 0.3s ease;
         }
         
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
+        .gallery-item:hover img { transform: scale(1.05); }
         
         .industry-tag {
             position: absolute;
@@ -319,10 +243,7 @@
             border: 1px solid var(--dark-green);
         }
         
-        .instagram-links h3 {
-            color: var(--neon-green);
-            margin-bottom: 20px;
-        }
+        .instagram-links h3 { color: var(--neon-green); margin-bottom: 20px; }
         
         .instagram-links a {
             display: inline-block;
@@ -335,53 +256,35 @@
             transition: all 0.3s ease;
         }
         
-        .instagram-links a:hover {
-            background: var(--neon-green);
-            color: var(--black);
-        }
+        .instagram-links a:hover { background: var(--neon-green); color: var(--black); }
         
-        /* COUPON SECTION */
-        .coupon-section {
-            padding: 60px 0;
-            background: linear-gradient(135deg, var(--dark-green) 0%, var(--black) 100%);
-            text-align: center;
-        }
+        /* FAQ */
+        .faq { padding: 80px 0; background: var(--gray); }
         
-        .coupon-section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--neon-green);
-        }
-        
-        .coupon-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .step {
-            background: var(--gray);
-            padding: 30px 20px;
+        .faq-item {
+            background: var(--black);
+            margin-bottom: 15px;
             border: 1px solid var(--dark-green);
         }
         
-        .step-number {
-            font-family: 'Pirata One', display;
-            font-size: 2.5rem;
-            color: var(--neon-green);
-            margin-bottom: 15px;
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
         }
         
-        .step h4 {
-            margin-bottom: 10px;
+        .faq-question:hover { color: var(--neon-green); }
+        
+        .faq-answer {
+            display: none;
+            padding: 0 20px 20px 20px;
             color: var(--white);
         }
         
-        .step p {
-            font-size: 0.9rem;
-            color: var(--white);
-        }
+        .faq-answer.show { display: block; }
         
         /* CART MODAL */
         .cart-modal {
@@ -414,23 +317,11 @@
             border-bottom: 2px solid var(--dark-green);
         }
         
-        .cart-header h2 {
-            color: var(--neon-green);
-        }
+        .cart-header h2 { color: var(--neon-green); }
+        .close-cart { font-size: 2rem; cursor: pointer; color: var(--white); }
+        .close-cart:hover { color: var(--neon-green); }
         
-        .close-cart {
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--white);
-        }
-        
-        .close-cart:hover {
-            color: var(--neon-green);
-        }
-        
-        .cart-items {
-            margin-bottom: 30px;
-        }
+        .cart-items { margin-bottom: 30px; }
         
         .cart-item {
             display: flex;
@@ -440,15 +331,8 @@
             border-bottom: 1px solid var(--dark-green);
         }
         
-        .cart-item-info h4 {
-            color: var(--white);
-            margin-bottom: 5px;
-        }
-        
-        .cart-item-info p {
-            font-size: 0.85rem;
-            color: var(--neon-green);
-        }
+        .cart-item-info h4 { color: var(--white); margin-bottom: 5px; }
+        .cart-item-info p { font-size: 0.85rem; color: var(--neon-green); }
         
         .cart-item-price {
             font-family: 'Pirata One', display;
@@ -466,10 +350,7 @@
             font-size: 0.85rem;
         }
         
-        .remove-item:hover {
-            background: #ff4444;
-            color: var(--white);
-        }
+        .remove-item:hover { background: #ff4444; color: var(--white); }
         
         .cart-total {
             text-align: right;
@@ -478,10 +359,7 @@
             border-top: 2px solid var(--neon-green);
         }
         
-        .cart-total h3 {
-            font-size: 2rem;
-            color: var(--neon-green);
-        }
+        .cart-total h3 { font-size: 2rem; color: var(--neon-green); }
         
         .cart-advance {
             text-align: right;
@@ -492,11 +370,7 @@
             border-radius: 4px;
         }
         
-        .cart-advance p {
-            color: var(--white);
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-        }
+        .cart-advance p { color: var(--white); font-size: 0.9rem; margin-bottom: 5px; }
         
         .cart-advance .advance-amount {
             font-family: 'Pirata One', display;
@@ -510,9 +384,7 @@
             border: 1px solid var(--dark-green);
         }
         
-        .form-group {
-            margin-bottom: 20px;
-        }
+        .form-group { margin-bottom: 20px; }
         
         .form-group label {
             display: block;
@@ -547,19 +419,9 @@
             margin-top: 15px;
         }
         
-        .transfer-info.show {
-            display: block;
-        }
-        
-        .transfer-info h4 {
-            color: var(--neon-green);
-            margin-bottom: 15px;
-        }
-        
-        .transfer-info p {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
+        .transfer-info.show { display: block; }
+        .transfer-info h4 { color: var(--neon-green); margin-bottom: 15px; }
+        .transfer-info p { margin-bottom: 10px; font-size: 0.95rem; }
         
         .transfer-info input {
             width: 100%;
@@ -571,64 +433,7 @@
             font-family: 'Inter', sans-serif;
         }
         
-        .discount-note {
-            background: var(--gray-light);
-            padding: 15px;
-            border: 1px solid var(--neon-green);
-            margin-bottom: 20px;
-        }
-        
-        .discount-note p {
-            color: var(--neon-green);
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-        }
-        
-        .discount-note span {
-            color: var(--white);
-            font-size: 0.85rem;
-        }
-        
-        .empty-cart {
-            text-align: center;
-            padding: 40px;
-            color: var(--white);
-        }
-        
-        /* FAQ */
-        .faq {
-            padding: 80px 0;
-            background: var(--gray);
-        }
-        
-        .faq-item {
-            background: var(--black);
-            margin-bottom: 15px;
-            border: 1px solid var(--dark-green);
-        }
-        
-        .faq-question {
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-        }
-        
-        .faq-question:hover {
-            color: var(--neon-green);
-        }
-        
-        .faq-answer {
-            display: none;
-            padding: 0 20px 20px 20px;
-            color: var(--white);
-        }
-        
-        .faq-answer.show {
-            display: block;
-        }
+        .empty-cart { text-align: center; padding: 40px; color: var(--white); }
         
         /* FOOTER */
         footer {
@@ -640,36 +445,23 @@
         
         /* MOBILE */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            .cart-content {
-                margin: 20px;
-                padding: 25px;
-            }
-            
-            .option-row {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .add-option-btn {
-                margin-top: 8px;
-                width: 100%;
-            }
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            nav ul { display: none; }
+            .products-grid { grid-template-columns: 1fr; }
+            .cart-content { margin: 20px; padding: 25px; }
+            .option-row { grid-template-columns: 1fr; text-align: center; }
+            .add-option-btn { margin-top: 8px; width: 100%; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
 
     <!-- HEADER -->
     <header>
@@ -678,16 +470,12 @@
                 <a href="index.html" class="logo">STIKMANIA</a>
                 <nav>
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="index.html#services">Servicios</a></li>
-                        <li><a href="branding.html">Branding</a></li>
-                        <li><a href="web.html">Web</a></li>
+                        <li><a href="index.html" data-es="Inicio" data-en="Home">Inicio</a></li>
+                        <li><a href="index.html#services" data-es="Servicios" data-en="Services">Servicios</a></li>
+                        <li><a href="branding.html" data-es="Branding" data-en="Branding">Branding</a></li>
+                        <li><a href="web.html" data-es="Web" data-en="Web">Web</a></li>
                     </ul>
                 </nav>
-                <div class="cart-icon" onclick="toggleCart()">
-                    Carrito
-                    <span class="cart-count" id="cartCount">0</span>
-                </div>
             </div>
         </div>
     </header>
@@ -695,10 +483,10 @@
     <!-- HERO -->
     <section class="hero">
         <div class="container">
-            <h1>Stickers Personalizados</h1>
-            <p>Vinilo impermeable y papel fotográfico de alta calidad. Desde 3cm hasta 28cm. Perfectos para decorar, etiquetar y dar identidad a tu marca.</p>
+            <h1 data-es="Stickers Personalizados" data-en="Custom Stickers">Stickers Personalizados</h1>
+            <p data-es="Vinilo impermeable y papel fotográfico de alta calidad. Desde 3cm hasta 28cm. Perfectos para decorar, etiquetar y dar identidad a tu marca." data-en="Waterproof vinyl and high quality photo paper. From 3cm to 28cm. Perfect for decorating, labeling and giving identity to your brand.">Vinilo impermeable y papel fotográfico de alta calidad. Desde 3cm hasta 28cm. Perfectos para decorar, etiquetar y dar identidad a tu marca.</p>
             <div class="production-time">
-                <strong>Tiempo de producción:</strong> 2-5 días hábiles según cantidad
+                <strong data-es="Tiempo de producción:" data-en="Production time:">Tiempo de producción:</strong> <span data-es="2-5 días hábiles según cantidad" data-en="2-5 business days depending on quantity">2-5 días hábiles según cantidad</span>
             </div>
         </div>
     </section>
@@ -706,16 +494,15 @@
     <!-- PRODUCTS -->
     <section class="products">
         <div class="container">
-            <h2 class="section-title">Elige tu Pack</h2>
+            <h2 class="section-title" data-es="Elige tu Pack" data-en="Choose Your Pack">Elige tu Pack</h2>
             
-            <!-- PAPEL FOTOGRÁFICO -->
             <div class="products-grid">
+                <!-- PAPEL FOTOGRÁFICO -->
                 <div class="product-card">
                     <div class="product-header">
-                        <h3 class="product-type">Papel Fotográfico</h3>
-                        <span class="product-icon">P</span>
+                        <h3 class="product-type" data-es="Papel Fotográfico" data-en="Photo Paper">Papel Fotográfico</h3>
                     </div>
-                    <p class="product-description">Ideal para decorar, etiquetar y uso en interiores. Acabado brillante y adhesivo fuerte.</p>
+                    <p style="color: var(--white); margin-bottom: 20px;" data-es="Ideal para decorar, etiquetar y uso en interiores. Acabado brillante y adhesivo fuerte." data-en="Ideal for decorating, labeling and indoor use. Glossy finish and strong adhesive.">Ideal para decorar, etiquetar y uso en interiores. Acabado brillante y adhesivo fuerte.</p>
                     
                     <div class="product-options">
                         <div class="option-row">
@@ -724,9 +511,7 @@
                                 <span class="option-size">3x3 cm</span>
                             </div>
                             <span class="option-price">$3 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '48 stickers', '3x3 cm', 3)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '48 stickers', '3x3 cm', 3)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -734,9 +519,7 @@
                                 <span class="option-size">4x4 cm</span>
                             </div>
                             <span class="option-price">$2 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '24 stickers', '4x4 cm', 2)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '24 stickers', '4x4 cm', 2)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -744,9 +527,7 @@
                                 <span class="option-size">5x5 cm</span>
                             </div>
                             <span class="option-price">$1 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '20 stickers', '5x5 cm', 1)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '20 stickers', '5x5 cm', 1)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -754,9 +535,7 @@
                                 <span class="option-size">6x6 cm</span>
                             </div>
                             <span class="option-price">$1 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '12 stickers', '6x6 cm', 1)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '12 stickers', '6x6 cm', 1)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -764,9 +543,7 @@
                                 <span class="option-size">7x7 cm</span>
                             </div>
                             <span class="option-price">$1 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '12 stickers', '7x7 cm', 1)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '12 stickers', '7x7 cm', 1)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                     </div>
                 </div>
@@ -774,10 +551,9 @@
                 <!-- VINILO IMPERMEABLE -->
                 <div class="product-card">
                     <div class="product-header">
-                        <h3 class="product-type">Vinilo Impermeable</h3>
-                        <span class="product-icon">V</span>
+                        <h3 class="product-type" data-es="Vinilo Impermeable" data-en="Waterproof Vinyl">Vinilo Impermeable</h3>
                     </div>
-                    <p class="product-description">Resistente a UV y intemperie. Ideal para exteriores, laptops, botellas y superficies expuestas.</p>
+                    <p style="color: var(--white); margin-bottom: 20px;" data-es="Resistente a UV y intemperie. Ideal para exteriores, laptops, botellas y superficies expuestas." data-en="UV and weather resistant. Ideal for outdoors, laptops, bottles and exposed surfaces.">Resistente a UV y intemperie. Ideal para exteriores, laptops, botellas y superficies expuestas.</p>
                     
                     <div class="product-options">
                         <div class="option-row">
@@ -786,9 +562,7 @@
                                 <span class="option-size">3x3 cm</span>
                             </div>
                             <span class="option-price">$4 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '48 stickers', '3x3 cm', 4)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '48 stickers', '3x3 cm', 4)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -796,9 +570,7 @@
                                 <span class="option-size">4x4 cm</span>
                             </div>
                             <span class="option-price">$3 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '24 stickers', '4x4 cm', 3)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '24 stickers', '4x4 cm', 3)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -806,9 +578,7 @@
                                 <span class="option-size">5x5 cm</span>
                             </div>
                             <span class="option-price">$2 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '20 stickers', '5x5 cm', 2)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '20 stickers', '5x5 cm', 2)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -816,9 +586,7 @@
                                 <span class="option-size">6x6 cm</span>
                             </div>
                             <span class="option-price">$2 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '12 stickers', '6x6 cm', 2)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '12 stickers', '6x6 cm', 2)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -826,21 +594,15 @@
                                 <span class="option-size">7x7 cm</span>
                             </div>
                             <span class="option-price">$2 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '12 stickers', '7x7 cm', 2)">
-                                Añadir
-                            </button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('vinilo', 'Vinilo Impermeable', '12 stickers', '7x7 cm', 2)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-                <p style="color: var(--white); margin-bottom: 20px;">
-                    ¿Necesitas un tamaño o cantidad personalizada?
-                </p>
-                <a href="https://wa.me/5359758756" target="_blank" class="btn">
-                    Cotizar Personalizado
-                </a>
+                <p style="color: var(--white); margin-bottom: 20px;" data-es="¿Necesitas un tamaño o cantidad personalizada?" data-en="Need a custom size or quantity?">¿Necesitas un tamaño o cantidad personalizada?</p>
+                <a href="https://wa.me/5359758756" target="_blank" class="btn" data-es="Cotizar Personalizado" data-en="Get Custom Quote">Cotizar Personalizado</a>
             </div>
         </div>
     </section>
@@ -848,34 +610,29 @@
     <!-- GALLERY -->
     <section class="gallery">
         <div class="container">
-            <h2 class="section-title">Ejemplos de Nuestros Stickers</h2>
+            <h2 class="section-title" data-es="Ejemplos de Nuestros Stickers" data-en="Examples of Our Stickers">Ejemplos de Nuestros Stickers</h2>
             
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="images/delitaystickers_envase de cristal.png" alt="Sticker en envase de cristal" loading="lazy">
                     <span class="industry-tag">Food</span>
                 </div>
-                
                 <div class="gallery-item">
                     <img src="images/munchies_stickers envoltorio.png" alt="Sticker en envoltorio" loading="lazy">
                     <span class="industry-tag">Snacks</span>
                 </div>
-                
                 <div class="gallery-item">
                     <img src="images/sticker_envase de plastico.jpeg" alt="Sticker en envase de plástico" loading="lazy">
                     <span class="industry-tag">Productos</span>
                 </div>
-                
                 <div class="gallery-item">
                     <img src="images/verda_stickers.png" alt="Stickers Verda" loading="lazy">
                     <span class="industry-tag">Branding</span>
                 </div>
-                
                 <div class="gallery-item">
                     <img src="images/Sin titulo-2.png" alt="Stickers en laptop" loading="lazy">
                     <span class="industry-tag">Tech</span>
                 </div>
-                
                 <div class="gallery-item">
                     <img src="images/ANIME-FOOD.png" alt="Stickers en cuaderno" loading="lazy">
                     <span class="industry-tag">Stationery</span>
@@ -883,123 +640,76 @@
             </div>
             
             <div class="instagram-links">
-                <h3>Mira más ejemplos en Instagram</h3>
-                <a href="https://www.instagram.com/reel/DKQuPzxtDBi/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                    Artista Urbano - Stickers en Producción
-                </a>
-                <a href="https://www.instagram.com/p/C7XsJrJsV2Q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                    Artista - Souvenirs de Nuestra Producción
-                </a>
-                <a href="https://www.instagram.com/sti_kmania/" target="_blank">
-                    Ver Nuestro Perfil
-                </a>
+                <h3 data-es="Mira más ejemplos en Instagram" data-en="See more examples on Instagram">Mira más ejemplos en Instagram</h3>
+                <a href="https://www.instagram.com/reel/DKQuPzxtDBi/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" data-es="Artista Urbano - Stickers en Producción" data-en="Urban Artist - Stickers in Production">Artista Urbano - Stickers en Producción</a>
+                <a href="https://www.instagram.com/p/C7XsJrJsV2Q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" data-es="Artista - Souvenirs de Nuestra Producción" data-en="Artist - Souvenirs from Our Production">Artista - Souvenirs de Nuestra Producción</a>
+                <a href="https://www.instagram.com/sti_kmania/" target="_blank" data-es="Ver Nuestro Perfil" data-en="View Our Profile">Ver Nuestro Perfil</a>
             </div>
-        </div>
-    </section>
-
-    <!-- COUPON SECTION -->
-    <section class="coupon-section">
-        <div class="container">
-            <h2>Obtén un Descuento Especial</h2>
-            <p style="color: var(--white); margin-bottom: 30px;">
-                Sigue estos pasos y recibe un código de descuento para tu próxima compra
-            </p>
-            
-            <div class="coupon-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Síguenos</h4>
-                    <p>Sigue nuestra cuenta de Instagram @sti_kmania</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Sube tu Foto</h4>
-                    <p>Publica una foto de tus stickers de STIKMANIA en tu feed o stories</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Etiquétanos</h4>
-                    <p>Etiqueta a @sti_kmania en tu publicación</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Recibe tu Descuento</h4>
-                    <p>Envíanos mensaje directo con tu pedido y validaremos tu descuento (10-15% OFF)</p>
-                </div>
-            </div>
-            
-            <p style="color: var(--white); margin-top: 20px; font-size: 0.9rem;">
-                Los códigos de descuento se validan manualmente por WhatsApp antes del pago. 
-                No hay códigos automáticos en la web.
-            </p>
         </div>
     </section>
 
     <!-- FAQ -->
     <section class="faq">
         <div class="container">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Cuál es la diferencia entre papel fotográfico y vinilo?</span>
+                    <span data-es="¿Cuál es la diferencia entre papel fotográfico y vinilo?" data-en="What's the difference between photo paper and vinyl?">¿Cuál es la diferencia entre papel fotográfico y vinilo?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>El papel fotográfico es ideal para interiores, tiene acabado brillante y es más económico. El vinilo impermeable es resistente al agua, sol y intemperie, perfecto para exteriores, laptops, botellas y superficies expuestas.</p>
+                    <p data-es="El papel fotográfico es ideal para interiores, tiene acabado brillante y es más económico. El vinilo impermeable es resistente al agua, sol y intemperie, perfecto para exteriores, laptops, botellas y superficies expuestas." data-en="Photo paper is ideal for indoors, has a glossy finish and is more economical. Waterproof vinyl is resistant to water, sun and weather, perfect for outdoors, laptops, bottles and exposed surfaces.">El papel fotográfico es ideal para interiores, tiene acabado brillante y es más económico. El vinilo impermeable es resistente al agua, sol y intemperie, perfecto para exteriores, laptops, botellas y superficies expuestas.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Puedo enviar mi propio diseño?</span>
+                    <span data-es="¿Puedo enviar mi propio diseño?" data-en="Can I send my own design?">¿Puedo enviar mi propio diseño?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>¡Sí! Puedes enviar tu diseño en formato vectorial (AI, EPS, SVG) o PNG/JPG de alta resolución (300 DPI mínimo). Si necesitas que diseñemos desde cero, el diseño se cotiza aparte.</p>
+                    <p data-es="¡Sí! Puedes enviar tu diseño en formato vectorial (AI, EPS, SVG) o PNG/JPG de alta resolución (300 DPI mínimo). Si necesitas que diseñemos desde cero, el diseño se cotiza aparte." data-en="Yes! You can send your design in vector format (AI, EPS, SVG) or high resolution PNG/JPG (300 DPI minimum). If you need us to design from scratch, the design is quoted separately.">¡Sí! Puedes enviar tu diseño en formato vectorial (AI, EPS, SVG) o PNG/JPG de alta resolución (300 DPI mínimo). Si necesitas que diseñemos desde cero, el diseño se cotiza aparte.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Hacen envíos fuera de La Habana?</span>
+                    <span data-es="¿Hacen envíos fuera de La Habana?" data-en="Do you ship outside Havana?">¿Hacen envíos fuera de La Habana?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Por ahora solo hacemos envíos en La Habana. Para otras provincias, puedes coordinar la recogida o usar un servicio de mensajería por tu cuenta.</p>
+                    <p data-es="Por ahora solo hacemos envíos en La Habana. Para otras provincias, puedes coordinar la recogida o usar un servicio de mensajería por tu cuenta." data-en="For now we only ship in Havana. For other provinces, you can coordinate pickup or use a courier service on your own.">Por ahora solo hacemos envíos en La Habana. Para otras provincias, puedes coordinar la recogida o usar un servicio de mensajería por tu cuenta.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Cuánto tiempo tarda la producción?</span>
+                    <span data-es="¿Cuánto tiempo tarda la producción?" data-en="How long does production take?">¿Cuánto tiempo tarda la producción?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>El tiempo de producción es de 2 a 5 días hábiles dependiendo de la cantidad y complejidad del diseño. Te notificaremos cuando esté listo para entrega.</p>
+                    <p data-es="El tiempo de producción es de 2 a 5 días hábiles dependiendo de la cantidad y complejidad del diseño. Te notificaremos cuando esté listo para entrega." data-en="Production time is 2 to 5 business days depending on quantity and design complexity. We'll notify you when it's ready for delivery.">El tiempo de producción es de 2 a 5 días hábiles dependiendo de la cantidad y complejidad del diseño. Te notificaremos cuando esté listo para entrega.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Necesito pagar anticipo?</span>
+                    <span data-es="¿Necesito pagar anticipo?" data-en="Do I need to pay a deposit?">¿Necesito pagar anticipo?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sí, requerimos 50% de anticipo para comenzar la producción. El 50% restante se paga al momento de la entrega. Aceptamos efectivo (USD/CUP/EUR) y transferencias.</p>
+                    <p data-es="Sí, requerimos 50% de anticipo para comenzar la producción. El 50% restante se paga al momento de la entrega. Aceptamos efectivo (USD/CUP) y transferencias bancarias." data-en="Yes, we require 50% deposit to start production. The remaining 50% is paid at delivery. We accept cash (USD/CUP) and bank transfers.">Sí, requerimos 50% de anticipo para comenzar la producción. El 50% restante se paga al momento de la entrega. Aceptamos efectivo (USD/CUP) y transferencias bancarias.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Puedo hacer un pedido personalizado?</span>
+                    <span data-es="¿Puedo hacer un pedido personalizado?" data-en="Can I make a custom order?">¿Puedo hacer un pedido personalizado?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>¡Claro! Trabajamos desde 3cm hasta aproximadamente 27cm. Si necesitas una cantidad o tamaño diferente a los packs mostrados, escríbenos por WhatsApp para cotizar tu pedido personalizado.</p>
+                    <p data-es="¡Claro! Trabajamos desde 3cm hasta aproximadamente 27cm. Si necesitas una cantidad o tamaño diferente a los packs mostrados, escríbenos por WhatsApp para cotizar tu pedido personalizado." data-en="Sure! We work from 3cm to approximately 27cm. If you need a quantity or size different from the packs shown, write to us on WhatsApp to quote your custom order.">¡Claro! Trabajamos desde 3cm hasta aproximadamente 27cm. Si necesitas una cantidad o tamaño diferente a los packs mostrados, escríbenos por WhatsApp para cotizar tu pedido personalizado.</p>
                 </div>
             </div>
         </div>
@@ -1009,55 +719,42 @@
     <div class="cart-modal" id="cartModal">
         <div class="cart-content">
             <div class="cart-header">
-                <h2>Tu Carrito</h2>
+                <h2 data-es="Tu Carrito" data-en="Your Cart">Tu Carrito</h2>
                 <span class="close-cart" onclick="toggleCart()">x</span>
             </div>
             
-            <div id="cartItems" class="cart-items">
-                <!-- Cart items will be inserted here -->
-            </div>
+            <div id="cartItems" class="cart-items"></div>
             
             <div class="cart-total" id="cartTotal" style="display: none;">
                 <h3>Total: $<span id="totalAmount">0</span> USD</h3>
             </div>
             
             <div class="cart-advance" id="cartAdvance" style="display: none;">
-                <p>Anticipo requerido (50%):</p>
+                <p data-es="Anticipo requerido (50%):" data-en="Required deposit (50%):">Anticipo requerido (50%):</p>
                 <div class="advance-amount">$<span id="advanceAmount">0</span> USD</div>
             </div>
             
             <div id="checkoutSection" style="display: none;">
-                <div class="discount-note">
-                    <p style="color: var(--neon-green); font-size: 0.85rem; margin-bottom: 10px;">
-                        <strong>¿Tienes código de descuento?</strong>
-                    </p>
-                    <span style="color: var(--white); font-size: 0.85rem;">
-                        Los códigos de descuento se validan manualmente. Si cumpliste los requisitos 
-                        (seguir + etiquetar en Instagram), menciónalo en el mensaje de WhatsApp y 
-                        validaremos tu descuento antes del pago.
-                    </span>
-                </div>
-                
                 <form class="checkout-form" id="checkoutForm" onsubmit="submitOrder(event)">
-                    <h3 style="color: var(--neon-green); margin-bottom: 25px;">Información de Entrega</h3>
+                    <h3 style="color: var(--neon-green); margin-bottom: 25px;" data-es="Información de Entrega" data-en="Delivery Information">Información de Entrega</h3>
                     
                     <div class="form-group">
-                        <label>Nombre *</label>
+                        <label data-es="Nombre *" data-en="Name *">Nombre *</label>
                         <input type="text" id="customerName" required>
                     </div>
                     
                     <div class="form-group">
-                        <label>Teléfono *</label>
+                        <label data-es="Teléfono *" data-en="Phone *">Teléfono *</label>
                         <input type="tel" id="customerPhone" required>
                     </div>
                     
                     <div class="form-group">
-                        <label>Dirección de entrega (La Habana) *</label>
+                        <label data-es="Dirección de entrega (La Habana) *" data-en="Delivery address (Havana) *">Dirección de entrega (La Habana) *</label>
                         <textarea id="customerAddress" rows="3" required placeholder="Municipio, zona, puntos de referencia..."></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label>Método de pago *</label>
+                        <label data-es="Método de pago *" data-en="Payment method *">Método de pago *</label>
                         <select id="paymentType" onchange="toggleTransferInfo()" required>
                             <option value="">Selecciona...</option>
                             <option value="efectivo_usd">Efectivo USD</option>
@@ -1071,27 +768,21 @@
                     </div>
                     
                     <div class="transfer-info" id="transferInfo">
-                        <h4>Datos para Transferencia:</h4>
+                        <h4 data-es="Datos para Transferencia:" data-en="Transfer Details:">Datos para Transferencia:</h4>
                         <div class="form-group" style="margin-bottom: 15px;">
-                            <label style="font-size: 0.85rem;">Número de tarjeta *</label>
+                            <label style="font-size: 0.85rem;" data-es="Número de tarjeta *" data-en="Card number *">Número de tarjeta *</label>
                             <input type="text" id="cardNumber" placeholder="Ingresa tu número de tarjeta">
                         </div>
-                        <p style="font-size: 0.85rem; color: var(--neon-green); margin-top: 10px;">
-                            * Confirma con el número antes de enviar
-                        </p>
+                        <p style="font-size: 0.85rem; color: var(--neon-green); margin-top: 10px;" data-es="* Confirma con el número antes de enviar" data-en="* Confirm with the number before sending">* Confirma con el número antes de enviar</p>
                     </div>
                     
-                    <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">
-                        Enviar Pedido por WhatsApp
-                    </button>
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 20px;" data-es="Enviar Pedido por WhatsApp" data-en="Send Order via WhatsApp">Enviar Pedido por WhatsApp</button>
                 </form>
             </div>
             
             <div class="empty-cart" id="emptyCart">
-                <p>Tu carrito está vacío</p>
-                <button class="btn btn-outline" onclick="toggleCart()" style="margin-top: 20px;">
-                    Seguir Comprando
-                </button>
+                <p data-es="Tu carrito está vacío" data-en="Your cart is empty">Tu carrito está vacío</p>
+                <button class="btn btn-outline" onclick="toggleCart()" style="margin-top: 20px;" data-es="Seguir Comprando" data-en="Continue Shopping">Seguir Comprando</button>
             </div>
         </div>
     </div>
@@ -1100,89 +791,80 @@
     <footer>
         <div class="container">
             <p style="color: var(--white); margin-bottom: 10px;">
-                <strong>STIKMANIA</strong> - Diseño que se pega
+                <strong>STIKMANIA</strong> - <span data-es="Diseño que se pega" data-en="Design that sticks">Diseño que se pega</span>
             </p>
             <p style="color: var(--white); font-size: 0.9rem;">
                 La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com
             </p>
             <p style="color: var(--white); font-size: 0.85rem; margin-top: 20px;">
-                © STIKMANIA TM. Todos los derechos reservados.
+                © STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span>
             </p>
         </div>
     </footer>
 
     <script>
+        // LANGUAGE SYSTEM
+        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('stikmania_lang', currentLang);
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+            document.documentElement.lang = currentLang;
+        }
+        
+        updateLanguage();
+        
         // Cart state
         let cart = JSON.parse(localStorage.getItem('stikmania_cart')) || [];
-        let totalItems = 0;
         
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
         });
         
-        // Add to cart - individual option
         function addToCart(type, name, qty, size, price) {
             const optionKey = `${type}-${qty}-${size}`;
-            
-            // Check if this exact option already exists
             const existingItem = cart.find(item => {
                 return item.type === type && item.options.some(opt => opt.key === optionKey);
             });
             
             if (existingItem) {
-                return; // Silent fail - no alert
+                alert(currentLang === 'es' ? 'Ya tienes este pack en el carrito' : 'You already have this pack in your cart');
+                return;
             }
             
-            // Find or create item
             let item = cart.find(item => item.type === type);
             
             if (!item) {
-                item = {
-                    type: type,
-                    name: name,
-                    options: [],
-                    total: 0
-                };
+                item = { type: type, name: name, options: [], total: 0 };
                 cart.push(item);
             }
             
-            // Add option
-            item.options.push({
-                key: optionKey,
-                qty: qty,
-                size: size,
-                price: price
-            });
-            
-            // Recalculate total
+            item.options.push({ key: optionKey, qty: qty, size: size, price: price });
             item.total = item.options.reduce((sum, opt) => sum + opt.price, 0);
             
             saveCart();
             updateCartCount();
-            // No alert - silent add
+            alert(`${qty} (${size}) - $${price} USD ${currentLang === 'es' ? 'agregado' : 'added'}`);
         }
         
-        // Save cart to localStorage
         function saveCart() {
             localStorage.setItem('stikmania_cart', JSON.stringify(cart));
-            // Calculate total items
-            totalItems = 0;
-            cart.forEach(item => {
-                totalItems += item.options.length;
-            });
         }
         
-        // Update cart count - shows total items, not total product types
         function updateCartCount() {
             let count = 0;
-            cart.forEach(item => {
-                count += item.options.length;
-            });
+            cart.forEach(item => { count += item.options.length; });
             document.getElementById('cartCount').textContent = count;
         }
         
-        // Toggle cart modal
         function toggleCart() {
             const modal = document.getElementById('cartModal');
             if (modal.style.display === 'block') {
@@ -1195,7 +877,6 @@
             }
         }
         
-        // Render cart items
         function renderCart() {
             const cartItems = document.getElementById('cartItems');
             const cartTotal = document.getElementById('cartTotal');
@@ -1233,14 +914,13 @@
                     </div>
                     <div>
                         <span class="cart-item-price">$${item.total} USD</span>
-                        <button class="remove-item" onclick="removeFromCart(${index})">Eliminar</button>
+                        <button class="remove-item" onclick="removeFromCart(${index})">${currentLang === 'es' ? 'Eliminar' : 'Remove'}</button>
                     </div>
                 `;
                 cartItems.appendChild(itemDiv);
                 total += item.total;
             });
             
-            // Calculate 50% advance
             const advance = total * 0.5;
             
             document.getElementById('totalAmount').textContent = total.toFixed(2);
@@ -1250,7 +930,6 @@
             checkoutSection.style.display = 'block';
         }
         
-        // Remove from cart
         function removeFromCart(index) {
             cart.splice(index, 1);
             saveCart();
@@ -1258,12 +937,10 @@
             renderCart();
         }
         
-        // Toggle transfer info - NO mostrar para transferencia_saldo
         function toggleTransferInfo() {
             const paymentType = document.getElementById('paymentType').value;
             const transferInfo = document.getElementById('transferInfo');
             
-            // Show transfer fields for transferencias EXCEPTO saldo
             if (paymentType.includes('transferencia') && paymentType !== 'transferencia_saldo') {
                 transferInfo.classList.add('show');
             } else {
@@ -1271,12 +948,11 @@
             }
         }
         
-        // Submit order via WhatsApp
         function submitOrder(e) {
             e.preventDefault();
             
             if (cart.length === 0) {
-                alert('Tu carrito está vacío');
+                alert(currentLang === 'es' ? 'Tu carrito está vacío' : 'Your cart is empty');
                 return;
             }
             
@@ -1286,18 +962,10 @@
             const paymentType = document.getElementById('paymentType').value;
             const cardNumber = document.getElementById('cardNumber').value;
             
-            // Get readable payment type name
-            const paymentSelect = document.getElementById('paymentType');
-            const paymentName = paymentSelect.options[paymentSelect.selectedIndex].text;
-            
-            // Calculate total and advance
             let total = 0;
-            cart.forEach(item => {
-                total += item.total;
-            });
+            cart.forEach(item => { total += item.total; });
             const advance = total * 0.5;
             
-            // Build order message
             let message = `*NUEVO PEDIDO DE STICKERS - STIKMANIA*\n\n`;
             message += `*Cliente:* ${name}\n`;
             message += `*Teléfono:* ${phone}\n`;
@@ -1313,29 +981,31 @@
             
             message += `\n*TOTAL:* $${total.toFixed(2)} USD\n`;
             message += `*ANTICIPO (50%):* $${advance.toFixed(2)} USD\n`;
-            message += `\n*Pago:* ${paymentName}\n`;
+            message += `\n*Pago:* ${paymentType}\n`;
             
             if (cardNumber && paymentType.includes('transferencia') && paymentType !== 'transferencia_saldo') {
                 message += `*Tarjeta:* ${cardNumber}\n`;
             }
             
-            // Open WhatsApp
             const whatsappNumber = '5359758756';
             const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            cart = [];
+            saveCart();
+            updateCartCount();
+            
             window.open(url, '_blank');
             
-            // Clear cart after order
             setTimeout(() => {
-                if (confirm('¿Deseas vaciar el carrito después de enviar el pedido?')) {
-                    cart = [];
-                    saveCart();
-                    updateCartCount();
-                    toggleCart();
+                const modal = document.getElementById('cartModal');
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
                 }
-            }, 1000);
+                alert(currentLang === 'es' ? '¡Pedido enviado! Revisa tu WhatsApp para continuar con el pago.' : 'Order sent! Check your WhatsApp to continue with payment.');
+            }, 500);
         }
         
-        // Toggle FAQ
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             const sign = element.querySelector('span:last-child');
@@ -1349,7 +1019,6 @@
             }
         }
         
-        // Close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('cartModal');
             if (event.target === modal) {

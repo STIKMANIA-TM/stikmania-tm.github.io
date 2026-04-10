@@ -18,7 +18,7 @@
     <meta property="og:title" content="STIKMANIA | Diseño que se pega">
     <meta property="og:description" content="Stickers, Branding y Desarrollo Web en La Habana. Diseño urbano con calidad profesional.">
     <meta property="og:image" content="images/logo.png">
-    <meta property="og:url" content="https://stikmania.netlify.app">
+    <meta property="og:url" content="https://stikmania-tm.github.io">
     <meta property="og:type" content="website">
     
     <!-- Google Fonts -->
@@ -32,7 +32,7 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "STIKMANIA",
-        "image": "https://stikmania.netlify.app/images/logo.png",
+        "image": "https://stikmania-tm.github.io/images/logo.png",
         "description": "Stickers personalizados, branding profesional y desarrollo web en La Habana, Cuba",
         "address": {
             "@type": "PostalAddress",
@@ -41,7 +41,7 @@
         },
         "telephone": "+5359758756",
         "email": "stikmania795@gmail.com",
-        "url": "https://stikmania.netlify.app",
+        "url": "https://stikmania-tm.github.io",
         "priceRange": "$$",
         "openingHours": "Mo-Fr 09:00-18:00",
         "sameAs": [
@@ -131,6 +131,31 @@
         }
         
         .btn-outline:hover {
+            background: var(--neon-green);
+            color: var(--black);
+        }
+        
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+        
+        .lang-btn {
+            background: var(--black);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
             background: var(--neon-green);
             color: var(--black);
         }
@@ -541,10 +566,20 @@
                 width: 45px;
                 height: 45px;
             }
+            
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
 
     <!-- HEADER -->
     <header>
@@ -553,10 +588,10 @@
                 <a href="index.html" class="logo">STIKMANIA</a>
                 <nav>
                     <ul>
-                        <li><a href="#about">Nosotros</a></li>
-                        <li><a href="#services">Servicios</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contacto</a></li>
+                        <li><a href="#about" data-es="Nosotros" data-en="About">Nosotros</a></li>
+                        <li><a href="#services" data-es="Servicios" data-en="Services">Servicios</a></li>
+                        <li><a href="#blog" data-es="Blog" data-en="Blog">Blog</a></li>
+                        <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
@@ -567,11 +602,11 @@
     <section class="hero">
         <div class="container">
             <img src="images/logo.png" alt="STIKMANIA Logo" class="hero-logo">
-            <h1>Diseño que se pega</h1>
-            <p>Stickers personalizados, branding profesional y desarrollo web en La Habana. Calidad urbana con estándares profesionales.</p>
+            <h1 data-es="Diseño que se pega" data-en="Design that sticks">Diseño que se pega</h1>
+            <p data-es="Stickers personalizados, branding profesional y desarrollo web en La Habana. Calidad urbana con estándares profesionales." data-en="Custom stickers, professional branding and web development in Havana. Urban quality with professional standards.">Stickers personalizados, branding profesional y desarrollo web en La Habana. Calidad urbana con estándares profesionales.</p>
             <div class="hero-buttons">
-                <a href="#services" class="btn">Ver Servicios</a>
-                <a href="stickers.html" class="btn btn-outline">Ir a la Tienda</a>
+                <a href="#services" class="btn" data-es="Ver Servicios" data-en="View Services">Ver Servicios</a>
+                <a href="stickers.html" class="btn btn-outline" data-es="Ir a la Tienda" data-en="Go to Shop">Ir a la Tienda</a>
             </div>
         </div>
     </section>
@@ -580,25 +615,25 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>¿Qué hacemos?</h2>
-                <p>Soluciones de diseño y desarrollo para emprendedores y empresas en Cuba</p>
+                <h2 data-es="¿Qué hacemos?" data-en="What We Do">¿Qué hacemos?</h2>
+                <p data-es="Soluciones de diseño y desarrollo para emprendedores y empresas en Cuba" data-en="Design and development solutions for entrepreneurs and businesses in Cuba">Soluciones de diseño y desarrollo para emprendedores y empresas en Cuba</p>
             </div>
             
             <div class="services-grid">
                 <div class="card">
-                    <h3>Stickers Personalizados</h3>
-                    <p>Vinilo de alta durabilidad. Para laptops, skate, negocios.</p>
-                    <a href="stickers.html">Ver detalles →</a>
+                    <h3 data-es="Stickers Personalizados" data-en="Custom Stickers">Stickers Personalizados</h3>
+                    <p data-es="Vinilo de alta durabilidad. Para laptops, skate, negocios." data-en="High durability vinyl. For laptops, skate, businesses.">Vinilo de alta durabilidad. Para laptops, skate, negocios.</p>
+                    <a href="stickers.html" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
                 </div>
                 <div class="card">
-                    <h3>Branding Digital</h3>
-                    <p>Logos, identidad visual y assets para redes sociales.</p>
-                    <a href="branding.html">Ver detalles →</a>
+                    <h3 data-es="Branding Digital" data-en="Digital Branding">Branding Digital</h3>
+                    <p data-es="Logos, identidad visual y assets para redes sociales." data-en="Logos, visual identity and assets for social media.">Logos, identidad visual y assets para redes sociales.</p>
+                    <a href="branding.html" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
                 </div>
                 <div class="card" style="border-color: var(--web);">
-                    <h3 style="color: var(--web);">Desarrollo Web</h3>
-                    <p>E-commerce, portfolio, web apps y sitios corporativos optimizados.</p>
-                    <a href="web.html">Ver detalles →</a>
+                    <h3 style="color: var(--web);" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</h3>
+                    <p data-es="E-commerce, portfolio, web apps y sitios corporativos optimizados." data-en="E-commerce, portfolio, web apps and optimized corporate sites.">E-commerce, portfolio, web apps y sitios corporativos optimizados.</p>
+                    <a href="web.html" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
                 </div>
             </div>
         </div>
@@ -608,11 +643,11 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <h2>Sobre STIKMANIA</h2>
-                <p><strong>CEO: Adrián González</strong> - Diseñador gráfico y desarrollador web con formación en informática y especialización en identidad visual urbana.</p>
-                <p>STIKMANIA es una marca registrada cubana dedicada a proporcionar soluciones de diseño profesional para emprendedores y empresas. Combinamos expertise técnico con sensibilidad artística para crear identidades visuales que generan impacto real en el mercado.</p>
-                <p><strong>Nuestra filosofía:</strong> Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles.</p>
-                <p><strong>Compromiso:</strong> Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto.</p>
+                <h2 data-es="Sobre STIKMANIA" data-en="About STIKMANIA">Sobre STIKMANIA</h2>
+                <p><strong data-es="CEO: Adrián González" data-en="CEO: Adrián González">CEO: Adrián González</strong> - <span data-es="Diseñador gráfico y desarrollador web con formación en informática y especialización en identidad visual urbana." data-en="Graphic designer and web developer with computer science background and specialization in urban visual identity.">Diseñador gráfico y desarrollador web con formación en informática y especialización en identidad visual urbana.</span></p>
+                <p data-es="STIKMANIA es una marca registrada cubana dedicada a proporcionar soluciones de diseño profesional para emprendedores y empresas. Combinamos expertise técnico con sensibilidad artística para crear identidades visuales que generan impacto real en el mercado." data-en="STIKMANIA is a Cuban registered brand dedicated to providing professional design solutions for entrepreneurs and businesses. We combine technical expertise with artistic sensitivity to create visual identities that generate real market impact.">STIKMANIA es una marca registrada cubana dedicada a proporcionar soluciones de diseño profesional para emprendedores y empresas. Combinamos expertise técnico con sensibilidad artística para crear identidades visuales que generan impacto real en el mercado.</p>
+                <p data-es="Nuestra filosofía: Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles." data-en="Our philosophy: We understand that each client faces unique challenges. We focus on solving concrete problems: from the urgency of launching a product to the need for brand repositioning. We work with transparency, constant communication and measurable results.">Nuestra filosofía: Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles.</p>
+                <p data-es="Compromiso: Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto." data-en="Commitment: Exceptional price/quality ratio, delivery in established times and transparent communication at every stage of the project.">Compromiso: Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto.</p>
             </div>
         </div>
     </section>
@@ -621,8 +656,8 @@
     <section id="blog" class="blog-preview">
         <div class="container">
             <div class="section-header">
-                <h2>Blog STIKMANIA</h2>
-                <p>Contenido útil para emprendedores y empresas en Cuba (2026)</p>
+                <h2 data-es="Blog STIKMANIA" data-en="STIKMANIA Blog">Blog STIKMANIA</h2>
+                <p data-es="Contenido útil para emprendedores y empresas en Cuba (2026)" data-en="Useful content for entrepreneurs and businesses in Cuba (2026)">Contenido útil para emprendedores y empresas en Cuba (2026)</p>
             </div>
             
             <div class="blog-grid">
@@ -638,10 +673,10 @@
                         </svg>
                     </div>
                     <div class="blog-content">
-                        <span class="blog-category">Stickers</span>
-                        <h3>Cómo elegir stickers para tu negocio</h3>
-                        <p>Guía completa para seleccionar el material, tamaño y diseño correcto según tu industria y presupuesto.</p>
-                        <a href="blog-stickers.html" class="read-more">Leer artículo →</a>
+                        <span class="blog-category" data-es="Stickers" data-en="Stickers">Stickers</span>
+                        <h3 data-es="Cómo elegir stickers para tu negocio" data-en="How to choose stickers for your business">Cómo elegir stickers para tu negocio</h3>
+                        <p data-es="Guía completa para seleccionar el material, tamaño y diseño correcto según tu industria y presupuesto." data-en="Complete guide to select the right material, size and design according to your industry and budget.">Guía completa para seleccionar el material, tamaño y diseño correcto según tu industria y presupuesto.</p>
+                        <a href="blog-stickers.html" class="read-more" data-es="Leer artículo →" data-en="Read article →">Leer artículo →</a>
                     </div>
                 </article>
                 
@@ -656,10 +691,10 @@
                         </svg>
                     </div>
                     <div class="blog-content">
-                        <span class="blog-category">Branding</span>
-                        <h3>Por qué tu emprendimiento necesita branding</h3>
-                        <p>El impacto de una identidad visual bien diseñada en la percepción de tus clientes y tus ventas.</p>
-                        <a href="blog-branding.html" class="read-more">Leer artículo →</a>
+                        <span class="blog-category" data-es="Branding" data-en="Branding">Branding</span>
+                        <h3 data-es="Por qué tu emprendimiento necesita branding" data-en="Why your business needs branding">Por qué tu emprendimiento necesita branding</h3>
+                        <p data-es="El impacto de una identidad visual bien diseñada en la percepción de tus clientes y tus ventas." data-en="The impact of a well-designed visual identity on your customers' perception and your sales.">El impacto de una identidad visual bien diseñada en la percepción de tus clientes y tus ventas.</p>
+                        <a href="blog-branding.html" class="read-more" data-es="Leer artículo →" data-en="Read article →">Leer artículo →</a>
                     </div>
                 </article>
                 
@@ -674,10 +709,10 @@
                         </svg>
                     </div>
                     <div class="blog-content">
-                        <span class="blog-category">Desarrollo Web</span>
-                        <h3>Web propia vs Redes sociales</h3>
-                        <p>Comparativa honesta de ventajas, desventajas y costos. ¿Qué necesitas realmente para tu negocio?</p>
-                        <a href="blog-web.html" class="read-more">Leer artículo →</a>
+                        <span class="blog-category" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</span>
+                        <h3 data-es="Web propia vs Redes sociales" data-en="Own website vs Social media">Web propia vs Redes sociales</h3>
+                        <p data-es="Comparativa honesta de ventajas, desventajas y costos. ¿Qué necesitas realmente para tu negocio?" data-en="Honest comparison of advantages, disadvantages and costs. What do you really need for your business?">Comparativa honesta de ventajas, desventajas y costos. ¿Qué necesitas realmente para tu negocio?</p>
+                        <a href="blog-web.html" class="read-more" data-es="Leer artículo →" data-en="Read article →">Leer artículo →</a>
                     </div>
                 </article>
             </div>
@@ -687,8 +722,8 @@
     <!-- CONTACT -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Hablemos de tu Proyecto</h2>
-            <p>Elige tu canal preferido. Respondemos en menos de 24 horas.</p>
+            <h2 data-es="Hablemos de tu Proyecto" data-en="Let's Talk About Your Project">Hablemos de tu Proyecto</h2>
+            <p data-es="Elige tu canal preferido. Respondemos en menos de 24 horas." data-en="Choose your preferred channel. We respond in less than 24 hours.">Elige tu canal preferido. Respondemos en menos de 24 horas.</p>
             
             <div class="contact-buttons">
                 <a href="https://wa.me/5359758756" target="_blank" rel="noopener" class="contact-btn whatsapp" aria-label="WhatsApp">
@@ -713,24 +748,24 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">STIKMANIA</a>
-                    <p>Diseño que se pega. Stickers, branding y desarrollo web profesional en La Habana, Cuba.</p>
-                    <p style="margin-top: 15px; font-size: 0.85rem;">© STIKMANIA TM. Todos los derechos reservados.</p>
+                    <p data-es="Diseño que se pega. Stickers, branding y desarrollo web profesional en La Habana, Cuba." data-en="Design that sticks. Stickers, branding and professional web development in Havana, Cuba.">Diseño que se pega. Stickers, branding y desarrollo web profesional en La Habana, Cuba.</p>
+                    <p style="margin-top: 15px; font-size: 0.85rem;">© STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Servicios</h4>
+                    <h4 data-es="Servicios" data-en="Services">Servicios</h4>
                     <ul>
-                        <li><a href="stickers.html">Stickers</a></li>
-                        <li><a href="branding.html">Branding</a></li>
-                        <li><a href="web.html">Desarrollo Web</a></li>
+                        <li><a href="stickers.html" data-es="Stickers" data-en="Stickers">Stickers</a></li>
+                        <li><a href="branding.html" data-es="Branding" data-en="Branding">Branding</a></li>
+                        <li><a href="web.html" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Legal</h4>
+                    <h4 data-es="Legal" data-en="Legal">Legal</h4>
                     <ul>
-                        <li><a href="terminos.html">Términos y Condiciones</a></li>
-                        <li><a href="privacidad.html">Política de Privacidad</a></li>
+                        <li><a href="terminos.html" data-es="Términos y Condiciones" data-en="Terms and Conditions">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" data-es="Política de Privacidad" data-en="Privacy Policy">Política de Privacidad</a></li>
                     </ul>
                 </div>
             </div>
@@ -742,15 +777,30 @@
     </footer>
 
     <script>
-        // Mobile Menu
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('nav ul');
+        // LANGUAGE SYSTEM
+        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
         
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-            });
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('stikmania_lang', currentLang);
+            updateLanguage();
         }
+        
+        function updateLanguage() {
+            // Update button text
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            
+            // Update all elements with data-es and data-en attributes
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+            
+            // Update html lang attribute
+            document.documentElement.lang = currentLang;
+        }
+        
+        // Initialize language on page load
+        updateLanguage();
         
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

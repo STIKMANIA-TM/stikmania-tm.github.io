@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos y Condiciones | STIKMANIA</title>
+    <title data-es="Términos y Condiciones | STIKMANIA" data-en="Terms and Conditions | STIKMANIA">Términos y Condiciones | STIKMANIA</title>
     <meta name="description" content="Términos y condiciones de STIKMANIA para servicios de stickers, branding y desarrollo web en Cuba.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,11 +18,7 @@
             --gray: #1a1a1a;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -32,10 +28,7 @@
             padding: 100px 20px;
         }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .container { max-width: 800px; margin: 0 auto; }
         
         h1 {
             font-family: 'Pirata One', display;
@@ -63,28 +56,13 @@
             font-size: 0.9rem;
         }
         
-        p {
-            margin-bottom: 20px;
-            color: #ccc;
-        }
+        p { margin-bottom: 20px; color: #ccc; }
         
-        ul, ol {
-            margin-bottom: 20px;
-            padding-left: 30px;
-            color: #ccc;
-        }
+        ul, ol { margin-bottom: 20px; padding-left: 30px; color: #ccc; }
+        li { margin-bottom: 10px; }
         
-        li {
-            margin-bottom: 10px;
-        }
-        
-        a {
-            color: var(--neon-green);
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
+        a { color: var(--neon-green); }
+        a:hover { text-decoration: underline; }
         
         .back-link {
             display: inline-block;
@@ -98,97 +76,139 @@
             letter-spacing: 1px;
         }
         
-        .back-link:hover {
-            background: var(--white);
-            text-decoration: none;
+        .back-link:hover { background: var(--white); text-decoration: none; }
+        
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
         }
         
+        .lang-btn {
+            background: var(--black);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
+        
         @media (max-width: 768px) {
-            body {
-                padding: 80px 15px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.3rem;
-            }
+            body { padding: 80px 15px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.3rem; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
+
     <div class="container">
-        <h1>TÉRMINOS Y CONDICIONES</h1>
-        <p class="last-update"><strong>Última actualización:</strong> Enero 2026</p>
+        <h1 data-es="TÉRMINOS Y CONDICIONES" data-en="TERMS AND CONDITIONS">TÉRMINOS Y CONDICIONES</h1>
+        <p class="last-update">
+            <strong data-es="Última actualización:" data-en="Last updated:">Última actualización:</strong> <span data-es="Enero 2026" data-en="January 2026">Enero 2026</span>
+        </p>
         
-        <h2>1. INFORMACIÓN GENERAL</h2>
-        <p>STIKMANIA es una marca registrada que proporciona servicios de diseño gráfico, stickers personalizados, branding y desarrollo web en La Habana, Cuba. Al utilizar nuestros servicios, aceptas estos términos y condiciones.</p>
+        <h2 data-es="1. INFORMACIÓN GENERAL" data-en="1. GENERAL INFORMATION">1. INFORMACIÓN GENERAL</h2>
+        <p data-es="STIKMANIA es una marca registrada que proporciona servicios de diseño gráfico, stickers personalizados, branding y desarrollo web en La Habana, Cuba. Al utilizar nuestros servicios, aceptas estos términos y condiciones." data-en="STIKMANIA is a registered brand that provides graphic design services, custom stickers, branding and web development in Havana, Cuba. By using our services, you accept these terms and conditions.">STIKMANIA es una marca registrada que proporciona servicios de diseño gráfico, stickers personalizados, branding y desarrollo web en La Habana, Cuba. Al utilizar nuestros servicios, aceptas estos términos y condiciones.</p>
         
-        <h2>2. SERVICIOS</h2>
-        <p>Ofrecemos tres líneas de servicio principales:</p>
+        <h2 data-es="2. SERVICIOS" data-en="2. SERVICES">2. SERVICIOS</h2>
+        <p data-es="Ofrecemos tres líneas de servicio principales:" data-en="We offer three main service lines:">Ofrecemos tres líneas de servicio principales:</p>
         <ul>
-            <li><strong>Stickers Personalizados:</strong> Vinilo adhesivo impermeable y papel fotográfico</li>
-            <li><strong>Branding Digital:</strong> Diseño de logos, identidad visual y papelería corporativa</li>
-            <li><strong>Desarrollo Web:</strong> Landing pages, e-commerce y web apps</li>
+            <li data-es="Stickers Personalizados: Vinilo adhesivo impermeable y papel fotográfico" data-en="Custom Stickers: Waterproof adhesive vinyl and photo paper">Stickers Personalizados: Vinilo adhesivo impermeable y papel fotográfico</li>
+            <li data-es="Branding Digital: Diseño de logos, identidad visual y papelería corporativa" data-en="Digital Branding: Logo design, visual identity and corporate stationery">Branding Digital: Diseño de logos, identidad visual y papelería corporativa</li>
+            <li data-es="Desarrollo Web: Landing pages, e-commerce y web apps" data-en="Web Development: Landing pages, e-commerce and web apps">Desarrollo Web: Landing pages, e-commerce y web apps</li>
         </ul>
         
-        <h2>3. PRECIOS Y PAGOS</h2>
-        <p><strong>Todos los servicios:</strong> 50% anticipo, 50% a la entrega del producto o finalización del servicio.</p>
-        <p>Aceptamos efectivo (CUP/USD/EUR) y transferencias bancarias. Los precios están en USD y pueden variar según complejidad del proyecto.</p>
+        <h2 data-es="3. PRECIOS Y PAGOS" data-en="3. PRICES AND PAYMENTS">3. PRECIOS Y PAGOS</h2>
+        <p data-es="Todos los servicios: 50% anticipo, 50% a la entrega del producto o finalización del servicio." data-en="All services: 50% deposit, 50% upon product delivery or service completion.">Todos los servicios: 50% anticipo, 50% a la entrega del producto o finalización del servicio.</p>
+        <p data-es="Aceptamos efectivo (CUP/USD/EUR) y transferencias bancarias. Los precios están en USD y pueden variar según complejidad del proyecto." data-en="We accept cash (CUP/USD/EUR) and bank transfers. Prices are in USD and may vary depending on project complexity.">Aceptamos efectivo (CUP/USD/EUR) y transferencias bancarias. Los precios están en USD y pueden variar según complejidad del proyecto.</p>
         
-        <h2>4. TIEMPOS DE ENTREGA</h2>
+        <h2 data-es="4. TIEMPOS DE ENTREGA" data-en="4. DELIVERY TIMES">4. TIEMPOS DE ENTREGA</h2>
         <ul>
-            <li><strong>Stickers:</strong> 2-5 días hábiles</li>
-            <li><strong>Branding Básico:</strong> 2-4 días hábiles</li>
-            <li><strong>Branding Intermedio:</strong> 3-6 días hábiles</li>
-            <li><strong>Branding Completo:</strong> 5-10 días hábiles</li>
-            <li><strong>Landing Page:</strong> 5-10 días hábiles</li>
-            <li><strong>Web Corporativa:</strong> 10-20 días hábiles</li>
-            <li><strong>E-commerce:</strong> 15-30 días hábiles</li>
-            <li><strong>Web App:</strong> 20-45 días hábiles</li>
+            <li data-es="Stickers: 2-5 días hábiles" data-en="Stickers: 2-5 business days">Stickers: 2-5 días hábiles</li>
+            <li data-es="Branding Básico: 2-4 días hábiles" data-en="Basic Branding: 2-4 business days">Branding Básico: 2-4 días hábiles</li>
+            <li data-es="Branding Intermedio: 3-6 días hábiles" data-en="Intermediate Branding: 3-6 business days">Branding Intermedio: 3-6 días hábiles</li>
+            <li data-es="Branding Completo: 5-10 días hábiles" data-en="Complete Branding: 5-10 business days">Branding Completo: 5-10 días hábiles</li>
+            <li data-es="Landing Page: 5-10 días hábiles" data-en="Landing Page: 5-10 business days">Landing Page: 5-10 días hábiles</li>
+            <li data-es="Web Corporativa: 10-20 días hábiles" data-en="Corporate Website: 10-20 business days">Web Corporativa: 10-20 días hábiles</li>
+            <li data-es="E-commerce: 15-30 días hábiles" data-en="E-commerce: 15-30 business days">E-commerce: 15-30 días hábiles</li>
+            <li data-es="Web App: 20-45 días hábiles" data-en="Web App: 20-45 business days">Web App: 20-45 días hábiles</li>
         </ul>
-        <p>Los tiempos pueden extenderse por factores externos (conexión a internet, electricidad, disponibilidad del cliente para revisiones).</p>
+        <p data-es="Los tiempos pueden extenderse por factores externos (conexión a internet, electricidad, disponibilidad del cliente para revisiones)." data-en="Times may be extended due to external factors (internet connection, electricity, client availability for revisions).">Los tiempos pueden extenderse por factores externos (conexión a internet, electricidad, disponibilidad del cliente para revisiones).</p>
         
-        <h2>5. REVISIONES</h2>
-        <p><strong>Branding:</strong> 2 revisiones incluidas por etapa. Revisiones adicionales: $5 USD c/u</p>
-        <p><strong>Desarrollo Web:</strong> Revisiones de funcionalidad incluidas. Cambios estructurales post-aprobación: cotización adicional</p>
+        <h2 data-es="5. REVISIONES" data-en="5. REVISIONS">5. REVISIONES</h2>
+        <p data-es="Branding: 2 revisiones incluidas por etapa. Revisiones adicionales: $5 USD c/u" data-en="Branding: 2 revisions included per stage. Additional revisions: $5 USD each">Branding: 2 revisiones incluidas por etapa. Revisiones adicionales: $5 USD c/u</p>
+        <p data-es="Desarrollo Web: Revisiones de funcionalidad incluidas. Cambios estructurales post-aprobación: cotización adicional" data-en="Web Development: Functionality revisions included. Structural changes post-approval: additional quote">Desarrollo Web: Revisiones de funcionalidad incluidas. Cambios estructurales post-aprobación: cotización adicional</p>
         
-        <h2>6. PROPIEDAD INTELECTUAL</h2>
-        <p><strong>Stickers:</strong> El cliente conserva derechos sobre su diseño. STIKMANIA puede usar imágenes del trabajo final para portafolio (salvo acuerdo de confidencialidad).</p>
-        <p><strong>Branding:</strong> Una vez completado el pago total, el cliente posee todos los derechos del diseño final. Archivos editables se entregan en paquetes Intermedio y Completo.</p>
-        <p><strong>Desarrollo Web:</strong> El cliente posee el diseño y contenido. STIKMANIA conserva derechos sobre código reutilizable y librerías propias.</p>
+        <h2 data-es="6. PROPIEDAD INTELECTUAL" data-en="6. INTELLECTUAL PROPERTY">6. PROPIEDAD INTELECTUAL</h2>
+        <p data-es="Stickers: El cliente conserva derechos sobre su diseño. STIKMANIA puede usar imágenes del trabajo final para portafolio (salvo acuerdo de confidencialidad)." data-en="Stickers: Client retains rights to their design. STIKMANIA may use images of final work for portfolio (unless confidentiality agreement).">Stickers: El cliente conserva derechos sobre su diseño. STIKMANIA puede usar imágenes del trabajo final para portafolio (salvo acuerdo de confidencialidad).</p>
+        <p data-es="Branding: Una vez completado el pago total, el cliente posee todos los derechos del diseño final. Archivos editables se entregan en paquetes Intermedio y Completo." data-en="Branding: Once full payment is completed, client owns all rights to final design. Editable files are delivered in Intermediate and Complete packages.">Branding: Una vez completado el pago total, el cliente posee todos los derechos del diseño final. Archivos editables se entregan en paquetes Intermedio y Completo.</p>
+        <p data-es="Desarrollo Web: El cliente posee el diseño y contenido. STIKMANIA conserva derechos sobre código reutilizable y librerías propias." data-en="Web Development: Client owns design and content. STIKMANIA retains rights to reusable code and own libraries.">Desarrollo Web: El cliente posee el diseño y contenido. STIKMANIA conserva derechos sobre código reutilizable y librerías propias.</p>
         
-        <h2>7. CANCELACIONES</h2>
-        <p><strong>Stickers:</strong> No se aceptan cancelaciones una vez iniciada la producción.</p>
-        <p><strong>Branding/Web:</strong> El anticipo no es reembolsable. Si el cliente cancela después de la primera entrega, el proyecto se archiva sin cargo adicional.</p>
+        <h2 data-es="7. CANCELACIONES" data-en="7. CANCELLATIONS">7. CANCELACIONES</h2>
+        <p data-es="Stickers: No se aceptan cancelaciones una vez iniciada la producción." data-en="Stickers: No cancellations accepted once production has started.">Stickers: No se aceptan cancelaciones una vez iniciada la producción.</p>
+        <p data-es="Branding/Web: El anticipo no es reembolsable. Si el cliente cancela después de la primera entrega, el proyecto se archiva sin cargo adicional." data-en="Branding/Web: Deposit is non-refundable. If client cancels after first delivery, project is archived without additional charge.">Branding/Web: El anticipo no es reembolsable. Si el cliente cancela después de la primera entrega, el proyecto se archiva sin cargo adicional.</p>
         
-        <h2>8. GARANTÍAS</h2>
-        <p><strong>Stickers:</strong> Garantía de 30 días contra defectos de impresión o material.</p>
-        <p><strong>Desarrollo Web:</strong> 1 mes de soporte técnico post-entrega incluido. Bugs y errores corregidos sin costo adicional.</p>
+        <h2 data-es="8. GARANTÍAS" data-en="8. GUARANTEES">8. GARANTÍAS</h2>
+        <p data-es="Stickers: Garantía de 30 días contra defectos de impresión o material." data-en="Stickers: 30-day guarantee against printing or material defects.">Stickers: Garantía de 30 días contra defectos de impresión o material.</p>
+        <p data-es="Desarrollo Web: 1 mes de soporte técnico post-entrega incluido. Bugs y errores corregidos sin costo adicional." data-en="Web Development: 1 month post-delivery technical support included. Bugs and errors corrected at no additional cost.">Desarrollo Web: 1 mes de soporte técnico post-entrega incluido. Bugs y errores corregidos sin costo adicional.</p>
         
-        <h2>9. CONFIDENCIALIDAD</h2>
-        <p>STIKMANIA se compromete a no compartir información confidencial del cliente con terceros. Los datos personales se usan exclusivamente para comunicación del proyecto.</p>
+        <h2 data-es="9. CONFIDENCIALIDAD" data-en="9. CONFIDENTIALITY">9. CONFIDENCIALIDAD</h2>
+        <p data-es="STIKMANIA se compromete a no compartir información confidencial del cliente con terceros. Los datos personales se usan exclusivamente para comunicación del proyecto." data-en="STIKMANIA commits to not sharing client confidential information with third parties. Personal data is used exclusively for project communication.">STIKMANIA se compromete a no compartir información confidencial del cliente con terceros. Los datos personales se usan exclusivamente para comunicación del proyecto.</p>
         
-        <h2>10. LIMITACIÓN DE RESPONSABILIDAD</h2>
-        <p>STIKMANIA no se responsabiliza por:</p>
+        <h2 data-es="10. LIMITACIÓN DE RESPONSABILIDAD" data-en="10. LIMITATION OF LIABILITY">10. LIMITACIÓN DE RESPONSABILIDAD</h2>
+        <p data-es="STIKMANIA no se responsabiliza por:" data-en="STIKMANIA is not responsible for:">STIKMANIA no se responsabiliza por:</p>
         <ul>
-            <li>Retrasos causados por falta de respuesta del cliente</li>
-            <li>Problemas de conectividad o electricidad en Cuba</li>
-            <li>Uso indebido de los diseños por parte del cliente</li>
-            <li>Problemas legales derivados del contenido proporcionado por el cliente</li>
+            <li data-es="Retrasos causados por falta de respuesta del cliente" data-en="Delays caused by lack of client response">Retrasos causados por falta de respuesta del cliente</li>
+            <li data-es="Problemas de conectividad o electricidad en Cuba" data-en="Connectivity or electricity problems in Cuba">Problemas de conectividad o electricidad en Cuba</li>
+            <li data-es="Uso indebido de los diseños por parte del cliente" data-en="Misuse of designs by the client">Uso indebido de los diseños por parte del cliente</li>
+            <li data-es="Problemas legales derivados del contenido proporcionado por el cliente" data-en="Legal problems arising from content provided by the client">Problemas legales derivados del contenido proporcionado por el cliente</li>
         </ul>
         
-        <h2>11. MODIFICACIONES</h2>
-        <p>STIKMANIA se reserva el derecho de modificar estos términos. Los cambios aplican a proyectos futuros, no a contratos ya firmados.</p>
+        <h2 data-es="11. MODIFICACIONES" data-en="11. MODIFICATIONS">11. MODIFICACIONES</h2>
+        <p data-es="STIKMANIA se reserva el derecho de modificar estos términos. Los cambios aplican a proyectos futuros, no a contratos ya firmados." data-en="STIKMANIA reserves the right to modify these terms. Changes apply to future projects, not to already signed contracts.">STIKMANIA se reserva el derecho de modificar estos términos. Los cambios aplican a proyectos futuros, no a contratos ya firmados.</p>
         
-        <h2>12. CONTACTO</h2>
-        <p>Para dudas sobre estos términos: stikmania795@gmail.com | +53 5 975 8756</p>
+        <h2 data-es="12. CONTACTO" data-en="12. CONTACT">12. CONTACTO</h2>
+        <p data-es="Para dudas sobre estos términos: stikmania795@gmail.com | +53 5 975 8756" data-en="For questions about these terms: stikmania795@gmail.com | +53 5 975 8756">Para dudas sobre estos términos: stikmania795@gmail.com | +53 5 975 8756</p>
         
         <div style="text-align: center;">
-            <a href="index.html" class="back-link">← Volver al Inicio</a>
+            <a href="index.html" class="back-link" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
         </div>
     </div>
+
+    <script>
+        // LANGUAGE SYSTEM
+        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('stikmania_lang', currentLang);
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+            document.documentElement.lang = currentLang;
+        }
+        
+        updateLanguage();
+    </script>
+
 </body>
 </html>

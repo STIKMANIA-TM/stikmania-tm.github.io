@@ -21,14 +21,10 @@
             --web: #4fc3f7;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             background: var(--black);
             color: var(--white);
             line-height: 1.6;
@@ -40,16 +36,9 @@
             letter-spacing: 2px;
         }
         
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+        a { color: inherit; text-decoration: none; }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         .btn {
             display: inline-block;
@@ -64,10 +53,7 @@
             transition: all 0.3s ease;
         }
         
-        .btn:hover {
-            background: var(--white);
-            transform: translateY(-2px);
-        }
+        .btn:hover { background: var(--white); transform: translateY(-2px); }
         
         .btn-outline {
             background: transparent;
@@ -75,19 +61,32 @@
             color: var(--neon-green);
         }
         
-        .btn-outline:hover {
-            background: var(--neon-green);
-            color: var(--black);
+        .btn-outline:hover { background: var(--neon-green); color: var(--black); }
+        
+        .btn-web { background: var(--web); color: var(--black); }
+        .btn-web:hover { background: var(--white); }
+        
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
         }
         
-        .btn-web {
-            background: var(--web);
-            color: var(--black);
+        .lang-btn {
+            background: var(--black);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
         
-        .btn-web:hover {
-            background: var(--white);
-        }
+        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
         
         /* HEADER */
         header {
@@ -112,15 +111,8 @@
             color: var(--neon-green);
         }
         
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        nav a:hover {
-            color: var(--neon-green);
-        }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a:hover { color: var(--neon-green); }
         
         /* HERO */
         .hero {
@@ -129,18 +121,8 @@
             text-align: center;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--web);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--white);
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--web); }
+        .hero p { font-size: 1.2rem; color: var(--white); max-width: 600px; margin: 0 auto 30px auto; }
         
         .production-time {
             display: inline-block;
@@ -152,9 +134,7 @@
         }
         
         /* PACKAGES */
-        .packages {
-            padding: 80px 0;
-        }
+        .packages { padding: 80px 0; }
         
         .section-title {
             text-align: center;
@@ -219,10 +199,7 @@
             color: var(--white);
         }
         
-        .package-price span {
-            font-size: 1rem;
-            color: var(--web);
-        }
+        .package-price span { font-size: 1rem; color: var(--web); }
         
         .package-features {
             list-style: none;
@@ -236,10 +213,7 @@
             font-size: 0.95rem;
         }
         
-        .package-features li:last-child {
-            border-bottom: none;
-        }
-        
+        .package-features li:last-child { border-bottom: none; }
         .package-features li::before {
             content: "✓";
             color: var(--web);
@@ -255,10 +229,7 @@
         }
         
         /* INFO SECTION */
-        .info-section {
-            padding: 80px 0;
-            background: var(--gray);
-        }
+        .info-section { padding: 80px 0; background: var(--gray); }
         
         .info-grid {
             display: grid;
@@ -326,15 +297,10 @@
             line-height: 1.8;
         }
         
-        .contract-download {
-            text-align: center;
-            margin-top: 30px;
-        }
+        .contract-download { text-align: center; margin-top: 30px; }
         
         /* QUESTIONNAIRE */
-        .questionnaire {
-            padding: 80px 0;
-        }
+        .questionnaire { padding: 80px 0; }
         
         .questionnaire-form {
             max-width: 700px;
@@ -344,9 +310,7 @@
             border: 1px solid var(--dark-green);
         }
         
-        .form-group {
-            margin-bottom: 20px;
-        }
+        .form-group { margin-bottom: 20px; }
         
         .form-group label {
             display: block;
@@ -378,16 +342,8 @@
             min-height: 120px;
         }
         
-        .form-group select:valid {
-            border-color: var(--web);
-            background: var(--gray-light);
-        }
-        
         /* FAQ */
-        .faq {
-            padding: 80px 0;
-            background: var(--gray);
-        }
+        .faq { padding: 80px 0; background: var(--gray); }
         
         .faq-item {
             background: var(--black);
@@ -404,9 +360,7 @@
             font-weight: 600;
         }
         
-        .faq-question:hover {
-            color: var(--web);
-        }
+        .faq-question:hover { color: var(--web); }
         
         .faq-answer {
             display: none;
@@ -414,9 +368,7 @@
             color: var(--white);
         }
         
-        .faq-answer.show {
-            display: block;
-        }
+        .faq-answer.show { display: block; }
         
         /* FOOTER */
         footer {
@@ -428,34 +380,22 @@
         
         /* MOBILE */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            .packages-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .questionnaire-form {
-                padding: 25px;
-            }
-            
-            .contract-info {
-                margin: 20px;
-                padding: 25px;
-            }
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            nav ul { display: none; }
+            .packages-grid { grid-template-columns: 1fr; }
+            .questionnaire-form { padding: 25px; }
+            .contract-info { margin: 20px; padding: 25px; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
 
     <!-- HEADER -->
     <header>
@@ -464,10 +404,10 @@
                 <a href="index.html" class="logo">STIKMANIA</a>
                 <nav>
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="index.html#services">Servicios</a></li>
-                        <li><a href="stickers.html">Stickers</a></li>
-                        <li><a href="branding.html">Branding</a></li>
+                        <li><a href="index.html" data-es="Inicio" data-en="Home">Inicio</a></li>
+                        <li><a href="index.html#services" data-es="Servicios" data-en="Services">Servicios</a></li>
+                        <li><a href="stickers.html" data-es="Stickers" data-en="Stickers">Stickers</a></li>
+                        <li><a href="branding.html" data-es="Branding" data-en="Branding">Branding</a></li>
                     </ul>
                 </nav>
             </div>
@@ -477,10 +417,10 @@
     <!-- HERO -->
     <section class="hero">
         <div class="container">
-            <h1>Desarrollo Web Profesional</h1>
-            <p>Sitios web modernos, rápidos y optimizados. Desde landing pages hasta e-commerce y web apps. Servicio documentado bajo contrato.</p>
+            <h1 data-es="Desarrollo Web Profesional" data-en="Professional Web Development">Desarrollo Web Profesional</h1>
+            <p data-es="Sitios web modernos, rápidos y optimizados. Desde landing pages hasta e-commerce y web apps. Servicio documentado bajo contrato." data-en="Modern, fast and optimized websites. From landing pages to e-commerce and web apps. Documented service under contract.">Sitios web modernos, rápidos y optimizados. Desde landing pages hasta e-commerce y web apps. Servicio documentado bajo contrato.</p>
             <div class="production-time">
-                <strong>Tiempo de producción:</strong> 5-45 días hábiles según tipo de proyecto
+                <strong data-es="Tiempo de producción:" data-en="Production time:">Tiempo de producción:</strong> <span data-es="5-45 días hábiles según tipo de proyecto" data-en="5-45 business days depending on project type">5-45 días hábiles según tipo de proyecto</span>
             </div>
         </div>
     </section>
@@ -488,101 +428,87 @@
     <!-- PACKAGES -->
     <section class="packages">
         <div class="container">
-            <h2 class="section-title">Tipos de Web y Precios</h2>
-            <p style="text-align: center; color: var(--white); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Precios accesibles y competitivos para el mercado actual. Todos los proyectos incluyen contrato y capacitación.
-            </p>
+            <h2 class="section-title" data-es="Tipos de Web y Precios" data-en="Web Types and Prices">Tipos de Web y Precios</h2>
+            <p style="text-align: center; color: var(--white); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Precios accesibles y competitivos para el mercado actual. Todos los proyectos incluyen contrato y capacitación." data-en="Accessible and competitive prices for the current market. All projects include contract and training.">Precios accesibles y competitivos para el mercado actual. Todos los proyectos incluyen contrato y capacitación.</p>
             
             <div class="packages-grid">
                 <!-- LANDING / PORTFOLIO -->
                 <div class="package-card">
                     <div class="package-header">
-                        <h3 class="package-type">Landing / Portfolio</h3>
+                        <h3 class="package-type" data-es="Landing / Portfolio" data-en="Landing / Portfolio">Landing / Portfolio</h3>
                         <div class="package-price">$20 <span>USD</span></div>
                     </div>
                     <ul class="package-features">
-                        <li>1-3 secciones</li>
-                        <li>Diseño responsive</li>
-                        <li>Formulario de contacto</li>
-                        <li>Optimización básica SEO</li>
-                        <li>Hosting primer año incluido</li>
-                        <li>Entrega en 5-10 días hábiles</li>
+                        <li data-es="1-3 secciones" data-en="1-3 sections">1-3 secciones</li>
+                        <li data-es="Diseño responsive" data-en="Responsive design">Diseño responsive</li>
+                        <li data-es="Formulario de contacto" data-en="Contact form">Formulario de contacto</li>
+                        <li data-es="Optimización básica SEO" data-en="Basic SEO optimization">Optimización básica SEO</li>
+                        <li data-es="Hosting primer año incluido" data-en="First year hosting included">Hosting primer año incluido</li>
+                        <li data-es="Entrega en 5-10 días hábiles" data-en="Delivery in 5-10 business days">Entrega en 5-10 días hábiles</li>
                     </ul>
-                    <p class="package-time">⏱️ 5-10 días hábiles</p>
-                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%; border-color: var(--web); color: var(--web);" data-package="landing">
-                        Seleccionar
-                    </a>
+                    <p class="package-time">⏱️ 5-10 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
+                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%; border-color: var(--web); color: var(--web);" data-package="landing" data-es="Seleccionar" data-en="Select">Seleccionar</a>
                 </div>
                 
                 <!-- WEB CORPORATIVA -->
                 <div class="package-card destacado">
-                    <span class="package-badge">Más Popular</span>
+                    <span class="package-badge" data-es="Más Popular" data-en="Most Popular">Más Popular</span>
                     <div class="package-header">
-                        <h3 class="package-type">Web Corporativa</h3>
+                        <h3 class="package-type" data-es="Web Corporativa" data-en="Corporate Website">Web Corporativa</h3>
                         <div class="package-price">$50 <span>USD</span></div>
                     </div>
                     <ul class="package-features">
-                        <li>4-8 secciones</li>
-                        <li>Múltiples páginas</li>
-                        <li>Panel autoadministrable</li>
-                        <li>SEO avanzado</li>
-                        <li>Hosting primer año incluido</li>
-                        <li>Entrega en 10-20 días hábiles</li>
+                        <li data-es="4-8 secciones" data-en="4-8 sections">4-8 secciones</li>
+                        <li data-es="Múltiples páginas" data-en="Multiple pages">Múltiples páginas</li>
+                        <li data-es="Panel autoadministrable" data-en="Self-administrable panel">Panel autoadministrable</li>
+                        <li data-es="SEO avanzado" data-en="Advanced SEO">SEO avanzado</li>
+                        <li data-es="Hosting primer año incluido" data-en="First year hosting included">Hosting primer año incluido</li>
+                        <li data-es="Entrega en 10-20 días hábiles" data-en="Delivery in 10-20 business days">Entrega en 10-20 días hábiles</li>
                     </ul>
-                    <p class="package-time">⏱️ 10-20 días hábiles</p>
-                    <a href="#questionnaire" class="btn btn-web select-package" style="width: 100%;" data-package="corporativa">
-                        Seleccionar
-                    </a>
+                    <p class="package-time">⏱️ 10-20 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
+                    <a href="#questionnaire" class="btn btn-web select-package" style="width: 100%;" data-package="corporativa" data-es="Seleccionar" data-en="Select">Seleccionar</a>
                 </div>
                 
                 <!-- E-COMMERCE -->
                 <div class="package-card">
                     <div class="package-header">
-                        <h3 class="package-type">E-commerce</h3>
+                        <h3 class="package-type" data-es="E-commerce" data-en="E-commerce">E-commerce</h3>
                         <div class="package-price">$80 <span>USD</span></div>
                     </div>
                     <ul class="package-features">
-                        <li>Catálogo de productos</li>
-                        <li>Carrito de compras</li>
-                        <li>Pasarela de pago</li>
-                        <li>Panel de administración</li>
-                        <li>Hosting primer año incluido</li>
-                        <li>Entrega en 15-30 días hábiles</li>
+                        <li data-es="Catálogo de productos" data-en="Product catalog">Catálogo de productos</li>
+                        <li data-es="Carrito de compras" data-en="Shopping cart">Carrito de compras</li>
+                        <li data-es="Pasarela de pago" data-en="Payment gateway">Pasarela de pago</li>
+                        <li data-es="Panel de administración" data-en="Administration panel">Panel de administración</li>
+                        <li data-es="Hosting primer año incluido" data-en="First year hosting included">Hosting primer año incluido</li>
+                        <li data-es="Entrega en 15-30 días hábiles" data-en="Delivery in 15-30 business days">Entrega en 15-30 días hábiles</li>
                     </ul>
-                    <p class="package-time">⏱️ 15-30 días hábiles</p>
-                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%; border-color: var(--web); color: var(--web);" data-package="ecommerce">
-                        Seleccionar
-                    </a>
+                    <p class="package-time">⏱️ 15-30 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
+                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%; border-color: var(--web); color: var(--web);" data-package="ecommerce" data-es="Seleccionar" data-en="Select">Seleccionar</a>
                 </div>
                 
                 <!-- WEB APP -->
                 <div class="package-card">
                     <div class="package-header">
-                        <h3 class="package-type">Web App</h3>
+                        <h3 class="package-type" data-es="Web App" data-en="Web App">Web App</h3>
                         <div class="package-price">$80 <span>USD</span></div>
                     </div>
                     <ul class="package-features">
-                        <li>Funcionalidad personalizada</li>
-                        <li>Base de datos</li>
-                        <li>Autenticación de usuarios</li>
-                        <li>Dashboard administrativo</li>
-                        <li>Hosting primer año incluido</li>
-                        <li>Entrega en 20-45 días hábiles</li>
+                        <li data-es="Funcionalidad personalizada" data-en="Custom functionality">Funcionalidad personalizada</li>
+                        <li data-es="Base de datos" data-en="Database">Base de datos</li>
+                        <li data-es="Autenticación de usuarios" data-en="User authentication">Autenticación de usuarios</li>
+                        <li data-es="Dashboard administrativo" data-en="Administrative dashboard">Dashboard administrativo</li>
+                        <li data-es="Hosting primer año incluido" data-en="First year hosting included">Hosting primer año incluido</li>
+                        <li data-es="Entrega en 20-45 días hábiles" data-en="Delivery in 20-45 business days">Entrega en 20-45 días hábiles</li>
                     </ul>
-                    <p class="package-time">⏱️ 20-45 días hábiles</p>
-                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%; border-color: var(--web); color: var(--web);" data-package="webapp">
-                        Seleccionar
-                    </a>
+                    <p class="package-time">⏱️ 20-45 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
+                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%; border-color: var(--web); color: var(--web);" data-package="webapp" data-es="Seleccionar" data-en="Select">Seleccionar</a>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-                <p style="color: var(--white); margin-bottom: 20px;">
-                    ¿Necesitas algo personalizado o tienes dudas sobre qué tipo de web elegir?
-                </p>
-                <a href="https://wa.me/5359758756" target="_blank" class="btn">
-                    Consultar por WhatsApp
-                </a>
+                <p style="color: var(--white); margin-bottom: 20px;" data-es="¿Necesitas algo personalizado o tienes dudas sobre qué tipo de web elegir?" data-en="Need something custom or have questions about which type of web to choose?">¿Necesitas algo personalizado o tienes dudas sobre qué tipo de web elegir?</p>
+                <a href="https://wa.me/5359758756" target="_blank" class="btn" data-es="Consultar por WhatsApp" data-en="Consult via WhatsApp">Consultar por WhatsApp</a>
             </div>
         </div>
     </section>
@@ -590,50 +516,50 @@
     <!-- INFO SECTION -->
     <section class="info-section">
         <div class="container">
-            <h2 class="section-title">¿Qué Incluye el Precio?</h2>
+            <h2 class="section-title" data-es="¿Qué Incluye el Precio?" data-en="What Does the Price Include?">¿Qué Incluye el Precio?</h2>
             
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>🌐 Hosting y Dominio</h3>
-                    <p>Primer año de hosting incluido en todos los proyectos. Puedes usar tu dominio propio o nosotros te ayudamos a conseguir uno.</p>
+                    <h3 data-es="🌐 Hosting y Dominio" data-en="🌐 Hosting and Domain">🌐 Hosting y Dominio</h3>
+                    <p data-es="Primer año de hosting incluido en todos los proyectos. Puedes usar tu dominio propio o nosotros te ayudamos a conseguir uno." data-en="First year of hosting included in all projects. You can use your own domain or we help you get one.">Primer año de hosting incluido en todos los proyectos. Puedes usar tu dominio propio o nosotros te ayudamos a conseguir uno.</p>
                     <ul>
-                        <li>Hosting gratuito primer año</li>
-                        <li>Configuración de dominio</li>
-                        <li>Certificado SSL (HTTPS)</li>
-                        <li>Renovación desde $50 USD/año</li>
+                        <li data-es="Hosting gratuito primer año" data-en="Free hosting first year">Hosting gratuito primer año</li>
+                        <li data-es="Configuración de dominio" data-en="Domain configuration">Configuración de dominio</li>
+                        <li data-es="Certificado SSL (HTTPS)" data-en="SSL Certificate (HTTPS)">Certificado SSL (HTTPS)</li>
+                        <li data-es="Renovación desde $50 USD/año" data-en="Renewal from $50 USD/year">Renovación desde $50 USD/año</li>
                     </ul>
                 </div>
                 
                 <div class="info-card">
-                    <h3>📱 Diseño Responsive</h3>
-                    <p>Tu sitio web se verá perfecto en cualquier dispositivo: computadora, tablet o teléfono móvil.</p>
+                    <h3 data-es="📱 Diseño Responsive" data-en="📱 Responsive Design">📱 Diseño Responsive</h3>
+                    <p data-es="Tu sitio web se verá perfecto en cualquier dispositivo: computadora, tablet o teléfono móvil." data-en="Your website will look perfect on any device: computer, tablet or mobile phone.">Tu sitio web se verá perfecto en cualquier dispositivo: computadora, tablet o teléfono móvil.</p>
                     <ul>
-                        <li>Adaptable a todos los dispositivos</li>
-                        <li>Optimización de velocidad</li>
-                        <li>Navegación intuitiva</li>
-                        <li>Experiencia de usuario optimizada</li>
+                        <li data-es="Adaptable a todos los dispositivos" data-en="Adaptable to all devices">Adaptable a todos los dispositivos</li>
+                        <li data-es="Optimización de velocidad" data-en="Speed optimization">Optimización de velocidad</li>
+                        <li data-es="Navegación intuitiva" data-en="Intuitive navigation">Navegación intuitiva</li>
+                        <li data-es="Experiencia de usuario optimizada" data-en="Optimized user experience">Experiencia de usuario optimizada</li>
                     </ul>
                 </div>
                 
                 <div class="info-card">
-                    <h3>🔒 Contrato Incluido</h3>
-                    <p>Todos los proyectos de desarrollo web incluyen contrato de servicio con alcance definido, cronograma y garantías.</p>
+                    <h3 data-es="🔒 Contrato Incluido" data-en="🔒 Contract Included">🔒 Contrato Incluido</h3>
+                    <p data-es="Todos los proyectos de desarrollo web incluyen contrato de servicio con alcance definido, cronograma y garantías." data-en="All web development projects include service contract with defined scope, schedule and guarantees.">Todos los proyectos de desarrollo web incluyen contrato de servicio con alcance definido, cronograma y garantías.</p>
                     <ul>
-                        <li>Contrato documentado</li>
-                        <li>Cronograma de entrega</li>
-                        <li>Garantías establecidas</li>
-                        <li>Soporte post-lanzamiento</li>
+                        <li data-es="Contrato documentado" data-en="Documented contract">Contrato documentado</li>
+                        <li data-es="Cronograma de entrega" data-en="Delivery schedule">Cronograma de entrega</li>
+                        <li data-es="Garantías establecidas" data-en="Established guarantees">Garantías establecidas</li>
+                        <li data-es="Soporte post-lanzamiento" data-en="Post-launch support">Soporte post-lanzamiento</li>
                     </ul>
                 </div>
                 
                 <div class="info-card">
-                    <h3>🎓 Capacitación</h3>
-                    <p>Te enseñamos a gestionar tu sitio web para que puedas actualizar contenido básico sin depender de nosotros.</p>
+                    <h3 data-es="🎓 Capacitación" data-en="🎓 Training">🎓 Capacitación</h3>
+                    <p data-es="Te enseñamos a gestionar tu sitio web para que puedas actualizar contenido básico sin depender de nosotros." data-en="We teach you to manage your website so you can update basic content without depending on us.">Te enseñamos a gestionar tu sitio web para que puedas actualizar contenido básico sin depender de nosotros.</p>
                     <ul>
-                        <li>Sesión de capacitación incluida</li>
-                        <li>Guía de uso básico</li>
-                        <li>Soporte durante el primer mes</li>
-                        <li>Asesoramiento técnico</li>
+                        <li data-es="Sesión de capacitación incluida" data-en="Training session included">Sesión de capacitación incluida</li>
+                        <li data-es="Guía de uso básico" data-en="Basic usage guide">Guía de uso básico</li>
+                        <li data-es="Soporte durante el primer mes" data-en="Support during first month">Soporte durante el primer mes</li>
+                        <li data-es="Asesoramiento técnico" data-en="Technical advice">Asesoramiento técnico</li>
                     </ul>
                 </div>
             </div>
@@ -643,23 +569,12 @@
     <!-- CONTRACT INFO -->
     <div class="container">
         <div class="contract-info">
-            <h2>Contrato de Servicio Web</h2>
-            <p>
-                Todos los proyectos de desarrollo web se realizan bajo contrato de servicio que protege ambas partes. 
-                El contrato incluye alcance del proyecto, cronograma de entrega, forma de pago, garantías y soporte post-lanzamiento.
-            </p>
-            <p>
-                <strong>Forma de pago:</strong> 50% de anticipo para comenzar el proyecto, 50% restante al momento de la entrega final.
-                Aceptamos efectivo (USD/CUP/EUR) y transferencias bancarias.
-            </p>
-            <p>
-                <strong>Soporte post-entrega:</strong> 1 mes de soporte técnico incluido para corrección de bugs, 
-                ajustes menores de diseño y asesoramiento técnico.
-            </p>
+            <h2 data-es="Contrato de Servicio Web" data-en="Web Service Contract">Contrato de Servicio Web</h2>
+            <p data-es="Todos los proyectos de desarrollo web se realizan bajo contrato de servicio que protege ambas partes. El contrato incluye alcance del proyecto, cronograma de entrega, forma de pago, garantías y soporte post-lanzamiento." data-en="All web development projects are carried out under a service contract that protects both parties. The contract includes project scope, delivery schedule, payment method, guarantees and post-launch support.">Todos los proyectos de desarrollo web se realizan bajo contrato de servicio que protege ambas partes. El contrato incluye alcance del proyecto, cronograma de entrega, forma de pago, garantías y soporte post-lanzamiento.</p>
+            <p data-es="Forma de pago: 50% de anticipo para comenzar el proyecto, 50% restante al momento de la entrega final. Aceptamos efectivo (USD/CUP/EUR) y transferencias bancarias." data-en="Payment method: 50% deposit to start the project, 50% remaining upon final delivery. We accept cash (USD/CUP/EUR) and bank transfers.">Forma de pago: 50% de anticipo para comenzar el proyecto, 50% restante al momento de la entrega final. Aceptamos efectivo (USD/CUP/EUR) y transferencias bancarias.</p>
+            <p data-es="Soporte post-entrega: 1 mes de soporte técnico incluido para corrección de bugs, ajustes menores de diseño y asesoramiento técnico." data-en="Post-delivery support: 1 month of technical support included for bug fixes, minor design adjustments and technical advice.">Soporte post-entrega: 1 mes de soporte técnico incluido para corrección de bugs, ajustes menores de diseño y asesoramiento técnico.</p>
             <div class="contract-download">
-                <a href="downloads/STIKMANIA_CONTRATO_WEB.pdf" download class="btn btn-outline" style="border-color: var(--web); color: var(--web);">
-                    📥 Descargar Modelo de Contrato
-                </a>
+                <a href="downloads/STIKMANIA_CONTRATO_WEB.pdf" download class="btn btn-outline" style="border-color: var(--web); color: var(--web);" data-es="📥 Descargar Modelo de Contrato" data-en="📥 Download Contract Template">📥 Descargar Modelo de Contrato</a>
             </div>
         </div>
     </div>
@@ -667,81 +582,77 @@
     <!-- QUESTIONNAIRE -->
     <section id="questionnaire" class="questionnaire">
         <div class="container">
-            <h2 class="section-title">Cuestionario de Desarrollo Web</h2>
-            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución
-            </p>
+            <h2 class="section-title" data-es="Cuestionario de Desarrollo Web" data-en="Web Development Questionnaire">Cuestionario de Desarrollo Web</h2>
+            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución" data-en="Complete this form to help us better understand your project and provide you with the best solution">Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución</p>
             
             <div id="package-selected-message" style="display: none; text-align: center; margin-bottom: 20px; padding: 15px; background: var(--gray-light); border: 1px solid var(--web); border-radius: 4px;">
-                <p style="color: var(--web); font-weight: 600;">✓ Tipo de web seleccionado: <span id="selected-package-name"></span></p>
+                <p style="color: var(--web); font-weight: 600;"><span data-es="✓ Tipo de web seleccionado:" data-en="✓ Web type selected:">✓ Tipo de web seleccionado:</span> <span id="selected-package-name"></span></p>
             </div>
             
             <form class="questionnaire-form" id="webForm" onsubmit="submitQuestionnaire(event)">
                 <div class="form-group">
-                    <label>Nombre completo *</label>
+                    <label data-es="Nombre completo *" data-en="Full name *">Nombre completo *</label>
                     <input type="text" id="q_name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>Teléfono *</label>
+                    <label data-es="Teléfono *" data-en="Phone *">Teléfono *</label>
                     <input type="tel" id="q_phone" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>Nombre de la empresa/marca *</label>
+                    <label data-es="Nombre de la empresa/marca *" data-en="Company/brand name *">Nombre de la empresa/marca *</label>
                     <input type="text" id="q_brand" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>¿A qué se dedican? *</label>
+                    <label data-es="¿A qué se dedican? *" data-en="What do you do? *">¿A qué se dedican? *</label>
                     <textarea id="q_business" rows="3" required placeholder="Describe brevemente tu negocio o proyecto..."></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>Tipo de proyecto de interés *</label>
+                    <label data-es="Tipo de proyecto de interés *" data-en="Type of project of interest *">Tipo de proyecto de interés *</label>
                     <select id="q_package" required>
                         <option value="">Selecciona un tipo de web...</option>
-                        <option value="landing">Landing / Portfolio ($20 USD)</option>
-                        <option value="corporativa">Web Corporativa ($50 USD)</option>
-                        <option value="ecommerce">E-commerce ($80 USD)</option>
-                        <option value="webapp">Web App ($80 USD)</option>
-                        <option value="personalizado">Personalizado (consultar)</option>
+                        <option value="landing" data-es="Landing / Portfolio ($20 USD)" data-en="Landing / Portfolio ($20 USD)">Landing / Portfolio ($20 USD)</option>
+                        <option value="corporativa" data-es="Web Corporativa ($50 USD)" data-en="Corporate Website ($50 USD)">Web Corporativa ($50 USD)</option>
+                        <option value="ecommerce" data-es="E-commerce ($80 USD)" data-en="E-commerce ($80 USD)">E-commerce ($80 USD)</option>
+                        <option value="webapp" data-es="Web App ($80 USD)" data-en="Web App ($80 USD)">Web App ($80 USD)</option>
+                        <option value="personalizado" data-es="Personalizado (consultar)" data-en="Custom (consult)">Personalizado (consultar)</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label>¿Ya tienes dominio y hosting?</label>
+                    <label data-es="¿Ya tienes dominio y hosting?" data-en="Do you already have domain and hosting?">¿Ya tienes dominio y hosting?</label>
                     <select id="q_hosting">
                         <option value="">Selecciona...</option>
-                        <option value="si">Sí, ya tengo ambos</option>
-                        <option value="dominio">Solo tengo dominio</option>
-                        <option value="no">No, necesito ambos</option>
+                        <option value="si" data-es="Sí, ya tengo ambos" data-en="Yes, I already have both">Sí, ya tengo ambos</option>
+                        <option value="dominio" data-es="Solo tengo dominio" data-en="I only have domain">Solo tengo dominio</option>
+                        <option value="no" data-es="No, necesito ambos" data-en="No, I need both">No, necesito ambos</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label>¿Tienes contenido preparado? (textos, imágenes, logos)</label>
+                    <label data-es="¿Tienes contenido preparado? (textos, imágenes, logos)" data-en="Do you have content ready? (texts, images, logos)">¿Tienes contenido preparado? (textos, imágenes, logos)</label>
                     <select id="q_content">
                         <option value="">Selecciona...</option>
-                        <option value="si">Sí, todo listo</option>
-                        <option value="parcial">Parcialmente</option>
-                        <option value="no">No, necesito ayuda</option>
+                        <option value="si" data-es="Sí, todo listo" data-en="Yes, all ready">Sí, todo listo</option>
+                        <option value="parcial" data-es="Parcialmente" data-en="Partially">Parcialmente</option>
+                        <option value="no" data-es="No, necesito ayuda" data-en="No, I need help">No, necesito ayuda</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label>Descripción del proyecto *</label>
+                    <label data-es="Descripción del proyecto *" data-en="Project description *">Descripción del proyecto *</label>
                     <textarea id="q_description" rows="4" required placeholder="Describe qué funcionalidades necesitas, páginas que quieres incluir, referencias de webs que te gusten..."></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>¿Deadline o fecha límite? (opcional)</label>
+                    <label data-es="¿Deadline o fecha límite? (opcional)" data-en="Deadline? (optional)">¿Deadline o fecha límite? (opcional)</label>
                     <input type="text" id="q_deadline" placeholder="Si tienes una fecha específica...">
                 </div>
                 
-                <button type="submit" class="btn btn-web" style="width: 100%;">
-                    Enviar Cuestionario por WhatsApp
-                </button>
+                <button type="submit" class="btn btn-web" style="width: 100%;" data-es="Enviar Cuestionario por WhatsApp" data-en="Send Questionnaire via WhatsApp">Enviar Cuestionario por WhatsApp</button>
             </form>
         </div>
     </section>
@@ -749,75 +660,75 @@
     <!-- FAQ -->
     <section class="faq">
         <div class="container">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Qué incluye el hosting del primer año?</span>
+                    <span data-es="¿Qué incluye el hosting del primer año?" data-en="What does the first year hosting include?">¿Qué incluye el hosting del primer año?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Incluye alojamiento web, certificado SSL (HTTPS), correos corporativos básicos, y mantenimiento del servidor. Después del primer año, la renovación es desde $50 USD/año.</p>
+                    <p data-es="Incluye alojamiento web, certificado SSL (HTTPS), correos corporativos básicos, y mantenimiento del servidor. Después del primer año, la renovación es desde $50 USD/año." data-en="Includes web hosting, SSL certificate (HTTPS), basic corporate emails, and server maintenance. After the first year, renewal is from $50 USD/year.">Incluye alojamiento web, certificado SSL (HTTPS), correos corporativos básicos, y mantenimiento del servidor. Después del primer año, la renovación es desde $50 USD/año.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Necesito pagar anticipo?</span>
+                    <span data-es="¿Necesito pagar anticipo?" data-en="Do I need to pay a deposit?">¿Necesito pagar anticipo?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final del sitio web.</p>
+                    <p data-es="Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final del sitio web." data-en="Yes, we require 50% deposit to start the project. The remaining 50% is paid upon final delivery of the website.">Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final del sitio web.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Cuánto tiempo tarda el desarrollo?</span>
+                    <span data-es="¿Cuánto tiempo tarda el desarrollo?" data-en="How long does development take?">¿Cuánto tiempo tarda el desarrollo?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Depende del tipo de proyecto: Landing (5-10 días), Corporativa (10-20 días), E-commerce (15-30 días), Web App (20-45 días). Los tiempos pueden variar según la complejidad y disponibilidad de contenido.</p>
+                    <p data-es="Depende del tipo de proyecto: Landing (5-10 días), Corporativa (10-20 días), E-commerce (15-30 días), Web App (20-45 días). Los tiempos pueden variar según la complejidad y disponibilidad de contenido." data-en="Depends on project type: Landing (5-10 days), Corporate (10-20 days), E-commerce (15-30 days), Web App (20-45 days). Times may vary depending on complexity and content availability.">Depende del tipo de proyecto: Landing (5-10 días), Corporativa (10-20 días), E-commerce (15-30 días), Web App (20-45 días). Los tiempos pueden variar según la complejidad y disponibilidad de contenido.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Puedo actualizar el contenido yo mismo?</span>
+                    <span data-es="¿Puedo actualizar el contenido yo mismo?" data-en="Can I update the content myself?">¿Puedo actualizar el contenido yo mismo?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sí. Todos los proyectos incluyen capacitación para que puedas actualizar contenido básico (textos, imágenes) sin depender de nosotros. Para cambios estructurales o nuevas funcionalidades, se cotiza aparte.</p>
+                    <p data-es="Sí. Todos los proyectos incluyen capacitación para que puedas actualizar contenido básico (textos, imágenes) sin depender de nosotros. Para cambios estructurales o nuevas funcionalidades, se cotiza aparte." data-en="Yes. All projects include training so you can update basic content (texts, images) without depending on us. For structural changes or new features, it is quoted separately.">Sí. Todos los proyectos incluyen capacitación para que puedas actualizar contenido básico (textos, imágenes) sin depender de nosotros. Para cambios estructurales o nuevas funcionalidades, se cotiza aparte.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿El sitio web será compatible con móviles?</span>
+                    <span data-es="¿El sitio web será compatible con móviles?" data-en="Will the website be mobile compatible?">¿El sitio web será compatible con móviles?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>¡Sí! Todos nuestros sitios son 100% responsive, lo que significa que se adaptan perfectamente a computadoras, tablets y teléfonos móviles.</p>
+                    <p data-es="¡Sí! Todos nuestros sitios son 100% responsive, lo que significa que se adaptan perfectamente a computadoras, tablets y teléfonos móviles." data-en="Yes! All our sites are 100% responsive, which means they adapt perfectly to computers, tablets and mobile phones.">¡Sí! Todos nuestros sitios son 100% responsive, lo que significa que se adaptan perfectamente a computadoras, tablets y teléfonos móviles.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Qué pasa si necesito cambios después de la entrega?</span>
+                    <span data-es="¿Qué pasa si necesito cambios después de la entrega?" data-en="What if I need changes after delivery?">¿Qué pasa si necesito cambios después de la entrega?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Incluimos 1 mes de soporte técnico post-entrega para corrección de bugs y ajustes menores. Después de ese período, los cambios adicionales se cotizan según complejidad ($20-50 USD/hora).</p>
+                    <p data-es="Incluimos 1 mes de soporte técnico post-entrega para corrección de bugs y ajustes menores. Después de ese período, los cambios adicionales se cotizan según complejidad ($20-50 USD/hora)." data-en="We include 1 month of post-delivery technical support for bug fixes and minor adjustments. After that period, additional changes are quoted according to complexity ($20-50 USD/hour).">Incluimos 1 mes de soporte técnico post-entrega para corrección de bugs y ajustes menores. Después de ese período, los cambios adicionales se cotizan según complejidad ($20-50 USD/hora).</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Puedo pagar en cuotas?</span>
+                    <span data-es="¿Puedo pagar en cuotas?" data-en="Can I pay in installments?">¿Puedo pagar en cuotas?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sí. Para proyectos de $50 USD o más, podemos acordar pagos parciales por fases del proyecto (ej: 50% anticipo, 25% a mitad del proyecto, 25% a la entrega).</p>
+                    <p data-es="Sí. Para proyectos de $50 USD o más, podemos acordar pagos parciales por fases del proyecto (ej: 50% anticipo, 25% a mitad del proyecto, 25% a la entrega)." data-en="Yes. For projects of $50 USD or more, we can agree on partial payments by project phases (e.g., 50% deposit, 25% at mid-project, 25% at delivery).">Sí. Para proyectos de $50 USD o más, podemos acordar pagos parciales por fases del proyecto (ej: 50% anticipo, 25% a mitad del proyecto, 25% a la entrega).</p>
                 </div>
             </div>
         </div>
@@ -827,18 +738,37 @@
     <footer>
         <div class="container">
             <p style="color: var(--white); margin-bottom: 10px;">
-                <strong>STIKMANIA</strong> - Diseño que se pega
+                <strong>STIKMANIA</strong> - <span data-es="Diseño que se pega" data-en="Design that sticks">Diseño que se pega</span>
             </p>
             <p style="color: var(--white); font-size: 0.9rem;">
                 La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com
             </p>
             <p style="color: var(--white); font-size: 0.85rem; margin-top: 20px;">
-                © STIKMANIA TM. Todos los derechos reservados.
+                © STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span>
             </p>
         </div>
     </footer>
 
     <script>
+        // LANGUAGE SYSTEM
+        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('stikmania_lang', currentLang);
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+            document.documentElement.lang = currentLang;
+        }
+        
+        updateLanguage();
+        
         // Auto-fill package when "Seleccionar" is clicked
         document.querySelectorAll('.select-package').forEach(button => {
             button.addEventListener('click', function(e) {
@@ -847,27 +777,18 @@
                 const packageMessage = document.getElementById('package-selected-message');
                 const packageName = document.getElementById('selected-package-name');
                 
-                // Set the select value
                 packageSelect.value = selectedPackage;
                 
-                // Show confirmation message
                 const packageNames = {
-                    'landing': 'Landing / Portfolio ($20 USD)',
-                    'corporativa': 'Web Corporativa ($50 USD)',
-                    'ecommerce': 'E-commerce ($80 USD)',
-                    'webapp': 'Web App ($80 USD)'
+                    'landing': currentLang === 'es' ? 'Landing / Portfolio ($20 USD)' : 'Landing / Portfolio ($20 USD)',
+                    'corporativa': currentLang === 'es' ? 'Web Corporativa ($50 USD)' : 'Corporate Website ($50 USD)',
+                    'ecommerce': currentLang === 'es' ? 'E-commerce ($80 USD)' : 'E-commerce ($80 USD)',
+                    'webapp': currentLang === 'es' ? 'Web App ($80 USD)' : 'Web App ($80 USD)'
                 };
                 
                 packageName.textContent = packageNames[selectedPackage];
                 packageMessage.style.display = 'block';
                 
-                // Highlight selected package card
-                document.querySelectorAll('.package-card').forEach(card => {
-                    card.classList.remove('seleccionado');
-                });
-                document.getElementById(`package-${selectedPackage}`).classList.add('seleccionado');
-                
-                // Highlight the select field
                 packageSelect.style.borderColor = 'var(--web)';
                 packageSelect.style.background = 'var(--gray-light)';
             });
@@ -901,32 +822,27 @@
             const description = document.getElementById('q_description').value;
             const deadline = document.getElementById('q_deadline').value;
             
-            // Get package name
             const packageSelect = document.getElementById('q_package');
             const packageName = packageSelect.options[packageSelect.selectedIndex].text;
             
-            // Get hosting name
             const hostingSelect = document.getElementById('q_hosting');
             const hostingName = hostingSelect.options[hostingSelect.selectedIndex].text;
             
-            // Get content name
             const contentSelect = document.getElementById('q_content');
             const contentName = contentSelect.options[contentSelect.selectedIndex].text;
             
-            // Build questionnaire message
             let message = `*CUESTIONARIO DE DESARROLLO WEB - STIKMANIA*\n\n`;
             message += `*Nombre:* ${name}\n`;
             message += `*Teléfono:* ${phone}\n`;
             message += `*Marca:* ${brand}\n`;
             message += `*Negocio:* ${business}\n`;
             message += `*Tipo de proyecto:* ${packageName}\n`;
-            message += `*Hosting/Dominio:* ${hosting || 'No especificado'}\n`;
-            message += `*Contenido:* ${content || 'No especificado'}\n`;
+            message += `*Hosting/Dominio:* ${hosting || currentLang === 'es' ? 'No especificado' : 'Not specified'}\n`;
+            message += `*Contenido:* ${content || currentLang === 'es' ? 'No especificado' : 'Not specified'}\n`;
             message += `*Descripción:* ${description}\n`;
-            message += `*Deadline:* ${deadline || 'No especificado'}\n`;
-            message += `\n*Nota:* Pago requiere 50% de anticipo. Contrato de servicio incluido.`;
+            message += `*Deadline:* ${deadline || currentLang === 'es' ? 'No especificado' : 'Not specified'}\n`;
+            message += `\n*Nota:* ${currentLang === 'es' ? 'Pago requiere 50% de anticipo. Contrato de servicio incluido.' : 'Payment requires 50% deposit. Service contract included.'}`;
             
-            // Open WhatsApp
             const whatsappNumber = '5359758756';
             const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');

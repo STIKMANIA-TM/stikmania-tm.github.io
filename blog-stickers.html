@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cómo elegir stickers para tu negocio en Cuba | STIKMANIA</title>
+    <title data-es="Cómo elegir stickers para tu negocio en Cuba | STIKMANIA" data-en="How to choose stickers for your business in Cuba | STIKMANIA">Cómo elegir stickers para tu negocio en Cuba | STIKMANIA</title>
     <meta name="description" content="Guía completa para seleccionar stickers personalizados: materiales, tamaños y diseños según tu industria y presupuesto en Cuba.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,11 +19,7 @@
             --gray: #1a1a1a;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -38,16 +34,10 @@
             letter-spacing: 2px;
         }
         
-        a {
-            color: var(--neon-green);
-            text-decoration: none;
-        }
+        a { color: var(--neon-green); text-decoration: none; }
+        a:hover { text-decoration: underline; }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
         
         header {
             background: var(--black);
@@ -61,9 +51,7 @@
             color: var(--neon-green);
         }
         
-        .article {
-            padding: 100px 0;
-        }
+        .article { padding: 100px 0; }
         
         .article-header {
             margin-bottom: 40px;
@@ -99,9 +87,7 @@
             text-align: center;
         }
         
-        .article-content {
-            margin-bottom: 40px;
-        }
+        .article-content { margin-bottom: 40px; }
         
         .article-content h2 {
             color: var(--neon-green);
@@ -115,20 +101,9 @@
             margin: 30px 0 15px 0;
         }
         
-        .article-content p {
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-        
-        .article-content ul, .article-content ol {
-            margin-bottom: 20px;
-            padding-left: 30px;
-            color: #ccc;
-        }
-        
-        .article-content li {
-            margin-bottom: 10px;
-        }
+        .article-content p { margin-bottom: 20px; color: #ccc; }
+        .article-content ul, .article-content ol { margin-bottom: 20px; padding-left: 30px; color: #ccc; }
+        .article-content li { margin-bottom: 10px; }
         
         .cta-box {
             background: var(--gray);
@@ -139,10 +114,7 @@
             text-align: center;
         }
         
-        .cta-box h3 {
-            color: var(--neon-green);
-            margin-bottom: 15px;
-        }
+        .cta-box h3 { color: var(--neon-green); margin-bottom: 15px; }
         
         .btn {
             display: inline-block;
@@ -156,9 +128,7 @@
             margin-top: 15px;
         }
         
-        .btn:hover {
-            background: var(--white);
-        }
+        .btn:hover { background: var(--white); }
         
         footer {
             background: var(--black);
@@ -167,14 +137,40 @@
             border-top: 1px solid var(--dark-green);
         }
         
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+        
+        .lang-btn {
+            background: var(--black);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
+        
         @media (max-width: 768px) {
-            .article-header h1 {
-                font-size: 2rem;
-            }
+            .article-header h1 { font-size: 2rem; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
 
     <header>
         <div class="container">
@@ -195,122 +191,118 @@
                         <path d="M17 17h.01"></path>
                     </svg>
                 </div>
-                <h1>Cómo elegir stickers para tu negocio en Cuba</h1>
+                <h1 data-es="Cómo elegir stickers para tu negocio en Cuba" data-en="How to choose stickers for your business in Cuba">Cómo elegir stickers para tu negocio en Cuba</h1>
                 <div class="article-meta">
-                    <span>Categoría: Stickers</span> | <span>Lectura: 5 min</span>
+                    <span data-es="Categoría: Stickers" data-en="Category: Stickers">Categoría: Stickers</span> | <span data-es="Lectura: 5 min" data-en="Reading: 5 min">Lectura: 5 min</span>
                 </div>
             </div>
             
             <div class="article-content">
-                <p>Los stickers personalizados son una de las herramientas de marketing más efectivas y económicas para emprendedores y negocios en Cuba. Pero elegir el tipo correcto puede marcar la diferencia entre un sticker que dura años y uno que necesita reemplazo.</p>
+                <p data-es="Los stickers personalizados son una de las herramientas de marketing más efectivas y económicas para emprendedores y negocios en Cuba. Pero elegir el tipo correcto puede marcar la diferencia entre un sticker que dura años y uno que necesita reemplazo." data-en="Custom stickers are one of the most effective and economical marketing tools for entrepreneurs and businesses in Cuba. But choosing the right type can make the difference between a sticker that lasts years and one that needs replacement.">Los stickers personalizados son una de las herramientas de marketing más efectivas y económicas para emprendedores y negocios en Cuba. Pero elegir el tipo correcto puede marcar la diferencia entre un sticker que dura años y uno que necesita reemplazo.</p>
                 
-                <p>En esta guía te explicamos todo lo que necesitas saber para tomar la mejor decisión según tu industria, presupuesto y objetivos.</p>
+                <p data-es="En esta guía te explicamos todo lo que necesitas saber para tomar la mejor decisión según tu industria, presupuesto y objetivos." data-en="In this guide we explain everything you need to know to make the best decision according to your industry, budget and objectives.">En esta guía te explicamos todo lo que necesitas saber para tomar la mejor decisión según tu industria, presupuesto y objetivos.</p>
                 
-                <h2>1. Vinilo vs Papel Fotográfico: ¿Cuál necesitas?</h2>
+                <h2 data-es="1. Vinilo vs Papel Fotográfico: ¿Cuál necesitas?" data-en="1. Vinyl vs Photo Paper: Which do you need?">1. Vinilo vs Papel Fotográfico: ¿Cuál necesitas?</h2>
                 
-                <h3>Vinilo Impermeable</h3>
-                <p><strong>Ideal para:</strong> Exteriores, productos expuestos al agua o sol, laptops, botellas, vehículos.</p>
-                
-                <ul>
-                    <li>✅ Resistente al agua y la humedad</li>
-                    <li>✅ Protección UV (no se decolora con el sol)</li>
-                    <li>✅ Duración: más de 2 años</li>
-                    <li>✅ Precio: Desde $2 USD (20 stickers 5x5cm)</li>
-                </ul>
-                
-                <h3>Papel Fotográfico Adhesivo</h3>
-                <p><strong>Ideal para:</strong> Interiores, decoración, etiquetado temporal, eventos.</p>
+                <h3 data-es="Vinilo Impermeable" data-en="Waterproof Vinyl">Vinilo Impermeable</h3>
+                <p data-es="Ideal para: Exteriores, productos expuestos al agua o sol, laptops, botellas, vehículos." data-en="Ideal for: Outdoors, products exposed to water or sun, laptops, bottles, vehicles.">Ideal para: Exteriores, productos expuestos al agua o sol, laptops, botellas, vehículos.</p>
                 
                 <ul>
-                    <li>✅ Acabado brillante profesional</li>
-                    <li>✅ Más económico</li>
-                    <li>✅ Precio: Desde $1 USD (20 stickers 5x5cm)</li>
+                    <li data-es="✅ Resistente al agua y la humedad" data-en="✅ Water and moisture resistant">✅ Resistente al agua y la humedad</li>
+                    <li data-es="✅ Protección UV (no se decolora con el sol)" data-en="✅ UV protection (does not fade in the sun)">✅ Protección UV (no se decolora con el sol)</li>
+                    <li data-es="✅ Duración: más de 2 años" data-en="✅ Durability: more than 2 years">✅ Duración: más de 2 años</li>
+                    <li data-es="✅ Precio: Desde $2 USD (20 stickers 5x5cm)" data-en="✅ Price: From $2 USD (20 stickers 5x5cm)">✅ Precio: Desde $2 USD (20 stickers 5x5cm)</li>
                 </ul>
                 
-                <h2>2. Aplicaciones por industria</h2>
+                <h3 data-es="Papel Fotográfico Adhesivo" data-en="Adhesive Photo Paper">Papel Fotográfico Adhesivo</h3>
+                <p data-es="Ideal para: Interiores, decoración, etiquetado temporal, eventos." data-en="Ideal for: Interiors, decoration, temporary labeling, events.">Ideal para: Interiores, decoración, etiquetado temporal, eventos.</p>
                 
-                <h3>Food & Beverage (Restaurantes, Cafeterías)</h3>
                 <ul>
-                    <li>Sellos en servilletas, decoración de mesas</li>
-                    <li>Etiquetas en envases, logos en vasos</li>
-                    <li>Menús promocionales, decoración de paredes</li>
+                    <li data-es="✅ Acabado brillante profesional" data-en="✅ Professional glossy finish">✅ Acabado brillante profesional</li>
+                    <li data-es="✅ Más económico" data-en="✅ More economical">✅ Más económico</li>
+                    <li data-es="✅ Precio: Desde $1 USD (20 stickers 5x5cm)" data-en="✅ Price: From $1 USD (20 stickers 5x5cm)">✅ Precio: Desde $1 USD (20 stickers 5x5cm)</li>
                 </ul>
                 
-                <h3>Productos de Belleza y Cuidado Personal</h3>
+                <h2 data-es="2. Aplicaciones por industria" data-en="2. Applications by industry">2. Aplicaciones por industria</h2>
+                
+                <h3 data-es="Food & Beverage (Restaurantes, Cafeterías)" data-en="Food & Beverage (Restaurants, Cafes)">Food & Beverage (Restaurantes, Cafeterías)</h3>
                 <ul>
-                    <li>Etiquetas en frascos pequeños</li>
-                    <li>Etiquetas en botellas de shampoo, cremas</li>
-                    <li>Packaging principal</li>
+                    <li data-es="Sellos en servilletas, decoración de mesas" data-en="Stamps on napkins, table decoration">Sellos en servilletas, decoración de mesas</li>
+                    <li data-es="Etiquetas en envases, logos en vasos" data-en="Labels on containers, logos on cups">Etiquetas en envases, logos en vasos</li>
+                    <li data-es="Menús promocionales, decoración de paredes" data-en="Promotional menus, wall decoration">Menús promocionales, decoración de paredes</li>
                 </ul>
                 
-                <h3>Tecnología y Gadgets</h3>
+                <h3 data-es="Productos de Belleza y Cuidado Personal" data-en="Beauty and Personal Care Products">Productos de Belleza y Cuidado Personal</h3>
                 <ul>
-                    <li>Logos en laptops, teléfonos</li>
-                    <li>Stickers decorativos para dispositivos</li>
+                    <li data-es="Etiquetas en frascos pequeños" data-en="Labels on small jars">Etiquetas en frascos pequeños</li>
+                    <li data-es="Etiquetas en botellas de shampoo, cremas" data-en="Labels on shampoo bottles, creams">Etiquetas en botellas de shampoo, cremas</li>
+                    <li data-es="Packaging principal" data-en="Main packaging">Packaging principal</li>
                 </ul>
                 
-                <h3>Eventos y Souvenirs</h3>
+                <h3 data-es="Tecnología y Gadgets" data-en="Technology and Gadgets">Tecnología y Gadgets</h3>
                 <ul>
-                    <li>Recuerdos para invitados</li>
-                    <li>Decoración de espacios</li>
+                    <li data-es="Logos en laptops, teléfonos" data-en="Logos on laptops, phones">Logos en laptops, teléfonos</li>
+                    <li data-es="Stickers decorativos para dispositivos" data-en="Decorative stickers for devices">Stickers decorativos para dispositivos</li>
                 </ul>
                 
-                <h2>3. Consejos de diseño que venden</h2>
+                <h3 data-es="Eventos y Souvenirs" data-en="Events and Souvenirs">Eventos y Souvenirs</h3>
+                <ul>
+                    <li data-es="Recuerdos para invitados" data-en="Souvenirs for guests">Recuerdos para invitados</li>
+                    <li data-es="Decoración de espacios" data-en="Space decoration">Decoración de espacios</li>
+                </ul>
+                
+                <h2 data-es="3. Consejos de diseño que venden" data-en="3. Design tips that sell">3. Consejos de diseño que venden</h2>
                 
                 <ol>
-                    <li><strong>Manténlo simple:</strong> Menos es más. Un logo claro y legible funciona mejor que diseños recargados.</li>
-                    
-                    <li><strong>Contraste alto:</strong> Colores que contrasten garantizan visibilidad desde lejos.</li>
-                    
-                    <li><strong>Tipografía legible:</strong> Evita fuentes muy decorativas si el texto es pequeño.</li>
-                    
-                    <li><strong>Resolución alta:</strong> Mínimo 300 DPI para impresión nítida.</li>
-                    
-                    <li><strong>Considera el fondo:</strong> Si tu sticker va en superficies oscuras, usa colores claros o agrega un borde blanco.</li>
+                    <li data-es="Manténlo simple: Menos es más. Un logo claro y legible funciona mejor que diseños recargados." data-en="Keep it simple: Less is more. A clear and legible logo works better than overloaded designs.">Manténlo simple: Menos es más. Un logo claro y legible funciona mejor que diseños recargados.</li>
+                    <li data-es="Contraste alto: Colores que contrasten garantizan visibilidad desde lejos." data-en="High contrast: Contrasting colors guarantee visibility from afar.">Contraste alto: Colores que contrasten garantizan visibilidad desde lejos.</li>
+                    <li data-es="Tipografía legible: Evita fuentes muy decorativas si el texto es pequeño." data-en="Legible typography: Avoid very decorative fonts if the text is small.">Tipografía legible: Evita fuentes muy decorativas si el texto es pequeño.</li>
+                    <li data-es="Resolución alta: Mínimo 300 DPI para impresión nítida." data-en="High resolution: Minimum 300 DPI for sharp printing.">Resolución alta: Mínimo 300 DPI para impresión nítida.</li>
+                    <li data-es="Considera el fondo: Si tu sticker va en superficies oscuras, usa colores claros o agrega un borde blanco." data-en="Consider the background: If your sticker goes on dark surfaces, use light colors or add a white border.">Considera el fondo: Si tu sticker va en superficies oscuras, usa colores claros o agrega un borde blanco.</li>
                 </ol>
                 
-                <h2>4. Errores comunes a evitar</h2>
+                <h2 data-es="4. Errores comunes a evitar" data-en="4. Common mistakes to avoid">4. Errores comunes a evitar</h2>
                 
                 <ul>
-                    <li>❌ <strong>Usar papel en exteriores:</strong> Se arruinará con la primera lluvia.</li>
-                    <li>❌ <strong>Stickers muy pequeños con mucho texto:</strong> Nadie podrá leerlo.</li>
-                    <li>❌ <strong>Colores que no contrastan:</strong> Tu logo desaparecerá en el fondo.</li>
-                    <li>❌ <strong>No considerar la superficie:</strong> Un sticker curvo necesita material flexible.</li>
-                    <li>❌ <strong>Imágenes de baja calidad:</strong> Se verán pixeladas al imprimir.</li>
+                    <li data-es="❌ Usar papel en exteriores: Se arruinará con la primera lluvia." data-en="❌ Using paper outdoors: It will be ruined with the first rain.">❌ Usar papel en exteriores: Se arruinará con la primera lluvia.</li>
+                    <li data-es="❌ Stickers muy pequeños con mucho texto: Nadie podrá leerlo." data-en="❌ Very small stickers with too much text: No one will be able to read it.">❌ Stickers muy pequeños con mucho texto: Nadie podrá leerlo.</li>
+                    <li data-es="❌ Colores que no contrastan: Tu logo desaparecerá en el fondo." data-en="❌ Colors that don't contrast: Your logo will disappear in the background.">❌ Colores que no contrastan: Tu logo desaparecerá en el fondo.</li>
+                    <li data-es="❌ No considerar la superficie: Un sticker curvo necesita material flexible." data-en="❌ Not considering the surface: A curved sticker needs flexible material.">❌ No considerar la superficie: Un sticker curvo necesita material flexible.</li>
+                    <li data-es="❌ Imágenes de baja calidad: Se verán pixeladas al imprimir." data-en="❌ Low quality images: They will look pixelated when printing.">❌ Imágenes de baja calidad: Se verán pixeladas al imprimir.</li>
                 </ul>
                 
-                <h2>5. Cuántos pedir según tu presupuesto</h2>
+                <h2 data-es="5. Cuántos pedir según tu presupuesto" data-en="5. How many to order according to your budget">5. Cuántos pedir según tu presupuesto</h2>
                 
-                <h3>Presupuesto bajo ($1-2 USD)</h3>
-                <p>20-24 stickers de 4x4 o 5x5 cm en papel. Suficiente para probar o eventos pequeños.</p>
+                <h3 data-es="Presupuesto bajo ($1-2 USD)" data-en="Low budget ($1-2 USD)">Presupuesto bajo ($1-2 USD)</h3>
+                <p data-es="20-24 stickers de 4x4 o 5x5 cm en papel. Suficiente para probar o eventos pequeños." data-en="20-24 stickers of 4x4 or 5x5 cm on paper. Enough to try or for small events.">20-24 stickers de 4x4 o 5x5 cm en papel. Suficiente para probar o eventos pequeños.</p>
                 
-                <h3>Presupuesto medio ($3-4 USD)</h3>
-                <p>48 stickers de 3x3 cm en vinilo. Ideal para branding en productos o distribución masiva.</p>
+                <h3 data-es="Presupuesto medio ($3-4 USD)" data-en="Medium budget ($3-4 USD)">Presupuesto medio ($3-4 USD)</h3>
+                <p data-es="48 stickers de 3x3 cm en vinilo. Ideal para branding en productos o distribución masiva." data-en="48 stickers of 3x3 cm on vinyl. Ideal for product branding or mass distribution.">48 stickers de 3x3 cm en vinilo. Ideal para branding en productos o distribución masiva.</p>
                 
-                <h3>Presupuesto alto ($10+ USD)</h3>
-                <p>Combina diferentes tamaños y materiales. Vinilo para exteriores + papel para interiores.</p>
+                <h3 data-es="Presupuesto alto ($10+ USD)" data-en="High budget ($10+ USD)">Presupuesto alto ($10+ USD)</h3>
+                <p data-es="Combina diferentes tamaños y materiales. Vinilo para exteriores + papel para interiores." data-en="Combine different sizes and materials. Vinyl for outdoors + paper for interiors.">Combina diferentes tamaños y materiales. Vinilo para exteriores + papel para interiores.</p>
                 
                 <div class="cta-box">
-                    <h3>¿Listo para crear tus stickers?</h3>
-                    <p>En STIKMANIA te asesoramos para elegir el material, tamaño y diseño perfecto para tu negocio.</p>
-                    <a href="stickers.html" class="btn">Ver Catálogo y Precios</a>
+                    <h3 data-es="¿Listo para crear tus stickers?" data-en="Ready to create your stickers?">¿Listo para crear tus stickers?</h3>
+                    <p data-es="En STIKMANIA te asesoramos para elegir el material, tamaño y diseño perfecto para tu negocio." data-en="At STIKMANIA we advise you to choose the perfect material, size and design for your business.">En STIKMANIA te asesoramos para elegir el material, tamaño y diseño perfecto para tu negocio.</p>
+                    <a href="stickers.html" class="btn" data-es="Ver Catálogo y Precios" data-en="View Catalog and Prices">Ver Catálogo y Precios</a>
                 </div>
                 
-                <h2>Conclusión</h2>
+                <h2 data-es="Conclusión" data-en="Conclusion">Conclusión</h2>
                 
-                <p>Elegir los stickers correctos no es solo cuestión de gustos. Considera:</p>
+                <p data-es="Elegir los stickers correctos no es solo cuestión de gustos. Considera:" data-en="Choosing the right stickers is not just a matter of taste. Consider:">Elegir los stickers correctos no es solo cuestión de gustos. Considera:</p>
                 
                 <ul>
-                    <li>¿Dónde se usarán? (interior/exterior)</li>
-                    <li>¿Cuánto tiempo deben durar?</li>
-                    <li>¿En qué superficie se pegarán?</li>
-                    <li>¿Cuál es tu presupuesto?</li>
+                    <li data-es="¿Dónde se usarán? (interior/exterior)" data-en="Where will they be used? (indoor/outdoor)">¿Dónde se usarán? (interior/exterior)</li>
+                    <li data-es="¿Cuánto tiempo deben durar?" data-en="How long should they last?">¿Cuánto tiempo deben durar?</li>
+                    <li data-es="¿En qué superficie se pegarán?" data-en="What surface will they be stuck on?">¿En qué superficie se pegarán?</li>
+                    <li data-es="¿Cuál es tu presupuesto?" data-en="What is your budget?">¿Cuál es tu presupuesto?</li>
                 </ul>
                 
-                <p>Con esta información, estás listo para hacer un pedido inteligente que maximice tu inversión en branding.</p>
+                <p data-es="Con esta información, estás listo para hacer un pedido inteligente que maximice tu inversión en branding." data-en="With this information, you are ready to make a smart order that maximizes your branding investment.">Con esta información, estás listo para hacer un pedido inteligente que maximice tu inversión en branding.</p>
                 
                 <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--dark-green);">
-                    <strong>¿Tienes dudas?</strong> Escríbenos por WhatsApp y te ayudamos a elegir la mejor opción para tu proyecto.
+                    <strong data-es="¿Tienes dudas?" data-en="Do you have questions?">¿Tienes dudas?</strong> <span data-es="Escríbenos por WhatsApp y te ayudamos a elegir la mejor opción para tu proyecto." data-en="Write to us on WhatsApp and we'll help you choose the best option for your project.">Escríbenos por WhatsApp y te ayudamos a elegir la mejor opción para tu proyecto.</span>
                 </p>
             </div>
         </div>
@@ -318,12 +310,32 @@
 
     <footer>
         <div class="container">
-            <p>© STIKMANIA TM. Todos los derechos reservados. | 2026</p>
+            <p>© STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span> | 2026</p>
             <p style="margin-top: 10px;">
-                <a href="index.html">← Volver al Inicio</a>
+                <a href="index.html" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
             </p>
         </div>
     </footer>
+
+    <script>
+        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('stikmania_lang', currentLang);
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+            document.documentElement.lang = currentLang;
+        }
+        
+        updateLanguage();
+    </script>
 
 </body>
 </html>

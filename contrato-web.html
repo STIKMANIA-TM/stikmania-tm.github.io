@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contrato de Desarrollo Web | STIKMANIA</title>
+    <title data-es="Contrato de Desarrollo Web | STIKMANIA" data-en="Web Development Contract | STIKMANIA">Contrato de Desarrollo Web | STIKMANIA</title>
     <meta name="description" content="Contrato de servicios de desarrollo web STIKMANIA. Términos y condiciones para proyectos web.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
-    
-    <!-- html2pdf.js para descargar PDF real -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <style>
         :root {
@@ -19,13 +16,11 @@
             --black: #000000;
             --white: #FFFFFF;
             --gray: #1a1a1a;
+            --gray-light: #2a2a2a;
+            --web: #4fc3f7;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -35,21 +30,11 @@
             padding: 100px 20px;
         }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Pirata One', display;
-            color: var(--neon-green);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .container { max-width: 800px; margin: 0 auto; }
         
         h1 {
+            font-family: 'Pirata One', display;
+            color: var(--web);
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 10px;
@@ -61,40 +46,24 @@
             margin-bottom: 40px;
         }
         
-        p {
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-        
-        ul, ol {
-            margin-bottom: 20px;
-            padding-left: 30px;
-            color: #ccc;
-        }
-        
-        li {
-            margin-bottom: 10px;
-        }
-        
-        a {
-            color: var(--neon-green);
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .btn-group {
-            text-align: center;
+        h2 {
+            font-family: 'Inter', sans-serif;
+            color: var(--web);
+            font-size: 1.5rem;
             margin-top: 40px;
-            position: sticky;
-            bottom: 20px;
-            background: var(--black);
-            padding: 20px;
-            border-top: 1px solid var(--dark-green);
+            margin-bottom: 20px;
+            font-weight: 600;
         }
         
-        .btn {
+        p { margin-bottom: 20px; color: #ccc; }
+        ul, ol { margin-bottom: 20px; padding-left: 30px; color: #ccc; }
+        li { margin-bottom: 10px; }
+        a { color: var(--web); }
+        a:hover { text-decoration: underline; }
+        
+        .btn-group { text-align: center; margin-top: 40px; }
+        
+        .download-btn, .print-btn, .back-link {
             display: inline-block;
             margin: 10px;
             padding: 14px 32px;
@@ -105,47 +74,35 @@
             cursor: pointer;
             border: none;
             font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
         }
         
-        .btn-pdf {
-            background: var(--neon-green);
+        .download-btn {
+            background: var(--web);
             color: var(--black);
         }
         
-        .btn-pdf:hover {
-            background: var(--white);
-            transform: translateY(-2px);
-        }
+        .download-btn:hover { background: var(--white); }
         
-        .btn-print {
+        .print-btn {
             background: transparent;
-            border: 2px solid var(--neon-green);
-            color: var(--neon-green);
+            border: 2px solid var(--web);
+            color: var(--web);
         }
         
-        .btn-print:hover {
-            background: var(--neon-green);
-            color: var(--black);
-            transform: translateY(-2px);
-        }
+        .print-btn:hover { background: var(--web); color: var(--black); }
         
-        .btn-back {
+        .back-link {
             background: transparent;
-            border: 2px solid var(--white);
-            color: var(--white);
+            border: 2px solid var(--web);
+            color: var(--web);
         }
         
-        .btn-back:hover {
-            background: var(--white);
-            color: var(--black);
-            transform: translateY(-2px);
-        }
+        .back-link:hover { background: var(--web); color: var(--black); }
         
         .signature-box {
             margin-top: 60px;
             padding: 30px;
-            border: 2px solid var(--neon-green);
+            border: 2px solid var(--web);
             background: #001100;
         }
         
@@ -163,244 +120,200 @@
             margin-top: 40px;
         }
         
-        @media (max-width: 768px) {
-            .signature-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .btn-group {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                position: static;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
         }
         
-        /* Print Styles */
+        .lang-btn {
+            background: var(--black);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
+        
+        @media (max-width: 768px) {
+            .signature-grid { grid-template-columns: 1fr; }
+            .btn-group { display: flex; flex-direction: column; align-items: center; }
+            .download-btn, .print-btn, .back-link { width: 100%; max-width: 300px; }
+            .lang-switch { top: 10px; right: 10px; }
+        }
+        
         @media print {
-            body {
-                background: white !important;
-                color: black !important;
-                padding: 0;
-                font-size: 12pt;
-            }
-            
-            .btn-group {
-                display: none !important;
-            }
-            
-            h1, h2, h3 {
-                color: black !important;
-                font-family: 'Pirata One', cursive !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .signature-box {
-                border-color: black !important;
-                background: white !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .signature-line {
-                border-color: black !important;
-            }
-            
-            p, ul, li {
-                color: black !important;
-            }
-            
-            a {
-                text-decoration: none;
-                color: black !important;
-            }
-            
-            @page {
-                margin: 2cm;
-                size: A4 portrait;
-            }
+            body { background: white !important; color: black !important; padding: 0; }
+            .btn-group, .lang-switch { display: none !important; }
+            h1, h2 { color: black !important; }
+            .signature-box { border-color: black !important; background: white !important; }
+            .signature-line { border-color: black !important; }
+            p, ul, li { color: black !important; }
         }
     </style>
 </head>
 <body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
+
     <div class="container" id="contract-content">
-        <h1>CONTRATO DE DESARROLLO WEB</h1>
-        <p class="subtitle"><strong>STIKMANIA</strong> - La Habana, Cuba</p>
-        <p class="subtitle"><strong>Fecha:</strong> _________________</p>
+        <h1 data-es="CONTRATO DE DESARROLLO WEB" data-en="WEB DEVELOPMENT CONTRACT">CONTRATO DE DESARROLLO WEB</h1>
+        <p class="subtitle">
+            <strong>STIKMANIA</strong> - <span data-es="La Habana, Cuba" data-en="Havana, Cuba">La Habana, Cuba</span><br>
+            <span data-es="Fecha: _________________" data-en="Date: _________________">Fecha: _________________</span>
+        </p>
         
-        <h2>PARTES</h2>
-        <p><strong>PRESTADOR:</strong> STIKMANIA (Adrián González), con domicilio en La Habana, Cuba, email: stikmania795@gmail.com, teléfono: +53 5 975 8756</p>
+        <h2 data-es="PARTES" data-en="PARTIES">PARTES</h2>
+        <p data-es="PRESTADOR: STIKMANIA (Adrián González), con domicilio en La Habana, Cuba, email: stikmania795@gmail.com, teléfono: +53 5 975 8756" data-en="PROVIDER: STIKMANIA (Adrián González), domiciled in Havana, Cuba, email: stikmania795@gmail.com, phone: +53 5 975 8756">PRESTADOR: STIKMANIA (Adrián González), con domicilio en La Habana, Cuba, email: stikmania795@gmail.com, teléfono: +53 5 975 8756</p>
+        <p data-es="CLIENTE: _________________________________________________, con domicilio en _________________________, email: _________________________, teléfono: _________________________" data-en="CLIENT: _________________________________________________, domiciled in _________________________, email: _________________________, phone: _________________________">CLIENTE: _________________________________________________, con domicilio en _________________________, email: _________________________, teléfono: _________________________</p>
         
-        <p><strong>CLIENTE:</strong> _________________________________________________, con domicilio en _________________________, email: _________________________, teléfono: _________________________</p>
+        <h2 data-es="CLÁUSULAS" data-en="CLAUSES">CLÁUSULAS</h2>
         
-        <h2>CLÁUSULAS</h2>
-        
-        <h2>1. OBJETO DEL CONTRATO</h2>
-        <p>El PRESTADOR se compromete a desarrollar un sitio web para el CLIENTE según las siguientes especificaciones:</p>
+        <h2 data-es="1. OBJETO DEL CONTRATO" data-en="1. CONTRACT OBJECT">1. OBJETO DEL CONTRATO</h2>
+        <p data-es="El PRESTADOR se compromete a desarrollar un sitio web para el CLIENTE según las siguientes especificaciones:" data-en="The PROVIDER commits to develop a website for the CLIENT according to the following specifications:">El PRESTADOR se compromete a desarrollar un sitio web para el CLIENTE según las siguientes especificaciones:</p>
         <ul>
-            <li><strong>Tipo de proyecto:</strong> ☐ Landing Page ☐ Web Corporativa ☐ E-commerce ☐ Web App</li>
-            <li><strong>Descripción:</strong> _________________________________________________</li>
-            <li><strong>Páginas/secciones incluidas:</strong> _________________________________________________</li>
-            <li><strong>Funcionalidades específicas:</strong> _________________________________________________</li>
+            <li data-es="Tipo de proyecto: ☐ Landing Page ☐ Web Corporativa ☐ E-commerce ☐ Web App" data-en="Project type: ☐ Landing Page ☐ Corporate Website ☐ E-commerce ☐ Web App">Tipo de proyecto: ☐ Landing Page ☐ Web Corporativa ☐ E-commerce ☐ Web App</li>
+            <li data-es="Descripción: _________________________________________________" data-en="Description: _________________________________________________">Descripción: _________________________________________________</li>
+            <li data-es="Páginas/secciones incluidas: _________________________________________________" data-en="Pages/sections included: _________________________________________________">Páginas/secciones incluidas: _________________________________________________</li>
+            <li data-es="Funcionalidades específicas: _________________________________________________" data-en="Specific functionalities: _________________________________________________">Funcionalidades específicas: _________________________________________________</li>
         </ul>
         
-        <h2>2. PRECIO Y FORMA DE PAGO</h2>
-        <p><strong>Precio total:</strong> $__________ USD</p>
-        <p><strong>Forma de pago:</strong></p>
+        <h2 data-es="2. PRECIO Y FORMA DE PAGO" data-en="2. PRICE AND PAYMENT METHOD">2. PRECIO Y FORMA DE PAGO</h2>
+        <p data-es="Precio total: $__________ USD" data-en="Total price: $__________ USD">Precio total: $__________ USD</p>
+        <p data-es="Forma de pago:" data-en="Payment method:">Forma de pago:</p>
         <ul>
-            <li>50% anticipo: $__________ USD (al firmar contrato)</li>
-            <li>50% entrega: $__________ USD (al finalizar proyecto)</li>
+            <li data-es="50% anticipo: $__________ USD (al firmar contrato)" data-en="50% deposit: $__________ USD (upon signing contract)">50% anticipo: $__________ USD (al firmar contrato)</li>
+            <li data-es="50% entrega: $__________ USD (al finalizar proyecto)" data-en="50% delivery: $__________ USD (upon project completion)">50% entrega: $__________ USD (al finalizar proyecto)</li>
         </ul>
-        <p><strong>Método de pago:</strong> ☐ Efectivo (USD) ☐ Transferencia bancaria ☐ Otro: _______________</p>
+        <p data-es="Método de pago: ☐ Efectivo (USD) ☐ Transferencia bancaria ☐ Otro: _______________" data-en="Payment method: ☐ Cash (USD) ☐ Bank transfer ☐ Other: _______________">Método de pago: ☐ Efectivo (USD) ☐ Transferencia bancaria ☐ Otro: _______________</p>
         
-        <h2>3. PLAZO DE EJECUCIÓN</h2>
-        <p><strong>Fecha de inicio:</strong> _________________</p>
-        <p><strong>Fecha estimada de entrega:</strong> _________________</p>
-        <p><strong>Tiempo estimado:</strong> _____ días hábiles</p>
-        <p>El plazo puede extenderse por:</p>
+        <h2 data-es="3. PLAZO DE EJECUCIÓN" data-en="3. EXECUTION PERIOD">3. PLAZO DE EJECUCIÓN</h2>
+        <p data-es="Fecha de inicio: _________________" data-en="Start date: _________________">Fecha de inicio: _________________</p>
+        <p data-es="Fecha estimada de entrega: _________________" data-en="Estimated delivery date: _________________">Fecha estimada de entrega: _________________</p>
+        <p data-es="Tiempo estimado: _____ días hábiles" data-en="Estimated time: _____ business days">Tiempo estimado: _____ días hábiles</p>
+        <p data-es="El plazo puede extenderse por:" data-en="The period may be extended due to:">El plazo puede extenderse por:</p>
         <ul>
-            <li>Retrasos en la entrega de contenido por parte del CLIENTE</li>
-            <li>Problemas de conectividad o electricidad en Cuba</li>
-            <li>Solicitudes de cambios fuera del alcance acordado</li>
-        </ul>
-        
-        <h2>4. OBLIGACIONES DEL PRESTADOR</h2>
-        <ul>
-            <li>Desarrollar el sitio web según especificaciones acordadas</li>
-            <li>Entregar proyecto funcional y optimizado</li>
-            <li>Proporcionar 1 mes de soporte técnico post-entrega</li>
-            <li>Capacitar al CLIENTE en gestión básica del sitio (si aplica)</li>
-            <li>Mantener confidencialidad sobre información del CLIENTE</li>
+            <li data-es="Retrasos en la entrega de contenido por parte del CLIENTE" data-en="Delays in content delivery by the CLIENT">Retrasos en la entrega de contenido por parte del CLIENTE</li>
+            <li data-es="Problemas de conectividad o electricidad en Cuba" data-en="Connectivity or electricity problems in Cuba">Problemas de conectividad o electricidad en Cuba</li>
+            <li data-es="Solicitudes de cambios fuera del alcance acordado" data-en="Change requests outside agreed scope">Solicitudes de cambios fuera del alcance acordado</li>
         </ul>
         
-        <h2>5. OBLIGACIONES DEL CLIENTE</h2>
+        <h2 data-es="4. OBLIGACIONES DEL PRESTADOR" data-en="4. PROVIDER OBLIGATIONS">4. OBLIGACIONES DEL PRESTADOR</h2>
         <ul>
-            <li>Proporcionar contenido (textos, imágenes, logos) en tiempo y forma</li>
-            <li>Realizar pagos según cronograma establecido</li>
-            <li>Responder a consultas y revisiones en máximo 5 días hábiles</li>
-            <li>Proporcionar acceso a hosting/dominio (si ya los tiene)</li>
+            <li data-es="Desarrollar el sitio web según especificaciones acordadas" data-en="Develop the website according to agreed specifications">Desarrollar el sitio web según especificaciones acordadas</li>
+            <li data-es="Entregar proyecto funcional y optimizado" data-en="Deliver functional and optimized project">Entregar proyecto funcional y optimizado</li>
+            <li data-es="Proporcionar 1 mes de soporte técnico post-entrega" data-en="Provide 1 month post-delivery technical support">Proporcionar 1 mes de soporte técnico post-entrega</li>
+            <li data-es="Capacitar al CLIENTE en gestión básica del sitio (si aplica)" data-en="Train CLIENT in basic site management (if applicable)">Capacitar al CLIENTE en gestión básica del sitio (si aplica)</li>
+            <li data-es="Mantener confidencialidad sobre información del CLIENTE" data-en="Maintain confidentiality on CLIENT information">Mantener confidencialidad sobre información del CLIENTE</li>
         </ul>
         
-        <h2>6. PROPIEDAD INTELECTUAL</h2>
-        <p><strong>Contenido:</strong> El CLIENTE conserva todos los derechos sobre textos, imágenes y logos proporcionados.</p>
-        <p><strong>Diseño:</strong> Una vez completado el pago total, el CLIENTE posee los derechos del diseño final.</p>
-        <p><strong>Código:</strong> El PRESTADOR conserva derechos sobre código reutilizable, librerías y frameworks. El CLIENTE recibe licencia de uso ilimitado del código específico de su proyecto.</p>
-        
-        <h2>7. HOSTING Y DOMINIO</h2>
-        <p>☐ El CLIENTE contrata hosting y dominio por su cuenta</p>
-        <p>☐ El PRESTADOR gestiona hosting primer año incluido (renovación: $______ USD/año)</p>
-        <p>☐ Dominio: _________________________________________________</p>
-        
-        <h2>8. SOPORTE POST-ENTREGA</h2>
-        <p><strong>Incluido (1 mes):</strong></p>
+        <h2 data-es="5. OBLIGACIONES DEL CLIENTE" data-en="5. CLIENT OBLIGATIONS">5. OBLIGACIONES DEL CLIENTE</h2>
         <ul>
-            <li>Corrección de bugs y errores</li>
-            <li>Ajustes menores de diseño</li>
-            <li>Asesoramiento técnico</li>
+            <li data-es="Proporcionar contenido (textos, imágenes, logos) en tiempo y forma" data-en="Provide content (texts, images, logos) on time">Proporcionar contenido (textos, imágenes, logos) en tiempo y forma</li>
+            <li data-es="Realizar pagos según cronograma establecido" data-en="Make payments according to established schedule">Realizar pagos según cronograma establecido</li>
+            <li data-es="Responder a consultas y revisiones en máximo 5 días hábiles" data-en="Respond to inquiries and revisions within maximum 5 business days">Responder a consultas y revisiones en máximo 5 días hábiles</li>
+            <li data-es="Proporcionar acceso a hosting/dominio (si ya los tiene)" data-en="Provide hosting/domain access (if already owned)">Proporcionar acceso a hosting/dominio (si ya los tiene)</li>
         </ul>
-        <p><strong>No incluido:</strong></p>
+        
+        <h2 data-es="6. PROPIEDAD INTELECTUAL" data-en="6. INTELLECTUAL PROPERTY">6. PROPIEDAD INTELECTUAL</h2>
+        <p data-es="Contenido: El CLIENTE conserva todos los derechos sobre textos, imágenes y logos proporcionados." data-en="Content: CLIENT retains all rights to provided texts, images and logos.">Contenido: El CLIENTE conserva todos los derechos sobre textos, imágenes y logos proporcionados.</p>
+        <p data-es="Diseño: Una vez completado el pago total, el CLIENTE posee los derechos del diseño final." data-en="Design: Once full payment is completed, CLIENT owns final design rights.">Diseño: Una vez completado el pago total, el CLIENTE posee los derechos del diseño final.</p>
+        <p data-es="Código: El PRESTADOR conserva derechos sobre código reutilizable, librerías y frameworks. El CLIENTE recibe licencia de uso ilimitado del código específico de su proyecto." data-en="Code: PROVIDER retains rights to reusable code, libraries and frameworks. CLIENT receives unlimited use license of specific project code.">Código: El PRESTADOR conserva derechos sobre código reutilizable, librerías y frameworks. El CLIENTE recibe licencia de uso ilimitado del código específico de su proyecto.</p>
+        
+        <h2 data-es="7. HOSTING Y DOMINIO" data-en="7. HOSTING AND DOMAIN">7. HOSTING Y DOMINIO</h2>
+        <p data-es="☐ El CLIENTE contrata hosting y dominio por su cuenta" data-en="☐ CLIENT contracts hosting and domain on their own">☐ El CLIENTE contrata hosting y dominio por su cuenta</p>
+        <p data-es="☐ El PRESTADOR gestiona hosting primer año incluido (renovación: $______ USD/año)" data-en="☐ PROVIDER manages first year hosting included (renewal: $______ USD/year)">☐ El PRESTADOR gestiona hosting primer año incluido (renovación: $______ USD/año)</p>
+        <p data-es="☐ Dominio: _________________________________________________" data-en="☐ Domain: _________________________________________________">☐ Dominio: _________________________________________________</p>
+        
+        <h2 data-es="8. SOPORTE POST-ENTREGA" data-en="8. POST-DELIVERY SUPPORT">8. SOPORTE POST-ENTREGA</h2>
+        <p data-es="Incluido (1 mes):" data-en="Included (1 month):">Incluido (1 mes):</p>
         <ul>
-            <li>Agregado de nuevas funcionalidades</li>
-            <li>Cambios estructurales importantes</li>
-            <li>Actualización de contenido (salvo acuerdo previo)</li>
+            <li data-es="Corrección de bugs y errores" data-en="Bug and error correction">Corrección de bugs y errores</li>
+            <li data-es="Ajustes menores de diseño" data-en="Minor design adjustments">Ajustes menores de diseño</li>
+            <li data-es="Asesoramiento técnico" data-en="Technical advice">Asesoramiento técnico</li>
         </ul>
-        <p><strong>Soporte adicional:</strong> $______ USD/hora o plan mensual: $______ USD/mes</p>
+        <p data-es="No incluido:" data-en="Not included:">No incluido:</p>
+        <ul>
+            <li data-es="Agregado de nuevas funcionalidades" data-en="Adding new features">Agregado de nuevas funcionalidades</li>
+            <li data-es="Cambios estructurales importantes" data-en="Important structural changes">Cambios estructurales importantes</li>
+            <li data-es="Actualización de contenido (salvo acuerdo previo)" data-en="Content update (unless prior agreement)">Actualización de contenido (salvo acuerdo previo)</li>
+        </ul>
+        <p data-es="Soporte adicional: $______ USD/hora o plan mensual: $______ USD/mes" data-en="Additional support: $______ USD/hour or monthly plan: $______ USD/month">Soporte adicional: $______ USD/hora o plan mensual: $______ USD/mes</p>
         
-        <h2>9. CONFIDENCIALIDAD</h2>
-        <p>Ambas partes se comprometen a mantener confidencialidad sobre información comercial, técnica y estratégica compartida durante el proyecto.</p>
+        <h2 data-es="9. CONFIDENCIALIDAD" data-en="9. CONFIDENTIALITY">9. CONFIDENCIALIDAD</h2>
+        <p data-es="Ambas partes se comprometen a mantener confidencialidad sobre información comercial, técnica y estratégica compartida durante el proyecto." data-en="Both parties commit to maintain confidentiality on commercial, technical and strategic information shared during the project.">Ambas partes se comprometen a mantener confidencialidad sobre información comercial, técnica y estratégica compartida durante el proyecto.</p>
         
-        <h2>10. RESOLUCIÓN DEL CONTRATO</h2>
-        <p><strong>Por incumplimiento del CLIENTE:</strong> Si no realiza pagos o no proporciona contenido en 5 días, el PRESTADOR puede cancelar el contrato reteniendo el anticipo.</p>
-        <p><strong>Por incumplimiento del PRESTADOR:</strong> Si no entrega el proyecto en plazo acordado (sin causa justificada), debe devolver el anticipo.</p>
+        <h2 data-es="10. RESOLUCIÓN DEL CONTRATO" data-en="10. CONTRACT TERMINATION">10. RESOLUCIÓN DEL CONTRATO</h2>
+        <p data-es="Por incumplimiento del CLIENTE: Si no realiza pagos o no proporciona contenido en 5 días, el PRESTADOR puede cancelar el contrato reteniendo el anticipo." data-en="For CLIENT breach: If payments are not made or content is not provided within 5 days, PROVIDER may cancel contract retaining deposit.">Por incumplimiento del CLIENTE: Si no realiza pagos o no proporciona contenido en 5 días, el PRESTADOR puede cancelar el contrato reteniendo el anticipo.</p>
+        <p data-es="Por incumplimiento del PRESTADOR: Si no entrega el proyecto en plazo acordado (sin causa justificada), debe devolver el anticipo." data-en="For PROVIDER breach: If project is not delivered in agreed time (without justified cause), deposit must be returned.">Por incumplimiento del PRESTADOR: Si no entrega el proyecto en plazo acordado (sin causa justificada), debe devolver el anticipo.</p>
         
-        <h2>11. MODIFICACIONES</h2>
-        <p>Cualquier cambio en el alcance del proyecto debe ser acordado por escrito y puede implicar ajustes en precio y plazo.</p>
+        <h2 data-es="11. MODIFICACIONES" data-en="11. MODIFICATIONS">11. MODIFICACIONES</h2>
+        <p data-es="Cualquier cambio en el alcance del proyecto debe ser acordado por escrito y puede implicar ajustes en precio y plazo." data-en="Any change in project scope must be agreed in writing and may imply price and time adjustments.">Cualquier cambio en el alcance del proyecto debe ser acordado por escrito y puede implicar ajustes en precio y plazo.</p>
         
-        <h2>12. JURISDICCIÓN</h2>
-        <p>Este contrato se rige por principios de comercio electrónico internacional y estándares de la industria del desarrollo web. Cualquier disputa se resolverá amistosamente mediante negociación directa entre las partes. En caso de no alcanzar acuerdo, se recurrirá a mediación digital o arbitraje en línea.</p>
+        <h2 data-es="12. JURISDICCIÓN" data-en="12. JURISDICTION">12. JURISDICCIÓN</h2>
+        <p data-es="Este contrato se rige por principios de comercio electrónico internacional y estándares de la industria del desarrollo web. Cualquier disputa se resolverá amistosamente mediante negociación directa entre las partes. En caso de no alcanzar acuerdo, se recurrirá a mediación digital o arbitraje en línea." data-en="This contract is governed by international e-commerce principles and web development industry standards. Any dispute will be resolved amicably through direct negotiation between parties. In case of no agreement, digital mediation or online arbitration will be used.">Este contrato se rige por principios de comercio electrónico internacional y estándares de la industria del desarrollo web. Cualquier disputa se resolverá amistosamente mediante negociación directa entre las partes. En caso de no alcanzar acuerdo, se recurrirá a mediación digital o arbitraje en línea.</p>
         
         <div class="signature-box">
-            <h2>FIRMAS</h2>
-            <p>En señal de conformidad, firman el presente contrato:</p>
+            <h2 data-es="FIRMAS" data-en="SIGNATURES">FIRMAS</h2>
+            <p data-es="En señal de conformidad, firman el presente contrato:" data-en="In sign of conformity, they sign this contract:">En señal de conformidad, firman el presente contrato:</p>
             
             <div class="signature-grid">
                 <div>
-                    <p><strong>PRESTADOR</strong></p>
+                    <p><strong data-es="PRESTADOR" data-en="PROVIDER">PRESTADOR</strong></p>
                     <p>STIKMANIA<br>Adrián González</p>
-                    <div class="signature-line">Firma</div>
-                    <p>Fecha: _______________</p>
+                    <div class="signature-line" data-es="Firma" data-en="Signature">Firma</div>
+                    <p data-es="Fecha: _______________" data-en="Date: _______________">Fecha: _______________</p>
                 </div>
                 
                 <div>
-                    <p><strong>CLIENTE</strong></p>
+                    <p><strong data-es="CLIENTE" data-en="CLIENT">CLIENTE</strong></p>
                     <p>_________________________________</p>
-                    <div class="signature-line">Firma</div>
-                    <p>Fecha: _______________</p>
+                    <div class="signature-line" data-es="Firma" data-en="Signature">Firma</div>
+                    <p data-es="Fecha: _______________" data-en="Date: _______________">Fecha: _______________</p>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="btn-group">
-        <button class="btn btn-pdf" onclick="downloadPDF()" id="btnPdf">📥 Descargar PDF</button>
-        <button class="btn btn-print" onclick="printContract()">🖨️ Imprimir</button>
-        <a href="index.html" class="btn btn-back">← Volver al Inicio</a>
+        
+        <div class="btn-group">
+            <a href="downloads/STIKMANIA_CONTRATO_WEB.pdf" class="download-btn" download data-es="📥 Descargar PDF" data-en="📥 Download PDF">📥 Descargar PDF</a>
+            <button class="print-btn" onclick="window.print()" data-es="🖨️ Imprimir" data-en="🖨️ Print">🖨️ Imprimir</button>
+            <a href="index.html" class="back-link" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
+        </div>
+        
+        <p style="margin-top: 40px; font-size: 0.85rem; color: #666; text-align: center;">
+            <strong data-es="Nota:" data-en="Note:">Nota:</strong> <span data-es="Este contrato es un documento legal. Se recomienda imprimir dos copias (una para cada parte). Para versión PDF imprimible, haz clic en el botón de descarga." data-en="This contract is a legal document. It is recommended to print two copies (one for each party). For printable PDF version, click download button.">Este contrato es un documento legal. Se recomienda imprimir dos copias (una para cada parte). Para versión PDF imprimible, haz clic en el botón de descarga.</span>
+        </p>
     </div>
 
     <script>
-        // Descargar PDF - Genera archivo PDF real
-        function downloadPDF() {
-            const element = document.getElementById('contract-content');
-            const btn = document.getElementById('btnPdf');
-            const originalText = btn.textContent;
-            
-            // Estado de carga
-            btn.textContent = '⏳ Generando...';
-            btn.disabled = true;
-            
-            const opt = {
-                margin: [15, 15, 15, 15],
-                filename: 'STIKMANIA_Contrato_Web.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                    scale: 2, 
-                    useCORS: true,
-                    backgroundColor: '#000000'
-                },
-                jsPDF: { 
-                    unit: 'mm', 
-                    format: 'a4', 
-                    orientation: 'portrait' 
-                }
-            };
-            
-            // Generar y descargar PDF
-            html2pdf().set(opt).from(element).save().then(() => {
-                btn.textContent = '✅ ¡Listo!';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                }, 2000);
-            }).catch(err => {
-                console.error('Error:', err);
-                btn.textContent = '❌ Error';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                }, 2000);
-            });
+        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('stikmania_lang', currentLang);
+            updateLanguage();
         }
         
-        // Imprimir - Abre diálogo de impresión para impresora física
-        function printContract() {
-            window.print();
+        function updateLanguage() {
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+            document.documentElement.lang = currentLang;
         }
+        
+        updateLanguage();
     </script>
+
 </body>
 </html>

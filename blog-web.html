@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web propia vs Redes sociales en Cuba 2026 | STIKMANIA</title>
+    <title data-es="Web propia vs Redes sociales en Cuba 2026 | STIKMANIA" data-en="Own website vs Social media in Cuba 2026 | STIKMANIA">Web propia vs Redes sociales en Cuba 2026 | STIKMANIA</title>
     <meta name="description" content="Comparativa honesta: ¿Necesitas página web o solo redes sociales? Costos, ventajas y desventajas para emprendedores en Cuba 2026.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,11 +19,7 @@
             --gray: #1a1a1a;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -38,16 +34,10 @@
             letter-spacing: 2px;
         }
         
-        a {
-            color: var(--web);
-            text-decoration: none;
-        }
+        a { color: var(--web); text-decoration: none; }
+        a:hover { text-decoration: underline; }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
         
         header {
             background: var(--black);
@@ -61,9 +51,7 @@
             color: var(--neon-green);
         }
         
-        .article {
-            padding: 100px 0;
-        }
+        .article { padding: 100px 0; }
         
         .article-header {
             margin-bottom: 40px;
@@ -99,9 +87,7 @@
             text-align: center;
         }
         
-        .article-content {
-            margin-bottom: 40px;
-        }
+        .article-content { margin-bottom: 40px; }
         
         .article-content h2 {
             color: var(--web);
@@ -115,20 +101,9 @@
             margin: 30px 0 15px 0;
         }
         
-        .article-content p {
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-        
-        .article-content ul, .article-content ol {
-            margin-bottom: 20px;
-            padding-left: 30px;
-            color: #ccc;
-        }
-        
-        .article-content li {
-            margin-bottom: 10px;
-        }
+        .article-content p { margin-bottom: 20px; color: #ccc; }
+        .article-content ul, .article-content ol { margin-bottom: 20px; padding-left: 30px; color: #ccc; }
+        .article-content li { margin-bottom: 10px; }
         
         .comparison-table {
             width: 100%;
@@ -149,9 +124,7 @@
             font-weight: 600;
         }
         
-        .comparison-table tr:hover {
-            background: var(--gray);
-        }
+        .comparison-table tr:hover { background: var(--gray); }
         
         .highlight-box {
             background: var(--gray);
@@ -160,10 +133,7 @@
             margin: 30px 0;
         }
         
-        .highlight-box p {
-            margin: 0;
-            font-style: italic;
-        }
+        .highlight-box p { margin: 0; font-style: italic; }
         
         .cta-box {
             background: var(--gray);
@@ -174,10 +144,7 @@
             text-align: center;
         }
         
-        .cta-box h3 {
-            color: var(--web);
-            margin-bottom: 15px;
-        }
+        .cta-box h3 { color: var(--web); margin-bottom: 15px; }
         
         .btn {
             display: inline-block;
@@ -191,9 +158,7 @@
             margin-top: 15px;
         }
         
-        .btn:hover {
-            background: var(--white);
-        }
+        .btn:hover { background: var(--white); }
         
         footer {
             background: var(--black);
@@ -202,23 +167,42 @@
             border-top: 1px solid var(--dark-green);
         }
         
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+        
+        .lang-btn {
+            background: var(--black);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
+        
         @media (max-width: 768px) {
-            .article-header h1 {
-                font-size: 2rem;
-            }
-            
-            .comparison-table {
-                font-size: 0.9rem;
-            }
-            
-            .comparison-table th,
-            .comparison-table td {
-                padding: 10px;
-            }
+            .article-header h1 { font-size: 2rem; }
+            .comparison-table { font-size: 0.9rem; }
+            .comparison-table th, .comparison-table td { padding: 10px; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
 
     <header>
         <div class="container">
@@ -238,192 +222,192 @@
                         <path d="M6 12l2-2"></path>
                     </svg>
                 </div>
-                <h1>Web propia vs Redes sociales en Cuba 2026</h1>
+                <h1 data-es="Web propia vs Redes sociales en Cuba 2026" data-en="Own website vs Social media in Cuba 2026">Web propia vs Redes sociales en Cuba 2026</h1>
                 <div class="article-meta">
-                    <span>Categoría: Desarrollo Web</span> | <span>Lectura: 7 min</span>
+                    <span data-es="Categoría: Desarrollo Web" data-en="Category: Web Development">Categoría: Desarrollo Web</span> | <span data-es="Lectura: 7 min" data-en="Reading: 7 min">Lectura: 7 min</span>
                 </div>
             </div>
             
             <div class="article-content">
-                <p>Si tienes un negocio en Cuba, probablemente te has preguntado: "¿Realmente necesito una página web o con Instagram y WhatsApp es suficiente?"</p>
+                <p data-es="Si tienes un negocio en Cuba, probablemente te has preguntado: '¿Realmente necesito una página web o con Instagram y WhatsApp es suficiente?'" data-en="If you have a business in Cuba, you've probably asked yourself: 'Do I really need a website or is Instagram and WhatsApp enough?'">Si tienes un negocio en Cuba, probablemente te has preguntado: "¿Realmente necesito una página web o con Instagram y WhatsApp es suficiente?"</p>
                 
-                <p>Es una pregunta válida, especialmente considerando los costos y la conectividad en Cuba. En este artículo te damos una comparativa honesta para que tomes la mejor decisión para tu negocio.</p>
+                <p data-es="Es una pregunta válida, especialmente considerando los costos y la conectividad en Cuba. En este artículo te damos una comparativa honesta para que tomes la mejor decisión para tu negocio." data-en="It's a valid question, especially considering costs and connectivity in Cuba. In this article we give you an honest comparison so you can make the best decision for your business.">Es una pregunta válida, especialmente considerando los costos y la conectividad en Cuba. En este artículo te damos una comparativa honesta para que tomes la mejor decisión para tu negocio.</p>
                 
-                <h2>La realidad actual en Cuba</h2>
+                <h2 data-es="La realidad actual en Cuba" data-en="The current reality in Cuba">La realidad actual en Cuba</h2>
                 
-                <p>En 2026, la mayoría de los emprendedores cubanos operan principalmente por:</p>
+                <p data-es="En 2026, la mayoría de los emprendedores cubanos operan principalmente por:" data-en="In 2026, most Cuban entrepreneurs operate mainly through:">En 2026, la mayoría de los emprendedores cubanos operan principalmente por:</p>
                 <ul>
-                    <li>Instagram (catálogo y promoción)</li>
-                    <li>WhatsApp (ventas y atención)</li>
-                    <li>Telegram (grupos y comunidades)</li>
-                    <li>Facebook Marketplace (alcance local)</li>
+                    <li data-es="Instagram (catálogo y promoción)" data-en="Instagram (catalog and promotion)">Instagram (catálogo y promoción)</li>
+                    <li data-es="WhatsApp (ventas y atención)" data-en="WhatsApp (sales and service)">WhatsApp (ventas y atención)</li>
+                    <li data-es="Telegram (grupos y comunidades)" data-en="Telegram (groups and communities)">Telegram (grupos y comunidades)</li>
+                    <li data-es="Facebook Marketplace (alcance local)" data-en="Facebook Marketplace (local reach)">Facebook Marketplace (alcance local)</li>
                 </ul>
                 
-                <p>Y funciona... hasta cierto punto. Veamos los números reales.</p>
+                <p data-es="Y funciona... hasta cierto punto. Veamos los números reales." data-en="And it works... to a certain extent. Let's look at the real numbers.">Y funciona... hasta cierto punto. Veamos los números reales.</p>
                 
-                <h2>Comparativa directa: Costos y beneficios</h2>
+                <h2 data-es="Comparativa directa: Costos y beneficios" data-en="Direct comparison: Costs and benefits">Comparativa directa: Costos y beneficios</h2>
                 
                 <table class="comparison-table">
                     <thead>
                         <tr>
-                            <th>Aspecto</th>
-                            <th>Solo Redes Sociales</th>
-                            <th>Web Propia</th>
+                            <th data-es="Aspecto" data-en="Aspect">Aspecto</th>
+                            <th data-es="Solo Redes Sociales" data-en="Social Media Only">Solo Redes Sociales</th>
+                            <th data-es="Web Propia" data-en="Own Website">Web Propia</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Costo inicial</strong></td>
-                            <td>$0 USD (gratis)</td>
-                            <td>$20-80 USD (según tipo)</td>
+                            <td data-es="Costo inicial" data-en="Initial cost"><strong>Costo inicial</strong></td>
+                            <td data-es="$0 USD (gratis)" data-en="$0 USD (free)">$0 USD (gratis)</td>
+                            <td data-es="$20-80 USD (según tipo)" data-en="$20-80 USD (depending on type)">$20-80 USD (según tipo)</td>
                         </tr>
                         <tr>
-                            <td><strong>Costo anual</strong></td>
-                            <td>$0-200 USD (si haces ads)</td>
-                            <td>$50-65 USD (hosting + dominio)</td>
+                            <td data-es="Costo anual" data-en="Annual cost"><strong>Costo anual</strong></td>
+                            <td data-es="$0-200 USD (si haces ads)" data-en="$0-200 USD (if you run ads)">$0-200 USD (si haces ads)</td>
+                            <td data-es="$50-65 USD (hosting + dominio)" data-en="$50-65 USD (hosting + domain)">$50-65 USD (hosting + dominio)</td>
                         </tr>
                         <tr>
-                            <td><strong>Alcance</strong></td>
-                            <td>Limitado al algoritmo</td>
-                            <td>Ilimitado (SEO, Google)</td>
+                            <td data-es="Alcance" data-en="Reach"><strong>Alcance</strong></td>
+                            <td data-es="Limitado al algoritmo" data-en="Limited to algorithm">Limitado al algoritmo</td>
+                            <td data-es="Ilimitado (SEO, Google)" data-en="Unlimited (SEO, Google)">Ilimitado (SEO, Google)</td>
                         </tr>
                         <tr>
-                            <td><strong>Control</strong></td>
-                            <td>Nulo (la plataforma manda)</td>
-                            <td>Total (tú decides)</td>
+                            <td data-es="Control" data-en="Control"><strong>Control</strong></td>
+                            <td data-es="Nulo (la plataforma manda)" data-en="None (platform controls)">Nulo (la plataforma manda)</td>
+                            <td data-es="Total (tú decides)" data-en="Total (you decide)">Total (tú decides)</td>
                         </tr>
                         <tr>
-                            <td><strong>Profesionalismo</strong></td>
-                            <td>Medio</td>
-                            <td>Alto</td>
+                            <td data-es="Profesionalismo" data-en="Professionalism"><strong>Profesionalismo</strong></td>
+                            <td data-es="Medio" data-en="Medium">Medio</td>
+                            <td data-es="Alto" data-en="High">Alto</td>
                         </tr>
                         <tr>
-                            <td><strong>Ventas 24/7</strong></td>
-                            <td>Limitado</td>
-                            <td>Sí (e-commerce)</td>
+                            <td data-es="Ventas 24/7" data-en="24/7 Sales"><strong>Ventas 24/7</strong></td>
+                            <td data-es="Limitado" data-en="Limited">Limitado</td>
+                            <td data-es="Sí (e-commerce)" data-en="Yes (e-commerce)">Sí (e-commerce)</td>
                         </tr>
                     </tbody>
                 </table>
                 
-                <h2>Ventajas de SOLO usar redes sociales</h2>
+                <h2 data-es="Ventajas de SOLO usar redes sociales" data-en="Advantages of ONLY using social media">Ventajas de SOLO usar redes sociales</h2>
                 
-                <h3>✅ Costo cero inicial</h3>
-                <p>No necesitas invertir dinero para crear perfiles en Instagram, Facebook o Telegram. Perfecto si estás empezando con presupuesto limitado.</p>
+                <h3 data-es="✅ Costo cero inicial" data-en="✅ Zero initial cost">✅ Costo cero inicial</h3>
+                <p data-es="No necesitas invertir dinero para crear perfiles en Instagram, Facebook o Telegram. Perfecto si estás empezando con presupuesto limitado." data-en="You don't need to invest money to create profiles on Instagram, Facebook or Telegram. Perfect if you're starting with a limited budget.">No necesitas invertir dinero para crear perfiles en Instagram, Facebook o Telegram. Perfecto si estás empezando con presupuesto limitado.</p>
                 
-                <h3>✅ Fácil de usar</h3>
-                <p>Subir una foto o story toma segundos. No necesitas conocimientos técnicos.</p>
+                <h3 data-es="✅ Fácil de usar" data-en="✅ Easy to use">✅ Fácil de usar</h3>
+                <p data-es="Subir una foto o story toma segundos. No necesitas conocimientos técnicos." data-en="Uploading a photo or story takes seconds. You don't need technical knowledge.">Subir una foto o story toma segundos. No necesitas conocimientos técnicos.</p>
                 
-                <h3>✅ Alcance inmediato</h3>
-                <p>Tus seguidores ven tu contenido al instante. No necesitas esperar a que Google te indexe.</p>
+                <h3 data-es="✅ Alcance inmediato" data-en="✅ Immediate reach">✅ Alcance inmediato</h3>
+                <p data-es="Tus seguidores ven tu contenido al instante. No necesitas esperar a que Google te indexe." data-en="Your followers see your content instantly. You don't need to wait for Google to index you.">Tus seguidores ven tu contenido al instante. No necesitas esperar a que Google te indexe.</p>
                 
-                <h3>✅ Interacción directa</h3>
-                <p>Comentarios, DMs, respuestas inmediatas. La comunicación es fluida y personal.</p>
+                <h3 data-es="✅ Interacción directa" data-en="✅ Direct interaction">✅ Interacción directa</h3>
+                <p data-es="Comentarios, DMs, respuestas inmediatas. La comunicación es fluida y personal." data-en="Comments, DMs, immediate responses. Communication is fluid and personal.">Comentarios, DMs, respuestas inmediatas. La comunicación es fluida y personal.</p>
                 
-                <h2>Consideraciones de solo usar redes sociales</h2>
+                <h2 data-es="Consideraciones de solo usar redes sociales" data-en="Considerations of only using social media">Consideraciones de solo usar redes sociales</h2>
                 
-                <h3>Dependes del algoritmo</h3>
-                <p>Instagram puede decidir que solo el 5% de tus seguidores vean tu contenido. Sin pagar ads, tu alcance es limitado.</p>
+                <h3 data-es="Dependes del algoritmo" data-en="You depend on the algorithm">Dependes del algoritmo</h3>
+                <p data-es="Instagram puede decidir que solo el 5% de tus seguidores vean tu contenido. Sin pagar ads, tu alcance es limitado." data-en="Instagram can decide that only 5% of your followers see your content. Without paying for ads, your reach is limited.">Instagram puede decidir que solo el 5% de tus seguidores vean tu contenido. Sin pagar ads, tu alcance es limitado.</p>
                 
                 <div class="highlight-box">
-                    <p>"En 2026, el alcance orgánico en Instagram es menor al 6%. Si tienes 1000 seguidores, solo 60 ven tus publicaciones sin pagar."</p>
+                    <p data-es="En 2026, el alcance orgánico en Instagram es menor al 6%. Si tienes 1000 seguidores, solo 60 ven tus publicaciones sin pagar." data-en="In 2026, organic reach on Instagram is less than 6%. If you have 1000 followers, only 60 see your posts without paying.">En 2026, el alcance orgánico en Instagram es menor al 6%. Si tienes 1000 seguidores, solo 60 ven tus publicaciones sin pagar.</p>
                 </div>
                 
-                <h3>Sin control real</h3>
-                <p>Si Instagram cambia sus políticas, te suspenden la cuenta o hay una caída del servicio, pierdes todo. No eres dueño de tu audiencia.</p>
+                <h3 data-es="Sin control real" data-en="No real control">Sin control real</h3>
+                <p data-es="Si Instagram cambia sus políticas, te suspenden la cuenta o hay una caída del servicio, pierdes todo. No eres dueño de tu audiencia." data-en="If Instagram changes its policies, suspends your account or there's a service outage, you lose everything. You don't own your audience.">Si Instagram cambia sus políticas, te suspenden la cuenta o hay una caída del servicio, pierdes todo. No eres dueño de tu audiencia.</p>
                 
-                <h3>Limitaciones técnicas</h3>
-                <p>No puedes:</p>
+                <h3 data-es="Limitaciones técnicas" data-en="Technical limitations">Limitaciones técnicas</h3>
+                <p data-es="No puedes:" data-en="You can't:">No puedes:</p>
                 <ul>
-                    <li>Personalizar completamente la experiencia</li>
-                    <li>Tener un catálogo ilimitado bien organizado</li>
-                    <li>Procesar pagos automáticos</li>
-                    <li>Posicionar en Google</li>
+                    <li data-es="Personalizar completamente la experiencia" data-en="Fully customize the experience">Personalizar completamente la experiencia</li>
+                    <li data-es="Tener un catálogo ilimitado bien organizado" data-en="Have a well-organized unlimited catalog">Tener un catálogo ilimitado bien organizado</li>
+                    <li data-es="Procesar pagos automáticos" data-en="Process automatic payments">Procesar pagos automáticos</li>
+                    <li data-es="Posicionar en Google" data-en="Rank on Google">Posicionar en Google</li>
                 </ul>
                 
-                <h3>Menos profesional</h3>
-                <p>Para clientes B2B o de alto valor, una web propia genera más confianza que solo un perfil de Instagram.</p>
+                <h3 data-es="Menos profesional" data-en="Less professional">Menos profesional</h3>
+                <p data-es="Para clientes B2B o de alto valor, una web propia genera más confianza que solo un perfil de Instagram." data-en="For B2B or high-value customers, an own website generates more trust than just an Instagram profile.">Para clientes B2B o de alto valor, una web propia genera más confianza que solo un perfil de Instagram.</p>
                 
-                <h2>Ventajas de tener WEB PROPIA</h2>
+                <h2 data-es="Ventajas de tener WEB PROPIA" data-en="Advantages of having OWN WEBSITE">Ventajas de tener WEB PROPIA</h2>
                 
-                <h3>✅ Control total</h3>
-                <p>Tú decides el diseño, la estructura, el contenido. Nadie puede cerrarte la cuenta ni cambiar las reglas.</p>
+                <h3 data-es="✅ Control total" data-en="✅ Total control">✅ Control total</h3>
+                <p data-es="Tú decides el diseño, la estructura, el contenido. Nadie puede cerrarte la cuenta ni cambiar las reglas." data-en="You decide the design, structure, content. No one can close your account or change the rules.">Tú decides el diseño, la estructura, el contenido. Nadie puede cerrarte la cuenta ni cambiar las reglas.</p>
                 
-                <h3>✅ SEO y Google</h3>
-                <p>Cuando alguien busque "tu producto + Cuba" en Google, puedes aparecer primero. Eso es tráfico gratis y constante.</p>
+                <h3 data-es="✅ SEO y Google" data-en="✅ SEO and Google">✅ SEO y Google</h3>
+                <p data-es="Cuando alguien busque 'tu producto + Cuba' en Google, puedes aparecer primero. Eso es tráfico gratis y constante." data-en="When someone searches 'your product + Cuba' on Google, you can appear first. That's free and constant traffic.">Cuando alguien busque "tu producto + Cuba" en Google, puedes aparecer primero. Eso es tráfico gratis y constante.</p>
                 
-                <h3>✅ Profesionalismo</h3>
-                <p>Tener "www.tumarca.com" transmite seriedad. Es la diferencia entre un hobby y un negocio establecido.</p>
+                <h3 data-es="✅ Profesionalismo" data-en="✅ Professionalism">✅ Profesionalismo</h3>
+                <p data-es="Tener 'www.tumarca.com' transmite seriedad. Es la diferencia entre un hobby y un negocio establecido." data-en="Having 'www.yourbrand.com' conveys seriousness. It's the difference between a hobby and an established business.">Tener "www.tumarca.com" transmite seriedad. Es la diferencia entre un hobby y un negocio establecido.</p>
                 
-                <h3>✅ Ventas automáticas</h3>
-                <p>Con un e-commerce, puedes vender mientras duermes. El cliente elige, paga y recibe confirmación sin que tú intervengas.</p>
+                <h3 data-es="✅ Ventas automáticas" data-en="✅ Automatic sales">✅ Ventas automáticas</h3>
+                <p data-es="Con un e-commerce, puedes vender mientras duermes. El cliente elige, paga y recibe confirmación sin que tú intervengas." data-en="With an e-commerce, you can sell while you sleep. The customer chooses, pays and receives confirmation without your intervention.">Con un e-commerce, puedes vender mientras duermes. El cliente elige, paga y recibe confirmación sin que tú intervengas.</p>
                 
-                <h3>✅ Analíticas reales</h3>
-                <p>Sabes exactamente cuántas personas visitan, qué productos ven, cuánto tiempo pasan, de dónde vienen. Datos para tomar decisiones.</p>
+                <h3 data-es="✅ Analíticas reales" data-en="✅ Real analytics">✅ Analíticas reales</h3>
+                <p data-es="Sabes exactamente cuántas personas visitan, qué productos ven, cuánto tiempo pasan, de dónde vienen. Datos para tomar decisiones." data-en="You know exactly how many people visit, what products they see, how long they spend, where they come from. Data to make decisions.">Sabes exactamente cuántas personas visitan, qué productos ven, cuánto tiempo pasan, de dónde vienen. Datos para tomar decisiones.</p>
                 
-                <h2>Retos de tener web propia (y cómo superarlos)</h2>
+                <h2 data-es="Retos de tener web propia (y cómo superarlos)" data-en="Challenges of having own website (and how to overcome them)">Retos de tener web propia (y cómo superarlos)</h2>
                 
-                <h3>Inversión inicial requerida</h3>
-                <p><strong>El reto:</strong> Necesitas invertir $20-80 USD dependiendo del tipo de web.</p>
-                <p><strong>La solución:</strong> Es un pago único que dura años. El ROI se recupera en 2-3 meses con el aumento de credibilidad y ventas.</p>
+                <h3 data-es="Inversión inicial requerida" data-en="Initial investment required">Inversión inicial requerida</h3>
+                <p data-es="El reto: Necesitas invertir $20-80 USD dependiendo del tipo de web." data-en="The challenge: You need to invest $20-80 USD depending on the type of website.">El reto: Necesitas invertir $20-80 USD dependiendo del tipo de web.</p>
+                <p data-es="La solución: Es un pago único que dura años. El ROI se recupera en 2-3 meses con el aumento de credibilidad y ventas." data-en="The solution: It's a one-time payment that lasts years. ROI is recovered in 2-3 months with increased credibility and sales.">La solución: Es un pago único que dura años. El ROI se recupera en 2-3 meses con el aumento de credibilidad y ventas.</p>
                 
-                <h3>Requiere mantenimiento</h3>
-                <p><strong>El reto:</strong> Debes actualizar contenido, revisar que funcione todo, hacer copias de seguridad.</p>
-                <p><strong>La solución:</strong> Con hosting incluido el primer año, STIKMANIA te capacita para hacerlo tú mismo. Además, incluimos 1 mes de soporte técnico post-entrega.</p>
+                <h3 data-es="Requiere mantenimiento" data-en="Requires maintenance">Requiere mantenimiento</h3>
+                <p data-es="El reto: Debes actualizar contenido, revisar que funcione todo, hacer copias de seguridad." data-en="The challenge: You must update content, check that everything works, make backups.">El reto: Debes actualizar contenido, revisar que funcione todo, hacer copias de seguridad.</p>
+                <p data-es="La solución: Con hosting incluido el primer año, STIKMANIA te capacita para hacerlo tú mismo. Además, incluimos 1 mes de soporte técnico post-entrega." data-en="The solution: With hosting included the first year, STIKMANIA trains you to do it yourself. Also, we include 1 month post-delivery technical support.">La solución: Con hosting incluido el primer año, STIKMANIA te capacita para hacerlo tú mismo. Además, incluimos 1 mes de soporte técnico post-entrega.</p>
                 
-                <h3>El tráfico no es automático</h3>
-                <p><strong>El reto:</strong> Crear la web es el primer paso. Luego debes promocionarla.</p>
-                <p><strong>La recompensa:</strong> Una vez posicionada en Google, el tráfico es orgánico y constante. Inviertes tiempo al inicio, pero los beneficios son a largo plazo.</p>
+                <h3 data-es="El tráfico no es automático" data-en="Traffic is not automatic">El tráfico no es automático</h3>
+                <p data-es="El reto: Crear la web es el primer paso. Luego debes promocionarla." data-en="The challenge: Creating the website is the first step. Then you must promote it.">El reto: Crear la web es el primer paso. Luego debes promocionarla.</p>
+                <p data-es="La recompensa: Una vez posicionada en Google, el tráfico es orgánico y constante. Inviertes tiempo al inicio, pero los beneficios son a largo plazo." data-en="The reward: Once ranked on Google, traffic is organic and constant. You invest time at the beginning, but benefits are long-term.">La recompensa: Una vez posicionada en Google, el tráfico es orgánico y constante. Inviertes tiempo al inicio, pero los beneficios son a largo plazo.</p>
                 
-                <h2>Casos reales en Cuba: ¿Cuándo necesitas qué?</h2>
+                <h2 data-es="Casos reales en Cuba: ¿Cuándo necesitas qué?" data-en="Real cases in Cuba: When do you need what?">Casos reales en Cuba: ¿Cuándo necesitas qué?</h2>
                 
-                <h3>Solo redes sociales es suficiente si:</h3>
+                <h3 data-es="Solo redes sociales es suficiente si:" data-en="Social media only is enough if:">Solo redes sociales es suficiente si:</h3>
                 <ul>
-                    <li>✅ Vendes productos simples (comida, artesanías básicas)</li>
-                    <li>✅ Tu audiencia es 100% local y joven</li>
-                    <li>✅ Tienes presupuesto $0 para invertir</li>
-                    <li>✅ Es un proyecto temporal o experimental</li>
-                    <li>✅ Vendes por volumen (muchas ventas pequeñas)</li>
+                    <li data-es="✅ Vendes productos simples (comida, artesanías básicas)" data-en="✅ You sell simple products (food, basic crafts)">✅ Vendes productos simples (comida, artesanías básicas)</li>
+                    <li data-es="✅ Tu audiencia es 100% local y joven" data-en="✅ Your audience is 100% local and young">✅ Tu audiencia es 100% local y joven</li>
+                    <li data-es="✅ Tienes presupuesto $0 para invertir" data-en="✅ You have $0 budget to invest">✅ Tienes presupuesto $0 para invertir</li>
+                    <li data-es="✅ Es un proyecto temporal o experimental" data-en="✅ It's a temporary or experimental project">✅ Es un proyecto temporal o experimental</li>
+                    <li data-es="✅ Vendes por volumen (muchas ventas pequeñas)" data-en="✅ You sell by volume (many small sales)">✅ Vendes por volumen (muchas ventas pequeñas)</li>
                 </ul>
                 
-                <h3>Necesitas web propia si:</h3>
+                <h3 data-es="Necesitas web propia si:" data-en="You need own website if:">Necesitas web propia si:</h3>
                 <ul>
-                    <li>✅ Vendes productos/servicios de alto valor ($50+ USD)</li>
-                    <li>✅ Tu audiencia incluye empresas o profesionales</li>
-                    <li>✅ Quieres diferenciarte de la competencia</li>
-                    <li>✅ Planeas crecer y escalar</li>
-                    <li>✅ Necesitas automatizar procesos (reservas, pagos, catálogos grandes)</li>
-                    <li>✅ Quieres aparecer en Google</li>
+                    <li data-es="✅ Vendes productos/servicios de alto valor ($50+ USD)" data-en="✅ You sell high-value products/services ($50+ USD)">✅ Vendes productos/servicios de alto valor ($50+ USD)</li>
+                    <li data-es="✅ Tu audiencia incluye empresas o profesionales" data-en="✅ Your audience includes businesses or professionals">✅ Tu audiencia incluye empresas o profesionales</li>
+                    <li data-es="✅ Quieres diferenciarte de la competencia" data-en="✅ You want to differentiate from competition">✅ Quieres diferenciarte de la competencia</li>
+                    <li data-es="✅ Planeas crecer y escalar" data-en="✅ You plan to grow and scale">✅ Planeas crecer y escalar</li>
+                    <li data-es="✅ Necesitas automatizar procesos (reservas, pagos, catálogos grandes)" data-en="✅ You need to automate processes (bookings, payments, large catalogs)">✅ Necesitas automatizar procesos (reservas, pagos, catálogos grandes)</li>
+                    <li data-es="✅ Quieres aparecer en Google" data-en="✅ You want to appear on Google">✅ Quieres aparecer en Google</li>
                 </ul>
                 
-                <h2>La estrategia híbrida (recomendada)</h2>
+                <h2 data-es="La estrategia híbrida (recomendada)" data-en="The hybrid strategy (recommended)">La estrategia híbrida (recomendada)</h2>
                 
-                <p>Lo ideal no es elegir uno u otro, sino usar ambos de forma estratégica:</p>
+                <p data-es="Lo ideal no es elegir uno u otro, sino usar ambos de forma estratégica:" data-en="The ideal is not to choose one or the other, but to use both strategically:">Lo ideal no es elegir uno u otro, sino usar ambos de forma estratégica:</p>
                 
                 <ol>
-                    <li><strong>Redes sociales:</strong> Para promoción diaria, engagement, construir comunidad</li>
-                    <li><strong>Web propia:</strong> Para ventas, información detallada, profesionalismo, SEO</li>
+                    <li data-es="Redes sociales: Para promoción diaria, engagement, construir comunidad" data-en="Social media: For daily promotion, engagement, building community">Redes sociales: Para promoción diaria, engagement, construir comunidad</li>
+                    <li data-es="Web propia: Para ventas, información detallada, profesionalismo, SEO" data-en="Own website: For sales, detailed information, professionalism, SEO">Web propia: Para ventas, información detallada, profesionalismo, SEO</li>
                 </ol>
                 
                 <div class="highlight-box">
-                    <p>"Las redes sociales atraen, la web convierte. Usa Instagram para generar interés y tu web para cerrar ventas."</p>
+                    <p data-es="Las redes sociales atraen, la web convierte. Usa Instagram para generar interés y tu web para cerrar ventas." data-en="Social media attracts, website converts. Use Instagram to generate interest and your website to close sales.">Las redes sociales atraen, la web convierte. Usa Instagram para generar interés y tu web para cerrar ventas.</p>
                 </div>
                 
-                <h2>Conclusión: ¿Qué necesitas tú?</h2>
+                <h2 data-es="Conclusión: ¿Qué necesitas tú?" data-en="Conclusion: What do you need?">Conclusión: ¿Qué necesitas tú?</h2>
                 
-                <p><strong>Si estás empezando</strong> y no tienes presupuesto, comienza con redes sociales. Pero planea tener web en los próximos 6-12 meses.</p>
+                <p data-es="Si estás empezando y no tienes presupuesto, comienza con redes sociales. Pero planea tener web en los próximos 6-12 meses." data-en="If you're starting and have no budget, start with social media. But plan to have a website in the next 6-12 months.">Si estás empezando y no tienes presupuesto, comienza con redes sociales. Pero planea tener web en los próximos 6-12 meses.</p>
                 
-                <p><strong>Si ya tienes un negocio establecido</strong> y quieres crecer, la web no es opcional, es necesaria.</p>
+                <p data-es="Si ya tienes un negocio establecido y quieres crecer, la web no es opcional, es necesaria." data-en="If you already have an established business and want to grow, the website is not optional, it's necessary.">Si ya tienes un negocio establecido y quieres crecer, la web no es opcional, es necesaria.</p>
                 
-                <p><strong>Si vendes productos/servicios premium</strong> o B2B, la web es obligatoria. Sin ella, pierdes credibilidad.</p>
+                <p data-es="Si vendes productos/servicios premium o B2B, la web es obligatoria. Sin ella, pierdes credibilidad." data-en="If you sell premium products/services or B2B, the website is mandatory. Without it, you lose credibility.">Si vendes productos/servicios premium o B2B, la web es obligatoria. Sin ella, pierdes credibilidad.</p>
                 
                 <div class="cta-box">
-                    <h3>¿Listo para dar el siguiente paso?</h3>
-                    <p>En STIKMANIA desarrollamos webs profesionales desde $20 USD, con hosting incluido el primer año y capacitación para que la gestiones tú mismo.</p>
-                    <a href="web.html" class="btn">Ver Tipos de Web y Precios</a>
+                    <h3 data-es="¿Listo para dar el siguiente paso?" data-en="Ready to take the next step?">¿Listo para dar el siguiente paso?</h3>
+                    <p data-es="En STIKMANIA desarrollamos webs profesionales desde $20 USD, con hosting incluido el primer año y capacitación para que la gestiones tú mismo." data-en="At STIKMANIA we develop professional websites from $20 USD, with hosting included the first year and training so you can manage it yourself.">En STIKMANIA desarrollamos webs profesionales desde $20 USD, con hosting incluido el primer año y capacitación para que la gestiones tú mismo.</p>
+                    <a href="web.html" class="btn" data-es="Ver Tipos de Web y Precios" data-en="View Web Types and Prices">Ver Tipos de Web y Precios</a>
                 </div>
                 
                 <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--dark-green);">
-                    <strong>¿Tienes dudas?</strong> Escríbenos y te asesoramos gratis sobre qué tipo de web necesitas según tu negocio.
+                    <strong data-es="¿Tienes dudas?" data-en="Do you have questions?">¿Tienes dudas?</strong> <span data-es="Escríbenos y te asesoramos gratis sobre qué tipo de web necesitas según tu negocio." data-en="Write to us and we'll advise you for free on what type of website you need according to your business.">Escríbenos y te asesoramos gratis sobre qué tipo de web necesitas según tu negocio.</span>
                 </p>
             </div>
         </div>
@@ -431,12 +415,32 @@
 
     <footer>
         <div class="container">
-            <p>© STIKMANIA TM. Todos los derechos reservados. | 2026</p>
+            <p>© STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span> | 2026</p>
             <p style="margin-top: 10px;">
-                <a href="index.html">← Volver al Inicio</a>
+                <a href="index.html" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
             </p>
         </div>
     </footer>
+
+    <script>
+        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('stikmania_lang', currentLang);
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+            document.documentElement.lang = currentLang;
+        }
+        
+        updateLanguage();
+    </script>
 
 </body>
 </html>
