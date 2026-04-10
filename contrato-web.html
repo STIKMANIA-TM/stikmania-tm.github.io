@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Desarrollo Web | STIKMANIA</title>
+    <meta name="description" content="Contrato de servicios de desarrollo web STIKMANIA. Términos y condiciones para proyectos web.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+    
+    <!-- html2pdf.js para descargar PDF real -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <style>
+        :root {
+            --neon-green: #00FF00;
+            --dark-green: #003300;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.8;
+            padding: 100px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Pirata One', display;
+            color: var(--neon-green);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            color: #ccc;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        a {
+            color: var(--neon-green);
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .btn-group {
+            text-align: center;
+            margin-top: 40px;
+            position: sticky;
+            bottom: 20px;
+            background: var(--black);
+            padding: 20px;
+            border-top: 1px solid var(--dark-green);
+        }
+        
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 14px 32px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-pdf {
+            background: var(--neon-green);
+            color: var(--black);
+        }
+        
+        .btn-pdf:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .btn-print {
+            background: transparent;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+        }
+        
+        .btn-print:hover {
+            background: var(--neon-green);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+        
+        .btn-back {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+        
+        .btn-back:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+        
+        .signature-box {
+            margin-top: 60px;
+            padding: 30px;
+            border: 2px solid var(--neon-green);
+            background: #001100;
+        }
+        
+        .signature-line {
+            margin-top: 40px;
+            border-top: 1px solid var(--white);
+            padding-top: 10px;
+            width: 300px;
+        }
+        
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .signature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: static;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                padding: 0;
+                font-size: 12pt;
+            }
+            
+            .btn-group {
+                display: none !important;
+            }
+            
+            h1, h2, h3 {
+                color: black !important;
+                font-family: 'Pirata One', cursive !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .signature-box {
+                border-color: black !important;
+                background: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .signature-line {
+                border-color: black !important;
+            }
+            
+            p, ul, li {
+                color: black !important;
+            }
+            
+            a {
+                text-decoration: none;
+                color: black !important;
+            }
+            
+            @page {
+                margin: 2cm;
+                size: A4 portrait;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="contract-content">
+        <h1>CONTRATO DE DESARROLLO WEB</h1>
+        <p class="subtitle"><strong>STIKMANIA</strong> - La Habana, Cuba</p>
+        <p class="subtitle"><strong>Fecha:</strong> _________________</p>
+        
+        <h2>PARTES</h2>
+        <p><strong>PRESTADOR:</strong> STIKMANIA (Adrián González), con domicilio en La Habana, Cuba, email: stikmania795@gmail.com, teléfono: +53 5 975 8756</p>
+        
+        <p><strong>CLIENTE:</strong> _________________________________________________, con domicilio en _________________________, email: _________________________, teléfono: _________________________</p>
+        
+        <h2>CLÁUSULAS</h2>
+        
+        <h2>1. OBJETO DEL CONTRATO</h2>
+        <p>El PRESTADOR se compromete a desarrollar un sitio web para el CLIENTE según las siguientes especificaciones:</p>
+        <ul>
+            <li><strong>Tipo de proyecto:</strong> ☐ Landing Page ☐ Web Corporativa ☐ E-commerce ☐ Web App</li>
+            <li><strong>Descripción:</strong> _________________________________________________</li>
+            <li><strong>Páginas/secciones incluidas:</strong> _________________________________________________</li>
+            <li><strong>Funcionalidades específicas:</strong> _________________________________________________</li>
+        </ul>
+        
+        <h2>2. PRECIO Y FORMA DE PAGO</h2>
+        <p><strong>Precio total:</strong> $__________ USD</p>
+        <p><strong>Forma de pago:</strong></p>
+        <ul>
+            <li>50% anticipo: $__________ USD (al firmar contrato)</li>
+            <li>50% entrega: $__________ USD (al finalizar proyecto)</li>
+        </ul>
+        <p><strong>Método de pago:</strong> ☐ Efectivo (USD) ☐ Transferencia bancaria ☐ Otro: _______________</p>
+        
+        <h2>3. PLAZO DE EJECUCIÓN</h2>
+        <p><strong>Fecha de inicio:</strong> _________________</p>
+        <p><strong>Fecha estimada de entrega:</strong> _________________</p>
+        <p><strong>Tiempo estimado:</strong> _____ días hábiles</p>
+        <p>El plazo puede extenderse por:</p>
+        <ul>
+            <li>Retrasos en la entrega de contenido por parte del CLIENTE</li>
+            <li>Problemas de conectividad o electricidad en Cuba</li>
+            <li>Solicitudes de cambios fuera del alcance acordado</li>
+        </ul>
+        
+        <h2>4. OBLIGACIONES DEL PRESTADOR</h2>
+        <ul>
+            <li>Desarrollar el sitio web según especificaciones acordadas</li>
+            <li>Entregar proyecto funcional y optimizado</li>
+            <li>Proporcionar 1 mes de soporte técnico post-entrega</li>
+            <li>Capacitar al CLIENTE en gestión básica del sitio (si aplica)</li>
+            <li>Mantener confidencialidad sobre información del CLIENTE</li>
+        </ul>
+        
+        <h2>5. OBLIGACIONES DEL CLIENTE</h2>
+        <ul>
+            <li>Proporcionar contenido (textos, imágenes, logos) en tiempo y forma</li>
+            <li>Realizar pagos según cronograma establecido</li>
+            <li>Responder a consultas y revisiones en máximo 5 días hábiles</li>
+            <li>Proporcionar acceso a hosting/dominio (si ya los tiene)</li>
+        </ul>
+        
+        <h2>6. PROPIEDAD INTELECTUAL</h2>
+        <p><strong>Contenido:</strong> El CLIENTE conserva todos los derechos sobre textos, imágenes y logos proporcionados.</p>
+        <p><strong>Diseño:</strong> Una vez completado el pago total, el CLIENTE posee los derechos del diseño final.</p>
+        <p><strong>Código:</strong> El PRESTADOR conserva derechos sobre código reutilizable, librerías y frameworks. El CLIENTE recibe licencia de uso ilimitado del código específico de su proyecto.</p>
+        
+        <h2>7. HOSTING Y DOMINIO</h2>
+        <p>☐ El CLIENTE contrata hosting y dominio por su cuenta</p>
+        <p>☐ El PRESTADOR gestiona hosting primer año incluido (renovación: $______ USD/año)</p>
+        <p>☐ Dominio: _________________________________________________</p>
+        
+        <h2>8. SOPORTE POST-ENTREGA</h2>
+        <p><strong>Incluido (1 mes):</strong></p>
+        <ul>
+            <li>Corrección de bugs y errores</li>
+            <li>Ajustes menores de diseño</li>
+            <li>Asesoramiento técnico</li>
+        </ul>
+        <p><strong>No incluido:</strong></p>
+        <ul>
+            <li>Agregado de nuevas funcionalidades</li>
+            <li>Cambios estructurales importantes</li>
+            <li>Actualización de contenido (salvo acuerdo previo)</li>
+        </ul>
+        <p><strong>Soporte adicional:</strong> $______ USD/hora o plan mensual: $______ USD/mes</p>
+        
+        <h2>9. CONFIDENCIALIDAD</h2>
+        <p>Ambas partes se comprometen a mantener confidencialidad sobre información comercial, técnica y estratégica compartida durante el proyecto.</p>
+        
+        <h2>10. RESOLUCIÓN DEL CONTRATO</h2>
+        <p><strong>Por incumplimiento del CLIENTE:</strong> Si no realiza pagos o no proporciona contenido en 5 días, el PRESTADOR puede cancelar el contrato reteniendo el anticipo.</p>
+        <p><strong>Por incumplimiento del PRESTADOR:</strong> Si no entrega el proyecto en plazo acordado (sin causa justificada), debe devolver el anticipo.</p>
+        
+        <h2>11. MODIFICACIONES</h2>
+        <p>Cualquier cambio en el alcance del proyecto debe ser acordado por escrito y puede implicar ajustes en precio y plazo.</p>
+        
+        <h2>12. JURISDICCIÓN</h2>
+        <p>Este contrato se rige por principios de comercio electrónico internacional y estándares de la industria del desarrollo web. Cualquier disputa se resolverá amistosamente mediante negociación directa entre las partes. En caso de no alcanzar acuerdo, se recurrirá a mediación digital o arbitraje en línea.</p>
+        
+        <div class="signature-box">
+            <h2>FIRMAS</h2>
+            <p>En señal de conformidad, firman el presente contrato:</p>
+            
+            <div class="signature-grid">
+                <div>
+                    <p><strong>PRESTADOR</strong></p>
+                    <p>STIKMANIA<br>Adrián González</p>
+                    <div class="signature-line">Firma</div>
+                    <p>Fecha: _______________</p>
+                </div>
+                
+                <div>
+                    <p><strong>CLIENTE</strong></p>
+                    <p>_________________________________</p>
+                    <div class="signature-line">Firma</div>
+                    <p>Fecha: _______________</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="btn-group">
+        <button class="btn btn-pdf" onclick="downloadPDF()" id="btnPdf">📥 Descargar PDF</button>
+        <button class="btn btn-print" onclick="printContract()">🖨️ Imprimir</button>
+        <a href="index.html" class="btn btn-back">← Volver al Inicio</a>
+    </div>
+
+    <script>
+        // Descargar PDF - Genera archivo PDF real
+        function downloadPDF() {
+            const element = document.getElementById('contract-content');
+            const btn = document.getElementById('btnPdf');
+            const originalText = btn.textContent;
+            
+            // Estado de carga
+            btn.textContent = '⏳ Generando...';
+            btn.disabled = true;
+            
+            const opt = {
+                margin: [15, 15, 15, 15],
+                filename: 'STIKMANIA_Contrato_Web.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2, 
+                    useCORS: true,
+                    backgroundColor: '#000000'
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait' 
+                }
+            };
+            
+            // Generar y descargar PDF
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.textContent = '✅ ¡Listo!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }).catch(err => {
+                console.error('Error:', err);
+                btn.textContent = '❌ Error';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            });
+        }
+        
+        // Imprimir - Abre diálogo de impresión para impresora física
+        function printContract() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

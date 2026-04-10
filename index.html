@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STIKMANIA | Diseño que se pega - Stickers, Branding y Desarrollo Web en La Habana</title>
+    <meta name="description" content="STIKMANIA: Stickers de vinilo personalizados, branding profesional y desarrollo web en La Habana, Cuba. Diseño urbano con calidad profesional.">
+    <meta name="keywords" content="stickers de vinilo, stickers para negocios, stickers para emprendedores, stickers habana, tienda de diseño habana, tienda de stickers, desarrollo web, logotipos originales, branding habana, Cuba">
+    <meta name="author" content="STIKMANIA">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="STIKMANIA | Diseño que se pega">
+    <meta property="og:description" content="Stickers, Branding y Desarrollo Web en La Habana. Diseño urbano con calidad profesional.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://stikmania.netlify.app">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "STIKMANIA",
+        "image": "https://stikmania.netlify.app/images/logo.png",
+        "description": "Stickers personalizados, branding profesional y desarrollo web en La Habana, Cuba",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "La Habana",
+            "addressCountry": "CU"
+        },
+        "telephone": "+5359758756",
+        "email": "stikmania795@gmail.com",
+        "url": "https://stikmania.netlify.app",
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": [
+            "https://www.instagram.com/sti_kmania/"
+        ]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --neon-green: #00FF00;
+            --green: #006600;
+            --dark-green: #003300;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray: #1a1a1a;
+            --gray-light: #2a2a2a;
+            --web: #4fc3f7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Pirata One', display;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--neon-green);
+            color: var(--black);
+            padding: 12px 28px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+        }
+        
+        .btn-outline:hover {
+            background: var(--neon-green);
+            color: var(--black);
+        }
+        
+        /* HEADER */
+        header {
+            background: var(--black);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--dark-green);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Pirata One', display;
+            font-size: 1.8rem;
+            color: var(--neon-green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--neon-green);
+        }
+        
+        /* HERO */
+        .hero {
+            padding: 180px 0 100px 0;
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-green) 100%);
+            text-align: center;
+        }
+        
+        .hero-logo {
+            max-width: 300px;
+            margin: 0 auto 30px auto;
+            filter: invert(1);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* SERVICES */
+        .services {
+            padding: 100px 0;
+            background: var(--gray);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--neon-green);
+        }
+        
+        .section-header p {
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background: var(--black);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: var(--neon-green);
+        }
+        
+        .card p {
+            color: var(--white);
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        
+        .card a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: var(--neon-green);
+            font-weight: 600;
+        }
+        
+        .card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ABOUT */
+        .about {
+            padding: 100px 0;
+            background: var(--black);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--neon-green);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--white);
+            font-weight: 300;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* BLOG PREVIEW */
+        .blog-preview {
+            padding: 100px 0;
+            background: var(--gray);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: var(--black);
+            border: 1px solid var(--dark-green);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
+        }
+        
+        .blog-icon {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--black);
+            border-bottom: 1px solid var(--dark-green);
+        }
+        
+        .blog-icon svg {
+            width: 120px;
+            height: 120px;
+            stroke: var(--neon-green);
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover .blog-icon svg {
+            stroke: var(--white);
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-category {
+            color: var(--neon-green);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .blog-card h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .blog-card p {
+            color: var(--white);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .read-more {
+            color: var(--neon-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        /* CONTACT */
+        .contact {
+            padding: 100px 0;
+            background: var(--black);
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+        }
+        
+        .contact p {
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #000;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 255, 0, 0.3);
+            background: var(--neon-green);
+            color: var(--black);
+        }
+        
+        .contact-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            padding: 60px 0 30px 0;
+            border-top: 1px solid var(--dark-green);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand p {
+            color: var(--white);
+            font-weight: 300;
+            margin-top: 20px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+        
+        .footer-links a:hover {
+            color: var(--neon-green);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--dark-green);
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+        
+        /* MOBILE */
+        @media (max-width: 992px) {
+            .services-grid,
+            .blog-grid,
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .services-grid,
+            .blog-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 140px 0 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2,
+            .about-content h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-buttons {
+                gap: 10px;
+            }
+            
+            .contact-btn {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">STIKMANIA</a>
+                <nav>
+                    <ul>
+                        <li><a href="#about">Nosotros</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <img src="images/logo.png" alt="STIKMANIA Logo" class="hero-logo">
+            <h1>Diseño que se pega</h1>
+            <p>Stickers personalizados, branding profesional y desarrollo web en La Habana. Calidad urbana con estándares profesionales.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn">Ver Servicios</a>
+                <a href="stickers.html" class="btn btn-outline">Ir a la Tienda</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Qué hacemos?</h2>
+                <p>Soluciones de diseño y desarrollo para emprendedores y empresas en Cuba</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="card">
+                    <h3>Stickers Personalizados</h3>
+                    <p>Vinilo de alta durabilidad. Para laptops, skate, negocios.</p>
+                    <a href="stickers.html">Ver detalles →</a>
+                </div>
+                <div class="card">
+                    <h3>Branding Digital</h3>
+                    <p>Logos, identidad visual y assets para redes sociales.</p>
+                    <a href="branding.html">Ver detalles →</a>
+                </div>
+                <div class="card" style="border-color: var(--web);">
+                    <h3 style="color: var(--web);">Desarrollo Web</h3>
+                    <p>E-commerce, portfolio, web apps y sitios corporativos optimizados.</p>
+                    <a href="web.html">Ver detalles →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>Sobre STIKMANIA</h2>
+                <p><strong>CEO: Adrián González</strong> - Diseñador gráfico y desarrollador web con formación en informática y especialización en identidad visual urbana.</p>
+                <p>STIKMANIA es una marca registrada cubana dedicada a proporcionar soluciones de diseño profesional para emprendedores y empresas. Combinamos expertise técnico con sensibilidad artística para crear identidades visuales que generan impacto real en el mercado.</p>
+                <p><strong>Nuestra filosofía:</strong> Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles.</p>
+                <p><strong>Compromiso:</strong> Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG PREVIEW -->
+    <section id="blog" class="blog-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Blog STIKMANIA</h2>
+                <p>Contenido útil para emprendedores y empresas en Cuba (2026)</p>
+            </div>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <path d="M9 9h6v6H9z"></path>
+                            <path d="M7 7h.01"></path>
+                            <path d="M17 7h.01"></path>
+                            <path d="M7 17h.01"></path>
+                            <path d="M17 17h.01"></path>
+                        </svg>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Stickers</span>
+                        <h3>Cómo elegir stickers para tu negocio</h3>
+                        <p>Guía completa para seleccionar el material, tamaño y diseño correcto según tu industria y presupuesto.</p>
+                        <a href="blog-stickers.html" class="read-more">Leer artículo →</a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v6l4 2"></path>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <path d="M9 9h.01"></path>
+                            <path d="M15 9h.01"></path>
+                        </svg>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Branding</span>
+                        <h3>Por qué tu emprendimiento necesita branding</h3>
+                        <p>El impacto de una identidad visual bien diseñada en la percepción de tus clientes y tus ventas.</p>
+                        <a href="blog-branding.html" class="read-more">Leer artículo →</a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                            <path d="M6 8l2 2"></path>
+                            <path d="M6 12l2-2"></path>
+                        </svg>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Desarrollo Web</span>
+                        <h3>Web propia vs Redes sociales</h3>
+                        <p>Comparativa honesta de ventajas, desventajas y costos. ¿Qué necesitas realmente para tu negocio?</p>
+                        <a href="blog-web.html" class="read-more">Leer artículo →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Hablemos de tu Proyecto</h2>
+            <p>Elige tu canal preferido. Respondemos en menos de 24 horas.</p>
+            
+            <div class="contact-buttons">
+                <a href="https://wa.me/5359758756" target="_blank" rel="noopener" class="contact-btn whatsapp" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/sti_kmania/" target="_blank" rel="noopener" class="contact-btn instagram" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="mailto:stikmania795@gmail.com" class="contact-btn email" aria-label="Email">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+                <a href="https://t.me/+5359758756" target="_blank" rel="noopener" class="contact-btn telegram" aria-label="Telegram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.89-.25-.87-.86.19-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">STIKMANIA</a>
+                    <p>Diseño que se pega. Stickers, branding y desarrollo web profesional en La Habana, Cuba.</p>
+                    <p style="margin-top: 15px; font-size: 0.85rem;">© STIKMANIA TM. Todos los derechos reservados.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="stickers.html">Stickers</a></li>
+                        <li><a href="branding.html">Branding</a></li>
+                        <li><a href="web.html">Desarrollo Web</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terminos.html">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>La Habana, Cuba | 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'var(--black)';
+            }
+        });
+    </script>
+
+</body>
+</html>

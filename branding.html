@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding Digital | STIKMANIA</title>
+    <meta name="description" content="Servicios de branding digital y aplicado. Logos, identidad visual y papelería en Cuba.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-green: #00FF00;
+            --green: #006600;
+            --dark-green: #003300;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray: #1a1a1a;
+            --gray-light: #2a2a2a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Pirata One', display;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--neon-green);
+            color: var(--black);
+            padding: 12px 28px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+        }
+        
+        .btn-outline:hover {
+            background: var(--neon-green);
+            color: var(--black);
+        }
+        
+        .btn-small {
+            padding: 6px 14px;
+            font-size: 0.8rem;
+        }
+        
+        /* HEADER */
+        header {
+            background: var(--black);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--dark-green);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Pirata One', display;
+            font-size: 1.8rem;
+            color: var(--neon-green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a:hover {
+            color: var(--neon-green);
+        }
+        
+        /* HERO */
+        .hero {
+            padding: 160px 0 60px 0;
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-green) 100%);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .production-time {
+            display: inline-block;
+            background: var(--gray);
+            padding: 10px 20px;
+            border: 1px solid var(--neon-green);
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        /* PACKAGES */
+        .packages {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--neon-green);
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .package-card {
+            background: var(--gray);
+            border: 1px solid var(--dark-green);
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .package-card:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
+        }
+        
+        .package-card.destacado {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+        
+        .package-card.seleccionado {
+            border-color: var(--neon-green);
+            background: var(--gray-light);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--neon-green);
+            color: var(--black);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .package-header {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--dark-green);
+        }
+        
+        .package-type {
+            font-size: 1.5rem;
+            color: var(--neon-green);
+            margin-bottom: 10px;
+        }
+        
+        .package-price {
+            font-family: 'Pirata One', display;
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+        
+        .package-price span {
+            font-size: 1rem;
+            color: var(--neon-green);
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--dark-green);
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .package-features li::before {
+            content: "✓";
+            color: var(--neon-green);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .package-time {
+            text-align: center;
+            color: var(--neon-green);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+        
+        /* GALLERY */
+        .gallery {
+            padding: 80px 0;
+            background: var(--gray);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .gallery-item {
+            background: var(--black);
+            padding: 30px;
+            border: 1px solid var(--dark-green);
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            max-height: 120px;
+            margin: 0 auto 15px auto;
+            object-fit: contain;
+        }
+        
+        .gallery-item a {
+            color: var(--neon-green);
+            font-size: 0.9rem;
+        }
+        
+        .gallery-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* QUESTIONNAIRE */
+        .questionnaire {
+            padding: 80px 0;
+        }
+        
+        .questionnaire-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--gray);
+            padding: 40px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--neon-green);
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--black);
+            border: 1px solid var(--dark-green);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-green);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-group select:valid {
+            border-color: var(--neon-green);
+            background: var(--gray-light);
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
+            background: var(--gray);
+        }
+        
+        .faq-item {
+            background: var(--black);
+            margin-bottom: 15px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-question:hover {
+            color: var(--neon-green);
+        }
+        
+        .faq-answer {
+            display: none;
+            padding: 0 20px 20px 20px;
+            color: var(--white);
+        }
+        
+        .faq-answer.show {
+            display: block;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--dark-green);
+        }
+        
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .questionnaire-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">STIKMANIA</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#services">Servicios</a></li>
+                        <li><a href="stickers.html">Stickers</a></li>
+                        <li><a href="web.html">Web</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>Branding Digital</h1>
+            <p>Logos profesionales, identidad visual completa y papelería corporativa. Diseños que transmiten la esencia de tu marca y conectan con tu audiencia.</p>
+            <div class="production-time">
+                <strong>Tiempo de producción:</strong> 2-10 días hábiles según paquete
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="packages">
+        <div class="container">
+            <h2 class="section-title">Paquetes de Branding</h2>
+            
+            <div class="packages-grid">
+                <!-- BÁSICO -->
+                <div class="package-card" id="package-basico">
+                    <div class="package-header">
+                        <h3 class="package-type">Básico</h3>
+                        <div class="package-price">$10 <span>USD</span></div>
+                    </div>
+                    <ul class="package-features">
+                        <li>Logo principal</li>
+                        <li>Paleta de colores corporativa</li>
+                        <li>2 revisiones incluidas</li>
+                        <li>Archivos PNG + JPG</li>
+                        <li>Entrega en 2-4 días hábiles</li>
+                    </ul>
+                    <p class="package-time">⏱️ 2-4 días hábiles</p>
+                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%;" data-package="basico">
+                        Seleccionar
+                    </a>
+                </div>
+                
+                <!-- INTERMEDIO -->
+                <div class="package-card destacado" id="package-intermedio">
+                    <span class="package-badge">Más Popular</span>
+                    <div class="package-header">
+                        <h3 class="package-type">Intermedio</h3>
+                        <div class="package-price">$15 <span>USD</span></div>
+                    </div>
+                    <ul class="package-features">
+                        <li>Todo lo del Básico</li>
+                        <li>Tipografía corporativa</li>
+                        <li>Guía de uso básica</li>
+                        <li>Archivos editables (AI, EPS)</li>
+                        <li>Entrega en 3-6 días hábiles</li>
+                    </ul>
+                    <p class="package-time">⏱️ 3-6 días hábiles</p>
+                    <a href="#questionnaire" class="btn select-package" style="width: 100%;" data-package="intermedio">
+                        Seleccionar
+                    </a>
+                </div>
+                
+                <!-- COMPLETO -->
+                <div class="package-card" id="package-completo">
+                    <div class="package-header">
+                        <h3 class="package-type">Completo</h3>
+                        <div class="package-price">$40 <span>USD</span></div>
+                    </div>
+                    <ul class="package-features">
+                        <li>Logo con variaciones</li>
+                        <li>Paleta de colores completa</li>
+                        <li>Tipografía para redes sociales</li>
+                        <li>Branding aplicado (papelería)</li>
+                        <li>Manual de marca</li>
+                        <li>Entrega en 5-10 días hábiles</li>
+                    </ul>
+                    <p class="package-time">⏱️ 5-10 días hábiles</p>
+                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%;" data-package="completo">
+                        Seleccionar
+                    </a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: var(--white); margin-bottom: 20px;">
+                    ¿Necesitas algo personalizado o tienes dudas sobre qué paquete elegir?
+                </p>
+                <a href="https://wa.me/5359758756" target="_blank" class="btn">
+                    Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Clientes que Confían</h2>
+            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Algunos de los proyectos de identidad visual que hemos creado
+            </p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/munchies.jpg" alt="Munchies Cuba Logo">
+                    <a href="https://www.instagram.com/munchies_cuba/" target="_blank">@munchies_cuba</a>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/Nova_LOGO.png" alt="Nova Events Logo">
+                    <a href="https://www.instagram.com/nova_events_cuba/" target="_blank">@nova_events_cuba</a>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/ashsoap_logo.png" alt="Ash Soap Cuba Logo">
+                    <a href="https://www.instagram.com/ash.soap.cuba/" target="_blank">@ash.soap.cuba</a>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/deli.png" alt="Deli Logo">
+                    <span style="color: var(--neon-green); font-size: 0.9rem;">Deli</span>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/cafe_logo.jpeg" alt="Cafe Logo">
+                    <span style="color: var(--neon-green); font-size: 0.9rem;">Cafe</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUESTIONNAIRE -->
+    <section id="questionnaire" class="questionnaire">
+        <div class="container">
+            <h2 class="section-title">Cuestionario de Branding</h2>
+            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución
+            </p>
+            
+            <div id="package-selected-message" style="display: none; text-align: center; margin-bottom: 20px; padding: 15px; background: var(--gray-light); border: 1px solid var(--neon-green); border-radius: 4px;">
+                <p style="color: var(--neon-green); font-weight: 600;">✓ Paquete seleccionado: <span id="selected-package-name"></span></p>
+            </div>
+            
+            <form class="questionnaire-form" id="brandingForm" onsubmit="submitQuestionnaire(event)">
+                <div class="form-group">
+                    <label>Nombre completo *</label>
+                    <input type="text" id="q_name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Teléfono *</label>
+                    <input type="tel" id="q_phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Nombre de la empresa/marca *</label>
+                    <input type="text" id="q_brand" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>¿A qué se dedican? *</label>
+                    <textarea id="q_business" rows="3" required placeholder="Describe brevemente tu negocio o proyecto..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>¿Tienen logo actual? *</label>
+                    <select id="q_logo" required>
+                        <option value="">Selecciona...</option>
+                        <option value="si">Sí, queremos rediseñarlo</option>
+                        <option value="no">No, necesitamos uno nuevo</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>¿Qué quieren transmitir con su marca? *</label>
+                    <textarea id="q_values" rows="3" required placeholder="Ej: Profesional, urbano, divertido, serio, moderno, ecológico..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>¿Colores preferidos o a evitar?</label>
+                    <textarea id="q_colors" rows="2" placeholder="Menciona colores que te gusten o que definitivamente no quieres..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>¿Ejemplos de marcas que te gustan? (opcional)</label>
+                    <textarea id="q_references" rows="2" placeholder="Menciona marcas cuyo diseño te inspire..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>¿Deadline o fecha límite? (opcional)</label>
+                    <input type="text" id="q_deadline" placeholder="Si tienes una fecha específica...">
+                </div>
+                
+                <div class="form-group">
+                    <label>Paquete de interés *</label>
+                    <select id="q_package" required>
+                        <option value="">Selecciona un paquete...</option>
+                        <option value="basico">Básico ($10 USD)</option>
+                        <option value="intermedio">Intermedio ($15 USD)</option>
+                        <option value="completo">Completo ($40 USD)</option>
+                        <option value="personalizado">Personalizado (consultar)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">
+                    Enviar Cuestionario por WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Qué incluye cada paquete de branding?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Básico:</strong> Logo principal + paleta de colores + 2 revisiones + archivos PNG/JPG.</p>
+                    <p><strong>Intermedio:</strong> Todo lo del Básico + tipografía corporativa + guía de uso + archivos editables (AI, EPS).</p>
+                    <p><strong>Completo:</strong> Logo con variaciones + paleta completa + tipografía para redes + branding aplicado (papelería) + manual de marca.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Cuántas revisiones están incluidas?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Todos los paquetes incluyen 2 revisiones por etapa del proceso. Revisiones adicionales tienen un costo de $5 USD cada una.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿En qué formatos recibo los archivos?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Básico:</strong> PNG y JPG (listos para usar).</p>
+                    <p><strong>Intermedio y Completo:</strong> Incluye archivos editables en AI (Adobe Illustrator) y EPS, además de PNG y JPG.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Necesito pagar anticipo?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final de los archivos.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Puedo usar el logo para redes sociales?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>¡Sí! Una vez completado el pago total, eres dueño del diseño final y puedes usarlo en redes sociales, web, impresión y cualquier medio que necesites.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Qué pasa si no me gusta el diseño?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Por eso incluimos 2 revisiones por etapa. Trabajamos contigo hasta que el diseño refleje la esencia de tu marca. Si después de las revisiones incluidas necesitas más cambios, tienen un costo adicional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p style="color: var(--white); margin-bottom: 10px;">
+                <strong>STIKMANIA</strong> - Diseño que se pega
+            </p>
+            <p style="color: var(--white); font-size: 0.9rem;">
+                La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com
+            </p>
+            <p style="color: var(--white); font-size: 0.85rem; margin-top: 20px;">
+                © STIKMANIA TM. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-fill package when "Seleccionar" is clicked
+        document.querySelectorAll('.select-package').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const selectedPackage = this.getAttribute('data-package');
+                const packageSelect = document.getElementById('q_package');
+                const packageMessage = document.getElementById('package-selected-message');
+                const packageName = document.getElementById('selected-package-name');
+                
+                // Set the select value
+                packageSelect.value = selectedPackage;
+                
+                // Show confirmation message
+                const packageNames = {
+                    'basico': 'Básico ($10 USD)',
+                    'intermedio': 'Intermedio ($15 USD)',
+                    'completo': 'Completo ($40 USD)'
+                };
+                
+                packageName.textContent = packageNames[selectedPackage];
+                packageMessage.style.display = 'block';
+                
+                // Highlight selected package card
+                document.querySelectorAll('.package-card').forEach(card => {
+                    card.classList.remove('seleccionado');
+                });
+                document.getElementById(`package-${selectedPackage}`).classList.add('seleccionado');
+                
+                // Highlight the select field
+                packageSelect.style.borderColor = 'var(--neon-green)';
+                packageSelect.style.background = 'var(--gray-light)';
+            });
+        });
+        
+        // Toggle FAQ
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const sign = element.querySelector('span:last-child');
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                sign.textContent = '+';
+            } else {
+                answer.classList.add('show');
+                sign.textContent = '-';
+            }
+        }
+        
+        // Submit questionnaire via WhatsApp
+        function submitQuestionnaire(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('q_name').value;
+            const phone = document.getElementById('q_phone').value;
+            const brand = document.getElementById('q_brand').value;
+            const business = document.getElementById('q_business').value;
+            const logo = document.getElementById('q_logo').value;
+            const values = document.getElementById('q_values').value;
+            const colors = document.getElementById('q_colors').value;
+            const references = document.getElementById('q_references').value;
+            const deadline = document.getElementById('q_deadline').value;
+            const pkg = document.getElementById('q_package').value;
+            
+            // Get package name
+            const packageSelect = document.getElementById('q_package');
+            const packageName = packageSelect.options[packageSelect.selectedIndex].text;
+            
+            // Build questionnaire message
+            let message = `*CUESTIONARIO DE BRANDING - STIKMANIA*\n\n`;
+            message += `*Nombre:* ${name}\n`;
+            message += `*Teléfono:* ${phone}\n`;
+            message += `*Marca:* ${brand}\n`;
+            message += `*Negocio:* ${business}\n`;
+            message += `*Logo actual:* ${logo}\n`;
+            message += `*Valores:* ${values}\n`;
+            message += `*Colores:* ${colors || 'No especificado'}\n`;
+            message += `*Referencias:* ${references || 'No especificado'}\n`;
+            message += `*Deadline:* ${deadline || 'No especificado'}\n`;
+            message += `*Paquete de interés:* ${packageName}\n`;
+            message += `\n*Nota:* Pago requiere 50% de anticipo para comenzar.`;
+            
+            // Open WhatsApp
+            const whatsappNumber = '5359758756';
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Smooth scroll for questionnaire links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
