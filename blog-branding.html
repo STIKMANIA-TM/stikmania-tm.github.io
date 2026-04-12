@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Por qué tu emprendimiento necesita branding profesional | STIKMANIA</title>
+    <title data-es="Por qué tu emprendimiento necesita branding profesional | STIKMANIA" data-en="Why your business needs professional branding | STIKMANIA">Por qué tu emprendimiento necesita branding profesional | STIKMANIA</title>
     <meta name="description" content="Descubre por qué el branding profesional es esencial para tu emprendimiento en Cuba. Impacto en ventas, percepción y crecimiento.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
@@ -19,11 +25,7 @@
             --gray: #1a1a1a;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -38,16 +40,10 @@
             letter-spacing: 2px;
         }
         
-        a {
-            color: var(--neon-green);
-            text-decoration: none;
-        }
+        a { color: var(--neon-green); text-decoration: none; }
+        a:hover { text-decoration: underline; }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
         
         header {
             background: var(--black);
@@ -61,9 +57,7 @@
             color: var(--neon-green);
         }
         
-        .article {
-            padding: 100px 0;
-        }
+        .article { padding: 100px 0; }
         
         .article-header {
             margin-bottom: 40px;
@@ -99,9 +93,7 @@
             text-align: center;
         }
         
-        .article-content {
-            margin-bottom: 40px;
-        }
+        .article-content { margin-bottom: 40px; }
         
         .article-content h2 {
             color: var(--neon-green);
@@ -115,20 +107,9 @@
             margin: 30px 0 15px 0;
         }
         
-        .article-content p {
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-        
-        .article-content ul, .article-content ol {
-            margin-bottom: 20px;
-            padding-left: 30px;
-            color: #ccc;
-        }
-        
-        .article-content li {
-            margin-bottom: 10px;
-        }
+        .article-content p { margin-bottom: 20px; color: #ccc; }
+        .article-content ul, .article-content ol { margin-bottom: 20px; padding-left: 30px; color: #ccc; }
+        .article-content li { margin-bottom: 10px; }
         
         .highlight-box {
             background: var(--gray);
@@ -137,10 +118,7 @@
             margin: 30px 0;
         }
         
-        .highlight-box p {
-            margin: 0;
-            font-style: italic;
-        }
+        .highlight-box p { margin: 0; font-style: italic; }
         
         .cta-box {
             background: var(--gray);
@@ -151,10 +129,7 @@
             text-align: center;
         }
         
-        .cta-box h3 {
-            color: var(--neon-green);
-            margin-bottom: 15px;
-        }
+        .cta-box h3 { color: var(--neon-green); margin-bottom: 15px; }
         
         .btn {
             display: inline-block;
@@ -168,9 +143,7 @@
             margin-top: 15px;
         }
         
-        .btn:hover {
-            background: var(--white);
-        }
+        .btn:hover { background: var(--white); }
         
         footer {
             background: var(--black);
@@ -179,14 +152,40 @@
             border-top: 1px solid var(--dark-green);
         }
         
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+        
+        .lang-btn {
+            background: var(--black);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
+        
         @media (max-width: 768px) {
-            .article-header h1 {
-                font-size: 2rem;
-            }
+            .article-header h1 { font-size: 2rem; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
 
     <header>
         <div class="container">
@@ -206,125 +205,123 @@
                         <path d="M15 9h.01"></path>
                     </svg>
                 </div>
-                <h1>Por qué tu emprendimiento necesita branding profesional</h1>
+                <h1 data-es="Por qué tu emprendimiento necesita branding profesional" data-en="Why your business needs professional branding">Por qué tu emprendimiento necesita branding profesional</h1>
                 <div class="article-meta">
-                    <span>Categoría: Branding</span> | <span>Lectura: 6 min</span>
+                    <span data-es="Categoría: Branding" data-en="Category: Branding">Categoría: Branding</span> | <span data-es="Lectura: 6 min" data-en="Reading: 6 min">Lectura: 6 min</span>
                 </div>
             </div>
             
             <div class="article-content">
-                <p>Si estás empezando un negocio en Cuba, es probable que pienses: "Primero vendo, después me preocupo por el logo". Entendemos la urgencia de generar ingresos, pero hay algo que muchos emprendedores no consideran: <strong>el branding no es un gasto, es una inversión que multiplica tus ventas</strong>.</p>
+                <p data-es="Si estás empezando un negocio en Cuba, es probable que pienses: 'Primero vendo, después me preocupo por el logo'. Entendemos la urgencia de generar ingresos, pero hay algo que muchos emprendedores no consideran: el branding no es un gasto, es una inversión que multiplica tus ventas." data-en="If you're starting a business in Cuba, you probably think: 'First I sell, then I worry about the logo'. We understand the urgency of generating income, but there's something many entrepreneurs don't consider: branding is not an expense, it's an investment that multiplies your sales.">Si estás empezando un negocio en Cuba, es probable que pienses: "Primero vendo, después me preocupo por el logo". Entendemos la urgencia de generar ingresos, pero hay algo que muchos emprendedores no consideran: el branding no es un gasto, es una inversión que multiplica tus ventas.</p>
                 
                 <div class="highlight-box">
-                    <p>"El branding no es solo un logo bonito. Es la percepción completa que tus clientes tienen de tu marca, y esa percepción determina si compran o no."</p>
+                    <p data-es="El branding no es solo un logo bonito. Es la percepción completa que tus clientes tienen de tu marca, y esa percepción determina si compran o no." data-en="Branding is not just a pretty logo. It's the complete perception your customers have of your brand, and that perception determines whether they buy or not.">El branding no es solo un logo bonito. Es la percepción completa que tus clientes tienen de tu marca, y esa percepción determina si compran o no.</p>
                 </div>
                 
-                <h2>¿Qué es realmente el branding?</h2>
+                <h2 data-es="¿Qué es realmente el branding?" data-en="What is branding really?">¿Qué es realmente el branding?</h2>
                 
-                <p>Mucha gente confunde branding con tener un logo. Error. El branding es mucho más:</p>
-                
-                <ul>
-                    <li><strong>Logo:</strong> El símbolo visual de tu marca</li>
-                    <li><strong>Colores:</strong> La paleta que evoca emociones específicas</li>
-                    <li><strong>Tipografía:</strong> Las fuentes que usas en toda comunicación</li>
-                    <li><strong>Voz y tono:</strong> Cómo hablas con tus clientes</li>
-                    <li><strong>Valores:</strong> Lo que representa tu marca</li>
-                    <li><strong>Experiencia:</strong> Cómo se sienten los clientes al interactuar contigo</li>
-                </ul>
-                
-                <p>El branding es <strong>la suma de todas las experiencias</strong> que una persona tiene con tu negocio.</p>
-                
-                <h2>El impacto real en tus ventas</h2>
-                
-                <h3>1. Genera confianza inmediata</h3>
-                <p>En un mercado saturado como Cuba, donde hay múltiples opciones para casi todo, el branding profesional es tu primera ventaja competitiva. Un cliente prefiere pagar más por una marca que se ve profesional que arriesgarse con algo que parece "hecho en casa".</p>
-                
-                <p><strong>Ejemplo real:</strong> Dos emprendedores venden jabones artesanales. Uno usa un logo hecho en Paint y fotos borrosas. El otro tiene branding profesional con colores coherentes, tipografía legible y fotos profesionales. ¿A quién le comprarías?</p>
-                
-                <h3>2. Justifica precios más altos</h3>
-                <p>El branding profesional te permite cobrar más. No es magia, es psicología: las personas asocian diseño profesional con calidad profesional.</p>
+                <p data-es="Mucha gente confunde branding con tener un logo. Error. El branding es mucho más:" data-en="Many people confuse branding with having a logo. Wrong. Branding is much more:">Mucha gente confunde branding con tener un logo. Error. El branding es mucho más:</p>
                 
                 <ul>
-                    <li>Sin branding: "Vendo jabones a $5 USD"</li>
-                    <li>Con branding: "Vendo productos de cuidado personal premium a $8 USD"</li>
+                    <li data-es="Logo: El símbolo visual de tu marca" data-en="Logo: The visual symbol of your brand">Logo: El símbolo visual de tu marca</li>
+                    <li data-es="Colores: La paleta que evoca emociones específicas" data-en="Colors: The palette that evokes specific emotions">Colores: La paleta que evoca emociones específicas</li>
+                    <li data-es="Tipografía: Las fuentes que usas en toda comunicación" data-en="Typography: The fonts you use in all communication">Tipografía: Las fuentes que usas en toda comunicación</li>
+                    <li data-es="Voz y tono: Cómo hablas con tus clientes" data-en="Voice and tone: How you talk to your customers">Voz y tono: Cómo hablas con tus clientes</li>
+                    <li data-es="Valores: Lo que representa tu marca" data-en="Values: What your brand represents">Valores: Lo que representa tu marca</li>
+                    <li data-es="Experiencia: Cómo se sienten los clientes al interactuar contigo" data-en="Experience: How customers feel when interacting with you">Experiencia: Cómo se sienten los clientes al interactuar contigo</li>
                 </ul>
                 
-                <p>El mismo producto, diferente percepción, 60% más de ganancia.</p>
+                <p data-es="El branding es la suma de todas las experiencias que una persona tiene con tu negocio." data-en="Branding is the sum of all experiences a person has with your business.">El branding es la suma de todas las experiencias que una persona tiene con tu negocio.</p>
                 
-                <h3>3. Te diferencia de la competencia</h3>
-                <p>En Cuba hay miles de emprendedores vendiendo productos similares. El branding es lo que hace que te recuerden y te elijan a ti.</p>
+                <h2 data-es="El impacto real en tus ventas" data-en="The real impact on your sales">El impacto real en tus ventas</h2>
+                
+                <h3 data-es="1. Genera confianza inmediata" data-en="1. Generates immediate trust">1. Genera confianza inmediata</h3>
+                <p data-es="En un mercado saturado como Cuba, donde hay múltiples opciones para casi todo, el branding profesional es tu primera ventaja competitiva. Un cliente prefiere pagar más por una marca que se ve profesional que arriesgarse con algo que parece 'hecho en casa'." data-en="In a saturated market like Cuba, where there are multiple options for almost everything, professional branding is your first competitive advantage. A customer prefers to pay more for a brand that looks professional than to risk something that looks 'homemade'.">En un mercado saturado como Cuba, donde hay múltiples opciones para casi todo, el branding profesional es tu primera ventaja competitiva. Un cliente prefiere pagar más por una marca que se ve profesional que arriesgarse con algo que parece "hecho en casa".</p>
+                
+                <h3 data-es="2. Justifica precios más altos" data-en="2. Justifies higher prices">2. Justifica precios más altos</h3>
+                <p data-es="El branding profesional te permite cobrar más. No es magia, es psicología: las personas asocian diseño profesional con calidad profesional." data-en="Professional branding allows you to charge more. It's not magic, it's psychology: people associate professional design with professional quality.">El branding profesional te permite cobrar más. No es magia, es psicología: las personas asocian diseño profesional con calidad profesional.</p>
+                
+                <ul>
+                    <li data-es="Sin branding: 'Vendo jabones a $5 USD'" data-en="Without branding: 'I sell soaps for $5 USD'">Sin branding: "Vendo jabones a $5 USD"</li>
+                    <li data-es="Con branding: 'Vendo productos de cuidado personal premium a $8 USD'" data-en="With branding: 'I sell premium personal care products for $8 USD'">Con branding: "Vendo productos de cuidado personal premium a $8 USD"</li>
+                </ul>
+                
+                <p data-es="El mismo producto, diferente percepción, 60% más de ganancia." data-en="Same product, different perception, 60% more profit.">El mismo producto, diferente percepción, 60% más de ganancia.</p>
+                
+                <h3 data-es="3. Te diferencia de la competencia" data-en="3. Differentiates you from the competition">3. Te diferencia de la competencia</h3>
+                <p data-es="En Cuba hay miles de emprendedores vendiendo productos similares. El branding es lo que hace que te recuerden y te elijan a ti." data-en="In Cuba there are thousands of entrepreneurs selling similar products. Branding is what makes them remember and choose you.">En Cuba hay miles de emprendedores vendiendo productos similares. El branding es lo que hace que te recuerden y te elijan a ti.</p>
                 
                 <div class="highlight-box">
-                    <p>"Si no te diferencias, compites por precio. Si compites por precio, siempre habrá alguien más barato."</p>
+                    <p data-es="Si no te diferencias, compites por precio. Si compites por precio, siempre habrá alguien más barato." data-en="If you don't differentiate yourself, you compete on price. If you compete on price, there will always be someone cheaper.">Si no te diferencias, compites por precio. Si compites por precio, siempre habrá alguien más barato.</p>
                 </div>
                 
-                <h3>4. Facilita el crecimiento</h3>
-                <p>Un branding sólido te permite:</p>
+                <h3 data-es="4. Facilita el crecimiento" data-en="4. Facilitates growth">4. Facilita el crecimiento</h3>
+                <p data-es="Un branding sólido te permite:" data-en="Solid branding allows you to:">Un branding sólido te permite:</p>
                 <ul>
-                    <li>Lanzar nuevos productos más fácilmente</li>
-                    <li>Expandirte a nuevas plataformas (Instagram, web, tiendas físicas)</li>
-                    <li>Conseguir alianzas con otras marcas</li>
-                    <li>Atraer clientes de mayor valor</li>
+                    <li data-es="Lanzar nuevos productos más fácilmente" data-en="Launch new products more easily">Lanzar nuevos productos más fácilmente</li>
+                    <li data-es="Expandirte a nuevas plataformas (Instagram, web, tiendas físicas)" data-en="Expand to new platforms (Instagram, web, physical stores)">Expandirte a nuevas plataformas</li>
+                    <li data-es="Conseguir alianzas con otras marcas" data-en="Get alliances with other brands">Conseguir alianzas con otras marcas</li>
+                    <li data-es="Atraer clientes de mayor valor" data-en="Attract higher value customers">Atraer clientes de mayor valor</li>
                 </ul>
                 
-                <h2>Casos de éxito reales en Cuba</h2>
+                <h2 data-es="Casos de éxito reales en Cuba" data-en="Real success stories in Cuba">Casos de éxito reales en Cuba</h2>
                 
-                <h3>Munchies Cuba</h3>
-                <p>Empezó como un emprendimiento pequeño de snacks. Con branding profesional (logo, colores, packaging coherente), logró posicionarse como marca premium en el mercado cubano. Hoy es referente en su categoría.</p>
+                <h3 data-es="Munchies Cuba" data-en="Munchies Cuba">Munchies Cuba</h3>
+                <p data-es="Empezó como un emprendimiento pequeño de snacks. Con branding profesional (logo, colores, packaging coherente), logró posicionarse como marca premium en el mercado cubano. Hoy es referente en su categoría." data-en="Started as a small snack business. With professional branding (logo, colors, consistent packaging), managed to position itself as a premium brand in the Cuban market. Today it's a reference in its category.">Empezó como un emprendimiento pequeño de snacks. Con branding profesional (logo, colores, packaging coherente), logró posicionarse como marca premium en el mercado cubano. Hoy es referente en su categoría.</p>
                 
-                <h3>Nova Events</h3>
-                <p>Servicio de organización de eventos. El branding profesional les permitió transmitir elegancia y profesionalismo, atrayendo clientes dispuestos a pagar más por un servicio "de lujo".</p>
+                <h3 data-es="Nova Events" data-en="Nova Events">Nova Events</h3>
+                <p data-es="Servicio de organización de eventos. El branding profesional les permitió transmitir elegancia y profesionalismo, atrayendo clientes dispuestos a pagar más por un servicio 'de lujo'." data-en="Event organization service. Professional branding allowed them to convey elegance and professionalism, attracting customers willing to pay more for a 'luxury' service.">Servicio de organización de eventos. El branding profesional les permitió transmitir elegancia y profesionalismo, atrayendo clientes dispuestos a pagar más por un servicio "de lujo".</p>
                 
-                <h3>Ash Soap Cuba</h3>
-                <p>Jabones artesanales. El branding les permitió destacar en un mercado saturado, justificando precios superiores y construyendo una comunidad leal en redes sociales.</p>
+                <h3 data-es="Ash Soap Cuba" data-en="Ash Soap Cuba">Ash Soap Cuba</h3>
+                <p data-es="Jabones artesanales. El branding les permitió destacar en un mercado saturado, justificando precios superiores y construyendo una comunidad leal en redes sociales." data-en="Handmade soaps. Branding allowed them to stand out in a saturated market, justifying higher prices and building a loyal community on social media.">Jabones artesanales. El branding les permitió destacar en un mercado saturado, justificando precios superiores y construyendo una comunidad leal en redes sociales.</p>
                 
-                <h2>¿Cuándo invertir en branding?</h2>
+                <h2 data-es="¿Cuándo invertir en branding?" data-en="When to invest in branding?">¿Cuándo invertir en branding?</h2>
                 
-                <p>No esperes a "tener tiempo" o "tener dinero". Invierte en branding cuando:</p>
+                <p data-es="No esperes a 'tener tiempo' o 'tener dinero'. Invierte en branding cuando:" data-en="Don't wait to 'have time' or 'have money'. Invest in branding when:">No esperes a "tener tiempo" o "tener dinero". Invierte en branding cuando:</p>
                 
                 <ol>
-                    <li><strong>Vas a lanzar tu negocio:</strong> Desde el día 1, proyecta profesionalismo.</li>
-                    <li><strong>Tus ventas se estancaron:</strong> Puede ser problema de percepción, no de producto.</li>
-                    <li><strong>Quieres subir precios:</strong> El branding justifica el aumento.</li>
-                    <li><strong>Te expandes:</strong> Si pasas de Instagram a tienda física, necesitas consistencia.</li>
-                    <li><strong>La competencia te supera:</strong> Si otros se ven más profesionales, estás perdiendo clientes.</li>
+                    <li data-es="Vas a lanzar tu negocio: Desde el día 1, proyecta profesionalismo." data-en="You're launching your business: From day 1, project professionalism.">Vas a lanzar tu negocio: Desde el día 1, proyecta profesionalismo.</li>
+                    <li data-es="Tus ventas se estancaron: Puede ser problema de percepción, no de producto." data-en="Your sales are stagnant: It may be a perception problem, not product.">Tus ventas se estancaron: Puede ser problema de percepción, no de producto.</li>
+                    <li data-es="Quieres subir precios: El branding justifica el aumento." data-en="You want to raise prices: Branding justifies the increase.">Quieres subir precios: El branding justifica el aumento.</li>
+                    <li data-es="Te expandes: Si pasas de Instagram a tienda física, necesitas consistencia." data-en="You're expanding: If you go from Instagram to physical store, you need consistency.">Te expandes: Si pasas de Instagram a tienda física, necesitas consistencia.</li>
+                    <li data-es="La competencia te supera: Si otros se ven más profesionales, estás perdiendo clientes." data-en="Competition surpasses you: If others look more professional, you're losing customers.">La competencia te supera: Si otros se ven más profesionales, estás perdiendo clientes.</li>
                 </ol>
                 
-                <h2>ROI del branding: Los números</h2>
+                <h2 data-es="ROI del branding: Los números" data-en="ROI of branding: The numbers">ROI del branding: Los números</h2>
                 
-                <p>Invertir $10-40 USD en branding puede generar:</p>
+                <p data-es="Invertir $10-40 USD en branding puede generar:" data-en="Investing $10-40 USD in branding can generate:">Invertir $10-40 USD en branding puede generar:</p>
                 
                 <ul>
-                    <li>✅ Aumento del 20-30% en precios (sin perder clientes)</li>
-                    <li>✅ 2-3x más engagement en redes sociales</li>
-                    <li>✅ 40-50% más de confianza de nuevos clientes</li>
-                    <li>✅ Retorno de inversión en 2-3 meses</li>
+                    <li data-es="✅ Aumento del 20-30% en precios (sin perder clientes)" data-en="✅ 20-30% price increase (without losing customers)">✅ Aumento del 20-30% en precios (sin perder clientes)</li>
+                    <li data-es="✅ 2-3x más engagement en redes sociales" data-en="✅ 2-3x more engagement on social media">✅ 2-3x más engagement en redes sociales</li>
+                    <li data-es="✅ 40-50% más de confianza de nuevos clientes" data-en="✅ 40-50% more trust from new customers">✅ 40-50% más de confianza de nuevos clientes</li>
+                    <li data-es="✅ Retorno de inversión en 2-3 meses" data-en="✅ Return on investment in 2-3 months">✅ Retorno de inversión en 2-3 meses</li>
                 </ul>
                 
-                <p>Compara eso con gastar $50-100 USD mensuales en ads sin un branding sólido. El branding es la base; sin él, el marketing es menos efectivo.</p>
+                <p data-es="Compara eso con gastar $50-100 USD mensuales en ads sin un branding sólido. El branding es la base; sin él, el marketing es menos efectivo." data-en="Compare that with spending $50-100 USD monthly on ads without solid branding. Branding is the foundation; without it, marketing is less effective.">Compara eso con gastar $50-100 USD mensuales en ads sin un branding sólido. El branding es la base; sin él, el marketing es menos efectivo.</p>
                 
                 <div class="cta-box">
-                    <h3>¿Listo para profesionalizar tu marca?</h3>
-                    <p>En STIKMANIA creamos identidades visuales que conectan con tu audiencia y generan resultados reales.</p>
-                    <a href="branding.html" class="btn">Ver Paquetes de Branding</a>
+                    <h3 data-es="¿Listo para profesionalizar tu marca?" data-en="Ready to professionalize your brand?">¿Listo para profesionalizar tu marca?</h3>
+                    <p data-es="En STIKMANIA creamos identidades visuales que conectan con tu audiencia y generan resultados reales." data-en="At STIKMANIA we create visual identities that connect with your audience and generate real results.">En STIKMANIA creamos identidades visuales que conectan con tu audiencia y generan resultados reales.</p>
+                    <a href="branding.html" class="btn" data-es="Ver Paquetes de Branding" data-en="View Branding Packages">Ver Paquetes de Branding</a>
                 </div>
                 
-                <h2>Conclusión</h2>
+                <h2 data-es="Conclusión" data-en="Conclusion">Conclusión</h2>
                 
-                <p>El branding profesional no es un lujo, es una necesidad para cualquier emprendimiento que quiera crecer y competir en el mercado cubano actual.</p>
+                <p data-es="El branding profesional no es un lujo, es una necesidad para cualquier emprendimiento que quiera crecer y competir en el mercado cubano actual." data-en="Professional branding is not a luxury, it's a necessity for any business that wants to grow and compete in the current Cuban market.">El branding profesional no es un lujo, es una necesidad para cualquier emprendimiento que quiera crecer y competir en el mercado cubano actual.</p>
                 
-                <p>No se trata de tener el logo "más bonito". Se trata de:</p>
+                <p data-es="No se trata de tener el logo 'más bonito'. Se trata de:" data-en="It's not about having the 'prettiest' logo. It's about:">No se trata de tener el logo "más bonito". Se trata de:</p>
                 <ul>
-                    <li>Generar confianza</li>
-                    <li>Justificar mejores precios</li>
-                    <li>Diferenciarte de la competencia</li>
-                    <li>Construir una marca que perdure</li>
+                    <li data-es="Generar confianza" data-en="Generating trust">Generar confianza</li>
+                    <li data-es="Justificar mejores precios" data-en="Justifying better prices">Justificar mejores precios</li>
+                    <li data-es="Diferenciarte de la competencia" data-en="Differentiating yourself from the competition">Diferenciarte de la competencia</li>
+                    <li data-es="Construir una marca que perdure" data-en="Building a lasting brand">Construir una marca que perdure</li>
                 </ul>
                 
-                <p><strong>La pregunta no es si puedes permitirte el branding profesional. La pregunta es: ¿puedes permitirte NO tenerlo?</strong></p>
+                <p data-es="La pregunta no es si puedes permitirte el branding profesional. La pregunta es: ¿puedes permitirte NO tenerlo?" data-en="The question is not whether you can afford professional branding. The question is: can you afford NOT to have it?">La pregunta no es si puedes permitirte el branding profesional. La pregunta es: ¿puedes permitirte NO tenerlo?</p>
                 
                 <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--dark-green);">
-                    <strong>¿Hablamos de tu proyecto?</strong> Escríbenos y diseñemos juntos la identidad visual que tu negocio merece.
+                    <strong data-es="¿Hablamos de tu proyecto?" data-en="Shall we talk about your project?">¿Hablamos de tu proyecto?</strong> <span data-es="Escríbenos y diseñemos juntos la identidad visual que tu negocio merece." data-en="Write to us and let's design together the visual identity your business deserves.">Escríbenos y diseñemos juntos la identidad visual que tu negocio merece.</span>
                 </p>
             </div>
         </div>
@@ -332,12 +329,32 @@
 
     <footer>
         <div class="container">
-            <p>© STIKMANIA TM. Todos los derechos reservados. | 2026</p>
+            <p>© STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span> | 2026</p>
             <p style="margin-top: 10px;">
-                <a href="index.html">← Volver al Inicio</a>
+                <a href="index.html" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
             </p>
         </div>
     </footer>
+
+    <script>
+        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('stikmania_lang', currentLang);
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+            document.documentElement.lang = currentLang;
+        }
+        
+        updateLanguage();
+    </script>
 
 </body>
 </html>

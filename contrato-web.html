@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-es="Contrato de Desarrollo Web | STIKMANIA" data-en="Web Development Contract | STIKMANIA">Contrato de Desarrollo Web | STIKMANIA</title>
     <meta name="description" content="Contrato de servicios de desarrollo web STIKMANIA. Términos y condiciones para proyectos web.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
@@ -20,7 +27,11 @@
             --web: #4fc3f7;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -30,7 +41,10 @@
             padding: 100px 20px;
         }
         
-        .container { max-width: 800px; margin: 0 auto; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
         
         h1 {
             font-family: 'Pirata One', display;
@@ -38,32 +52,51 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .subtitle {
             text-align: center;
             color: #ccc;
             margin-bottom: 40px;
+            font-size: 1rem;
         }
         
         h2 {
             font-family: 'Inter', sans-serif;
             color: var(--web);
-            font-size: 1.5rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
             font-weight: 600;
         }
         
-        p { margin-bottom: 20px; color: #ccc; }
-        ul, ol { margin-bottom: 20px; padding-left: 30px; color: #ccc; }
-        li { margin-bottom: 10px; }
-        a { color: var(--web); }
-        a:hover { text-decoration: underline; }
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
         
-        .btn-group { text-align: center; margin-top: 40px; }
+        ul {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            color: #ccc;
+        }
         
-        .download-btn, .print-btn, .back-link {
+        li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .btn-group {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--dark-green);
+        }
+        
+        .btn {
             display: inline-block;
             margin: 10px;
             padding: 14px 32px;
@@ -74,50 +107,69 @@
             cursor: pointer;
             border: none;
             font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
         
-        .download-btn {
+        .btn-pdf {
             background: var(--web);
             color: var(--black);
         }
         
-        .download-btn:hover { background: var(--white); }
+        .btn-pdf:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
         
-        .print-btn {
+        .btn-print {
             background: transparent;
             border: 2px solid var(--web);
             color: var(--web);
         }
         
-        .print-btn:hover { background: var(--web); color: var(--black); }
+        .btn-print:hover {
+            background: var(--web);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
         
-        .back-link {
+        .btn-back {
             background: transparent;
             border: 2px solid var(--web);
             color: var(--web);
         }
         
-        .back-link:hover { background: var(--web); color: var(--black); }
+        .btn-back:hover {
+            background: var(--web);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
         
         .signature-box {
             margin-top: 60px;
-            padding: 30px;
+            padding: 35px;
             border: 2px solid var(--web);
-            background: #001100;
+            background: var(--gray);
+            border-radius: 8px;
+        }
+        
+        .signature-box h2 {
+            text-align: center;
+            margin-top: 0;
         }
         
         .signature-line {
             margin-top: 40px;
             border-top: 1px solid var(--white);
             padding-top: 10px;
-            width: 300px;
+            width: 280px;
         }
         
         .signature-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-top: 40px;
+            margin-top: 30px;
         }
         
         /* LANGUAGE SWITCHER */
@@ -140,22 +192,81 @@
             transition: all 0.3s ease;
         }
         
-        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
-        
-        @media (max-width: 768px) {
-            .signature-grid { grid-template-columns: 1fr; }
-            .btn-group { display: flex; flex-direction: column; align-items: center; }
-            .download-btn, .print-btn, .back-link { width: 100%; max-width: 300px; }
-            .lang-switch { top: 10px; right: 10px; }
+        .lang-btn:hover {
+            background: var(--neon-green);
+            color: var(--black);
         }
         
+        /* PRINT STYLES */
         @media print {
-            body { background: white !important; color: black !important; padding: 0; }
-            .btn-group, .lang-switch { display: none !important; }
-            h1, h2 { color: black !important; }
-            .signature-box { border-color: black !important; background: white !important; }
-            .signature-line { border-color: black !important; }
-            p, ul, li { color: black !important; }
+            body {
+                background: white !important;
+                color: black !important;
+                padding: 0;
+                font-size: 11pt;
+            }
+            
+            .btn-group, .lang-switch {
+                display: none !important;
+            }
+            
+            h1, h2 {
+                color: black !important;
+            }
+            
+            .signature-box {
+                border-color: black !important;
+                background: white !important;
+            }
+            
+            .signature-line {
+                border-color: black !important;
+            }
+            
+            p, ul, li {
+                color: black !important;
+            }
+            
+            @page {
+                margin: 2cm;
+                size: A4 portrait;
+            }
+        }
+        
+        /* MOBILE */
+        @media (max-width: 768px) {
+            body {
+                padding: 80px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.1rem;
+            }
+            
+            .signature-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
@@ -188,7 +299,7 @@
             <li data-es="Funcionalidades específicas: _________________________________________________" data-en="Specific functionalities: _________________________________________________">Funcionalidades específicas: _________________________________________________</li>
         </ul>
         
-        <h2 data-es="2. PRECIO Y FORMA DE PAGO" data-en="2. PRICE AND PAYMENT METHOD">2. PRECIO Y FORMA DE PAGO</h2>
+        <h2 data-es="2. PRECIO Y FORMA DE PAGO" data-en="2. PRICE AND PAYMENT">2. PRECIO Y FORMA DE PAGO</h2>
         <p data-es="Precio total: $__________ USD" data-en="Total price: $__________ USD">Precio total: $__________ USD</p>
         <p data-es="Forma de pago:" data-en="Payment method:">Forma de pago:</p>
         <ul>
@@ -231,9 +342,11 @@
         <p data-es="Código: El PRESTADOR conserva derechos sobre código reutilizable, librerías y frameworks. El CLIENTE recibe licencia de uso ilimitado del código específico de su proyecto." data-en="Code: PROVIDER retains rights to reusable code, libraries and frameworks. CLIENT receives unlimited use license of specific project code.">Código: El PRESTADOR conserva derechos sobre código reutilizable, librerías y frameworks. El CLIENTE recibe licencia de uso ilimitado del código específico de su proyecto.</p>
         
         <h2 data-es="7. HOSTING Y DOMINIO" data-en="7. HOSTING AND DOMAIN">7. HOSTING Y DOMINIO</h2>
-        <p data-es="☐ El CLIENTE contrata hosting y dominio por su cuenta" data-en="☐ CLIENT contracts hosting and domain on their own">☐ El CLIENTE contrata hosting y dominio por su cuenta</p>
-        <p data-es="☐ El PRESTADOR gestiona hosting primer año incluido (renovación: $______ USD/año)" data-en="☐ PROVIDER manages first year hosting included (renewal: $______ USD/year)">☐ El PRESTADOR gestiona hosting primer año incluido (renovación: $______ USD/año)</p>
-        <p data-es="☐ Dominio: _________________________________________________" data-en="☐ Domain: _________________________________________________">☐ Dominio: _________________________________________________</p>
+        <ul>
+            <li data-es="☐ El CLIENTE contrata hosting y dominio por su cuenta" data-en="☐ CLIENT contracts hosting and domain on their own">☐ El CLIENTE contrata hosting y dominio por su cuenta</li>
+            <li data-es="☐ El PRESTADOR gestiona hosting primer año incluido (renovación: $______ USD/año)" data-en="☐ PROVIDER manages first year hosting included (renewal: $______ USD/year)">☐ El PRESTADOR gestiona hosting primer año incluido (renovación: $______ USD/año)</li>
+            <li data-es="☐ Dominio: _________________________________________________" data-en="☐ Domain: _________________________________________________">☐ Dominio: _________________________________________________</li>
+        </ul>
         
         <h2 data-es="8. SOPORTE POST-ENTREGA" data-en="8. POST-DELIVERY SUPPORT">8. SOPORTE POST-ENTREGA</h2>
         <p data-es="Incluido (1 mes):" data-en="Included (1 month):">Incluido (1 mes):</p>
@@ -285,17 +398,18 @@
         </div>
         
         <div class="btn-group">
-            <a href="downloads/STIKMANIA_CONTRATO_WEB.pdf" class="download-btn" download data-es="📥 Descargar PDF" data-en="📥 Download PDF">📥 Descargar PDF</a>
-            <button class="print-btn" onclick="window.print()" data-es="🖨️ Imprimir" data-en="🖨️ Print">🖨️ Imprimir</button>
-            <a href="index.html" class="back-link" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
+            <a href="downloads/STIKMANIA_CONTRATO_WEB.pdf" class="btn btn-pdf" download data-es="📥 Descargar PDF" data-en="📥 Download PDF">📥 Descargar PDF</a>
+            <button class="btn btn-print" onclick="window.print()" data-es="🖨️ Imprimir" data-en="🖨️ Print">🖨️ Imprimir</button>
+            <a href="index.html" class="btn btn-back" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
         </div>
         
-        <p style="margin-top: 40px; font-size: 0.85rem; color: #666; text-align: center;">
-            <strong data-es="Nota:" data-en="Note:">Nota:</strong> <span data-es="Este contrato es un documento legal. Se recomienda imprimir dos copias (una para cada parte). Para versión PDF imprimible, haz clic en el botón de descarga." data-en="This contract is a legal document. It is recommended to print two copies (one for each party). For printable PDF version, click download button.">Este contrato es un documento legal. Se recomienda imprimir dos copias (una para cada parte). Para versión PDF imprimible, haz clic en el botón de descarga.</span>
+        <p style="margin-top: 30px; font-size: 0.85rem; color: #666; text-align: center;">
+            <strong data-es="Nota:" data-en="Note:">Nota:</strong> <span data-es="Este contrato es un documento legal. Se recomienda imprimir dos copias (una para cada parte)." data-en="This contract is a legal document. It is recommended to print two copies (one for each party).">Este contrato es un documento legal. Se recomienda imprimir dos copias (una para cada parte).</span>
         </p>
     </div>
 
     <script>
+        // LANGUAGE SYSTEM
         let currentLang = localStorage.getItem('stikmania_lang') || 'es';
         
         function toggleLanguage() {
