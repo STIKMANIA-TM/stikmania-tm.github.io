@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desarrollo Web | STIKMANIA</title>
     <meta name="description" content="Desarrollo de páginas web profesionales en Cuba. Landing, E-commerce, Portfolio y Web Apps.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
@@ -837,10 +843,10 @@
             message += `*Marca:* ${brand}\n`;
             message += `*Negocio:* ${business}\n`;
             message += `*Tipo de proyecto:* ${packageName}\n`;
-            message += `*Hosting/Dominio:* ${hosting || currentLang === 'es' ? 'No especificado' : 'Not specified'}\n`;
-            message += `*Contenido:* ${content || currentLang === 'es' ? 'No especificado' : 'Not specified'}\n`;
+            message += `*Hosting/Dominio:* ${hosting || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
+            message += `*Contenido:* ${content || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
             message += `*Descripción:* ${description}\n`;
-            message += `*Deadline:* ${deadline || currentLang === 'es' ? 'No especificado' : 'Not specified'}\n`;
+            message += `*Deadline:* ${deadline || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
             message += `\n*Nota:* ${currentLang === 'es' ? 'Pago requiere 50% de anticipo. Contrato de servicio incluido.' : 'Payment requires 50% deposit. Service contract included.'}`;
             
             const whatsappNumber = '5359758756';

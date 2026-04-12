@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Stickers | STIKMANIA</title>
     <meta name="description" content="Stickers personalizados en vinilo y papel fotográfico. Desde $1 USD. Envíos en La Habana.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
@@ -111,6 +117,40 @@
         
         nav ul { display: flex; list-style: none; gap: 30px; }
         nav a:hover { color: var(--neon-green); }
+        
+        /* CART ICON */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--neon-green);
+            padding: 8px 16px;
+            border: 2px solid var(--neon-green);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-icon:hover {
+            background: var(--neon-green);
+            color: var(--black);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--neon-green);
+            color: var(--black);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
         
         /* HERO */
         .hero {
@@ -476,6 +516,10 @@
                         <li><a href="web.html" data-es="Web" data-en="Web">Web</a></li>
                     </ul>
                 </nav>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <span data-es="Carrito" data-en="Cart">Carrito</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
             </div>
         </div>
     </header>

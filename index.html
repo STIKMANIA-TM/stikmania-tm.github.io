@@ -787,19 +787,13 @@
         }
         
         function updateLanguage() {
-            // Update button text
             document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
-            
-            // Update all elements with data-es and data-en attributes
             document.querySelectorAll('[data-es]').forEach(el => {
                 el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
             });
-            
-            // Update html lang attribute
             document.documentElement.lang = currentLang;
         }
         
-        // Initialize language on page load
         updateLanguage();
         
         // Smooth scroll for anchor links

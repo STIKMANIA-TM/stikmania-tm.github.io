@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-es="Por qué tu emprendimiento necesita branding profesional | STIKMANIA" data-en="Why your business needs professional branding | STIKMANIA">Por qué tu emprendimiento necesita branding profesional | STIKMANIA</title>
-    <meta name="description" content="Descubre por qué el branding profesional es esencial para tu emprendimiento en Cuba. Impacto en ventas, percepción y crecimiento.">
+    <title>Branding Digital | STIKMANIA</title>
+    <meta name="description" content="Servicios de branding digital y aplicado. Logos, identidad visual y papelería en Cuba.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
@@ -17,6 +23,7 @@
             --black: #000000;
             --white: #FFFFFF;
             --gray: #1a1a1a;
+            --gray-light: #2a2a2a;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,102 +35,15 @@
             line-height: 1.8;
         }
         
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Pirata One', display;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         
-        a { color: var(--neon-green); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: inherit; text-decoration: none; }
         
-        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-        
-        header {
-            background: var(--black);
-            padding: 20px 0;
-            border-bottom: 1px solid var(--dark-green);
-        }
-        
-        .logo {
-            font-family: 'Pirata One', display;
-            font-size: 1.8rem;
-            color: var(--neon-green);
-        }
-        
-        .article { padding: 100px 0; }
-        
-        .article-header {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid var(--dark-green);
-        }
-        
-        .article-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .article-icon svg {
-            width: 80px;
-            height: 80px;
-            stroke: var(--neon-green);
-        }
-        
-        .article-header h1 {
-            font-size: 2.5rem;
-            color: var(--neon-green);
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .article-meta {
-            color: var(--neon-green);
-            font-size: 0.9rem;
-            text-align: center;
-        }
-        
-        .article-content { margin-bottom: 40px; }
-        
-        .article-content h2 {
-            color: var(--neon-green);
-            font-size: 1.8rem;
-            margin: 40px 0 20px 0;
-        }
-        
-        .article-content h3 {
-            color: var(--white);
-            font-size: 1.3rem;
-            margin: 30px 0 15px 0;
-        }
-        
-        .article-content p { margin-bottom: 20px; color: #ccc; }
-        .article-content ul, .article-content ol { margin-bottom: 20px; padding-left: 30px; color: #ccc; }
-        .article-content li { margin-bottom: 10px; }
-        
-        .highlight-box {
-            background: var(--gray);
-            padding: 25px;
-            border-left: 4px solid var(--neon-green);
-            margin: 30px 0;
-        }
-        
-        .highlight-box p { margin: 0; font-style: italic; }
-        
-        .cta-box {
-            background: var(--gray);
-            padding: 30px;
-            border: 1px solid var(--neon-green);
-            border-radius: 8px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .cta-box h3 { color: var(--neon-green); margin-bottom: 15px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         .btn {
             display: inline-block;
@@ -134,17 +54,19 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             border: none;
-            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        .btn:hover { background: var(--white); }
+        .btn:hover { background: var(--white); transform: translateY(-2px); }
         
-        footer {
-            background: var(--black);
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--dark-green);
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
         }
+        
+        .btn-outline:hover { background: var(--neon-green); color: var(--black); }
         
         /* LANGUAGE SWITCHER */
         .lang-switch {
@@ -168,8 +90,268 @@
         
         .lang-btn:hover { background: var(--neon-green); color: var(--black); }
         
+        /* HEADER */
+        header {
+            background: var(--black);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--dark-green);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Pirata One', display;
+            font-size: 1.8rem;
+            color: var(--neon-green);
+        }
+        
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a:hover { color: var(--neon-green); }
+        
+        /* HERO */
+        .hero {
+            padding: 160px 0 60px 0;
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-green) 100%);
+            text-align: center;
+        }
+        
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--neon-green); }
+        .hero p { font-size: 1.2rem; color: var(--white); max-width: 600px; margin: 0 auto 30px auto; }
+        
+        .production-time {
+            display: inline-block;
+            background: var(--gray);
+            padding: 10px 20px;
+            border: 1px solid var(--neon-green);
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        /* PACKAGES */
+        .packages { padding: 80px 0; }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--neon-green);
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .package-card {
+            background: var(--gray);
+            border: 1px solid var(--dark-green);
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .package-card:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
+        }
+        
+        .package-card.destacado {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--neon-green);
+            color: var(--black);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .package-header {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--dark-green);
+        }
+        
+        .package-type {
+            font-size: 1.5rem;
+            color: var(--neon-green);
+            margin-bottom: 10px;
+        }
+        
+        .package-price {
+            font-family: 'Pirata One', display;
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+        
+        .package-price span { font-size: 1rem; color: var(--neon-green); }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--dark-green);
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+        
+        .package-features li:last-child { border-bottom: none; }
+        .package-features li::before {
+            content: "✓";
+            color: var(--neon-green);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .package-time {
+            text-align: center;
+            color: var(--neon-green);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+        
+        /* GALLERY */
+        .gallery { padding: 80px 0; background: var(--gray); }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .gallery-item {
+            background: var(--black);
+            padding: 30px;
+            border: 1px solid var(--dark-green);
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            max-height: 120px;
+            margin: 0 auto 15px auto;
+            object-fit: contain;
+        }
+        
+        .gallery-item a {
+            color: var(--neon-green);
+            font-size: 0.9rem;
+        }
+        
+        .gallery-item a:hover { text-decoration: underline; }
+        
+        /* QUESTIONNAIRE */
+        .questionnaire { padding: 80px 0; }
+        
+        .questionnaire-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--gray);
+            padding: 40px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .form-group { margin-bottom: 20px; }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--neon-green);
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--black);
+            border: 1px solid var(--dark-green);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-green);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* FAQ */
+        .faq { padding: 80px 0; background: var(--gray); }
+        
+        .faq-item {
+            background: var(--black);
+            margin-bottom: 15px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-question:hover { color: var(--neon-green); }
+        
+        .faq-answer {
+            display: none;
+            padding: 0 20px 20px 20px;
+            color: var(--white);
+        }
+        
+        .faq-answer.show { display: block; }
+        
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--dark-green);
+        }
+        
+        /* MOBILE */
         @media (max-width: 768px) {
-            .article-header h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            nav ul { display: none; }
+            .packages-grid { grid-template-columns: 1fr; }
+            .questionnaire-form { padding: 25px; }
             .lang-switch { top: 10px; right: 10px; }
         }
     </style>
@@ -181,158 +363,291 @@
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
 
+    <!-- HEADER -->
     <header>
         <div class="container">
-            <a href="index.html" class="logo">STIKMANIA</a>
+            <div class="header-content">
+                <a href="index.html" class="logo">STIKMANIA</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" data-es="Inicio" data-en="Home">Inicio</a></li>
+                        <li><a href="index.html#services" data-es="Servicios" data-en="Services">Servicios</a></li>
+                        <li><a href="stickers.html" data-es="Stickers" data-en="Stickers">Stickers</a></li>
+                        <li><a href="web.html" data-es="Web" data-en="Web">Web</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <article class="article">
+    <!-- HERO -->
+    <section class="hero">
         <div class="container">
-            <div class="article-header">
-                <div class="article-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M12 6v6l4 2"></path>
-                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                        <path d="M9 9h.01"></path>
-                        <path d="M15 9h.01"></path>
-                    </svg>
+            <h1 data-es="Branding Digital" data-en="Digital Branding">Branding Digital</h1>
+            <p data-es="Logos profesionales, identidad visual completa y papelería corporativa. Diseños que transmiten la esencia de tu marca y conectan con tu audiencia." data-en="Professional logos, complete visual identity and corporate stationery. Designs that convey the essence of your brand and connect with your audience.">Logos profesionales, identidad visual completa y papelería corporativa. Diseños que transmiten la esencia de tu marca y conectan con tu audiencia.</p>
+            <div class="production-time">
+                <strong data-es="Tiempo de producción:" data-en="Production time:">Tiempo de producción:</strong> <span data-es="2-10 días hábiles según paquete" data-en="2-10 business days depending on package">2-10 días hábiles según paquete</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="packages">
+        <div class="container">
+            <h2 class="section-title" data-es="Paquetes de Branding" data-en="Branding Packages">Paquetes de Branding</h2>
+            
+            <div class="packages-grid">
+                <!-- BÁSICO -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-type" data-es="Básico" data-en="Basic">Básico</h3>
+                        <div class="package-price">$10 <span>USD</span></div>
+                    </div>
+                    <ul class="package-features">
+                        <li data-es="Logo principal" data-en="Main logo">Logo principal</li>
+                        <li data-es="Paleta de colores corporativa" data-en="Corporate color palette">Paleta de colores corporativa</li>
+                        <li data-es="2 revisiones incluidas" data-en="2 revisions included">2 revisiones incluidas</li>
+                        <li data-es="Archivos PNG + JPG" data-en="PNG + JPG files">Archivos PNG + JPG</li>
+                        <li data-es="Entrega en 2-4 días hábiles" data-en="Delivery in 2-4 business days">Entrega en 2-4 días hábiles</li>
+                    </ul>
+                    <p class="package-time">⏱️ 2-4 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
+                    <a href="#questionnaire" class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</a>
                 </div>
-                <h1 data-es="Por qué tu emprendimiento necesita branding profesional" data-en="Why your business needs professional branding">Por qué tu emprendimiento necesita branding profesional</h1>
-                <div class="article-meta">
-                    <span data-es="Categoría: Branding" data-en="Category: Branding">Categoría: Branding</span> | <span data-es="Lectura: 6 min" data-en="Reading: 6 min">Lectura: 6 min</span>
+                
+                <!-- INTERMEDIO -->
+                <div class="package-card destacado">
+                    <span class="package-badge" data-es="Más Popular" data-en="Most Popular">Más Popular</span>
+                    <div class="package-header">
+                        <h3 class="package-type" data-es="Intermedio" data-en="Intermediate">Intermedio</h3>
+                        <div class="package-price">$15 <span>USD</span></div>
+                    </div>
+                    <ul class="package-features">
+                        <li data-es="Todo lo del Básico" data-en="Everything in Basic">Todo lo del Básico</li>
+                        <li data-es="Tipografía corporativa" data-en="Corporate typography">Tipografía corporativa</li>
+                        <li data-es="Guía de uso básica" data-en="Basic usage guide">Guía de uso básica</li>
+                        <li data-es="Archivos editables (AI, EPS)" data-en="Editable files (AI, EPS)">Archivos editables (AI, EPS)</li>
+                        <li data-es="Entrega en 3-6 días hábiles" data-en="Delivery in 3-6 business days">Entrega en 3-6 días hábiles</li>
+                    </ul>
+                    <p class="package-time">⏱️ 3-6 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
+                    <a href="#questionnaire" class="btn" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</a>
+                </div>
+                
+                <!-- COMPLETO -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-type" data-es="Completo" data-en="Complete">Completo</h3>
+                        <div class="package-price">$40 <span>USD</span></div>
+                    </div>
+                    <ul class="package-features">
+                        <li data-es="Logo con variaciones" data-en="Logo with variations">Logo con variaciones</li>
+                        <li data-es="Paleta de colores completa" data-en="Complete color palette">Paleta de colores completa</li>
+                        <li data-es="Tipografía para redes sociales" data-en="Typography for social media">Tipografía para redes sociales</li>
+                        <li data-es="Branding aplicado (papelería)" data-en="Applied branding (stationery)">Branding aplicado (papelería)</li>
+                        <li data-es="Manual de marca" data-en="Brand manual">Manual de marca</li>
+                        <li data-es="Entrega en 5-10 días hábiles" data-en="Delivery in 5-10 business days">Entrega en 5-10 días hábiles</li>
+                    </ul>
+                    <p class="package-time">⏱️ 5-10 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
+                    <a href="#questionnaire" class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</a>
                 </div>
             </div>
             
-            <div class="article-content">
-                <p data-es="Si estás empezando un negocio en Cuba, es probable que pienses: 'Primero vendo, después me preocupo por el logo'. Entendemos la urgencia de generar ingresos, pero hay algo que muchos emprendedores no consideran: el branding no es un gasto, es una inversión que multiplica tus ventas." data-en="If you're starting a business in Cuba, you probably think: 'First I sell, then I worry about the logo'. We understand the urgency of generating income, but there's something many entrepreneurs don't consider: branding is not an expense, it's an investment that multiplies your sales.">Si estás empezando un negocio en Cuba, es probable que pienses: "Primero vendo, después me preocupo por el logo". Entendemos la urgencia de generar ingresos, pero hay algo que muchos emprendedores no consideran: el branding no es un gasto, es una inversión que multiplica tus ventas.</p>
-                
-                <div class="highlight-box">
-                    <p data-es="El branding no es solo un logo bonito. Es la percepción completa que tus clientes tienen de tu marca, y esa percepción determina si compran o no." data-en="Branding is not just a pretty logo. It's the complete perception your customers have of your brand, and that perception determines whether they buy or not.">El branding no es solo un logo bonito. Es la percepción completa que tus clientes tienen de tu marca, y esa percepción determina si compran o no.</p>
-                </div>
-                
-                <h2 data-es="¿Qué es realmente el branding?" data-en="What is branding really?">¿Qué es realmente el branding?</h2>
-                
-                <p data-es="Mucha gente confunde branding con tener un logo. Error. El branding es mucho más:" data-en="Many people confuse branding with having a logo. Wrong. Branding is much more:">Mucha gente confunde branding con tener un logo. Error. El branding es mucho más:</p>
-                
-                <ul>
-                    <li data-es="Logo: El símbolo visual de tu marca" data-en="Logo: The visual symbol of your brand">Logo: El símbolo visual de tu marca</li>
-                    <li data-es="Colores: La paleta que evoca emociones específicas" data-en="Colors: The palette that evokes specific emotions">Colores: La paleta que evoca emociones específicas</li>
-                    <li data-es="Tipografía: Las fuentes que usas en toda comunicación" data-en="Typography: The fonts you use in all communication">Tipografía: Las fuentes que usas en toda comunicación</li>
-                    <li data-es="Voz y tono: Cómo hablas con tus clientes" data-en="Voice and tone: How you talk to your customers">Voz y tono: Cómo hablas con tus clientes</li>
-                    <li data-es="Valores: Lo que representa tu marca" data-en="Values: What your brand represents">Valores: Lo que representa tu marca</li>
-                    <li data-es="Experiencia: Cómo se sienten los clientes al interactuar contigo" data-en="Experience: How customers feel when interacting with you">Experiencia: Cómo se sienten los clientes al interactuar contigo</li>
-                </ul>
-                
-                <p data-es="El branding es la suma de todas las experiencias que una persona tiene con tu negocio." data-en="Branding is the sum of all experiences a person has with your business.">El branding es la suma de todas las experiencias que una persona tiene con tu negocio.</p>
-                
-                <h2 data-es="El impacto real en tus ventas" data-en="The real impact on your sales">El impacto real en tus ventas</h2>
-                
-                <h3 data-es="1. Genera confianza inmediata" data-en="1. Generates immediate trust">1. Genera confianza inmediata</h3>
-                <p data-es="En un mercado saturado como Cuba, donde hay múltiples opciones para casi todo, el branding profesional es tu primera ventaja competitiva. Un cliente prefiere pagar más por una marca que se ve profesional que arriesgarse con algo que parece 'hecho en casa'." data-en="In a saturated market like Cuba, where there are multiple options for almost everything, professional branding is your first competitive advantage. A customer prefers to pay more for a brand that looks professional than to risk something that looks 'homemade'.">En un mercado saturado como Cuba, donde hay múltiples opciones para casi todo, el branding profesional es tu primera ventaja competitiva. Un cliente prefiere pagar más por una marca que se ve profesional que arriesgarse con algo que parece "hecho en casa".</p>
-                
-                <p data-es="Ejemplo real: Dos emprendedores venden jabones artesanales. Uno usa un logo hecho en Paint y fotos borrosas. El otro tiene branding profesional con colores coherentes, tipografía legible y fotos profesionales. ¿A quién le comprarías?" data-en="Real example: Two entrepreneurs sell handmade soaps. One uses a logo made in Paint and blurry photos. The other has professional branding with consistent colors, legible typography and professional photos. Who would you buy from?">Ejemplo real: Dos emprendedores venden jabones artesanales. Uno usa un logo hecho en Paint y fotos borrosas. El otro tiene branding profesional con colores coherentes, tipografía legible y fotos profesionales. ¿A quién le comprarías?</p>
-                
-                <h3 data-es="2. Justifica precios más altos" data-en="2. Justifies higher prices">2. Justifica precios más altos</h3>
-                <p data-es="El branding profesional te permite cobrar más. No es magia, es psicología: las personas asocian diseño profesional con calidad profesional." data-en="Professional branding allows you to charge more. It's not magic, it's psychology: people associate professional design with professional quality.">El branding profesional te permite cobrar más. No es magia, es psicología: las personas asocian diseño profesional con calidad profesional.</p>
-                
-                <ul>
-                    <li data-es="Sin branding: 'Vendo jabones a $5 USD'" data-en="Without branding: 'I sell soaps for $5 USD'">Sin branding: "Vendo jabones a $5 USD"</li>
-                    <li data-es="Con branding: 'Vendo productos de cuidado personal premium a $8 USD'" data-en="With branding: 'I sell premium personal care products for $8 USD'">Con branding: "Vendo productos de cuidado personal premium a $8 USD"</li>
-                </ul>
-                
-                <p data-es="El mismo producto, diferente percepción, 60% más de ganancia." data-en="Same product, different perception, 60% more profit.">El mismo producto, diferente percepción, 60% más de ganancia.</p>
-                
-                <h3 data-es="3. Te diferencia de la competencia" data-en="3. Differentiates you from the competition">3. Te diferencia de la competencia</h3>
-                <p data-es="En Cuba hay miles de emprendedores vendiendo productos similares. El branding es lo que hace que te recuerden y te elijan a ti." data-en="In Cuba there are thousands of entrepreneurs selling similar products. Branding is what makes them remember and choose you.">En Cuba hay miles de emprendedores vendiendo productos similares. El branding es lo que hace que te recuerden y te elijan a ti.</p>
-                
-                <div class="highlight-box">
-                    <p data-es="Si no te diferencias, compites por precio. Si compites por precio, siempre habrá alguien más barato." data-en="If you don't differentiate yourself, you compete on price. If you compete on price, there will always be someone cheaper.">Si no te diferencias, compites por precio. Si compites por precio, siempre habrá alguien más barato.</p>
-                </div>
-                
-                <h3 data-es="4. Facilita el crecimiento" data-en="4. Facilitates growth">4. Facilita el crecimiento</h3>
-                <p data-es="Un branding sólido te permite:" data-en="Solid branding allows you to:">Un branding sólido te permite:</p>
-                <ul>
-                    <li data-es="Lanzar nuevos productos más fácilmente" data-en="Launch new products more easily">Lanzar nuevos productos más fácilmente</li>
-                    <li data-es="Expandirte a nuevas plataformas (Instagram, web, tiendas físicas)" data-en="Expand to new platforms (Instagram, web, physical stores)">Expandirte a nuevas plataformas (Instagram, web, tiendas físicas)</li>
-                    <li data-es="Conseguir alianzas con otras marcas" data-en="Get alliances with other brands">Conseguir alianzas con otras marcas</li>
-                    <li data-es="Atraer clientes de mayor valor" data-en="Attract higher value customers">Atraer clientes de mayor valor</li>
-                </ul>
-                
-                <h2 data-es="Casos de éxito reales en Cuba" data-en="Real success stories in Cuba">Casos de éxito reales en Cuba</h2>
-                
-                <h3 data-es="Munchies Cuba" data-en="Munchies Cuba">Munchies Cuba</h3>
-                <p data-es="Empezó como un emprendimiento pequeño de snacks. Con branding profesional (logo, colores, packaging coherente), logró posicionarse como marca premium en el mercado cubano. Hoy es referente en su categoría." data-en="Started as a small snack business. With professional branding (logo, colors, consistent packaging), managed to position itself as a premium brand in the Cuban market. Today it's a reference in its category.">Empezó como un emprendimiento pequeño de snacks. Con branding profesional (logo, colores, packaging coherente), logró posicionarse como marca premium en el mercado cubano. Hoy es referente en su categoría.</p>
-                
-                <h3 data-es="Nova Events" data-en="Nova Events">Nova Events</h3>
-                <p data-es="Servicio de organización de eventos. El branding profesional les permitió transmitir elegancia y profesionalismo, atrayendo clientes dispuestos a pagar más por un servicio 'de lujo'." data-en="Event organization service. Professional branding allowed them to convey elegance and professionalism, attracting customers willing to pay more for a 'luxury' service.">Servicio de organización de eventos. El branding profesional les permitió transmitir elegancia y profesionalismo, atrayendo clientes dispuestos a pagar más por un servicio "de lujo".</p>
-                
-                <h3 data-es="Ash Soap Cuba" data-en="Ash Soap Cuba">Ash Soap Cuba</h3>
-                <p data-es="Jabones artesanales. El branding les permitió destacar en un mercado saturado, justificando precios superiores y construyendo una comunidad leal en redes sociales." data-en="Handmade soaps. Branding allowed them to stand out in a saturated market, justifying higher prices and building a loyal community on social media.">Jabones artesanales. El branding les permitió destacar en un mercado saturado, justificando precios superiores y construyendo una comunidad leal en redes sociales.</p>
-                
-                <h2 data-es="¿Cuándo invertir en branding?" data-en="When to invest in branding?">¿Cuándo invertir en branding?</h2>
-                
-                <p data-es="No esperes a 'tener tiempo' o 'tener dinero'. Invierte en branding cuando:" data-en="Don't wait to 'have time' or 'have money'. Invest in branding when:">No esperes a "tener tiempo" o "tener dinero". Invierte en branding cuando:</p>
-                
-                <ol>
-                    <li data-es="Vas a lanzar tu negocio: Desde el día 1, proyecta profesionalismo." data-en="You're launching your business: From day 1, project professionalism.">Vas a lanzar tu negocio: Desde el día 1, proyecta profesionalismo.</li>
-                    <li data-es="Tus ventas se estancaron: Puede ser problema de percepción, no de producto." data-en="Your sales are stagnant: It may be a perception problem, not product.">Tus ventas se estancaron: Puede ser problema de percepción, no de producto.</li>
-                    <li data-es="Quieres subir precios: El branding justifica el aumento." data-en="You want to raise prices: Branding justifies the increase.">Quieres subir precios: El branding justifica el aumento.</li>
-                    <li data-es="Te expandes: Si pasas de Instagram a tienda física, necesitas consistencia." data-en="You're expanding: If you go from Instagram to physical store, you need consistency.">Te expandes: Si pasas de Instagram a tienda física, necesitas consistencia.</li>
-                    <li data-es="La competencia te supera: Si otros se ven más profesionales, estás perdiendo clientes." data-en="Competition surpasses you: If others look more professional, you're losing customers.">La competencia te supera: Si otros se ven más profesionales, estás perdiendo clientes.</li>
-                </ol>
-                
-                <h2 data-es="ROI del branding: Los números" data-en="ROI of branding: The numbers">ROI del branding: Los números</h2>
-                
-                <p data-es="Invertir $10-40 USD en branding puede generar:" data-en="Investing $10-40 USD in branding can generate:">Invertir $10-40 USD en branding puede generar:</p>
-                
-                <ul>
-                    <li data-es="✅ Aumento del 20-30% en precios (sin perder clientes)" data-en="✅ 20-30% price increase (without losing customers)">✅ Aumento del 20-30% en precios (sin perder clientes)</li>
-                    <li data-es="✅ 2-3x más engagement en redes sociales" data-en="✅ 2-3x more engagement on social media">✅ 2-3x más engagement en redes sociales</li>
-                    <li data-es="✅ 40-50% más de confianza de nuevos clientes" data-en="✅ 40-50% more trust from new customers">✅ 40-50% más de confianza de nuevos clientes</li>
-                    <li data-es="✅ Retorno de inversión en 2-3 meses" data-en="✅ Return on investment in 2-3 months">✅ Retorno de inversión en 2-3 meses</li>
-                </ul>
-                
-                <p data-es="Compara eso con gastar $50-100 USD mensuales en ads sin un branding sólido. El branding es la base; sin él, el marketing es menos efectivo." data-en="Compare that with spending $50-100 USD monthly on ads without solid branding. Branding is the foundation; without it, marketing is less effective.">Compara eso con gastar $50-100 USD mensuales en ads sin un branding sólido. El branding es la base; sin él, el marketing es menos efectivo.</p>
-                
-                <div class="cta-box">
-                    <h3 data-es="¿Listo para profesionalizar tu marca?" data-en="Ready to professionalize your brand?">¿Listo para profesionalizar tu marca?</h3>
-                    <p data-es="En STIKMANIA creamos identidades visuales que conectan con tu audiencia y generan resultados reales." data-en="At STIKMANIA we create visual identities that connect with your audience and generate real results.">En STIKMANIA creamos identidades visuales que conectan con tu audiencia y generan resultados reales.</p>
-                    <a href="branding.html" class="btn" data-es="Ver Paquetes de Branding" data-en="View Branding Packages">Ver Paquetes de Branding</a>
-                </div>
-                
-                <h2 data-es="Conclusión" data-en="Conclusion">Conclusión</h2>
-                
-                <p data-es="El branding profesional no es un lujo, es una necesidad para cualquier emprendimiento que quiera crecer y competir en el mercado cubano actual." data-en="Professional branding is not a luxury, it's a necessity for any business that wants to grow and compete in the current Cuban market.">El branding profesional no es un lujo, es una necesidad para cualquier emprendimiento que quiera crecer y competir en el mercado cubano actual.</p>
-                
-                <p data-es="No se trata de tener el logo 'más bonito'. Se trata de:" data-en="It's not about having the 'prettiest' logo. It's about:">No se trata de tener el logo "más bonito". Se trata de:</p>
-                <ul>
-                    <li data-es="Generar confianza" data-en="Generating trust">Generar confianza</li>
-                    <li data-es="Justificar mejores precios" data-en="Justifying better prices">Justificar mejores precios</li>
-                    <li data-es="Diferenciarte de la competencia" data-en="Differentiating yourself from the competition">Diferenciarte de la competencia</li>
-                    <li data-es="Construir una marca que perdure" data-en="Building a lasting brand">Construir una marca que perdure</li>
-                </ul>
-                
-                <p data-es="La pregunta no es si puedes permitirte el branding profesional. La pregunta es: ¿puedes permitirte NO tenerlo?" data-en="The question is not whether you can afford professional branding. The question is: can you afford NOT to have it?">La pregunta no es si puedes permitirte el branding profesional. La pregunta es: ¿puedes permitirte NO tenerlo?</p>
-                
-                <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--dark-green);">
-                    <strong data-es="¿Hablamos de tu proyecto?" data-en="Shall we talk about your project?">¿Hablamos de tu proyecto?</strong> <span data-es="Escríbenos y diseñemos juntos la identidad visual que tu negocio merece." data-en="Write to us and let's design together the visual identity your business deserves.">Escríbenos y diseñemos juntos la identidad visual que tu negocio merece.</span>
-                </p>
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: var(--white); margin-bottom: 20px;" data-es="¿Necesitas algo personalizado o tienes dudas sobre qué paquete elegir?" data-en="Need something custom or have questions about which package to choose?">¿Necesitas algo personalizado o tienes dudas sobre qué paquete elegir?</p>
+                <a href="https://wa.me/5359758756" target="_blank" class="btn" data-es="Consultar por WhatsApp" data-en="Consult via WhatsApp">Consultar por WhatsApp</a>
             </div>
         </div>
-    </article>
+    </section>
 
+    <!-- GALLERY -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title" data-es="Clientes que Confían" data-en="Trusting Clients">Clientes que Confían</h2>
+            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Algunos de los proyectos de identidad visual que hemos creado" data-en="Some of the visual identity projects we have created">Algunos de los proyectos de identidad visual que hemos creado</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/munchies.jpg" alt="Munchies Cuba Logo">
+                    <a href="https://www.instagram.com/munchies_cuba/" target="_blank">@munchies_cuba</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Nova_LOGO.png" alt="Nova Events Logo">
+                    <a href="https://www.instagram.com/nova_events_cuba/" target="_blank">@nova_events_cuba</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/ashsoap_logo.png" alt="Ash Soap Cuba Logo">
+                    <a href="https://www.instagram.com/ash.soap.cuba/" target="_blank">@ash.soap.cuba</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/deli.png" alt="Deli Logo">
+                    <span style="color: var(--neon-green); font-size: 0.9rem;">Deli</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cafe_logo.jpeg" alt="Cafe Logo">
+                    <span style="color: var(--neon-green); font-size: 0.9rem;">Cafe</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUESTIONNAIRE -->
+    <section id="questionnaire" class="questionnaire">
+        <div class="container">
+            <h2 class="section-title" data-es="Cuestionario de Branding" data-en="Branding Questionnaire">Cuestionario de Branding</h2>
+            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución" data-en="Complete this form to help us better understand your project and provide you with the best solution">Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución</p>
+            
+            <form class="questionnaire-form" id="brandingForm" onsubmit="submitQuestionnaire(event)">
+                <div class="form-group">
+                    <label data-es="Nombre completo *" data-en="Full name *">Nombre completo *</label>
+                    <input type="text" id="q_name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label data-es="Teléfono *" data-en="Phone *">Teléfono *</label>
+                    <input type="tel" id="q_phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label data-es="Nombre de la empresa/marca *" data-en="Company/brand name *">Nombre de la empresa/marca *</label>
+                    <input type="text" id="q_brand" required>
+                </div>
+                
+                <div class="form-group">
+                    <label data-es="¿A qué se dedican? *" data-en="What do you do? *">¿A qué se dedican? *</label>
+                    <textarea id="q_business" rows="3" required placeholder="Describe brevemente tu negocio o proyecto..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label data-es="¿Tienen logo actual? *" data-en="Do you have a current logo? *">¿Tienen logo actual? *</label>
+                    <select id="q_logo" required>
+                        <option value="">Selecciona...</option>
+                        <option value="si" data-es="Sí, queremos rediseñarlo" data-en="Yes, we want to redesign it">Sí, queremos rediseñarlo</option>
+                        <option value="no" data-es="No, necesitamos uno nuevo" data-en="No, we need a new one">No, necesitamos uno nuevo</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label data-es="¿Qué quieren transmitir con su marca? *" data-en="What do you want to convey with your brand? *">¿Qué quieren transmitir con su marca? *</label>
+                    <textarea id="q_values" rows="3" required placeholder="Ej: Profesional, urbano, divertido, serio, moderno, ecológico..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label data-es="¿Colores preferidos o a evitar?" data-en="Preferred colors or colors to avoid?">¿Colores preferidos o a evitar?</label>
+                    <textarea id="q_colors" rows="2" placeholder="Menciona colores que te gusten o que definitivamente no quieres..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label data-es="¿Ejemplos de marcas que te gustan? (opcional)" data-en="Examples of brands you like? (optional)">¿Ejemplos de marcas que te gustan? (opcional)</label>
+                    <textarea id="q_references" rows="2" placeholder="Menciona marcas cuyo diseño te inspire..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label data-es="¿Deadline o fecha límite? (opcional)" data-en="Deadline? (optional)">¿Deadline o fecha límite? (opcional)</label>
+                    <input type="text" id="q_deadline" placeholder="Si tienes una fecha específica...">
+                </div>
+                
+                <div class="form-group">
+                    <label data-es="Paquete de interés" data-en="Package of interest">Paquete de interés</label>
+                    <select id="q_package">
+                        <option value="">Selecciona...</option>
+                        <option value="basico" data-es="Básico ($10 USD)" data-en="Basic ($10 USD)">Básico ($10 USD)</option>
+                        <option value="intermedio" data-es="Intermedio ($15 USD)" data-en="Intermediate ($15 USD)">Intermedio ($15 USD)</option>
+                        <option value="completo" data-es="Completo ($40 USD)" data-en="Complete ($40 USD)">Completo ($40 USD)</option>
+                        <option value="personalizado" data-es="Personalizado (consultar)" data-en="Custom (consult)">Personalizado (consultar)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;" data-es="Enviar Cuestionario por WhatsApp" data-en="Send Questionnaire via WhatsApp">Enviar Cuestionario por WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span data-es="¿Qué incluye cada paquete de branding?" data-en="What does each branding package include?">¿Qué incluye cada paquete de branding?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong data-es="Básico:" data-en="Basic:">Básico:</strong> <span data-es="Logo principal + paleta de colores + 2 revisiones + archivos PNG/JPG." data-en="Main logo + color palette + 2 revisions + PNG/JPG files.">Logo principal + paleta de colores + 2 revisiones + archivos PNG/JPG.</span></p>
+                    <p><strong data-es="Intermedio:" data-en="Intermediate:">Intermedio:</strong> <span data-es="Todo lo del Básico + tipografía corporativa + guía de uso + archivos editables (AI, EPS)." data-en="Everything in Basic + corporate typography + usage guide + editable files (AI, EPS).">Todo lo del Básico + tipografía corporativa + guía de uso + archivos editables (AI, EPS).</span></p>
+                    <p><strong data-es="Completo:" data-en="Complete:">Completo:</strong> <span data-es="Logo con variaciones + paleta completa + tipografía para redes + branding aplicado (papelería) + manual de marca." data-en="Logo with variations + complete palette + typography for social media + applied branding (stationery) + brand manual.">Logo con variaciones + paleta completa + tipografía para redes + branding aplicado (papelería) + manual de marca.</span></p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span data-es="¿Cuántas revisiones están incluidas?" data-en="How many revisions are included?">¿Cuántas revisiones están incluidas?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-es="Todos los paquetes incluyen 2 revisiones por etapa del proceso. Revisiones adicionales tienen un costo de $5 USD cada una." data-en="All packages include 2 revisions per process stage. Additional revisions cost $5 USD each.">Todos los paquetes incluyen 2 revisiones por etapa del proceso. Revisiones adicionales tienen un costo de $5 USD cada una.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span data-es="¿En qué formatos recibo los archivos?" data-en="In what formats do I receive the files?">¿En qué formatos recibo los archivos?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong data-es="Básico:" data-en="Basic:">Básico:</strong> <span data-es="PNG y JPG (listos para usar)." data-en="PNG and JPG (ready to use).">PNG y JPG (listos para usar).</span></p>
+                    <p><strong data-es="Intermedio y Completo:" data-en="Intermediate and Complete:">Intermedio y Completo:</strong> <span data-es="Incluye archivos editables en AI (Adobe Illustrator) y EPS, además de PNG y JPG." data-en="Includes editable files in AI (Adobe Illustrator) and EPS, plus PNG and JPG.">Incluye archivos editables en AI (Adobe Illustrator) y EPS, además de PNG y JPG.</span></p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span data-es="¿Necesito pagar anticipo?" data-en="Do I need to pay a deposit?">¿Necesito pagar anticipo?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-es="Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final de los archivos." data-en="Yes, we require 50% deposit to start the project. The remaining 50% is paid upon final delivery of the files.">Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final de los archivos.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span data-es="¿Puedo usar el logo para redes sociales?" data-en="Can I use the logo for social media?">¿Puedo usar el logo para redes sociales?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-es="¡Sí! Una vez completado el pago total, eres dueño del diseño final y puedes usarlo en redes sociales, web, impresión y cualquier medio que necesites." data-en="Yes! Once full payment is completed, you own the final design and can use it on social media, web, print and any medium you need.">¡Sí! Una vez completado el pago total, eres dueño del diseño final y puedes usarlo en redes sociales, web, impresión y cualquier medio que necesites.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span data-es="¿Qué pasa si no me gusta el diseño?" data-en="What if I don't like the design?">¿Qué pasa si no me gusta el diseño?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-es="Por eso incluimos 2 revisiones por etapa. Trabajamos contigo hasta que el diseño refleje la esencia de tu marca. Si después de las revisiones incluidas necesitas más cambios, tienen un costo adicional." data-en="That's why we include 2 revisions per stage. We work with you until the design reflects the essence of your brand. If after the included revisions you need more changes, they have an additional cost.">Por eso incluimos 2 revisiones por etapa. Trabajamos contigo hasta que el diseño refleje la esencia de tu marca. Si después de las revisiones incluidas necesitas más cambios, tienen un costo adicional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span> | 2026</p>
-            <p style="margin-top: 10px;">
-                <a href="index.html" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
+            <p style="color: var(--white); margin-bottom: 10px;">
+                <strong>STIKMANIA</strong> - <span data-es="Diseño que se pega" data-en="Design that sticks">Diseño que se pega</span>
+            </p>
+            <p style="color: var(--white); font-size: 0.9rem;">
+                La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com
+            </p>
+            <p style="color: var(--white); font-size: 0.85rem; margin-top: 20px;">
+                © STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span>
             </p>
         </div>
     </footer>
 
     <script>
+        // LANGUAGE SYSTEM
         let currentLang = localStorage.getItem('stikmania_lang') || 'es';
         
         function toggleLanguage() {
@@ -350,6 +665,84 @@
         }
         
         updateLanguage();
+        
+        // Auto-fill package when "Seleccionar" is clicked
+        document.querySelectorAll('.btn-outline, .btn').forEach(button => {
+            if(button.getAttribute('href') === '#questionnaire') {
+                button.addEventListener('click', function(e) {
+                    const packageSelect = document.getElementById('q_package');
+                    packageSelect.style.borderColor = 'var(--neon-green)';
+                    packageSelect.style.background = 'var(--gray-light)';
+                });
+            }
+        });
+        
+        // Toggle FAQ
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const sign = element.querySelector('span:last-child');
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                sign.textContent = '+';
+            } else {
+                answer.classList.add('show');
+                sign.textContent = '-';
+            }
+        }
+        
+        // Submit questionnaire via WhatsApp
+        function submitQuestionnaire(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('q_name').value;
+            const phone = document.getElementById('q_phone').value;
+            const brand = document.getElementById('q_brand').value;
+            const business = document.getElementById('q_business').value;
+            const logo = document.getElementById('q_logo').value;
+            const values = document.getElementById('q_values').value;
+            const colors = document.getElementById('q_colors').value;
+            const references = document.getElementById('q_references').value;
+            const deadline = document.getElementById('q_deadline').value;
+            const pkg = document.getElementById('q_package').value;
+            
+            const packageSelect = document.getElementById('q_package');
+            const packageName = packageSelect.options[packageSelect.selectedIndex].text;
+            
+            let message = `*CUESTIONARIO DE BRANDING - STIKMANIA*\n\n`;
+            message += `*Nombre:* ${name}\n`;
+            message += `*Teléfono:* ${phone}\n`;
+            message += `*Marca:* ${brand}\n`;
+            message += `*Negocio:* ${business}\n`;
+            message += `*Logo actual:* ${logo}\n`;
+            message += `*Valores:* ${values}\n`;
+            message += `*Colores:* ${colors || 'No especificado'}\n`;
+            message += `*Referencias:* ${references || 'No especificado'}\n`;
+            message += `*Deadline:* ${deadline || 'No especificado'}\n`;
+            message += `*Paquete de interés:* ${packageName}\n`;
+            message += `\n*Nota:* ${currentLang === 'es' ? 'Pago requiere 50% de anticipo para comenzar.' : 'Payment requires 50% deposit to start.'}`;
+            
+            const whatsappNumber = '5359758756';
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Smooth scroll for questionnaire links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
     </script>
 
 </body>
