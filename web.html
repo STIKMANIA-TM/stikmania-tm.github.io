@@ -48,7 +48,7 @@
         
         .btn {
             display: inline-block;
-            background: var(--neon-green);
+            background: var(--web);
             color: var(--black);
             padding: 12px 28px;
             font-weight: 600;
@@ -63,14 +63,11 @@
         
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--neon-green);
-            color: var(--neon-green);
+            border: 2px solid var(--web);
+            color: var(--web);
         }
         
-        .btn-outline:hover { background: var(--neon-green); color: var(--black); }
-        
-        .btn-web { background: var(--web); color: var(--black); }
-        .btn-web:hover { background: var(--white); }
+        .btn-outline:hover { background: var(--web); color: var(--black); }
         
         /* LANGUAGE SWITCHER */
         .lang-switch {
@@ -162,6 +159,7 @@
             padding: 30px;
             transition: all 0.3s ease;
             position: relative;
+            cursor: pointer;
         }
         
         .package-card:hover {
@@ -172,6 +170,11 @@
         .package-card.destacado {
             border-color: var(--web);
             box-shadow: 0 0 20px rgba(79, 195, 247, 0.2);
+        }
+        
+        .package-card.seleccionado {
+            background: var(--black);
+            border-color: var(--web);
         }
         
         .package-badge {
@@ -348,6 +351,25 @@
             min-height: 120px;
         }
         
+        .package-message {
+            display: none;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--black);
+            border: 1px solid var(--web);
+            border-radius: 4px;
+        }
+        
+        .package-message.show {
+            display: block;
+        }
+        
+        .package-message p {
+            color: var(--web);
+            font-weight: 600;
+        }
+        
         /* FAQ */
         .faq { padding: 80px 0; background: var(--gray); }
         
@@ -439,7 +461,7 @@
             
             <div class="packages-grid">
                 <!-- LANDING / PORTFOLIO -->
-                <div class="package-card">
+                <div class="package-card" id="package-landing" onclick="selectPackage('landing')">
                     <div class="package-header">
                         <h3 class="package-type" data-es="Landing / Portfolio" data-en="Landing / Portfolio">Landing / Portfolio</h3>
                         <div class="package-price">$20 <span>USD</span></div>
@@ -453,11 +475,11 @@
                         <li data-es="Entrega en 5-10 días hábiles" data-en="Delivery in 5-10 business days">Entrega en 5-10 días hábiles</li>
                     </ul>
                     <p class="package-time">⏱️ 5-10 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%; border-color: var(--web); color: var(--web);" data-package="landing" data-es="Seleccionar" data-en="Select">Seleccionar</a>
+                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
                 </div>
                 
                 <!-- WEB CORPORATIVA -->
-                <div class="package-card destacado">
+                <div class="package-card destacado" id="package-corporativa" onclick="selectPackage('corporativa')">
                     <span class="package-badge" data-es="Más Popular" data-en="Most Popular">Más Popular</span>
                     <div class="package-header">
                         <h3 class="package-type" data-es="Web Corporativa" data-en="Corporate Website">Web Corporativa</h3>
@@ -472,11 +494,11 @@
                         <li data-es="Entrega en 10-20 días hábiles" data-en="Delivery in 10-20 business days">Entrega en 10-20 días hábiles</li>
                     </ul>
                     <p class="package-time">⏱️ 10-20 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <a href="#questionnaire" class="btn btn-web select-package" style="width: 100%;" data-package="corporativa" data-es="Seleccionar" data-en="Select">Seleccionar</a>
+                    <button class="btn" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
                 </div>
                 
                 <!-- E-COMMERCE -->
-                <div class="package-card">
+                <div class="package-card" id="package-ecommerce" onclick="selectPackage('ecommerce')">
                     <div class="package-header">
                         <h3 class="package-type" data-es="E-commerce" data-en="E-commerce">E-commerce</h3>
                         <div class="package-price">$80 <span>USD</span></div>
@@ -490,11 +512,11 @@
                         <li data-es="Entrega en 15-30 días hábiles" data-en="Delivery in 15-30 business days">Entrega en 15-30 días hábiles</li>
                     </ul>
                     <p class="package-time">⏱️ 15-30 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%; border-color: var(--web); color: var(--web);" data-package="ecommerce" data-es="Seleccionar" data-en="Select">Seleccionar</a>
+                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
                 </div>
                 
                 <!-- WEB APP -->
-                <div class="package-card">
+                <div class="package-card" id="package-webapp" onclick="selectPackage('webapp')">
                     <div class="package-header">
                         <h3 class="package-type" data-es="Web App" data-en="Web App">Web App</h3>
                         <div class="package-price">$80 <span>USD</span></div>
@@ -508,7 +530,7 @@
                         <li data-es="Entrega en 20-45 días hábiles" data-en="Delivery in 20-45 business days">Entrega en 20-45 días hábiles</li>
                     </ul>
                     <p class="package-time">⏱️ 20-45 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <a href="#questionnaire" class="btn btn-outline select-package" style="width: 100%; border-color: var(--web); color: var(--web);" data-package="webapp" data-es="Seleccionar" data-en="Select">Seleccionar</a>
+                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
                 </div>
             </div>
             
@@ -580,7 +602,8 @@
             <p data-es="Forma de pago: 50% de anticipo para comenzar el proyecto, 50% restante al momento de la entrega final. Aceptamos efectivo (USD/CUP/EUR) y transferencias bancarias." data-en="Payment method: 50% deposit to start the project, 50% remaining upon final delivery. We accept cash (USD/CUP/EUR) and bank transfers.">Forma de pago: 50% de anticipo para comenzar el proyecto, 50% restante al momento de la entrega final. Aceptamos efectivo (USD/CUP/EUR) y transferencias bancarias.</p>
             <p data-es="Soporte post-entrega: 1 mes de soporte técnico incluido para corrección de bugs, ajustes menores de diseño y asesoramiento técnico." data-en="Post-delivery support: 1 month of technical support included for bug fixes, minor design adjustments and technical advice.">Soporte post-entrega: 1 mes de soporte técnico incluido para corrección de bugs, ajustes menores de diseño y asesoramiento técnico.</p>
             <div class="contract-download">
-                <a href="downloads/STIKMANIA_CONTRATO_WEB.pdf" download class="btn btn-outline" style="border-color: var(--web); color: var(--web);" data-es="📥 Descargar Modelo de Contrato" data-en="📥 Download Contract Template">📥 Descargar Modelo de Contrato</a>
+                <a href="downloads/STIKMANIA_CONTRATO_WEB.pdf" download class="btn btn-outline" data-es="📥 Descargar Contrato (ESPAÑOL)" data-en="📥 Download Contract (SPANISH)">📥 Descargar Contrato (ESPAÑOL)</a>
+                <a href="downloads/STIKMANIA_CONTRACT_WEB_EN.pdf" download class="btn btn-outline" data-es="📥 Download Contract (ENGLISH)" data-en="📥 Download Contract (ENGLISH)" style="margin-left: 10px;">📥 Download Contract (ENGLISH)</a>
             </div>
         </div>
     </div>
@@ -591,8 +614,8 @@
             <h2 class="section-title" data-es="Cuestionario de Desarrollo Web" data-en="Web Development Questionnaire">Cuestionario de Desarrollo Web</h2>
             <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución" data-en="Complete this form to help us better understand your project and provide you with the best solution">Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución</p>
             
-            <div id="package-selected-message" style="display: none; text-align: center; margin-bottom: 20px; padding: 15px; background: var(--gray-light); border: 1px solid var(--web); border-radius: 4px;">
-                <p style="color: var(--web); font-weight: 600;"><span data-es="✓ Tipo de web seleccionado:" data-en="✓ Web type selected:">✓ Tipo de web seleccionado:</span> <span id="selected-package-name"></span></p>
+            <div id="package-message" class="package-message">
+                <p><span data-es="✓ Tipo de web seleccionado:" data-en="✓ Web type selected:">✓ Tipo de web seleccionado:</span> <span id="selected-package-name"></span></p>
             </div>
             
             <form class="questionnaire-form" id="webForm" onsubmit="submitQuestionnaire(event)">
@@ -658,7 +681,7 @@
                     <input type="text" id="q_deadline" placeholder="Si tienes una fecha específica...">
                 </div>
                 
-                <button type="submit" class="btn btn-web" style="width: 100%;" data-es="Enviar Cuestionario por WhatsApp" data-en="Send Questionnaire via WhatsApp">Enviar Cuestionario por WhatsApp</button>
+                <button type="submit" class="btn" style="width: 100%;" data-es="Enviar Cuestionario por WhatsApp" data-en="Send Questionnaire via WhatsApp">Enviar Cuestionario por WhatsApp</button>
             </form>
         </div>
     </section>
@@ -775,30 +798,40 @@
         
         updateLanguage();
         
-        // Auto-fill package when "Seleccionar" is clicked
-        document.querySelectorAll('.select-package').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const selectedPackage = this.getAttribute('data-package');
-                const packageSelect = document.getElementById('q_package');
-                const packageMessage = document.getElementById('package-selected-message');
-                const packageName = document.getElementById('selected-package-name');
-                
-                packageSelect.value = selectedPackage;
-                
-                const packageNames = {
-                    'landing': currentLang === 'es' ? 'Landing / Portfolio ($20 USD)' : 'Landing / Portfolio ($20 USD)',
-                    'corporativa': currentLang === 'es' ? 'Web Corporativa ($50 USD)' : 'Corporate Website ($50 USD)',
-                    'ecommerce': currentLang === 'es' ? 'E-commerce ($80 USD)' : 'E-commerce ($80 USD)',
-                    'webapp': currentLang === 'es' ? 'Web App ($80 USD)' : 'Web App ($80 USD)'
-                };
-                
-                packageName.textContent = packageNames[selectedPackage];
-                packageMessage.style.display = 'block';
-                
-                packageSelect.style.borderColor = 'var(--web)';
-                packageSelect.style.background = 'var(--gray-light)';
+        // AUTO-FILL PACKAGE WHEN SELECTED
+        function selectPackage(packageType) {
+            const packageSelect = document.getElementById('q_package');
+            const packageMessage = document.getElementById('package-message');
+            const packageName = document.getElementById('selected-package-name');
+            
+            packageSelect.value = packageType;
+            
+            const packageNames = {
+                'landing': currentLang === 'es' ? 'Landing / Portfolio ($20 USD)' : 'Landing / Portfolio ($20 USD)',
+                'corporativa': currentLang === 'es' ? 'Web Corporativa ($50 USD)' : 'Corporate Website ($50 USD)',
+                'ecommerce': currentLang === 'es' ? 'E-commerce ($80 USD)' : 'E-commerce ($80 USD)',
+                'webapp': currentLang === 'es' ? 'Web App ($80 USD)' : 'Web App ($80 USD)'
+            };
+            
+            packageName.textContent = packageNames[packageType];
+            packageMessage.classList.add('show');
+            
+            // Highlight selected card
+            document.querySelectorAll('.package-card').forEach(card => {
+                card.classList.remove('seleccionado');
             });
-        });
+            document.getElementById(`package-${packageType}`).classList.add('seleccionado');
+            
+            // Scroll to questionnaire
+            document.getElementById('questionnaire').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Highlight the select field
+            packageSelect.style.borderColor = 'var(--web)';
+            packageSelect.style.background = 'var(--gray)';
+        }
         
         // Toggle FAQ
         function toggleFaq(element) {
@@ -830,12 +863,6 @@
             
             const packageSelect = document.getElementById('q_package');
             const packageName = packageSelect.options[packageSelect.selectedIndex].text;
-            
-            const hostingSelect = document.getElementById('q_hosting');
-            const hostingName = hostingSelect.options[hostingSelect.selectedIndex].text;
-            
-            const contentSelect = document.getElementById('q_content');
-            const contentName = contentSelect.options[contentSelect.selectedIndex].text;
             
             let message = `*CUESTIONARIO DE DESARROLLO WEB - STIKMANIA*\n\n`;
             message += `*Nombre:* ${name}\n`;

@@ -23,7 +23,6 @@
             --black: #000000;
             --white: #FFFFFF;
             --gray: #1a1a1a;
-            --gray-light: #2a2a2a;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -158,6 +157,7 @@
             padding: 30px;
             transition: all 0.3s ease;
             position: relative;
+            cursor: pointer;
         }
         
         .package-card:hover {
@@ -168,6 +168,11 @@
         .package-card.destacado {
             border-color: var(--neon-green);
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+        
+        .package-card.seleccionado {
+            background: var(--black);
+            border-color: var(--neon-green);
         }
         
         .package-badge {
@@ -309,6 +314,25 @@
             min-height: 120px;
         }
         
+        .package-message {
+            display: none;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--black);
+            border: 1px solid var(--neon-green);
+            border-radius: 4px;
+        }
+        
+        .package-message.show {
+            display: block;
+        }
+        
+        .package-message p {
+            color: var(--neon-green);
+            font-weight: 600;
+        }
+        
         /* FAQ */
         .faq { padding: 80px 0; background: var(--gray); }
         
@@ -398,7 +422,7 @@
             
             <div class="packages-grid">
                 <!-- BÁSICO -->
-                <div class="package-card">
+                <div class="package-card" id="package-basico" onclick="selectPackage('basico')">
                     <div class="package-header">
                         <h3 class="package-type" data-es="Básico" data-en="Basic">Básico</h3>
                         <div class="package-price">$10 <span>USD</span></div>
@@ -411,11 +435,11 @@
                         <li data-es="Entrega en 2-4 días hábiles" data-en="Delivery in 2-4 business days">Entrega en 2-4 días hábiles</li>
                     </ul>
                     <p class="package-time">⏱️ 2-4 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <a href="#questionnaire" class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</a>
+                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
                 </div>
                 
                 <!-- INTERMEDIO -->
-                <div class="package-card destacado">
+                <div class="package-card destacado" id="package-intermedio" onclick="selectPackage('intermedio')">
                     <span class="package-badge" data-es="Más Popular" data-en="Most Popular">Más Popular</span>
                     <div class="package-header">
                         <h3 class="package-type" data-es="Intermedio" data-en="Intermediate">Intermedio</h3>
@@ -429,11 +453,11 @@
                         <li data-es="Entrega en 3-6 días hábiles" data-en="Delivery in 3-6 business days">Entrega en 3-6 días hábiles</li>
                     </ul>
                     <p class="package-time">⏱️ 3-6 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <a href="#questionnaire" class="btn" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</a>
+                    <button class="btn" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
                 </div>
                 
                 <!-- COMPLETO -->
-                <div class="package-card">
+                <div class="package-card" id="package-completo" onclick="selectPackage('completo')">
                     <div class="package-header">
                         <h3 class="package-type" data-es="Completo" data-en="Complete">Completo</h3>
                         <div class="package-price">$40 <span>USD</span></div>
@@ -447,7 +471,7 @@
                         <li data-es="Entrega en 5-10 días hábiles" data-en="Delivery in 5-10 business days">Entrega en 5-10 días hábiles</li>
                     </ul>
                     <p class="package-time">⏱️ 5-10 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <a href="#questionnaire" class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</a>
+                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
                 </div>
             </div>
             
@@ -494,6 +518,10 @@
         <div class="container">
             <h2 class="section-title" data-es="Cuestionario de Branding" data-en="Branding Questionnaire">Cuestionario de Branding</h2>
             <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución" data-en="Complete this form to help us better understand your project and provide you with the best solution">Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución</p>
+            
+            <div id="package-message" class="package-message">
+                <p><span data-es="✓ Paquete seleccionado:" data-en="✓ Package selected:">✓ Paquete seleccionado:</span> <span id="selected-package-name"></span></p>
+            </div>
             
             <form class="questionnaire-form" id="brandingForm" onsubmit="submitQuestionnaire(event)">
                 <div class="form-group">
@@ -546,9 +574,9 @@
                 </div>
                 
                 <div class="form-group">
-                    <label data-es="Paquete de interés" data-en="Package of interest">Paquete de interés</label>
-                    <select id="q_package">
-                        <option value="">Selecciona...</option>
+                    <label data-es="Paquete de interés *" data-en="Package of interest *">Paquete de interés *</label>
+                    <select id="q_package" required>
+                        <option value="">Selecciona un paquete...</option>
                         <option value="basico" data-es="Básico ($10 USD)" data-en="Basic ($10 USD)">Básico ($10 USD)</option>
                         <option value="intermedio" data-es="Intermedio ($15 USD)" data-en="Intermediate ($15 USD)">Intermedio ($15 USD)</option>
                         <option value="completo" data-es="Completo ($40 USD)" data-en="Complete ($40 USD)">Completo ($40 USD)</option>
@@ -666,16 +694,39 @@
         
         updateLanguage();
         
-        // Auto-fill package when "Seleccionar" is clicked
-        document.querySelectorAll('.btn-outline, .btn').forEach(button => {
-            if(button.getAttribute('href') === '#questionnaire') {
-                button.addEventListener('click', function(e) {
-                    const packageSelect = document.getElementById('q_package');
-                    packageSelect.style.borderColor = 'var(--neon-green)';
-                    packageSelect.style.background = 'var(--gray-light)';
-                });
-            }
-        });
+        // AUTO-FILL PACKAGE WHEN SELECTED
+        function selectPackage(packageType) {
+            const packageSelect = document.getElementById('q_package');
+            const packageMessage = document.getElementById('package-message');
+            const packageName = document.getElementById('selected-package-name');
+            
+            packageSelect.value = packageType;
+            
+            const packageNames = {
+                'basico': currentLang === 'es' ? 'Básico ($10 USD)' : 'Basic ($10 USD)',
+                'intermedio': currentLang === 'es' ? 'Intermedio ($15 USD)' : 'Intermediate ($15 USD)',
+                'completo': currentLang === 'es' ? 'Completo ($40 USD)' : 'Complete ($40 USD)'
+            };
+            
+            packageName.textContent = packageNames[packageType];
+            packageMessage.classList.add('show');
+            
+            // Highlight selected card
+            document.querySelectorAll('.package-card').forEach(card => {
+                card.classList.remove('seleccionado');
+            });
+            document.getElementById(`package-${packageType}`).classList.add('seleccionado');
+            
+            // Scroll to questionnaire
+            document.getElementById('questionnaire').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Highlight the select field
+            packageSelect.style.borderColor = 'var(--neon-green)';
+            packageSelect.style.background = 'var(--gray)';
+        }
         
         // Toggle FAQ
         function toggleFaq(element) {
@@ -716,9 +767,9 @@
             message += `*Negocio:* ${business}\n`;
             message += `*Logo actual:* ${logo}\n`;
             message += `*Valores:* ${values}\n`;
-            message += `*Colores:* ${colors || 'No especificado'}\n`;
-            message += `*Referencias:* ${references || 'No especificado'}\n`;
-            message += `*Deadline:* ${deadline || 'No especificado'}\n`;
+            message += `*Colores:* ${colors || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
+            message += `*Referencias:* ${references || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
+            message += `*Deadline:* ${deadline || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
             message += `*Paquete de interés:* ${packageName}\n`;
             message += `\n*Nota:* ${currentLang === 'es' ? 'Pago requiere 50% de anticipo para comenzar.' : 'Payment requires 50% deposit to start.'}`;
             

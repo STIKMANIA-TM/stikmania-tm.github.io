@@ -302,36 +302,10 @@
             text-decoration: underline;
         }
         
-        /* ABOUT */
-        .about {
-            padding: 100px 0;
-            background: var(--black);
-        }
-        
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .about-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: var(--neon-green);
-        }
-        
-        .about-content p {
-            margin-bottom: 20px;
-            color: var(--white);
-            font-weight: 300;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
         /* BLOG PREVIEW */
         .blog-preview {
             padding: 100px 0;
-            background: var(--gray);
+            background: var(--black);
         }
         
         .blog-grid {
@@ -411,6 +385,59 @@
         
         .read-more:hover {
             text-decoration: underline;
+        }
+        
+        /* ABOUT */
+        .about {
+            padding: 100px 0;
+            background: var(--gray);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--neon-green);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--white);
+            font-weight: 300;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            background: var(--black);
+            padding: 30px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .stat-number {
+            font-family: 'Pirata One', display;
+            font-size: 3rem;
+            color: var(--neon-green);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 300;
         }
         
         /* CONTACT */
@@ -524,7 +551,8 @@
         @media (max-width: 992px) {
             .services-grid,
             .blog-grid,
-            .footer-grid {
+            .footer-grid,
+            .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
@@ -540,7 +568,8 @@
             
             .services-grid,
             .blog-grid,
-            .footer-grid {
+            .footer-grid,
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -588,9 +617,9 @@
                 <a href="index.html" class="logo">STIKMANIA</a>
                 <nav>
                     <ul>
-                        <li><a href="#about" data-es="Nosotros" data-en="About">Nosotros</a></li>
                         <li><a href="#services" data-es="Servicios" data-en="Services">Servicios</a></li>
                         <li><a href="#blog" data-es="Blog" data-en="Blog">Blog</a></li>
+                        <li><a href="#about" data-es="Nosotros" data-en="About">Nosotros</a></li>
                         <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
                     </ul>
                 </nav>
@@ -635,19 +664,6 @@
                     <p data-es="E-commerce, portfolio, web apps y sitios corporativos optimizados." data-en="E-commerce, portfolio, web apps and optimized corporate sites.">E-commerce, portfolio, web apps y sitios corporativos optimizados.</p>
                     <a href="web.html" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <h2 data-es="Sobre STIKMANIA" data-en="About STIKMANIA">Sobre STIKMANIA</h2>
-                <p><strong data-es="CEO: Adrián González" data-en="CEO: Adrián González">CEO: Adrián González</strong> - <span data-es="Diseñador gráfico y desarrollador web con formación en informática y especialización en identidad visual urbana." data-en="Graphic designer and web developer with computer science background and specialization in urban visual identity.">Diseñador gráfico y desarrollador web con formación en informática y especialización en identidad visual urbana.</span></p>
-                <p data-es="STIKMANIA es una marca registrada cubana dedicada a proporcionar soluciones de diseño profesional para emprendedores y empresas. Combinamos expertise técnico con sensibilidad artística para crear identidades visuales que generan impacto real en el mercado." data-en="STIKMANIA is a Cuban registered brand dedicated to providing professional design solutions for entrepreneurs and businesses. We combine technical expertise with artistic sensitivity to create visual identities that generate real market impact.">STIKMANIA es una marca registrada cubana dedicada a proporcionar soluciones de diseño profesional para emprendedores y empresas. Combinamos expertise técnico con sensibilidad artística para crear identidades visuales que generan impacto real en el mercado.</p>
-                <p data-es="Nuestra filosofía: Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles." data-en="Our philosophy: We understand that each client faces unique challenges. We focus on solving concrete problems: from the urgency of launching a product to the need for brand repositioning. We work with transparency, constant communication and measurable results.">Nuestra filosofía: Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles.</p>
-                <p data-es="Compromiso: Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto." data-en="Commitment: Exceptional price/quality ratio, delivery in established times and transparent communication at every stage of the project.">Compromiso: Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto.</p>
             </div>
         </div>
     </section>
@@ -715,6 +731,35 @@
                         <a href="blog-web.html" class="read-more" data-es="Leer artículo →" data-en="Read article →">Leer artículo →</a>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 data-es="Sobre STIKMANIA" data-en="About STIKMANIA">Sobre STIKMANIA</h2>
+                <p><strong data-es="CEO: Adrián González" data-en="CEO: Adrián González">CEO: Adrián González</strong> - <span data-es="Diseñador gráfico y desarrollador web con formación en informática y especialización en identidad visual urbana." data-en="Graphic designer and web developer with computer science background and specialization in urban visual identity.">Diseñador gráfico y desarrollador web con formación en informática y especialización en identidad visual urbana.</span></p>
+                <p data-es="STIKMANIA es una marca registrada cubana dedicada a proporcionar soluciones de diseño profesional para emprendedores y empresas. Combinamos expertise técnico con sensibilidad artística para crear identidades visuales que generan impacto real en el mercado." data-en="STIKMANIA is a Cuban registered brand dedicated to providing professional design solutions for entrepreneurs and businesses. We combine technical expertise with artistic sensitivity to create visual identities that generate real market impact.">STIKMANIA es una marca registrada cubana dedicada a proporcionar soluciones de diseño profesional para emprendedores y empresas. Combinamos expertise técnico con sensibilidad artística para crear identidades visuales que generan impacto real en el mercado.</p>
+                <p data-es="Nuestra filosofía: Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles." data-en="Our philosophy: We understand that each client faces unique challenges. We focus on solving concrete problems: from the urgency of launching a product to the need for brand repositioning. We work with transparency, constant communication and measurable results.">Nuestra filosofía: Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles.</p>
+                <p data-es="Compromiso: Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto." data-en="Commitment: Exceptional price/quality ratio, delivery in established times and transparent communication at every stage of the project.">Compromiso: Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto.</p>
+                
+                <!-- STATS -->
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label" data-es="Años de Experiencia" data-en="Years of Experience">Años de Experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label" data-es="Proyectos Realizados" data-en="Projects Completed">Proyectos Realizados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label" data-es="Clientes Satisfechos" data-en="Satisfied Clients">Clientes Satisfechos</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
