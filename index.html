@@ -14,7 +14,7 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/favicon.png">
     
-    <!-- Open Graph / Social Media -->
+    <!-- Open Graph -->
     <meta property="og:title" content="STIKMANIA | Diseño que se pega">
     <meta property="og:description" content="Stickers, Branding y Desarrollo Web en La Habana. Diseño urbano con calidad profesional.">
     <meta property="og:image" content="images/logo.png">
@@ -44,9 +44,7 @@
         "url": "https://stikmania-tm.github.io",
         "priceRange": "$$",
         "openingHours": "Mo-Fr 09:00-18:00",
-        "sameAs": [
-            "https://www.instagram.com/sti_kmania/"
-        ]
+        "sameAs": ["https://www.instagram.com/sti_kmania/"]
     }
     </script>
     
@@ -62,15 +60,9 @@
             --web: #4fc3f7;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -78,6 +70,49 @@
             color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* BACKGROUND CON IMAGEN Y BLUR */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/var_malva.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(4px) brightness(0.4);
+            opacity: 0.5;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        body { background-color: rgba(0, 0, 0, 0.85); }
+        
+        /* BACKGROUND ANIMADO */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 102, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(79, 195, 247, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+            animation: backgroundPulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -88,23 +123,11 @@
             line-height: 1.2;
         }
         
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+        a { color: inherit; text-decoration: none; transition: all 0.3s ease; }
         
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+        img { max-width: 100%; height: auto; display: block; }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         .btn {
             display: inline-block;
@@ -117,12 +140,25 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        .btn:hover {
-            background: var(--white);
-            transform: translateY(-2px);
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
+        
+        .btn:hover::before { width: 300px; height: 300px; }
+        .btn:hover { background: var(--white); transform: translateY(-2px); }
         
         .btn-outline {
             background: transparent;
@@ -130,10 +166,7 @@
             color: var(--neon-green);
         }
         
-        .btn-outline:hover {
-            background: var(--neon-green);
-            color: var(--black);
-        }
+        .btn-outline:hover { background: var(--neon-green); color: var(--black); }
         
         /* LANGUAGE SWITCHER */
         .lang-switch {
@@ -155,10 +188,7 @@
             transition: all 0.3s ease;
         }
         
-        .lang-btn:hover {
-            background: var(--neon-green);
-            color: var(--black);
-        }
+        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
         
         /* HEADER */
         header {
@@ -183,40 +213,76 @@
             color: var(--neon-green);
         }
         
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
+        nav ul { display: flex; list-style: none; gap: 30px; }
         
         nav a {
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
+            position: relative;
         }
         
-        nav a:hover {
-            color: var(--neon-green);
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-green);
+            transition: width 0.3s ease;
         }
+        
+        nav a:hover { color: var(--neon-green); }
+        nav a:hover::after { width: 100%; }
         
         /* HERO */
         .hero {
             padding: 180px 0 100px 0;
             background: linear-gradient(135deg, var(--black) 0%, var(--dark-green) 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .hero-logo {
             max-width: 300px;
             margin: 0 auto 30px auto;
             filter: invert(1);
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            color: var(--neon-green);
+            background: linear-gradient(90deg, var(--neon-green), #00cc00, var(--neon-green));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes shimmer {
+            to { background-position: 200% center; }
         }
         
         .hero p {
@@ -225,6 +291,8 @@
             max-width: 600px;
             margin: 0 auto 40px auto;
             font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
         
         .hero-buttons {
@@ -232,6 +300,8 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
         
         /* SERVICES */
@@ -269,12 +339,14 @@
             padding: 25px;
             border-radius: 8px;
             border: 1px solid #333;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
         }
         
         .card:hover {
             border-color: var(--neon-green);
-            transform: translateY(-5px);
+            transform: translateY(-8px) rotateX(2deg);
+            box-shadow: 0 20px 40px rgba(0, 255, 0, 0.15);
         }
         
         .card h3 {
@@ -298,9 +370,7 @@
             font-weight: 600;
         }
         
-        .card a:hover {
-            text-decoration: underline;
-        }
+        .card a:hover { text-decoration: underline; }
         
         /* BLOG PREVIEW */
         .blog-preview {
@@ -319,12 +389,12 @@
             border: 1px solid var(--dark-green);
             border-radius: 8px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         .blog-card:hover {
             border-color: var(--neon-green);
-            transform: translateY(-5px);
+            transform: translateY(-8px) rotateX(2deg);
         }
         
         .blog-icon {
@@ -349,9 +419,7 @@
             transform: scale(1.05);
         }
         
-        .blog-content {
-            padding: 25px;
-        }
+        .blog-content { padding: 25px; }
         
         .blog-category {
             color: var(--neon-green);
@@ -383,9 +451,7 @@
             letter-spacing: 1px;
         }
         
-        .read-more:hover {
-            text-decoration: underline;
-        }
+        .read-more:hover { text-decoration: underline; }
         
         /* ABOUT */
         .about {
@@ -425,6 +491,12 @@
             padding: 30px 20px;
             border-radius: 8px;
             border: 1px solid var(--dark-green);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
         }
         
         .stat-number {
@@ -432,6 +504,12 @@
             font-size: 3rem;
             color: var(--neon-green);
             margin-bottom: 10px;
+            animation: countUp 2s ease-out;
+        }
+        
+        @keyframes countUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         
         .stat-label {
@@ -479,10 +557,16 @@
             border: 2px solid var(--neon-green);
             color: var(--neon-green);
             transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         .contact-btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.1);
             box-shadow: 0 8px 20px rgba(0, 255, 0, 0.3);
             background: var(--neon-green);
             color: var(--black);
@@ -520,13 +604,8 @@
             color: var(--neon-green);
         }
         
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
         
         .footer-links a {
             color: var(--white);
@@ -534,9 +613,7 @@
             font-weight: 300;
         }
         
-        .footer-links a:hover {
-            color: var(--neon-green);
-        }
+        .footer-links a:hover { color: var(--neon-green); }
         
         .footer-bottom {
             text-align: center;
@@ -547,59 +624,46 @@
             font-weight: 300;
         }
         
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* FAQ SMOOTH */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.show { max-height: 500px; }
+        
         /* MOBILE */
         @media (max-width: 992px) {
-            .services-grid,
-            .blog-grid,
-            .footer-grid,
-            .stats-grid {
+            .services-grid, .blog-grid, .footer-grid, .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+            .hero h1 { font-size: 2.5rem; }
         }
         
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-            
-            .services-grid,
-            .blog-grid,
-            .footer-grid,
-            .stats-grid {
+            nav ul { display: none; }
+            .services-grid, .blog-grid, .footer-grid, .stats-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .hero {
-                padding: 140px 0 80px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-header h2,
-            .about-content h2,
-            .contact h2 {
-                font-size: 2rem;
-            }
-            
-            .contact-buttons {
-                gap: 10px;
-            }
-            
-            .contact-btn {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .lang-switch {
-                top: 10px;
-                right: 10px;
-            }
+            .hero { padding: 140px 0 80px 0; }
+            .hero h1 { font-size: 2rem; }
+            .section-header h2, .about-content h2, .contact h2 { font-size: 2rem; }
+            .contact-buttons { gap: 10px; }
+            .contact-btn { width: 45px; height: 45px; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
@@ -641,7 +705,7 @@
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="services">
+    <section id="services" class="services reveal">
         <div class="container">
             <div class="section-header">
                 <h2 data-es="¿Qué hacemos?" data-en="What We Do">¿Qué hacemos?</h2>
@@ -669,7 +733,7 @@
     </section>
 
     <!-- BLOG PREVIEW -->
-    <section id="blog" class="blog-preview">
+    <section id="blog" class="blog-preview reveal">
         <div class="container">
             <div class="section-header">
                 <h2 data-es="Blog STIKMANIA" data-en="STIKMANIA Blog">Blog STIKMANIA</h2>
@@ -736,7 +800,7 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="about">
+    <section id="about" class="about reveal">
         <div class="container">
             <div class="about-content">
                 <h2 data-es="Sobre STIKMANIA" data-en="About STIKMANIA">Sobre STIKMANIA</h2>
@@ -745,7 +809,6 @@
                 <p data-es="Nuestra filosofía: Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles." data-en="Our philosophy: We understand that each client faces unique challenges. We focus on solving concrete problems: from the urgency of launching a product to the need for brand repositioning. We work with transparency, constant communication and measurable results.">Nuestra filosofía: Entendemos que cada cliente enfrenta desafíos únicos. Nos enfocamos en resolver problemas concretos: desde la urgencia de lanzar un producto hasta la necesidad de reposicionamiento de marca. Trabajamos con transparencia, comunicación constante y resultados medibles.</p>
                 <p data-es="Compromiso: Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto." data-en="Commitment: Exceptional price/quality ratio, delivery in established times and transparent communication at every stage of the project.">Compromiso: Relación precio/calidad excepcional, entrega en tiempos establecidos y comunicación transparente en cada etapa del proyecto.</p>
                 
-                <!-- STATS -->
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-number">3+</div>
@@ -765,7 +828,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact reveal">
         <div class="container">
             <h2 data-es="Hablemos de tu Proyecto" data-en="Let's Talk About Your Project">Hablemos de tu Proyecto</h2>
             <p data-es="Elige tu canal preferido. Respondemos en menos de 24 horas." data-en="Choose your preferred channel. We respond in less than 24 hours.">Elige tu canal preferido. Respondemos en menos de 24 horas.</p>
@@ -841,18 +904,29 @@
         
         updateLanguage();
         
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // SCROLL REVEAL ANIMATION
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(element => {
+                var windowHeight = window.innerHeight;
+                var elementTop = element.getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add("active");
                 }
             });
+        }
+        
+        window.addEventListener("scroll", reveal);
+        reveal();
+        
+        // PARALLAX EFFECT EN HERO
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
         });
         
         // Header scroll effect

@@ -29,11 +29,31 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
+        html, body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--black);
             color: var(--white);
             line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* BACKGROUND CON IMAGEN Y BLUR */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/var_verde.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(4px);
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
         }
         
         h1, h2, h3, h4 {
@@ -44,7 +64,13 @@
         
         a { color: inherit; text-decoration: none; }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
         
         .btn {
             display: inline-block;
@@ -57,8 +83,24 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover::before { width: 300px; height: 300px; }
         .btn:hover { background: var(--white); transform: translateY(-2px); }
         
         .btn-outline {
@@ -70,12 +112,7 @@
         .btn-outline:hover { background: var(--web); color: var(--black); }
         
         /* LANGUAGE SWITCHER */
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-        }
+        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1001; }
         
         .lang-btn {
             background: var(--black);
@@ -93,7 +130,8 @@
         
         /* HEADER */
         header {
-            background: var(--black);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -120,16 +158,29 @@
         /* HERO */
         .hero {
             padding: 160px 0 60px 0;
-            background: linear-gradient(135deg, var(--black) 0%, #0d1b2a 100%);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
             text-align: center;
         }
         
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--web); }
-        .hero p { font-size: 1.2rem; color: var(--white); max-width: 600px; margin: 0 auto 30px auto; }
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 20px; 
+            color: var(--web);
+            text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+        }
+        
+        .hero p { 
+            font-size: 1.2rem; 
+            color: var(--white); 
+            max-width: 600px; 
+            margin: 0 auto 30px auto;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
         
         .production-time {
             display: inline-block;
-            background: var(--gray);
+            background: rgba(26, 26, 26, 0.9);
             padding: 10px 20px;
             border: 1px solid var(--web);
             border-radius: 4px;
@@ -144,6 +195,7 @@
             font-size: 2.5rem;
             margin-bottom: 50px;
             color: var(--web);
+            text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
         }
         
         .packages-grid {
@@ -154,27 +206,29 @@
         }
         
         .package-card {
-            background: var(--gray);
+            background: rgba(26, 26, 26, 0.9);
             border: 1px solid var(--dark-green);
             padding: 30px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            backdrop-filter: blur(10px);
             cursor: pointer;
         }
         
         .package-card:hover {
             border-color: var(--web);
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(79, 195, 247, 0.15);
+        }
+        
+        .package-card.seleccionado {
+            background: rgba(13, 27, 42, 0.9);
+            border-color: var(--web);
         }
         
         .package-card.destacado {
             border-color: var(--web);
             box-shadow: 0 0 20px rgba(79, 195, 247, 0.2);
-        }
-        
-        .package-card.seleccionado {
-            background: var(--black);
-            border-color: var(--web);
         }
         
         .package-badge {
@@ -238,7 +292,11 @@
         }
         
         /* INFO SECTION */
-        .info-section { padding: 80px 0; background: var(--gray); }
+        .info-section { 
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
         
         .info-grid {
             display: grid;
@@ -247,10 +305,11 @@
         }
         
         .info-card {
-            background: var(--black);
+            background: rgba(26, 26, 26, 0.9);
             padding: 30px;
             border: 1px solid var(--dark-green);
             border-radius: 8px;
+            backdrop-filter: blur(10px);
         }
         
         .info-card h3 {
@@ -285,11 +344,12 @@
         /* CONTRACT INFO */
         .contract-info {
             padding: 80px 0;
-            background: linear-gradient(135deg, #0d1b2a 0%, var(--black) 100%);
+            background: linear-gradient(135deg, rgba(13, 27, 42, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
             border: 2px solid var(--web);
             border-radius: 12px;
             margin: 80px 20px;
             padding: 40px;
+            backdrop-filter: blur(10px);
         }
         
         .contract-info h2 {
@@ -309,14 +369,19 @@
         .contract-download { text-align: center; margin-top: 30px; }
         
         /* QUESTIONNAIRE */
-        .questionnaire { padding: 80px 0; }
+        .questionnaire { 
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
         
         .questionnaire-form {
             max-width: 700px;
             margin: 0 auto;
-            background: var(--gray);
+            background: rgba(26, 26, 26, 0.9);
             padding: 40px;
             border: 1px solid var(--dark-green);
+            backdrop-filter: blur(10px);
         }
         
         .form-group { margin-bottom: 20px; }
@@ -333,7 +398,7 @@
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            background: var(--black);
+            background: var(--gray);
             border: 1px solid var(--dark-green);
             color: var(--white);
             font-family: 'Inter', sans-serif;
@@ -356,7 +421,7 @@
             text-align: center;
             margin-bottom: 20px;
             padding: 15px;
-            background: var(--black);
+            background: rgba(13, 27, 42, 0.9);
             border: 1px solid var(--web);
             border-radius: 4px;
         }
@@ -371,12 +436,17 @@
         }
         
         /* FAQ */
-        .faq { padding: 80px 0; background: var(--gray); }
+        .faq { 
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
         
         .faq-item {
-            background: var(--black);
+            background: rgba(26, 26, 26, 0.9);
             margin-bottom: 15px;
             border: 1px solid var(--dark-green);
+            backdrop-filter: blur(10px);
         }
         
         .faq-question {
@@ -391,19 +461,34 @@
         .faq-question:hover { color: var(--web); }
         
         .faq-answer {
-            display: none;
-            padding: 0 20px 20px 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
             color: var(--white);
         }
         
-        .faq-answer.show { display: block; }
+        .faq-answer.show { max-height: 500px; padding: 0 20px 20px 20px; }
         
         /* FOOTER */
         footer {
-            background: var(--black);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             padding: 40px 0;
             text-align: center;
             border-top: 1px solid var(--dark-green);
+        }
+        
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* MOBILE */
@@ -454,7 +539,7 @@
     </section>
 
     <!-- PACKAGES -->
-    <section class="packages">
+    <section class="packages reveal">
         <div class="container">
             <h2 class="section-title" data-es="Tipos de Web y Precios" data-en="Web Types and Prices">Tipos de Web y Precios</h2>
             <p style="text-align: center; color: var(--white); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Precios accesibles y competitivos para el mercado actual. Todos los proyectos incluyen contrato y capacitación." data-en="Accessible and competitive prices for the current market. All projects include contract and training.">Precios accesibles y competitivos para el mercado actual. Todos los proyectos incluyen contrato y capacitación.</p>
@@ -542,7 +627,7 @@
     </section>
 
     <!-- INFO SECTION -->
-    <section class="info-section">
+    <section class="info-section reveal">
         <div class="container">
             <h2 class="section-title" data-es="¿Qué Incluye el Precio?" data-en="What Does the Price Include?">¿Qué Incluye el Precio?</h2>
             
@@ -581,7 +666,7 @@
                 </div>
                 
                 <div class="info-card">
-                    <h3 data-es="🎓 Capacitación" data-en="🎓 Training">🎓 Capacitación</h3>
+                    <h3 data-es="🎓 Capacitación" data-en="🎓 Training"> Capacitación</h3>
                     <p data-es="Te enseñamos a gestionar tu sitio web para que puedas actualizar contenido básico sin depender de nosotros." data-en="We teach you to manage your website so you can update basic content without depending on us.">Te enseñamos a gestionar tu sitio web para que puedas actualizar contenido básico sin depender de nosotros.</p>
                     <ul>
                         <li data-es="Sesión de capacitación incluida" data-en="Training session included">Sesión de capacitación incluida</li>
@@ -603,13 +688,13 @@
             <p data-es="Soporte post-entrega: 1 mes de soporte técnico incluido para corrección de bugs, ajustes menores de diseño y asesoramiento técnico." data-en="Post-delivery support: 1 month of technical support included for bug fixes, minor design adjustments and technical advice.">Soporte post-entrega: 1 mes de soporte técnico incluido para corrección de bugs, ajustes menores de diseño y asesoramiento técnico.</p>
             <div class="contract-download">
                 <a href="downloads/STIKMANIA_CONTRATO_WEB.pdf" download class="btn btn-outline" data-es="📥 Descargar Contrato (ESPAÑOL)" data-en="📥 Download Contract (SPANISH)">📥 Descargar Contrato (ESPAÑOL)</a>
-                <a href="downloads/STIKMANIA_CONTRACT_WEB_EN.pdf" download class="btn btn-outline" data-es="📥 Download Contract (ENGLISH)" data-en="📥 Download Contract (ENGLISH)" style="margin-left: 10px;">📥 Download Contract (ENGLISH)</a>
+                <a href="downloads/STIKMANIA_CONTRACT_WEB_EN.pdf" download class="btn btn-outline" style="margin-left: 10px;" data-es="📥 Download Contract (ENGLISH)" data-en="📥 Download Contract (ENGLISH)">📥 Download Contract (ENGLISH)</a>
             </div>
         </div>
     </div>
 
     <!-- QUESTIONNAIRE -->
-    <section id="questionnaire" class="questionnaire">
+    <section id="questionnaire" class="questionnaire reveal">
         <div class="container">
             <h2 class="section-title" data-es="Cuestionario de Desarrollo Web" data-en="Web Development Questionnaire">Cuestionario de Desarrollo Web</h2>
             <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución" data-en="Complete this form to help us better understand your project and provide you with the best solution">Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución</p>
@@ -687,7 +772,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq">
+    <section class="faq reveal">
         <div class="container">
             <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
             
@@ -797,6 +882,22 @@
         }
         
         updateLanguage();
+        
+        // SCROLL REVEAL
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(element => {
+                var windowHeight = window.innerHeight;
+                var elementTop = element.getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add("active");
+                }
+            });
+        }
+        
+        window.addEventListener("scroll", reveal);
+        reveal();
         
         // AUTO-FILL PACKAGE WHEN SELECTED
         function selectPackage(packageType) {

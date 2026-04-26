@@ -28,11 +28,31 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body {
+        html, body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--black);
             color: var(--white);
             line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* BACKGROUND CON IMAGEN Y BLUR - CORREGIDO PARA QUE SE VEA LA IMAGEN */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/var_verde.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(4px);
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
         }
         
         h1, h2, h3, h4 {
@@ -43,7 +63,13 @@
         
         a { color: inherit; text-decoration: none; }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
         
         .btn {
             display: inline-block;
@@ -56,8 +82,24 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover::before { width: 300px; height: 300px; }
         .btn:hover { background: var(--white); transform: translateY(-2px); }
         
         .btn-outline {
@@ -71,29 +113,26 @@
         .btn-small { padding: 6px 14px; font-size: 0.8rem; }
         
         /* LANGUAGE SWITCHER */
-        .lang-switch {
-            position: static;
-            flex-shrink: 0;
-        }
+        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1001; }
         
         .lang-btn {
             background: var(--black);
             border: 2px solid var(--neon-green);
             color: var(--neon-green);
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            white-space: nowrap;
         }
         
         .lang-btn:hover { background: var(--neon-green); color: var(--black); }
         
         /* HEADER */
         header {
-            background: var(--black);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             padding: 15px 0;
             position: fixed;
             width: 100%;
@@ -127,7 +166,7 @@
         nav ul { display: flex; list-style: none; gap: 20px; }
         nav a:hover { color: var(--neon-green); }
         
-        /* CART ICON - VISIBLE */
+        /* CART ICON */
         .cart-icon {
             position: relative;
             cursor: pointer;
@@ -146,10 +185,7 @@
             flex-shrink: 0;
         }
         
-        .cart-icon:hover {
-            background: var(--neon-green);
-            color: var(--black);
-        }
+        .cart-icon:hover { background: var(--neon-green); color: var(--black); }
         
         .cart-count {
             position: absolute;
@@ -171,30 +207,55 @@
         /* HERO */
         .hero {
             padding: 160px 0 60px 0;
-            background: linear-gradient(135deg, var(--black) 0%, var(--dark-green) 100%);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
             text-align: center;
+            position: relative;
         }
         
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--neon-green); }
-        .hero p { font-size: 1.2rem; color: var(--white); max-width: 600px; margin: 0 auto 30px auto; }
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 20px; 
+            color: var(--neon-green);
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+        
+        .hero p { 
+            font-size: 1.2rem; 
+            color: var(--white); 
+            max-width: 600px; 
+            margin: 0 auto 30px auto;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
         
         .production-time {
             display: inline-block;
-            background: var(--gray);
+            background: rgba(26, 26, 26, 0.9);
             padding: 10px 20px;
             border: 1px solid var(--neon-green);
             border-radius: 4px;
             margin-top: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         /* PRODUCTS */
-        .products { padding: 80px 0; }
+        .products { 
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
         
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 50px;
             color: var(--neon-green);
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
         }
         
         .products-grid {
@@ -205,16 +266,18 @@
         }
         
         .product-card {
-            background: var(--gray);
+            background: rgba(26, 26, 26, 0.9);
             border: 1px solid var(--dark-green);
             padding: 30px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            backdrop-filter: blur(10px);
         }
         
         .product-card:hover {
             border-color: var(--neon-green);
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 255, 0, 0.15);
         }
         
         .product-header {
@@ -254,7 +317,11 @@
         .add-option-btn { padding: 6px 14px; font-size: 0.8rem; white-space: nowrap; }
         
         /* GALLERY */
-        .gallery { padding: 80px 0; background: var(--gray); }
+        .gallery { 
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
         
         .gallery-grid {
             display: grid;
@@ -267,6 +334,13 @@
             overflow: hidden;
             border: 2px solid var(--dark-green);
             border-radius: 8px;
+            background: rgba(26, 26, 26, 0.9);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
         }
         
         .gallery-item img {
@@ -295,8 +369,9 @@
             text-align: center;
             margin-top: 40px;
             padding: 30px;
-            background: var(--black);
+            background: rgba(26, 26, 26, 0.9);
             border: 1px solid var(--dark-green);
+            backdrop-filter: blur(10px);
         }
         
         .instagram-links h3 { color: var(--neon-green); margin-bottom: 20px; }
@@ -305,7 +380,7 @@
             display: inline-block;
             margin: 8px;
             padding: 10px 18px;
-            background: var(--gray);
+            background: var(--black);
             border: 1px solid var(--neon-green);
             color: var(--white);
             font-size: 0.9rem;
@@ -315,12 +390,17 @@
         .instagram-links a:hover { background: var(--neon-green); color: var(--black); }
         
         /* FAQ */
-        .faq { padding: 80px 0; background: var(--gray); }
+        .faq { 
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
         
         .faq-item {
-            background: var(--black);
+            background: rgba(26, 26, 26, 0.9);
             margin-bottom: 15px;
             border: 1px solid var(--dark-green);
+            backdrop-filter: blur(10px);
         }
         
         .faq-question {
@@ -335,12 +415,14 @@
         .faq-question:hover { color: var(--neon-green); }
         
         .faq-answer {
-            display: none;
-            padding: 0 20px 20px 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
             color: var(--white);
         }
         
-        .faq-answer.show { display: block; }
+        .faq-answer.show { max-height: 500px; padding: 0 20px 20px 20px; }
         
         /* CART MODAL */
         .cart-modal {
@@ -350,18 +432,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 2000;
             overflow-y: auto;
         }
         
         .cart-content {
-            background: var(--gray);
+            background: rgba(26, 26, 26, 0.98);
             max-width: 800px;
             margin: 50px auto;
             padding: 40px;
             border: 2px solid var(--neon-green);
             border-radius: 8px;
+            position: relative;
+            z-index: 2001;
+            backdrop-filter: blur(10px);
         }
         
         .cart-header {
@@ -493,10 +578,23 @@
         
         /* FOOTER */
         footer {
-            background: var(--black);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             padding: 40px 0;
             text-align: center;
             border-top: 1px solid var(--dark-green);
+        }
+        
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* MOBILE */
@@ -511,19 +609,11 @@
             .option-row { grid-template-columns: 1fr; text-align: center; }
             .add-option-btn { margin-top: 8px; width: 100%; }
             
-            /* MOBILE HEADER FIX */
-            header {
-                padding: 10px 0;
-            }
+            header { padding: 10px 0; }
             
-            .header-content {
-                gap: 10px;
-            }
+            .header-content { gap: 10px; }
             
-            .logo {
-                font-size: 1.3rem;
-                order: 1;
-            }
+            .logo { font-size: 1.3rem; order: 1; }
             
             .header-right {
                 order: 2;
@@ -534,24 +624,19 @@
             
             nav ul { display: none; }
             
-            .cart-icon {
-                padding: 5px 10px;
-                font-size: 0.8rem;
-            }
+            .cart-icon { padding: 5px 10px; font-size: 0.8rem; }
+            .cart-icon svg { width: 16px; height: 16px; }
             
-            .cart-icon svg {
-                width: 16px;
-                height: 16px;
-            }
-            
-            .lang-btn {
-                padding: 5px 10px;
-                font-size: 0.8rem;
-            }
+            .lang-btn { padding: 5px 10px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switch">
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
 
     <!-- HEADER -->
     <header>
@@ -588,15 +673,15 @@
     </section>
 
     <!-- PRODUCTS -->
-    <section class="products">
+    <section class="products reveal">
         <div class="container">
             <h2 class="section-title" data-es="Elige tu Pack" data-en="Choose Your Pack">Elige tu Pack</h2>
             
             <div class="products-grid">
-                <!-- PAPEL FOTOGRÁFICO -->
+                <!-- PAPEL FOTOGRÁFICO ADHESIVO -->
                 <div class="product-card">
                     <div class="product-header">
-                        <h3 class="product-type" data-es="Papel Fotográfico" data-en="Photo Paper">Papel Fotográfico</h3>
+                        <h3 class="product-type" data-es="Papel Fotográfico Adhesivo" data-en="Adhesive Photo Paper">Papel Fotográfico Adhesivo</h3>
                     </div>
                     <p style="color: var(--white); margin-bottom: 20px;" data-es="Ideal para decorar, etiquetar y uso en interiores. Acabado brillante y adhesivo fuerte." data-en="Ideal for decorating, labeling and indoor use. Glossy finish and strong adhesive.">Ideal para decorar, etiquetar y uso en interiores. Acabado brillante y adhesivo fuerte.</p>
                     
@@ -607,7 +692,7 @@
                                 <span class="option-size">3x3 cm</span>
                             </div>
                             <span class="option-price">$3 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '48 stickers', '3x3 cm', 3)" data-es="Añadir" data-en="Add">Añadir</button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico Adhesivo', '48 stickers', '3x3 cm', 3)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -615,7 +700,7 @@
                                 <span class="option-size">4x4 cm</span>
                             </div>
                             <span class="option-price">$2 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '24 stickers', '4x4 cm', 2)" data-es="Añadir" data-en="Add">Añadir</button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico Adhesivo', '24 stickers', '4x4 cm', 2)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -623,7 +708,7 @@
                                 <span class="option-size">5x5 cm</span>
                             </div>
                             <span class="option-price">$1 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '20 stickers', '5x5 cm', 1)" data-es="Añadir" data-en="Add">Añadir</button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico Adhesivo', '20 stickers', '5x5 cm', 1)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -631,7 +716,7 @@
                                 <span class="option-size">6x6 cm</span>
                             </div>
                             <span class="option-price">$1 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '12 stickers', '6x6 cm', 1)" data-es="Añadir" data-en="Add">Añadir</button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico Adhesivo', '12 stickers', '6x6 cm', 1)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                         <div class="option-row">
                             <div class="option-info">
@@ -639,7 +724,7 @@
                                 <span class="option-size">7x7 cm</span>
                             </div>
                             <span class="option-price">$1 USD</span>
-                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico', '12 stickers', '7x7 cm', 1)" data-es="Añadir" data-en="Add">Añadir</button>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="addToCart('papel', 'Papel Fotográfico Adhesivo', '12 stickers', '7x7 cm', 1)" data-es="Añadir" data-en="Add">Añadir</button>
                         </div>
                     </div>
                 </div>
@@ -694,6 +779,34 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- POR CANTIDAD -->
+                <div class="product-card" style="grid-column: 1 / -1;">
+                    <div class="product-header">
+                        <h3 class="product-type" data-es="Por Cantidad" data-en="By Quantity">Por Cantidad</h3>
+                    </div>
+                    <p style="color: var(--white); margin-bottom: 20px;" data-es="Ideal para grandes cantidades. Precio por m². Precio variable según cantidad y diseño." data-en="Ideal for large quantities. Price per m². Variable price depending on quantity and design.">Ideal para grandes cantidades. Precio por m². Precio variable según cantidad y diseño.</p>
+                    
+                    <div class="product-options">
+                        <div class="option-row">
+                            <div class="option-info">
+                                <span class="option-qty" data-es="Papel Fotográfico Adhesivo" data-en="Adhesive Photo Paper">Papel Fotográfico Adhesivo</span>
+                                <span class="option-size" data-es="Precio variable" data-en="Variable price">Precio variable</span>
+                            </div>
+                            <span class="option-price">$10-17 USD/m²</span>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="requestQuote('metro_papel', 'Por Cantidad - Papel Fotográfico Adhesivo')" data-es="Cotizar" data-en="Get Quote">Cotizar</button>
+                        </div>
+                        <div class="option-row">
+                            <div class="option-info">
+                                <span class="option-qty" data-es="Vinilo Impermeable" data-en="Waterproof Vinyl">Vinilo Impermeable</span>
+                                <span class="option-size" data-es="Precio variable" data-en="Variable price">Precio variable</span>
+                            </div>
+                            <span class="option-price">$18-25 USD/m²</span>
+                            <button class="btn btn-outline btn-small add-option-btn" onclick="requestQuote('metro_vinilo', 'Por Cantidad - Vinilo Impermeable')" data-es="Cotizar" data-en="Get Quote">Cotizar</button>
+                        </div>
+                    </div>
+                    <p style="color: var(--neon-green); font-size: 0.85rem; margin-top: 15px; text-align: center;" data-es="* Serás redirigido a WhatsApp para cotizar tu pedido personalizado" data-en="* You will be redirected to WhatsApp to quote your custom order">* Serás redirigido a WhatsApp para cotizar tu pedido personalizado</p>
+                </div>
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
@@ -704,7 +817,7 @@
     </section>
 
     <!-- GALLERY -->
-    <section class="gallery">
+    <section class="gallery reveal">
         <div class="container">
             <h2 class="section-title" data-es="Ejemplos de Nuestros Stickers" data-en="Examples of Our Stickers">Ejemplos de Nuestros Stickers</h2>
             
@@ -745,7 +858,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq">
+    <section class="faq reveal">
         <div class="container">
             <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
             
@@ -918,6 +1031,22 @@
         
         updateLanguage();
         
+        // SCROLL REVEAL
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(element => {
+                var windowHeight = window.innerHeight;
+                var elementTop = element.getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add("active");
+                }
+            });
+        }
+        
+        window.addEventListener("scroll", reveal);
+        reveal();
+        
         // Cart state
         let cart = JSON.parse(localStorage.getItem('stikmania_cart')) || [];
         
@@ -949,6 +1078,19 @@
             saveCart();
             updateCartCount();
             alert(`${qty} (${size}) - $${price} USD ${currentLang === 'es' ? 'agregado' : 'added'}`);
+        }
+        
+        function requestQuote(type, name) {
+            let message = `*COTIZACIÓN DE STICKERS - STIKMANIA*\n\n`;
+            message += `*Interesado en:* ${name}\n`;
+            message += `*Tipo:* ${currentLang === 'es' ? 'Por cantidad (metro cuadrado)' : 'By quantity (square meter)'}\n\n`;
+            message += currentLang === 'es' 
+                ? 'Hola, me interesa cotizar stickers por cantidad. Necesito aproximadamente 1 m² o más. ¿Podrían darme un precio según mi diseño y cantidad específica?' 
+                : 'Hello, I am interested in quoting stickers by quantity. I need approximately 1 m² or more. Could you give me a price based on my specific design and quantity?';
+            
+            const whatsappNumber = '5359758756';
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
         }
         
         function saveCart() {

@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-es="Cómo elegir stickers para tu negocio en Cuba | STIKMANIA" data-en="How to choose stickers for your business in Cuba | STIKMANIA">Cómo elegir stickers para tu negocio en Cuba | STIKMANIA</title>
     <meta name="description" content="Guía completa para seleccionar stickers personalizados: materiales, tamaños y diseños según tu industria y presupuesto en Cuba.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
@@ -12,7 +18,6 @@
     <style>
         :root {
             --neon-green: #00FF00;
-            --green: #006600;
             --dark-green: #003300;
             --black: #000000;
             --white: #FFFFFF;
@@ -21,11 +26,30 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body {
+        html, body {
             font-family: 'Inter', system-ui, sans-serif;
             background: var(--black);
             color: var(--white);
             line-height: 1.8;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/var_malva.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(4px);
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
         }
         
         h1, h2, h3 {
@@ -37,10 +61,11 @@
         a { color: var(--neon-green); text-decoration: none; }
         a:hover { text-decoration: underline; }
         
-        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
         
         header {
-            background: var(--black);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             padding: 20px 0;
             border-bottom: 1px solid var(--dark-green);
         }
@@ -79,6 +104,7 @@
             color: var(--neon-green);
             margin-bottom: 15px;
             text-align: center;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
         }
         
         .article-meta {
@@ -87,7 +113,14 @@
             text-align: center;
         }
         
-        .article-content { margin-bottom: 40px; }
+        .article-content { 
+            margin-bottom: 40px;
+            background: rgba(26, 26, 26, 0.9);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--dark-green);
+            backdrop-filter: blur(10px);
+        }
         
         .article-content h2 {
             color: var(--neon-green);
@@ -106,12 +139,13 @@
         .article-content li { margin-bottom: 10px; }
         
         .cta-box {
-            background: var(--gray);
+            background: rgba(0, 51, 0, 0.9);
             padding: 30px;
             border: 1px solid var(--neon-green);
             border-radius: 8px;
             margin: 40px 0;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
         
         .cta-box h3 { color: var(--neon-green); margin-bottom: 15px; }
@@ -131,13 +165,13 @@
         .btn:hover { background: var(--white); }
         
         footer {
-            background: var(--black);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             padding: 40px 0;
             text-align: center;
             border-top: 1px solid var(--dark-green);
         }
         
-        /* LANGUAGE SWITCHER */
         .lang-switch {
             position: fixed;
             top: 20px;
@@ -161,13 +195,13 @@
         
         @media (max-width: 768px) {
             .article-header h1 { font-size: 2rem; }
+            .article-content { padding: 25px; }
             .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- LANGUAGE SWITCHER -->
     <div class="lang-switch">
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
