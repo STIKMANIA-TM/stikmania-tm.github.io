@@ -848,11 +848,14 @@
         const q=document.getElementById('stikQty').value, w=document.getElementById('stikW').value, h=document.getElementById('stikH').value;
         const m=document.getElementById('stikMaterial').options[document.getElementById('stikMaterial').selectedIndex].text;
         const p=document.getElementById('stikPrice').textContent;
+        // Extraer el precio numérico y calcular 50%
+        const priceNum = parseFloat(p.replace(/[^0-9.]/g, '')) || 0;
+        const advance = (priceNum / 2).toFixed(2);
         const msg = `📦 *NUEVO PEDIDO STIKMANIA*
 • ${q} stickers ${w}×${h} cm
 • Material: ${m}
 • Precio: ${p}
-✅ Confirmar producción?`;
+• 50% de anticipo: $${advance} USD`;
         window.open(`https://wa.me/5359758756?text=${encodeURIComponent(msg)}`, '_blank');
         };
         document.addEventListener('DOMContentLoaded', () => { loadConfig(); setupLongPress(); });
