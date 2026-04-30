@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-04-30",
+  "calculator": {
+    "costVinyl": 2,
+    "costPhoto": 1,
+    "formatVinyl": "a4",
+    "formatPhoto": "letter",
+    "cutMargin": 1,
+    "sheetMargin": 3,
+    "bonusSmall": 3,
+    "bonusMedium": 5,
+    "discVinyl": 1,
+    "discPhoto": 0.5
+  },
+  "info": {
+    "paperPriceRange": "$10-17 USD/m²",
+    "vinylPriceRange": "$18-25 USD/m²",
+    "productionTime": "2-5 días hábiles",
+    "contactPhone": "+53 5 975 8756",
+    "contactEmail": "stikmania795@gmail.com"
+  }
+}
