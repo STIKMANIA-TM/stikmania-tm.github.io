@@ -458,7 +458,7 @@
             <h2 class="section-title" style="text-align: center; margin-bottom: 40px; color: var(--neon-green);" data-es="Cotiza Tu Pedido" data-en="Get Your Quote">Cotiza Tu Pedido</h2>
             
             <div class="calc-wrapper">
-                <!-- === STIKMANIA CALCULATOR WIDGET v2.3 === -->
+                <!-- === STIKMANIA CALCULATOR WIDGET v3.0 (JSON Config) === -->
                 <div id="stik-calc-widget">
                 <style>
                 #stik-calc-widget {
@@ -552,7 +552,9 @@
                 <input type="number" id="adminDiscVinyl" step="0.1" value="1.00" />
                 <label data-es="💰 Descuento por hoja adicional (Papel) tras superar $25" data-en="💰 Discount per additional sheet (Paper) after $25">💰 Descuento por hoja adicional (Papel) tras superar $25</label>
                 <input type="number" id="adminDiscPhoto" step="0.1" value="0.50" />
-                <button type="button" class="secondary" onclick="stikSaveAdmin()" data-es="💾 Guardar Cambios" data-en="💾 Save Changes">💾 Guardar Cambios</button>
+                <button type="button" class="secondary" onclick="stikSaveAdmin()" data-es="💾 Guardar en Navegador" data-en="💾 Save to Browser">💾 Guardar en Navegador</button>
+                <button type="button" class="production" onclick="stikDownloadConfig()" style="margin-top:10px;" data-es="📥 Descargar JSON" data-en="📥 Download JSON">📥 Descargar JSON</button>
+                <p style="color:#888;font-size:0.8rem;margin-top:10px;" data-es="⚠️ Para guardar permanentemente: 1) Haz cambios, 2) Descarga JSON, 3) Sube config.json a GitHub" data-en="⚠️ To save permanently: 1) Make changes, 2) Download JSON, 3) Upload config.json to GitHub">⚠️ Para guardar permanentemente: 1) Haz cambios, 2) Descarga JSON, 3) Sube config.json a GitHub</p>
                 </div>
                 <div class="result" id="stikResult">
                 <div id="stikSummary" style="color:#ccc; font-size:0.95rem"></div>
@@ -762,25 +764,74 @@
             }
         }
         
-        // CALCULATOR WIDGET SCRIPT
+        // CALCULATOR WIDGET SCRIPT v3.0 (JSON Config)
         (function() {
         const SHEET_SIZES = { a4: { w: 210, h: 297 }, letter: { w: 215.9, h: 279.4 } };
         const ADMIN_PASS = "aggmgm272000";
         const STORAGE_KEY = "stikmania_calc_config_v5";
-        let adminMode = false, pressTimer = null;
+        const CONFIG_URL = 'config.json';
+        let adminMode = false, pressTimer = null, appConfig = null;
         const HEADER = document.getElementById('calcHeader');
-        function loadConfig() {
+        
+        // ✅ Cargar configuración desde JSON + localStorage
+        async function loadConfig() {
+        let cfg = null;
+        
+        // 1. Intentar cargar desde config.json
+        try {
+        const response = await fetch(CONFIG_URL + '?t=' + Date.now());
+        if (response.ok) {
+        const json = await response.json();
+        if (json && json.calculator) {
+        cfg = {
+        costVinyl: json.calculator.costVinyl || 2,
+        costPhoto: json.calculator.costPhoto || 1.2,
+        formatVinyl: json.calculator.formatVinyl || 'a4',
+        formatPhoto: json.calculator.formatPhoto || 'a4',
+        cutMargin: json.calculator.cutMargin || 2,
+        sheetMargin: json.calculator.sheetMargin || 5,
+        bonusSmall: json.calculator.bonusSmall || 3,
+        bonusMedium: json.calculator.bonusMedium || 5,
+        discVinyl: json.calculator.discVinyl || 1,
+        discPhoto: json.calculator.discPhoto || 0.5
+        };
+        console.log('✅ Configuración cargada desde config.json');
+        }
+        }
+        } catch(e) {
+        console.log('⚠️ No se pudo cargar config.json, usando defaults:', e);
+        }
+        
+        // 2. Si no hay JSON, intentar localStorage
+        if (!cfg) {
         try {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
-        const cfg = JSON.parse(saved);
+        cfg = JSON.parse(saved);
+        console.log('✅ Configuración cargada desde localStorage');
+        }
+        } catch(e) { console.error('Error cargando localStorage:', e); }
+        }
+        
+        // 3. Defaults si todo falla
+        if (!cfg) {
+        cfg = { costVinyl:2, costPhoto:1.2, formatVinyl:'a4', formatPhoto:'a4', cutMargin:2, sheetMargin:5, bonusSmall:3, bonusMedium:5, discVinyl:1, discPhoto:0.5 };
+        console.log('⚠️ Usando configuración por defecto');
+        }
+        
+        // Cargar valores en el panel admin
         const ids = ['adminCostVinyl','adminCostPhoto','adminFormatVinyl','adminFormatPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
-        ids.forEach(id => { if(cfg[id] !== undefined) document.getElementById(id).value = cfg[id]; });
+        ids.forEach(id => { 
+        const el = document.getElementById(id);
+        if (el && cfg[id.replace('admin','').toLowerCase()] !== undefined) {
+        el.value = cfg[id.replace('admin','').toLowerCase()];
+        }
+        });
+        
         return cfg;
         }
-        } catch(e) {}
-        return { costVinyl:2, costPhoto:1.2, formatVinyl:'a4', formatPhoto:'a4', cutMargin:2, sheetMargin:5, bonusSmall:3, bonusMedium:5, discVinyl:1, discPhoto:0.5 };
-        }
+        
+        // ✅ Guardar en localStorage (temporal)
         window.stikSaveAdmin = function() {
         const ids = ['adminCostVinyl','adminCostPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         const nums = ids.map(id => parseFloat(document.getElementById(id).value));
@@ -794,24 +845,69 @@
         discVinyl: nums[6]||1, discPhoto: nums[7]||0.5
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(cfg));
-        alert('✅ Configuración guardada permanentemente');
+        alert('✅ Configuración guardada en este navegador\n\n⚠️ Para guardar permanentemente:\n1. Haz clic en "📥 Descargar JSON"\n2. Sube el archivo a GitHub\n3. Reemplaza config.json');
         };
+        
+        // ✅ Descargar configuración como JSON
+        window.stikDownloadConfig = function() {
+        const ids = ['adminCostVinyl','adminCostPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
+        const nums = ids.map(id => parseFloat(document.getElementById(id).value));
+        const cfg = {
+        version: "1.0",
+        lastUpdated: new Date().toISOString().split('T')[0],
+        calculator: {
+        costVinyl: nums[0]||2, costPhoto: nums[1]||1.2,
+        formatVinyl: document.getElementById('adminFormatVinyl').value||'a4',
+        formatPhoto: document.getElementById('adminFormatPhoto').value||'a4',
+        cutMargin: nums[2]||2, sheetMargin: nums[3]||5,
+        bonusSmall: parseInt(document.getElementById('adminBonusSmall').value)||3,
+        bonusMedium: parseInt(document.getElementById('adminBonusMedium').value)||5,
+        discVinyl: nums[6]||1, discPhoto: nums[7]||0.5
+        },
+        info: {
+        paperPriceRange: "$10-17 USD/m²",
+        vinylPriceRange: "$18-25 USD/m²",
+        productionTime: "2-5 días hábiles",
+        contactPhone: "+53 5 975 8756",
+        contactEmail: "stikmania795@gmail.com"
+        }
+        };
+        
+        const blob = new Blob([JSON.stringify(cfg, null, 2)], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'config.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        alert('✅ JSON descargado\n\n📁 Ahora sube este archivo a GitHub:\n1. Ve a tu repositorio\n2. Sube config.json\n3. Confirma el reemplazo\n4. ¡Listo! Los cambios serán permanentes');
+        };
+        
         function setupLongPress() {
         const start = (e) => { e.preventDefault(); pressTimer = setTimeout(() => { document.getElementById('adminModal').classList.remove('hidden'); document.getElementById('adminPass').focus(); }, 3000); };
         const end = () => { if(pressTimer) clearTimeout(pressTimer); };
         HEADER.addEventListener('mousedown', start); HEADER.addEventListener('touchstart', start, {passive:false});
         HEADER.addEventListener('mouseup', end); HEADER.addEventListener('mouseleave', end); HEADER.addEventListener('touchend', end); HEADER.addEventListener('touchcancel', end);
         }
+        
         window.stikCloseAdmin = function() { document.getElementById('adminModal').classList.add('hidden'); document.getElementById('adminPass').value = ''; };
+        
         window.stikCheckAdmin = function() {
         if(document.getElementById('adminPass').value === ADMIN_PASS) {
         adminMode = true; document.getElementById('adminPanel').classList.remove('hidden'); document.getElementById('adminModal').classList.add('hidden'); document.getElementById('adminPass').value = '';
         document.getElementById('adminPanel').scrollIntoView({behavior:'smooth', block:'nearest'});
         } else { alert('❌ Contraseña incorrecta'); document.getElementById('adminPass').value=''; document.getElementById('adminPass').focus(); }
         };
+        
         document.getElementById('adminPass')?.addEventListener('keypress', (e) => { if(e.key==='Enter') stikCheckAdmin(); });
+        
         window.stikCalculate = function() {
-        const cfg = loadConfig();
+        const cfg = appConfig;
+        if (!cfg) { alert('⚠️ Configuración no cargada. Recarga la página.'); return; }
+        
         const qty = parseInt(document.getElementById('stikQty').value)||1;
         const sW = (parseFloat(document.getElementById('stikW').value)||1)*10;
         const sH = (parseFloat(document.getElementById('stikH').value)||1)*10;
@@ -836,30 +932,44 @@
         final = (fullSheets * cost) + (discSheets * (cost - disc));
         }
         const matLbl = mat==='vinyl' ? 'Vinilo Impermeable' : 'Papel Fotográfico Adhesivo';
-        const fmtLbl = fmt==='a4' ? 'A4' : 'Carta';
-        document.getElementById('stikSummary').textContent = `${qty} stickers de ${sW/10}×${sH/10} cm en ${matLbl} (${fmtLbl})`;
+        // ✅ SIN mostrar formato (A4/Carta)
+        document.getElementById('stikSummary').textContent = `${qty} stickers de ${sW/10}×${sH/10} cm en ${matLbl}`;
         document.getElementById('stikPrice').textContent = `$${final.toFixed(2)} USD`;
         document.getElementById('stikBonus').textContent = bonus>0 ? `🎁 Incluyen ${bonus} stickers de cortesía` : '';
         document.getElementById('stikResult').classList.add('show');
         document.getElementById('stikResult').scrollIntoView({behavior:'smooth', block:'nearest'});
         };
+        
         window.stikReset = function() { document.getElementById('stikResult').classList.remove('show'); document.getElementById('stikQty').focus(); };
+        
         window.stikSendToProduction = function() {
-        const q=document.getElementById('stikQty').value, w=document.getElementById('stikW').value, h=document.getElementById('stikH').value;
-        const m=document.getElementById('stikMaterial').options[document.getElementById('stikMaterial').selectedIndex].text;
-        const p=document.getElementById('stikPrice').textContent;
-        // Extraer el precio numérico y calcular 50%
+        const q = document.getElementById('stikQty').value;
+        const w = document.getElementById('stikW').value;
+        const h = document.getElementById('stikH').value;
+        const m = document.getElementById('stikMaterial').options[document.getElementById('stikMaterial').selectedIndex].text;
+        const p = document.getElementById('stikPrice').textContent;
+        
         const priceNum = parseFloat(p.replace(/[^0-9.]/g, '')) || 0;
         const advance = (priceNum / 2).toFixed(2);
+        
         const msg = `📦 *NUEVO PEDIDO STIKMANIA*
 • ${q} stickers ${w}×${h} cm
 • Material: ${m}
 • Precio: ${p}
 • 50% de anticipo: $${advance} USD`;
+        
         window.open(`https://wa.me/5359758756?text=${encodeURIComponent(msg)}`, '_blank');
         };
-        document.addEventListener('DOMContentLoaded', () => { loadConfig(); setupLongPress(); });
-        if(document.readyState!=='loading') { loadConfig(); setupLongPress(); }
+        
+        // ✅ Cargar configuración al iniciar
+        document.addEventListener('DOMContentLoaded', async () => {
+        appConfig = await loadConfig();
+        setupLongPress();
+        });
+        
+        if(document.readyState!=='loading') {
+        loadConfig().then(cfg => { appConfig = cfg; setupLongPress(); });
+        }
         })();
     </script>
 
