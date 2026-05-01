@@ -458,7 +458,7 @@
             <h2 class="section-title" style="text-align: center; margin-bottom: 40px; color: var(--neon-green);" data-es="Cotiza Tu Pedido" data-en="Get Your Quote">Cotiza Tu Pedido</h2>
             
             <div class="calc-wrapper">
-                <!-- === STIKMANIA CALCULATOR WIDGET v3.0 (JSON Config) === -->
+                <!-- === STIKMANIA CALCULATOR WIDGET v3.1 === -->
                 <div id="stik-calc-widget">
                 <style>
                 #stik-calc-widget {
@@ -597,6 +597,7 @@
             <h2 class="section-title" data-es="Ejemplos de Nuestros Stickers" data-en="Examples of Our Stickers">Ejemplos de Nuestros Stickers</h2>
             
             <div class="gallery-grid">
+                <!-- Imágenes originales (4) -->
                 <div class="gallery-item">
                     <img src="images/delitaystickers_envase de cristal.png" alt="Sticker en envase de cristal" loading="lazy">
                     <span class="industry-tag">Food</span>
@@ -613,13 +614,23 @@
                     <img src="images/verda_stickers.png" alt="Stickers Verda" loading="lazy">
                     <span class="industry-tag">Branding</span>
                 </div>
+                
+                <!-- ✅ NUEVAS IMÁGENES (4) - Nombres corregidos -->
                 <div class="gallery-item">
-                    <img src="images/Sin titulo-2.png" alt="Stickers en laptop" loading="lazy">
-                    <span class="industry-tag">Tech</span>
+                    <img src="images/Laptop_HDD_iPhone.jpg" alt="Stickers en tecnología" loading="lazy">
+                    <span class="industry-tag">Tecnología</span>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/ANIME-FOOD.png" alt="Stickers en cuaderno" loading="lazy">
-                    <span class="industry-tag">Stationery</span>
+                    <img src="images/B_and_W.jpg" alt="Stickers en blanco y negro" loading="lazy">
+                    <span class="industry-tag">Black &amp; White</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/santa_cruz.jpg" alt="Stickers para skate" loading="lazy">
+                    <span class="industry-tag">Skate</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/thrasher_en_finger.jpg" alt="Stickers miniatura 3x1cm" loading="lazy">
+                    <span class="industry-tag">Escala 3x1cm</span>
                 </div>
             </div>
             
@@ -764,7 +775,7 @@
             }
         }
         
-        // CALCULATOR WIDGET SCRIPT v3.0 (JSON Config)
+        // CALCULATOR WIDGET SCRIPT v3.1 (Con regalías en WhatsApp)
         (function() {
         const SHEET_SIZES = { a4: { w: 210, h: 297 }, letter: { w: 215.9, h: 279.4 } };
         const ADMIN_PASS = "aggmgm272000";
@@ -773,11 +784,9 @@
         let adminMode = false, pressTimer = null, appConfig = null;
         const HEADER = document.getElementById('calcHeader');
         
-        // ✅ Cargar configuración desde JSON + localStorage
         async function loadConfig() {
         let cfg = null;
         
-        // 1. Intentar cargar desde config.json
         try {
         const response = await fetch(CONFIG_URL + '?t=' + Date.now());
         if (response.ok) {
@@ -802,7 +811,6 @@
         console.log('⚠️ No se pudo cargar config.json, usando defaults:', e);
         }
         
-        // 2. Si no hay JSON, intentar localStorage
         if (!cfg) {
         try {
         const saved = localStorage.getItem(STORAGE_KEY);
@@ -813,13 +821,11 @@
         } catch(e) { console.error('Error cargando localStorage:', e); }
         }
         
-        // 3. Defaults si todo falla
         if (!cfg) {
         cfg = { costVinyl:2, costPhoto:1.2, formatVinyl:'a4', formatPhoto:'a4', cutMargin:2, sheetMargin:5, bonusSmall:3, bonusMedium:5, discVinyl:1, discPhoto:0.5 };
         console.log('⚠️ Usando configuración por defecto');
         }
         
-        // Cargar valores en el panel admin
         const ids = ['adminCostVinyl','adminCostPhoto','adminFormatVinyl','adminFormatPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         ids.forEach(id => { 
         const el = document.getElementById(id);
@@ -831,7 +837,6 @@
         return cfg;
         }
         
-        // ✅ Guardar en localStorage (temporal)
         window.stikSaveAdmin = function() {
         const ids = ['adminCostVinyl','adminCostPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         const nums = ids.map(id => parseFloat(document.getElementById(id).value));
@@ -848,7 +853,6 @@
         alert('✅ Configuración guardada en este navegador\n\n⚠️ Para guardar permanentemente:\n1. Haz clic en "📥 Descargar JSON"\n2. Sube el archivo a GitHub\n3. Reemplaza config.json');
         };
         
-        // ✅ Descargar configuración como JSON
         window.stikDownloadConfig = function() {
         const ids = ['adminCostVinyl','adminCostPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         const nums = ids.map(id => parseFloat(document.getElementById(id).value));
@@ -932,7 +936,6 @@
         final = (fullSheets * cost) + (discSheets * (cost - disc));
         }
         const matLbl = mat==='vinyl' ? 'Vinilo Impermeable' : 'Papel Fotográfico Adhesivo';
-        // ✅ SIN mostrar formato (A4/Carta)
         document.getElementById('stikSummary').textContent = `${qty} stickers de ${sW/10}×${sH/10} cm en ${matLbl}`;
         document.getElementById('stikPrice').textContent = `$${final.toFixed(2)} USD`;
         document.getElementById('stikBonus').textContent = bonus>0 ? `🎁 Incluyen ${bonus} stickers de cortesía` : '';
@@ -942,26 +945,37 @@
         
         window.stikReset = function() { document.getElementById('stikResult').classList.remove('show'); document.getElementById('stikQty').focus(); };
         
+        // ✅ FUNCIÓN ACTUALIZADA - Incluye regalías en el mensaje
         window.stikSendToProduction = function() {
         const q = document.getElementById('stikQty').value;
         const w = document.getElementById('stikW').value;
         const h = document.getElementById('stikH').value;
         const m = document.getElementById('stikMaterial').options[document.getElementById('stikMaterial').selectedIndex].text;
         const p = document.getElementById('stikPrice').textContent;
+        const bonusText = document.getElementById('stikBonus').textContent;
         
         const priceNum = parseFloat(p.replace(/[^0-9.]/g, '')) || 0;
         const advance = (priceNum / 2).toFixed(2);
+        
+        // ✅ Agregar regalías solo si existen
+        let bonusLine = '';
+        if (bonusText && bonusText.trim() !== '') {
+        // Extraer el número de stickers de cortesía
+        const bonusMatch = bonusText.match(/(\d+)/);
+        if (bonusMatch) {
+        bonusLine = `\n• 🎁 ${bonusMatch[1]} stickers de cortesía incluidos`;
+        }
+        }
         
         const msg = `📦 *NUEVO PEDIDO STIKMANIA*
 • ${q} stickers ${w}×${h} cm
 • Material: ${m}
 • Precio: ${p}
-• 50% de anticipo: $${advance} USD`;
+• 50% de anticipo: $${advance} USD${bonusLine}`;
         
         window.open(`https://wa.me/5359758756?text=${encodeURIComponent(msg)}`, '_blank');
         };
         
-        // ✅ Cargar configuración al iniciar
         document.addEventListener('DOMContentLoaded', async () => {
         appConfig = await loadConfig();
         setupLongPress();
