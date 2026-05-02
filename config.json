@@ -1,17 +1,17 @@
 {
-  "version": "1.0",
-  "lastUpdated": "2026-04-30",
+  "version": "1.2",
+  "lastUpdated": "2026-04-27",
   "calculator": {
-    "costVinyl": 2,
-    "costPhoto": 1,
+    "costVinyl": 2.00,
+    "costPhoto": 1.20,
     "formatVinyl": "a4",
-    "formatPhoto": "letter",
-    "cutMargin": 1,
-    "sheetMargin": 3,
+    "formatPhoto": "a4",
+    "cutMargin": 0.5,
+    "sheetMargin": 1,
     "bonusSmall": 3,
     "bonusMedium": 5,
-    "discVinyl": 1,
-    "discPhoto": 0.5
+    "discVinyl": 1.00,
+    "discPhoto": 0.50
   },
   "info": {
     "paperPriceRange": "$10-17 USD/m²",
