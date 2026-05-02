@@ -458,7 +458,7 @@
             <h2 class="section-title" style="text-align: center; margin-bottom: 40px; color: var(--neon-green);" data-es="Cotiza Tu Pedido" data-en="Get Your Quote">Cotiza Tu Pedido</h2>
             
             <div class="calc-wrapper">
-                <!-- === STIKMANIA CALCULATOR WIDGET v3.1 === -->
+                <!-- === STIKMANIA CALCULATOR WIDGET v3.2 (config.json prioritario) === -->
                 <div id="stik-calc-widget">
                 <style>
                 #stik-calc-widget {
@@ -538,10 +538,10 @@
                 <option value="letter" data-es="Carta (21.59 × 27.94 cm)" data-en="Letter (21.59 × 27.94 cm)">Carta (21.59 × 27.94 cm)</option>
                 </select>
                 <label data-es="Margen de corte (mm)" data-en="Cut margin (mm)">Margen de corte (mm)</label>
-                <input type="number" id="adminCutMargin" step="0.1" value="2" />
+                <input type="number" id="adminCutMargin" step="0.1" value="0.5" />
                 <small data-es="Espacio entre stickers para el corte" data-en="Space between stickers for cutting">Espacio entre stickers para el corte</small>
                 <label data-es="Margen de hoja (mm)" data-en="Sheet margin (mm)">Margen de hoja (mm)</label>
-                <input type="number" id="adminSheetMargin" step="0.1" value="5" />
+                <input type="number" id="adminSheetMargin" step="0.1" value="1" />
                 <small data-es="Zona sin imprimir en bordes" data-en="Non-printing area on edges">Zona sin imprimir en bordes</small>
                 <hr style="border:0; border-top:1px solid #333; margin:15px 0;" />
                 <label data-es="🎁 Límite de regalías - Pedidos < 30 unidades" data-en="🎁 Royalty limit - Orders < 30 units">🎁 Límite de regalías - Pedidos &lt; 30 unidades</label>
@@ -615,7 +615,7 @@
                     <span class="industry-tag">Branding</span>
                 </div>
                 
-                <!-- ✅ NUEVAS IMÁGENES (4) - Nombres corregidos -->
+                <!-- ✅ NUEVAS IMÁGENES (4) -->
                 <div class="gallery-item">
                     <img src="images/Laptop_HDD_iPhone.jpg" alt="Stickers en tecnología" loading="lazy">
                     <span class="industry-tag">Tecnología</span>
@@ -775,7 +775,7 @@
             }
         }
         
-        // CALCULATOR WIDGET SCRIPT v3.1 (Con regalías en WhatsApp)
+        // ✅ CALCULATOR WIDGET SCRIPT v3.2 (config.json prioritario sobre localStorage)
         (function() {
         const SHEET_SIZES = { a4: { w: 210, h: 297 }, letter: { w: 215.9, h: 279.4 } };
         const ADMIN_PASS = "aggmgm272000";
@@ -784,11 +784,13 @@
         let adminMode = false, pressTimer = null, appConfig = null;
         const HEADER = document.getElementById('calcHeader');
         
+        // ✅ Cargar config.json SIEMPRE primero (ignorar localStorage si hay JSON)
         async function loadConfig() {
         let cfg = null;
         
+        // 1. Intentar cargar desde config.json (CON CACHE BUSTING)
         try {
-        const response = await fetch(CONFIG_URL + '?t=' + Date.now());
+        const response = await fetch(CONFIG_URL + '?v=' + Date.now());
         if (response.ok) {
         const json = await response.json();
         if (json && json.calculator) {
@@ -797,46 +799,51 @@
         costPhoto: json.calculator.costPhoto || 1.2,
         formatVinyl: json.calculator.formatVinyl || 'a4',
         formatPhoto: json.calculator.formatPhoto || 'a4',
-        cutMargin: json.calculator.cutMargin || 2,
-        sheetMargin: json.calculator.sheetMargin || 5,
+        cutMargin: json.calculator.cutMargin || 0.5,
+        sheetMargin: json.calculator.sheetMargin || 1,
         bonusSmall: json.calculator.bonusSmall || 3,
         bonusMedium: json.calculator.bonusMedium || 5,
         discVinyl: json.calculator.discVinyl || 1,
         discPhoto: json.calculator.discPhoto || 0.5
         };
-        console.log('✅ Configuración cargada desde config.json');
+        console.log('✅ Configuración cargada desde config.json:', cfg);
         }
         }
         } catch(e) {
-        console.log('⚠️ No se pudo cargar config.json, usando defaults:', e);
+        console.log('⚠️ No se pudo cargar config.json:', e);
         }
         
+        // 2. SOLO usar localStorage si NO hay config.json
         if (!cfg) {
         try {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
         cfg = JSON.parse(saved);
-        console.log('✅ Configuración cargada desde localStorage');
+        console.log('⚠️ Usando localStorage (config.json no disponible):', cfg);
         }
         } catch(e) { console.error('Error cargando localStorage:', e); }
         }
         
+        // 3. Defaults si todo falla
         if (!cfg) {
-        cfg = { costVinyl:2, costPhoto:1.2, formatVinyl:'a4', formatPhoto:'a4', cutMargin:2, sheetMargin:5, bonusSmall:3, bonusMedium:5, discVinyl:1, discPhoto:0.5 };
+        cfg = { costVinyl:2, costPhoto:1.2, formatVinyl:'a4', formatPhoto:'a4', cutMargin:0.5, sheetMargin:1, bonusSmall:3, bonusMedium:5, discVinyl:1, discPhoto:0.5 };
         console.log('⚠️ Usando configuración por defecto');
         }
         
+        // Cargar valores en el panel admin
         const ids = ['adminCostVinyl','adminCostPhoto','adminFormatVinyl','adminFormatPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         ids.forEach(id => { 
         const el = document.getElementById(id);
         if (el && cfg[id.replace('admin','').toLowerCase()] !== undefined) {
         el.value = cfg[id.replace('admin','').toLowerCase()];
+        console.log('📊 Campo ' + id + ' = ' + el.value);
         }
         });
         
         return cfg;
         }
         
+        // ✅ Guardar en localStorage (SOLO para testing temporal)
         window.stikSaveAdmin = function() {
         const ids = ['adminCostVinyl','adminCostPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         const nums = ids.map(id => parseFloat(document.getElementById(id).value));
@@ -844,26 +851,27 @@
         costVinyl: nums[0]||2, costPhoto: nums[1]||1.2,
         formatVinyl: document.getElementById('adminFormatVinyl').value||'a4',
         formatPhoto: document.getElementById('adminFormatPhoto').value||'a4',
-        cutMargin: nums[2]||2, sheetMargin: nums[3]||5,
+        cutMargin: nums[2]||0.5, sheetMargin: nums[3]||1,
         bonusSmall: parseInt(document.getElementById('adminBonusSmall').value)||3,
         bonusMedium: parseInt(document.getElementById('adminBonusMedium').value)||5,
         discVinyl: nums[6]||1, discPhoto: nums[7]||0.5
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(cfg));
-        alert('✅ Configuración guardada en este navegador\n\n⚠️ Para guardar permanentemente:\n1. Haz clic en "📥 Descargar JSON"\n2. Sube el archivo a GitHub\n3. Reemplaza config.json');
+        alert('✅ Configuración guardada en navegador (temporal)\n\n⚠️ IMPORTANTE: Esto NO actualiza config.json\n\nPara cambios permanentes:\n1. Click en "📥 Descargar JSON"\n2. Sube el archivo a GitHub\n3. Reemplaza config.json');
         };
         
+        // ✅ Descargar configuración como JSON (para subir a GitHub)
         window.stikDownloadConfig = function() {
         const ids = ['adminCostVinyl','adminCostPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         const nums = ids.map(id => parseFloat(document.getElementById(id).value));
         const cfg = {
-        version: "1.0",
+        version: "1.2",
         lastUpdated: new Date().toISOString().split('T')[0],
         calculator: {
         costVinyl: nums[0]||2, costPhoto: nums[1]||1.2,
         formatVinyl: document.getElementById('adminFormatVinyl').value||'a4',
         formatPhoto: document.getElementById('adminFormatPhoto').value||'a4',
-        cutMargin: nums[2]||2, sheetMargin: nums[3]||5,
+        cutMargin: nums[2]||0.5, sheetMargin: nums[3]||1,
         bonusSmall: parseInt(document.getElementById('adminBonusSmall').value)||3,
         bonusMedium: parseInt(document.getElementById('adminBonusMedium').value)||5,
         discVinyl: nums[6]||1, discPhoto: nums[7]||0.5
@@ -887,7 +895,7 @@
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
         
-        alert('✅ JSON descargado\n\n📁 Ahora sube este archivo a GitHub:\n1. Ve a tu repositorio\n2. Sube config.json\n3. Confirma el reemplazo\n4. ¡Listo! Los cambios serán permanentes');
+        alert('✅ JSON descargado\n\n📁 AHORA SUBE ESTE ARCHIVO A GITHUB:\n1. Ve a tu repositorio\n2. Sube config.json (reemplaza el existente)\n3. Commit los cambios\n4. Espera 2-3 minutos\n5. Recarga la página con Ctrl+F5');
         };
         
         function setupLongPress() {
@@ -910,7 +918,7 @@
         
         window.stikCalculate = function() {
         const cfg = appConfig;
-        if (!cfg) { alert('⚠️ Configuración no cargada. Recarga la página.'); return; }
+        if (!cfg) { alert('⚠️ Configuración no cargada. Recarga la página con Ctrl+F5.'); return; }
         
         const qty = parseInt(document.getElementById('stikQty').value)||1;
         const sW = (parseFloat(document.getElementById('stikW').value)||1)*10;
@@ -960,7 +968,6 @@
         // ✅ Agregar regalías solo si existen
         let bonusLine = '';
         if (bonusText && bonusText.trim() !== '') {
-        // Extraer el número de stickers de cortesía
         const bonusMatch = bonusText.match(/(\d+)/);
         if (bonusMatch) {
         bonusLine = `\n• 🎁 ${bonusMatch[1]} stickers de cortesía incluidos`;
