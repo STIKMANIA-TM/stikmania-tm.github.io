@@ -291,6 +291,102 @@
             margin-bottom: 20px;
         }
         
+        /* PORTFOLIO SECTION */
+        .portfolio { 
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-card {
+            background: rgba(26, 26, 26, 0.9);
+            border: 1px solid var(--dark-green);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+        }
+        
+        .portfolio-card:hover {
+            border-color: var(--web);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(79, 195, 247, 0.15);
+        }
+        
+        .portfolio-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: var(--gray);
+        }
+        
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-info {
+            padding: 20px;
+        }
+        
+        .portfolio-info h3 {
+            color: var(--web);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .portfolio-info p {
+            color: #ccc;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background: var(--dark-green);
+            color: var(--neon-green);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
         /* INFO SECTION */
         .info-section { 
             padding: 80px 0;
@@ -497,9 +593,11 @@
             .section-title { font-size: 2rem; }
             nav ul { display: none; }
             .packages-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
             .questionnaire-form { padding: 25px; }
             .contract-info { margin: 20px; padding: 25px; }
             .lang-switch { top: 10px; right: 10px; }
+            .portfolio-image { height: 180px; }
         }
     </style>
 </head>
@@ -622,6 +720,56 @@
             <div style="text-align: center; margin-top: 40px;">
                 <p style="color: var(--white); margin-bottom: 20px;" data-es="¿Necesitas algo personalizado o tienes dudas sobre qué tipo de web elegir?" data-en="Need something custom or have questions about which type of web to choose?">¿Necesitas algo personalizado o tienes dudas sobre qué tipo de web elegir?</p>
                 <a href="https://wa.me/5359758756" target="_blank" class="btn" data-es="Consultar por WhatsApp" data-en="Consult via WhatsApp">Consultar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section class="portfolio reveal">
+        <div class="container">
+            <h2 class="section-title" data-es="Ejemplos de Nuestros Trabajos" data-en="Examples of Our Work">Ejemplos de Nuestros Trabajos</h2>
+            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Algunos de los proyectos web que hemos desarrollado para clientes en Cuba" data-en="Some of the web projects we have developed for clients in Cuba">Algunos de los proyectos web que hemos desarrollado para clientes en Cuba</p>
+            
+            <div class="portfolio-grid">
+                
+                <!-- PROYECTO 1: Novoelectra -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="images/novoelectra-preview.png" alt="Novoelectra Website" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%2300FF00%22 font-family=%22sans-serif%22 font-size=%2218%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3ENovoelectra Preview%3C/text%3E%3C/svg%3E'">
+                        <div class="portfolio-overlay">
+                            <a href="https://novoelectra.github.io" target="_blank" class="btn btn-small" data-es="Visitar Sitio" data-en="Visit Site">Visitar Sitio</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Novoelectra</h3>
+                        <p data-es="Sitio web corporativo para empresa de soluciones eléctricas. Diseño moderno, responsive y optimizado para SEO." data-en="Corporate website for electrical solutions company. Modern design, responsive and SEO optimized.">Sitio web corporativo para empresa de soluciones eléctricas. Diseño moderno, responsive y optimizado para SEO.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Landing Page</span>
+                            <span class="tag">Responsive</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PROYECTO 2: Mi Pincha -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="images/mipincha-preview.png" alt="Mi Pincha Website" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%2300FF00%22 font-family=%22sans-serif%22 font-size=%2218%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EMi Pincha Preview%3C/text%3E%3C/svg%3E'">
+                        <div class="portfolio-overlay">
+                            <a href="https://mipincha.github.io" target="_blank" class="btn btn-small" data-es="Visitar Sitio" data-en="Visit Site">Visitar Sitio</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Mi Pincha</h3>
+                        <p data-es="Plataforma web para emprendimiento local. Catálogo de productos, integración con WhatsApp y diseño mobile-first." data-en="Web platform for local entrepreneurship. Product catalog, WhatsApp integration and mobile-first design.">Plataforma web para emprendimiento local. Catálogo de productos, integración con WhatsApp y diseño mobile-first.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">Mobile-First</span>
+                            <span class="tag">WhatsApp</span>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>

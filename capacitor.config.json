@@ -1,0 +1,15 @@
+{
+  "appId": "com.stikmania.app",
+  "appName": "STIKMANIA",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "https://stikmania-tm.github.io",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true
+  }
+}
