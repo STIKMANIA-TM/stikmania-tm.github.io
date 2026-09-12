@@ -29,6 +29,10 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         html, body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--black);
@@ -198,6 +202,66 @@
             border-radius: 4px;
             margin-top: 20px;
             backdrop-filter: blur(10px);
+        }
+        
+        /* SECTION NAVIGATION INDICATOR */
+        .section-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 15px 10px;
+            border-radius: 30px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .section-nav-item {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--dark-green);
+            border: 2px solid var(--neon-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .section-nav-item:hover {
+            background: var(--neon-green);
+            transform: scale(1.2);
+        }
+        
+        .section-nav-item.active {
+            background: var(--neon-green);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        .section-nav-tooltip {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--neon-green);
+        }
+        
+        .section-nav-item:hover .section-nav-tooltip {
+            opacity: 1;
+            visibility: visible;
         }
         
         /* PACKAGES SECTION (TEMPLATES PARA PRINCIPIANTES) */
@@ -590,6 +654,17 @@
             .calc-wrapper { padding: 20px; }
             .packages-grid { grid-template-columns: 1fr; }
             .payment-grid { grid-template-columns: 1fr; }
+            .section-nav { 
+                right: 10px; 
+                padding: 10px 8px;
+            }
+            .section-nav-item {
+                width: 10px;
+                height: 10px;
+            }
+            .section-nav-tooltip {
+                display: none;
+            }
             
             header { padding: 10px 0; }
             
@@ -619,6 +694,28 @@
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
 
+    <!-- SECTION NAVIGATION INDICATOR -->
+    <nav class="section-nav">
+        <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
+            <span class="section-nav-tooltip">Inicio</span>
+        </div>
+        <div class="section-nav-item" data-section="packages" onclick="scrollToSection('packages')">
+            <span class="section-nav-tooltip">Paquetes</span>
+        </div>
+        <div class="section-nav-item" data-section="calculator" onclick="scrollToSection('calculator')">
+            <span class="section-nav-tooltip">Cotizador</span>
+        </div>
+        <div class="section-nav-item" data-section="payment" onclick="scrollToSection('payment')">
+            <span class="section-nav-tooltip">Pagos</span>
+        </div>
+        <div class="section-nav-item" data-section="gallery" onclick="scrollToSection('gallery')">
+            <span class="section-nav-tooltip">Ejemplos</span>
+        </div>
+        <div class="section-nav-item" data-section="faq" onclick="scrollToSection('faq')">
+            <span class="section-nav-tooltip">FAQ</span>
+        </div>
+    </nav>
+
     <!-- HEADER -->
     <header>
         <div class="container">
@@ -639,7 +736,7 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="container">
             <h1 data-es="Stickers Personalizados" data-en="Custom Stickers">Stickers Personalizados</h1>
             <p data-es="Vinilo impermeable y papel fotográfico de alta calidad. Paquetes prediseñados o cotiza tu pedido personalizado." data-en="Waterproof vinyl and high quality photo paper. Pre-designed packages or customize your order.">Vinilo impermeable y papel fotográfico de alta calidad. Paquetes prediseñados o cotiza tu pedido personalizado.</p>
@@ -650,7 +747,7 @@
     </section>
 
     <!-- PACKAGES SECTION (TEMPLATES PARA PRINCIPIANTES) -->
-    <section class="packages-section reveal">
+    <section id="packages" class="packages-section reveal">
         <div class="container">
             <h2 class="section-title" data-es="Paquetes Populares" data-en="Popular Packages">Paquetes Populares</h2>
             <p class="section-subtitle" data-es="¿No sabes qué elegir? Estos packs son los más pedidos por nuestros clientes. Ideales para empezar." data-en="Not sure what to choose? These packs are the most requested by our clients. Perfect to start.">¿No sabes qué elegir? Estos packs son los más pedidos por nuestros clientes. Ideales para empezar.</p>
@@ -749,37 +846,6 @@
                     </div>
                     
                     <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Marca Personal', '12 stickers 6×6 cm', 'Vinilo Impermeable', 'marca')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
-                </div>
-                
-                <!-- PACK 4: GRANDE -->
-                <div class="package-card">
-                    <div class="package-icon">📢</div>
-                    <h3 data-es="Pack Grande" data-en="Large Pack">Pack Grande</h3>
-                    <p data-es="Para ventanas, paredes y superficies grandes. Máximo impacto visual." data-en="For windows, walls and large surfaces. Maximum visual impact.">Para ventanas, paredes y superficies grandes. Máximo impacto visual.</p>
-                    
-                    <div class="package-specs">
-                        <ul>
-                            <li data-es="5 stickers de 10×10 cm" data-en="5 stickers of 10×10 cm">5 stickers de 10×10 cm</li>
-                            <li data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</li>
-                            <li data-es="Alto impacto visual" data-en="High visual impact">Alto impacto visual</li>
-                            <li data-es="Exteriores e interiores" data-en="Indoor and outdoor">Exteriores e interiores</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="package-price" data-es="$3 USD" data-en="$3 USD">$3 USD</div>
-                    
-                    <div class="package-multiplier">
-                        <label data-es="Cantidad de packs:" data-en="Number of packs:">Cantidad de packs:</label>
-                        <select id="multiplier-grande">
-                            <option value="1">1x (5 stickers) - $3 USD</option>
-                            <option value="2">2x (10 stickers) - $6 USD</option>
-                            <option value="3">3x (15 stickers) - $9 USD</option>
-                            <option value="4">4x (20 stickers) - $12 USD</option>
-                            <option value="5">5x (25 stickers) - $15 USD</option>
-                        </select>
-                    </div>
-                    
-                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Grande', '5 stickers 10×10 cm', 'Vinilo Impermeable', 'grande')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
                 </div>
                 
             </div>
@@ -927,7 +993,7 @@
     </section>
 
     <!-- PAYMENT INFO SECTION -->
-    <section class="payment-section reveal">
+    <section id="payment" class="payment-section reveal">
         <div class="container">
             <h2 class="section-title" data-es="Métodos de Pago" data-en="Payment Methods">Métodos de Pago</h2>
             <p class="section-subtitle" data-es="Aceptamos múltiples formas de pago para tu comodidad. Proceso claro y transparente." data-en="We accept multiple payment methods for your convenience. Clear and transparent process.">Aceptamos múltiples formas de pago para tu comodidad. Proceso claro y transparente.</p>
@@ -965,7 +1031,7 @@
     </section>
 
     <!-- GALLERY -->
-    <section class="gallery reveal">
+    <section id="gallery" class="gallery reveal">
         <div class="container">
             <h2 class="section-title" data-es="Ejemplos de Nuestros Stickers" data-en="Examples of Our Stickers">Ejemplos de Nuestros Stickers</h2>
             
@@ -1017,7 +1083,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq reveal">
+    <section id="faq" class="faq reveal">
         <div class="container">
             <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
             
@@ -1118,6 +1184,36 @@
         
         updateLanguage();
         
+        // SECTION NAVIGATION
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Update active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'packages', 'calculator', 'payment', 'gallery', 'faq'];
+            const scrollPosition = window.scrollY + 200;
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
+                
+                if (section && navItem) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navItem.classList.add('active');
+                    } else {
+                        navItem.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
         // SCROLL REVEAL
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
@@ -1159,8 +1255,7 @@
             const basePrices = {
                 'emprendedor': 2,
                 'evento': 3,
-                'marca': 2,
-                'grande': 3
+                'marca': 2
             };
             const basePrice = basePrices[packageType] || 2;
             const totalPrice = (basePrice * multiplier).toFixed(2);
