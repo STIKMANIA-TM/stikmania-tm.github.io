@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Stickers | STIKMANIA</title>
-    <meta name="description" content="Stickers personalizados en vinilo y papel fotográfico. Cotizador automático. Desde $1 USD. Envíos en La Habana.">
+    <meta name="description" content="Stickers personalizados en vinilo y papel fotográfico. Paquetes prediseñados y cotizador automático. Envíos en La Habana.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -111,6 +111,8 @@
         
         .btn-outline:hover { background: var(--neon-green); color: var(--black); }
         
+        .btn-small { padding: 8px 16px; font-size: 0.85rem; }
+        
         /* LANGUAGE SWITCHER */
         .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1001; }
         
@@ -198,8 +200,8 @@
             backdrop-filter: blur(10px);
         }
         
-        /* CALCULATOR SECTION */
-        .calculator-section { 
+        /* PACKAGES SECTION (TEMPLATES) */
+        .packages-section { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
@@ -208,9 +210,102 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             color: var(--neon-green);
             text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            font-size: 1.1rem;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .package-card {
+            background: rgba(26, 26, 26, 0.9);
+            border: 1px solid var(--dark-green);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        
+        .package-card:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 255, 0, 0.15);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--neon-green);
+            color: var(--black);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .package-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .package-card h3 {
+            color: var(--neon-green);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .package-card p {
+            color: #ccc;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .package-specs {
+            background: rgba(0, 51, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .package-specs ul {
+            list-style: none;
+            margin: 0;
+        }
+        
+        .package-specs li {
+            padding: 5px 0;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+        
+        .package-specs li::before {
+            content: "✓ ";
+            color: var(--neon-green);
+            font-weight: bold;
+        }
+        
+        /* CALCULATOR SECTION */
+        .calculator-section { 
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
         }
         
         .calc-wrapper {
@@ -222,6 +317,65 @@
             padding: 30px;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
+        }
+        
+        /* PAYMENT INFO SECTION */
+        .payment-section { 
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+        
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .payment-card {
+            background: rgba(26, 26, 26, 0.9);
+            border: 1px solid var(--dark-green);
+            border-radius: 12px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .payment-card h3 {
+            color: var(--neon-green);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .payment-methods {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .payment-methods li {
+            padding: 10px 0;
+            color: var(--white);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--dark-green);
+        }
+        
+        .payment-methods li:last-child {
+            border-bottom: none;
+        }
+        
+        .payment-methods li::before {
+            content: "✅ ";
+        }
+        
+        .payment-note {
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid #FFAA00;
+            padding: 15px;
+            border-radius: 8px;
+            color: #FFAA00;
+            font-size: 0.9rem;
+            margin-top: 15px;
         }
         
         /* INFO BOX */
@@ -393,6 +547,8 @@
             .section-title { font-size: 2rem; }
             
             .calc-wrapper { padding: 20px; }
+            .packages-grid { grid-template-columns: 1fr; }
+            .payment-grid { grid-template-columns: 1fr; }
             
             header { padding: 10px 0; }
             
@@ -445,20 +601,111 @@
     <section class="hero">
         <div class="container">
             <h1 data-es="Stickers Personalizados" data-en="Custom Stickers">Stickers Personalizados</h1>
-            <p data-es="Vinilo impermeable y papel fotográfico de alta calidad. Cotiza tu pedido al instante." data-en="Waterproof vinyl and high quality photo paper. Get instant quote for your order.">Vinilo impermeable y papel fotográfico de alta calidad. Cotiza tu pedido al instante.</p>
+            <p data-es="Vinilo impermeable y papel fotográfico de alta calidad. Paquetes prediseñados o cotiza tu pedido personalizado." data-en="Waterproof vinyl and high quality photo paper. Pre-designed packages or customize your order.">Vinilo impermeable y papel fotográfico de alta calidad. Paquetes prediseñados o cotiza tu pedido personalizado.</p>
             <div class="production-time">
                 <strong data-es="Tiempo de producción:" data-en="Production time:">Tiempo de producción:</strong> <span data-es="2-5 días hábiles según cantidad" data-en="2-5 business days depending on quantity">2-5 días hábiles según cantidad</span>
             </div>
         </div>
     </section>
 
-    <!-- CALCULATOR SECTION -->
-    <section class="calculator-section reveal">
+    <!-- PACKAGES SECTION (TEMPLATES PARA PRINCIPIANTES) -->
+    <section class="packages-section reveal">
         <div class="container">
-            <h2 class="section-title" style="text-align: center; margin-bottom: 40px; color: var(--neon-green);" data-es="Cotiza Tu Pedido" data-en="Get Your Quote">Cotiza Tu Pedido</h2>
+            <h2 class="section-title" data-es="Paquetes Populares" data-en="Popular Packages">Paquetes Populares</h2>
+            <p class="section-subtitle" data-es="¿No sabes qué elegir? Estos packs son los más pedidos por nuestros clientes. Ideales para empezar." data-en="Not sure what to choose? These packs are the most requested by our clients. Perfect to start.">¿No sabes qué elegir? Estos packs son los más pedidos por nuestros clientes. Ideales para empezar.</p>
+            
+            <div class="packages-grid">
+                
+                <!-- PACK 1: EMPRENDEDOR -->
+                <div class="package-card">
+                    <div class="package-badge" data-es="Más Vendido" data-en="Best Seller">Más Vendido</div>
+                    <div class="package-icon">🚀</div>
+                    <h3 data-es="Pack Emprendedor" data-en="Entrepreneur Pack">Pack Emprendedor</h3>
+                    <p data-es="Perfecto para productos, envases y etiquetado profesional." data-en="Perfect for products, packaging and professional labeling.">Perfecto para productos, envases y etiquetado profesional.</p>
+                    
+                    <div class="package-specs">
+                        <ul>
+                            <li data-es="20 stickers de 5×5 cm" data-en="20 stickers of 5×5 cm">20 stickers de 5×5 cm</li>
+                            <li data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</li>
+                            <li data-es="Resistente al agua y sol" data-en="Water and sun resistant">Resistente al agua y sol</li>
+                            <li data-es="Ideal para envases" data-en="Ideal for packaging">Ideal para envases</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Emprendedor', '20 stickers 5×5 cm', 'Vinilo Impermeable')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
+                </div>
+                
+                <!-- PACK 2: EVENTO -->
+                <div class="package-card">
+                    <div class="package-icon">🎉</div>
+                    <h3 data-es="Pack Evento" data-en="Event Pack">Pack Evento</h3>
+                    <p data-es="Ideal para bodas, fiestas, souvenirs y decoración temporal." data-en="Ideal for weddings, parties, souvenirs and temporary decoration.">Ideal para bodas, fiestas, souvenirs y decoración temporal.</p>
+                    
+                    <div class="package-specs">
+                        <ul>
+                            <li data-es="48 stickers de 4×4 cm" data-en="48 stickers of 4×4 cm">48 stickers de 4×4 cm</li>
+                            <li data-es="Papel fotográfico adhesivo" data-en="Adhesive photo paper">Papel fotográfico adhesivo</li>
+                            <li data-es="Acabado brillante" data-en="Glossy finish">Acabado brillante</li>
+                            <li data-es="Uso en interiores" data-en="Indoor use">Uso en interiores</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Evento', '48 stickers 4×4 cm', 'Papel Fotográfico')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
+                </div>
+                
+                <!-- PACK 3: MARCA PERSONAL -->
+                <div class="package-card">
+                    <div class="package-icon">👤</div>
+                    <h3 data-es="Pack Marca Personal" data-en="Personal Brand Pack">Pack Marca Personal</h3>
+                    <p data-es="Para laptops, teléfonos y superficies personales. Destaca tu estilo." data-en="For laptops, phones and personal surfaces. Stand out your style.">Para laptops, teléfonos y superficies personales. Destaca tu estilo.</p>
+                    
+                    <div class="package-specs">
+                        <ul>
+                            <li data-es="12 stickers de 6×6 cm" data-en="12 stickers of 6×6 cm">12 stickers de 6×6 cm</li>
+                            <li data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</li>
+                            <li data-es="Resistente UV" data-en="UV resistant">Resistente UV</li>
+                            <li data-es="Duración +2 años" data-en="2+ years durability">Duración +2 años</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Marca Personal', '12 stickers 6×6 cm', 'Vinilo Impermeable')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
+                </div>
+                
+                <!-- PACK 4: GRANDE -->
+                <div class="package-card">
+                    <div class="package-icon">📢</div>
+                    <h3 data-es="Pack Grande" data-en="Large Pack">Pack Grande</h3>
+                    <p data-es="Para ventanas, paredes y superficies grandes. Máximo impacto visual." data-en="For windows, walls and large surfaces. Maximum visual impact.">Para ventanas, paredes y superficies grandes. Máximo impacto visual.</p>
+                    
+                    <div class="package-specs">
+                        <ul>
+                            <li data-es="5 stickers de 10×10 cm" data-en="5 stickers of 10×10 cm">5 stickers de 10×10 cm</li>
+                            <li data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</li>
+                            <li data-es="Alto impacto visual" data-en="High visual impact">Alto impacto visual</li>
+                            <li data-es="Exteriores e interiores" data-en="Indoor and outdoor">Exteriores e interiores</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Grande', '5 stickers 10×10 cm', 'Vinilo Impermeable')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
+                </div>
+                
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: var(--white); margin-bottom: 20px;" data-es="¿Necesitas algo diferente? Usa nuestro cotizador personalizado." data-en="Need something different? Use our custom calculator.">¿Necesitas algo diferente? Usa nuestro cotizador personalizado.</p>
+                <a href="#calculator" class="btn btn-outline" data-es="Ir al Cotizador" data-en="Go to Calculator">Ir al Cotizador</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULATOR SECTION (PARA EXPERTOS) -->
+    <section id="calculator" class="calculator-section reveal">
+        <div class="container">
+            <h2 class="section-title" data-es="Cotizador Personalizado" data-en="Custom Calculator">Cotizador Personalizado</h2>
+            <p class="section-subtitle" data-es="¿Sabes exactamente qué necesitas? Cotiza tu pedido con medidas y cantidades personalizadas." data-en="Know exactly what you need? Quote your order with custom measurements and quantities.">¿Sabes exactamente qué necesitas? Cotiza tu pedido con medidas y cantidades personalizadas.</p>
             
             <div class="calc-wrapper">
-                <!-- === STIKMANIA CALCULATOR WIDGET v3.2 (config.json prioritario) === -->
+                <!-- === STIKMANIA CALCULATOR WIDGET v3.2 === -->
                 <div id="stik-calc-widget">
                 <style>
                 #stik-calc-widget {
@@ -591,6 +838,44 @@
         </div>
     </section>
 
+    <!-- PAYMENT INFO SECTION -->
+    <section class="payment-section reveal">
+        <div class="container">
+            <h2 class="section-title" data-es="Métodos de Pago" data-en="Payment Methods">Métodos de Pago</h2>
+            <p class="section-subtitle" data-es="Aceptamos múltiples formas de pago para tu comodidad. Proceso claro y transparente." data-en="We accept multiple payment methods for your convenience. Clear and transparent process.">Aceptamos múltiples formas de pago para tu comodidad. Proceso claro y transparente.</p>
+            
+            <div class="payment-grid">
+                
+                <!-- PAYMENT CARD 1 -->
+                <div class="payment-card">
+                    <h3 data-es="💳 Métodos Aceptados" data-en="Accepted Methods">💳 Métodos Aceptados</h3>
+                    <ul class="payment-methods">
+                        <li data-es="Efectivo (USD, CUP, EUR)" data-en="Cash (USD, CUP, EUR)">Efectivo (USD, CUP, EUR)</li>
+                        <li data-es="Transferencia Bancaria" data-en="Bank Transfer">Transferencia Bancaria</li>
+                        <li data-es="Saldo (Cuba)" data-en="Balance (Cuba)">Saldo (Cuba)</li>
+                    </ul>
+                    <div class="payment-note">
+                        <strong data-es="⚠️ Importante:" data-en="⚠️ Important:">⚠️ Importante:</strong><br>
+                        <span data-es="50% de anticipo para comenzar producción. 50% restante al momento de la entrega." data-en="50% deposit to start production. 50% remaining upon delivery.">50% de anticipo para comenzar producción. 50% restante al momento de la entrega.</span>
+                    </div>
+                </div>
+                
+                <!-- PAYMENT CARD 2 -->
+                <div class="payment-card">
+                    <h3 data-es="📋 Proceso de Compra" data-en="Purchase Process">📋 Proceso de Compra</h3>
+                    <ul class="payment-methods">
+                        <li data-es="1. Eliges pack o cotizas personalizado" data-en="1. Choose pack or customize quote">1. Eliges pack o cotizas personalizado</li>
+                        <li data-es="2. Envías pedido por WhatsApp" data-en="2. Send order via WhatsApp">2. Envías pedido por WhatsApp</li>
+                        <li data-es="3. Confirmas diseño y precio" data-en="3. Confirm design and price">3. Confirmas diseño y precio</li>
+                        <li data-es="4. Pagas 50% de anticipo" data-en="4. Pay 50% deposit">4. Pagas 50% de anticipo</li>
+                        <li data-es="5. Recibes en 2-5 días hábiles" data-en="5. Receive in 2-5 business days">5. Recibes en 2-5 días hábiles</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
     <!-- GALLERY -->
     <section class="gallery reveal">
         <div class="container">
@@ -615,7 +900,7 @@
                     <span class="industry-tag">Branding</span>
                 </div>
                 
-                <!-- ✅ NUEVAS IMÁGENES (4) -->
+                <!-- NUEVAS IMÁGENES (4) -->
                 <div class="gallery-item">
                     <img src="images/Laptop_HDD_iPhone.jpg" alt="Stickers en tecnología" loading="lazy">
                     <span class="industry-tag">Tecnología</span>
@@ -775,7 +1060,13 @@
             }
         }
         
-        // ✅ CALCULATOR WIDGET SCRIPT v3.2 (config.json prioritario sobre localStorage)
+        // ORDER PACKAGE FUNCTION (Para templates)
+        function orderPackage(packageName, specs, material) {
+            const msg = `📦 *NUEVO PEDIDO STIKMANIA*\n\n• Pack: ${packageName}\n• Especificaciones: ${specs}\n• Material: ${material}\n\n✅ ¿Confirmar pedido?`;
+            window.open(`https://wa.me/5359758756?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+        
+        // CALCULATOR WIDGET SCRIPT v3.2 (config.json prioritario)
         (function() {
         const SHEET_SIZES = { a4: { w: 210, h: 297 }, letter: { w: 215.9, h: 279.4 } };
         const ADMIN_PASS = "aggmgm272000";
@@ -784,11 +1075,9 @@
         let adminMode = false, pressTimer = null, appConfig = null;
         const HEADER = document.getElementById('calcHeader');
         
-        // ✅ Cargar config.json SIEMPRE primero (ignorar localStorage si hay JSON)
         async function loadConfig() {
         let cfg = null;
         
-        // 1. Intentar cargar desde config.json (CON CACHE BUSTING)
         try {
         const response = await fetch(CONFIG_URL + '?v=' + Date.now());
         if (response.ok) {
@@ -813,7 +1102,6 @@
         console.log('⚠️ No se pudo cargar config.json:', e);
         }
         
-        // 2. SOLO usar localStorage si NO hay config.json
         if (!cfg) {
         try {
         const saved = localStorage.getItem(STORAGE_KEY);
@@ -824,13 +1112,11 @@
         } catch(e) { console.error('Error cargando localStorage:', e); }
         }
         
-        // 3. Defaults si todo falla
         if (!cfg) {
         cfg = { costVinyl:2, costPhoto:1.2, formatVinyl:'a4', formatPhoto:'a4', cutMargin:0.5, sheetMargin:1, bonusSmall:3, bonusMedium:5, discVinyl:1, discPhoto:0.5 };
         console.log('⚠️ Usando configuración por defecto');
         }
         
-        // Cargar valores en el panel admin
         const ids = ['adminCostVinyl','adminCostPhoto','adminFormatVinyl','adminFormatPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         ids.forEach(id => { 
         const el = document.getElementById(id);
@@ -843,7 +1129,6 @@
         return cfg;
         }
         
-        // ✅ Guardar en localStorage (SOLO para testing temporal)
         window.stikSaveAdmin = function() {
         const ids = ['adminCostVinyl','adminCostPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         const nums = ids.map(id => parseFloat(document.getElementById(id).value));
@@ -860,7 +1145,6 @@
         alert('✅ Configuración guardada en navegador (temporal)\n\n⚠️ IMPORTANTE: Esto NO actualiza config.json\n\nPara cambios permanentes:\n1. Click en "📥 Descargar JSON"\n2. Sube el archivo a GitHub\n3. Reemplaza config.json');
         };
         
-        // ✅ Descargar configuración como JSON (para subir a GitHub)
         window.stikDownloadConfig = function() {
         const ids = ['adminCostVinyl','adminCostPhoto','adminCutMargin','adminSheetMargin','adminBonusSmall','adminBonusMedium','adminDiscVinyl','adminDiscPhoto'];
         const nums = ids.map(id => parseFloat(document.getElementById(id).value));
@@ -953,7 +1237,6 @@
         
         window.stikReset = function() { document.getElementById('stikResult').classList.remove('show'); document.getElementById('stikQty').focus(); };
         
-        // ✅ FUNCIÓN ACTUALIZADA - Incluye regalías en el mensaje
         window.stikSendToProduction = function() {
         const q = document.getElementById('stikQty').value;
         const w = document.getElementById('stikW').value;
@@ -965,7 +1248,6 @@
         const priceNum = parseFloat(p.replace(/[^0-9.]/g, '')) || 0;
         const advance = (priceNum / 2).toFixed(2);
         
-        // ✅ Agregar regalías solo si existen
         let bonusLine = '';
         if (bonusText && bonusText.trim() !== '') {
         const bonusMatch = bonusText.match(/(\d+)/);
@@ -974,11 +1256,7 @@
         }
         }
         
-        const msg = `📦 *NUEVO PEDIDO STIKMANIA*
-• ${q} stickers ${w}×${h} cm
-• Material: ${m}
-• Precio: ${p}
-• 50% de anticipo: $${advance} USD${bonusLine}`;
+        const msg = `📦 *NUEVO PEDIDO STIKMANIA*\n• ${q} stickers ${w}×${h} cm\n• Material: ${m}\n• Precio: ${p}\n• 50% de anticipo: $${advance} USD${bonusLine}`;
         
         window.open(`https://wa.me/5359758756?text=${encodeURIComponent(msg)}`, '_blank');
         };
