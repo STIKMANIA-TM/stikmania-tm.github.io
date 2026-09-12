@@ -200,7 +200,7 @@
             backdrop-filter: blur(10px);
         }
         
-        /* PACKAGES SECTION (TEMPLATES) */
+        /* PACKAGES SECTION (TEMPLATES PARA PRINCIPIANTES) */
         .packages-section { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -299,6 +299,47 @@
             content: "✓ ";
             color: var(--neon-green);
             font-weight: bold;
+        }
+        
+        .package-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 51, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .package-multiplier {
+            margin: 20px 0;
+        }
+        
+        .package-multiplier label {
+            display: block;
+            color: var(--white);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .package-multiplier select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(26, 26, 26, 0.9);
+            border: 1px solid var(--dark-green);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .package-multiplier select:focus {
+            outline: none;
+            border-color: var(--neon-green);
         }
         
         /* CALCULATOR SECTION */
@@ -632,7 +673,20 @@
                         </ul>
                     </div>
                     
-                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Emprendedor', '20 stickers 5×5 cm', 'Vinilo Impermeable')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
+                    <div class="package-price" data-es="$2 USD" data-en="$2 USD">$2 USD</div>
+                    
+                    <div class="package-multiplier">
+                        <label data-es="Cantidad de packs:" data-en="Number of packs:">Cantidad de packs:</label>
+                        <select id="multiplier-emprendedor">
+                            <option value="1">1x (20 stickers) - $2 USD</option>
+                            <option value="2">2x (40 stickers) - $4 USD</option>
+                            <option value="3">3x (60 stickers) - $6 USD</option>
+                            <option value="4">4x (80 stickers) - $8 USD</option>
+                            <option value="5">5x (100 stickers) - $10 USD</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Emprendedor', '20 stickers 5×5 cm', 'Vinilo Impermeable', 'emprendedor')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
                 </div>
                 
                 <!-- PACK 2: EVENTO -->
@@ -650,7 +704,20 @@
                         </ul>
                     </div>
                     
-                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Evento', '48 stickers 4×4 cm', 'Papel Fotográfico')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
+                    <div class="package-price" data-es="$3 USD" data-en="$3 USD">$3 USD</div>
+                    
+                    <div class="package-multiplier">
+                        <label data-es="Cantidad de packs:" data-en="Number of packs:">Cantidad de packs:</label>
+                        <select id="multiplier-evento">
+                            <option value="1">1x (48 stickers) - $3 USD</option>
+                            <option value="2">2x (96 stickers) - $6 USD</option>
+                            <option value="3">3x (144 stickers) - $9 USD</option>
+                            <option value="4">4x (192 stickers) - $12 USD</option>
+                            <option value="5">5x (240 stickers) - $15 USD</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Evento', '48 stickers 4×4 cm', 'Papel Fotográfico', 'evento')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
                 </div>
                 
                 <!-- PACK 3: MARCA PERSONAL -->
@@ -668,7 +735,20 @@
                         </ul>
                     </div>
                     
-                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Marca Personal', '12 stickers 6×6 cm', 'Vinilo Impermeable')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
+                    <div class="package-price" data-es="$2 USD" data-en="$2 USD">$2 USD</div>
+                    
+                    <div class="package-multiplier">
+                        <label data-es="Cantidad de packs:" data-en="Number of packs:">Cantidad de packs:</label>
+                        <select id="multiplier-marca">
+                            <option value="1">1x (12 stickers) - $2 USD</option>
+                            <option value="2">2x (24 stickers) - $4 USD</option>
+                            <option value="3">3x (36 stickers) - $6 USD</option>
+                            <option value="4">4x (48 stickers) - $8 USD</option>
+                            <option value="5">5x (60 stickers) - $10 USD</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Marca Personal', '12 stickers 6×6 cm', 'Vinilo Impermeable', 'marca')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
                 </div>
                 
                 <!-- PACK 4: GRANDE -->
@@ -686,14 +766,22 @@
                         </ul>
                     </div>
                     
-                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Grande', '5 stickers 10×10 cm', 'Vinilo Impermeable')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
+                    <div class="package-price" data-es="$3 USD" data-en="$3 USD">$3 USD</div>
+                    
+                    <div class="package-multiplier">
+                        <label data-es="Cantidad de packs:" data-en="Number of packs:">Cantidad de packs:</label>
+                        <select id="multiplier-grande">
+                            <option value="1">1x (5 stickers) - $3 USD</option>
+                            <option value="2">2x (10 stickers) - $6 USD</option>
+                            <option value="3">3x (15 stickers) - $9 USD</option>
+                            <option value="4">4x (20 stickers) - $12 USD</option>
+                            <option value="5">5x (25 stickers) - $15 USD</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;" onclick="orderPackage('Pack Grande', '5 stickers 10×10 cm', 'Vinilo Impermeable', 'grande')" data-es="📦 Pedir por WhatsApp" data-en="📦 Order via WhatsApp">📦 Pedir por WhatsApp</button>
                 </div>
                 
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <p style="color: var(--white); margin-bottom: 20px;" data-es="¿Necesitas algo diferente? Usa nuestro cotizador personalizado." data-en="Need something different? Use our custom calculator.">¿Necesitas algo diferente? Usa nuestro cotizador personalizado.</p>
-                <a href="#calculator" class="btn btn-outline" data-es="Ir al Cotizador" data-en="Go to Calculator">Ir al Cotizador</a>
             </div>
         </div>
     </section>
@@ -1060,9 +1148,24 @@
             }
         }
         
-        // ORDER PACKAGE FUNCTION (Para templates)
-        function orderPackage(packageName, specs, material) {
-            const msg = `📦 *NUEVO PEDIDO STIKMANIA*\n\n• Pack: ${packageName}\n• Especificaciones: ${specs}\n• Material: ${material}\n\n✅ ¿Confirmar pedido?`;
+        // ORDER PACKAGE FUNCTION (Para templates con multiplicador)
+        function orderPackage(packageName, specs, material, packageType) {
+            // Obtener el multiplicador seleccionado
+            const multiplierSelect = document.getElementById(`multiplier-${packageType}`);
+            const multiplier = multiplierSelect ? multiplierSelect.value : 1;
+            const multiplierText = multiplierSelect ? multiplierSelect.options[multiplierSelect.selectedIndex].text : '1x';
+            
+            // Calcular precio total basado en el multiplicador
+            const basePrices = {
+                'emprendedor': 2,
+                'evento': 3,
+                'marca': 2,
+                'grande': 3
+            };
+            const basePrice = basePrices[packageType] || 2;
+            const totalPrice = (basePrice * multiplier).toFixed(2);
+            
+            const msg = `📦 *NUEVO PEDIDO STIKMANIA*\n\n• Pack: ${packageName}\n• Cantidad: ${multiplierText}\n• Especificaciones: ${specs}\n• Material: ${material}\n• Total: $${totalPrice} USD\n\n✅ ¿Confirmar pedido?`;
             window.open(`https://wa.me/5359758756?text=${encodeURIComponent(msg)}`, '_blank');
         }
         
