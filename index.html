@@ -9,6 +9,15 @@
     <meta name="author" content="STIKMANIA">
     <meta name="robots" content="index, follow">
     
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00FF00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
@@ -73,7 +82,6 @@
             position: relative;
         }
         
-        /* BACKGROUND CON IMAGEN Y BLUR */
         body::after {
             content: '';
             position: fixed;
@@ -92,88 +100,6 @@
         }
         
         body { background-color: rgba(0, 0, 0, 0.85); }
-        
-        /* SECTION NAVIGATION INDICATOR */
-        .section-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 15px 10px;
-            border-radius: 30px;
-            border: 1px solid var(--dark-green);
-        }
-        
-        .section-nav-item {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--dark-green);
-            border: 2px solid var(--neon-green);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .section-nav-item:hover {
-            background: var(--neon-green);
-            transform: scale(1.2);
-        }
-        
-        .section-nav-item.active {
-            background: var(--neon-green);
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-        
-        .section-nav-tooltip {
-            position: absolute;
-            right: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid var(--neon-green);
-        }
-        
-        .section-nav-item:hover .section-nav-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* BACKGROUND ANIMADO */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 255, 0, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 102, 0, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(79, 195, 247, 0.02) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
-            animation: backgroundPulse 15s ease-in-out infinite;
-        }
-        
-        @keyframes backgroundPulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
-        }
         
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Pirata One', display;
@@ -228,13 +154,7 @@
         
         .btn-outline:hover { background: var(--neon-green); color: var(--black); }
         
-        /* LANGUAGE SWITCHER */
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-        }
+        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1001; }
         
         .lang-btn {
             background: var(--black);
@@ -250,7 +170,6 @@
         
         .lang-btn:hover { background: var(--neon-green); color: var(--black); }
         
-        /* HEADER */
         header {
             background: var(--black);
             padding: 20px 0;
@@ -296,7 +215,6 @@
         nav a:hover { color: var(--neon-green); }
         nav a:hover::after { width: 100%; }
         
-        /* HERO */
         .hero {
             padding: 180px 0 100px 0;
             background: linear-gradient(135deg, var(--black) 0%, var(--dark-green) 100%);
@@ -317,8 +235,7 @@
         }
         
         @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            to { transform: rotate(360deg); }
         }
         
         .hero-logo {
@@ -364,11 +281,7 @@
             z-index: 1;
         }
         
-        /* SERVICES */
-        .services {
-            padding: 100px 0;
-            background: var(--gray);
-        }
+        .services { padding: 100px 0; background: var(--gray); }
         
         .section-header {
             text-align: center;
@@ -432,11 +345,7 @@
         
         .card a:hover { text-decoration: underline; }
         
-        /* BLOG PREVIEW */
-        .blog-preview {
-            padding: 100px 0;
-            background: var(--black);
-        }
+        .blog-preview { padding: 100px 0; background: var(--black); }
         
         .blog-grid {
             display: grid;
@@ -513,11 +422,7 @@
         
         .read-more:hover { text-decoration: underline; }
         
-        /* ABOUT */
-        .about {
-            padding: 100px 0;
-            background: var(--gray);
-        }
+        .about { padding: 100px 0; background: var(--gray); }
         
         .about-content {
             max-width: 800px;
@@ -578,7 +483,6 @@
             font-weight: 300;
         }
         
-        /* CONTACT */
         .contact {
             padding: 100px 0;
             background: var(--black);
@@ -638,7 +542,6 @@
             fill: currentColor;
         }
         
-        /* FOOTER */
         footer {
             background: var(--black);
             padding: 60px 0 30px 0;
@@ -684,7 +587,6 @@
             font-weight: 300;
         }
         
-        /* REVEAL ANIMATION */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -696,7 +598,6 @@
             transform: translateY(0);
         }
         
-        /* FAQ SMOOTH */
         .faq-answer {
             max-height: 0;
             overflow: hidden;
@@ -705,7 +606,6 @@
         
         .faq-answer.show { max-height: 500px; }
         
-        /* MOBILE */
         @media (max-width: 992px) {
             .services-grid, .blog-grid, .footer-grid, .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -724,47 +624,15 @@
             .contact-buttons { gap: 10px; }
             .contact-btn { width: 45px; height: 45px; }
             .lang-switch { top: 10px; right: 10px; }
-            .section-nav { 
-                right: 10px; 
-                padding: 10px 8px;
-            }
-            .section-nav-item {
-                width: 10px;
-                height: 10px;
-            }
-            .section-nav-tooltip {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- LANGUAGE SWITCHER -->
     <div class="lang-switch">
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
 
-    <!-- SECTION NAVIGATION INDICATOR -->
-    <nav class="section-nav">
-        <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
-            <span class="section-nav-tooltip">Inicio</span>
-        </div>
-        <div class="section-nav-item" data-section="services" onclick="scrollToSection('services')">
-            <span class="section-nav-tooltip">Servicios</span>
-        </div>
-        <div class="section-nav-item" data-section="blog" onclick="scrollToSection('blog')">
-            <span class="section-nav-tooltip">Blog</span>
-        </div>
-        <div class="section-nav-item" data-section="about" onclick="scrollToSection('about')">
-            <span class="section-nav-tooltip">Nosotros</span>
-        </div>
-        <div class="section-nav-item" data-section="contact" onclick="scrollToSection('contact')">
-            <span class="section-nav-tooltip">Contacto</span>
-        </div>
-    </nav>
-
-    <!-- HEADER -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -781,7 +649,6 @@
         </div>
     </header>
 
-    <!-- HERO -->
     <section id="hero" class="hero">
         <div class="container">
             <img src="images/logo.png" alt="STIKMANIA Logo" class="hero-logo">
@@ -794,7 +661,6 @@
         </div>
     </section>
 
-    <!-- SERVICES -->
     <section id="services" class="services reveal">
         <div class="container">
             <div class="section-header">
@@ -822,7 +688,6 @@
         </div>
     </section>
 
-    <!-- BLOG PREVIEW -->
     <section id="blog" class="blog-preview reveal">
         <div class="container">
             <div class="section-header">
@@ -889,7 +754,6 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="about reveal">
         <div class="container">
             <div class="about-content">
@@ -917,7 +781,6 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="contact reveal">
         <div class="container">
             <h2 data-es="Hablemos de tu Proyecto" data-en="Let's Talk About Your Project">Hablemos de tu Proyecto</h2>
@@ -940,7 +803,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -975,7 +837,6 @@
     </footer>
 
     <script>
-        // LANGUAGE SYSTEM
         let currentLang = localStorage.getItem('stikmania_lang') || 'es';
         
         function toggleLanguage() {
@@ -994,37 +855,6 @@
         
         updateLanguage();
         
-        // SECTION NAVIGATION
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-        
-        // Update active section on scroll
-        window.addEventListener('scroll', () => {
-            const sections = ['hero', 'services', 'blog', 'about', 'contact'];
-            const scrollPosition = window.scrollY + 200;
-            
-            sections.forEach(sectionId => {
-                const section = document.getElementById(sectionId);
-                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
-                
-                if (section && navItem) {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navItem.classList.add('active');
-                    } else {
-                        navItem.classList.remove('active');
-                    }
-                }
-            });
-        });
-        
-        // SCROLL REVEAL ANIMATION
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             reveals.forEach(element => {
@@ -1040,7 +870,6 @@
         window.addEventListener("scroll", reveal);
         reveal();
         
-        // PARALLAX EFFECT EN HERO
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
@@ -1049,7 +878,6 @@
             }
         });
         
-        // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
@@ -1058,6 +886,19 @@
                 header.style.background = 'var(--black)';
             }
         });
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('❌ Error registrando Service Worker:', error);
+                    });
+            });
+        }
     </script>
 
 </body>

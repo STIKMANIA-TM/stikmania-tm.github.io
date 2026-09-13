@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Stickers | STIKMANIA</title>
-    <meta name="description" content="Stickers personalizados en vinilo y papel fotográfico. Paquetes prediseñados y cotizador automático. Envíos en La Habana.">
+    <meta name="description" content="Stickers personalizados en vinilo y papel fotográfico. Cotizador automático. Desde $1 USD. Envíos en La Habana.">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00FF00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -29,9 +38,7 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         
         html, body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -42,7 +49,6 @@
             position: relative;
         }
         
-        /* BACKGROUND CON IMAGEN Y BLUR */
         body::before {
             content: '';
             position: fixed;
@@ -117,7 +123,6 @@
         
         .btn-small { padding: 8px 16px; font-size: 0.85rem; }
         
-        /* LANGUAGE SWITCHER */
         .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1001; }
         
         .lang-btn {
@@ -134,7 +139,6 @@
         
         .lang-btn:hover { background: var(--neon-green); color: var(--black); }
         
-        /* HEADER */
         header {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(10px);
@@ -171,7 +175,6 @@
         nav ul { display: flex; list-style: none; gap: 20px; }
         nav a:hover { color: var(--neon-green); }
         
-        /* HERO */
         .hero {
             padding: 160px 0 60px 0;
             background: rgba(0, 0, 0, 0.6);
@@ -204,67 +207,6 @@
             backdrop-filter: blur(10px);
         }
         
-        /* SECTION NAVIGATION INDICATOR */
-        .section-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 15px 10px;
-            border-radius: 30px;
-            border: 1px solid var(--dark-green);
-        }
-        
-        .section-nav-item {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--dark-green);
-            border: 2px solid var(--neon-green);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .section-nav-item:hover {
-            background: var(--neon-green);
-            transform: scale(1.2);
-        }
-        
-        .section-nav-item.active {
-            background: var(--neon-green);
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-        
-        .section-nav-tooltip {
-            position: absolute;
-            right: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid var(--neon-green);
-        }
-        
-        .section-nav-item:hover .section-nav-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* PACKAGES SECTION (TEMPLATES PARA PRINCIPIANTES) */
         .packages-section { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -406,7 +348,6 @@
             border-color: var(--neon-green);
         }
         
-        /* CALCULATOR SECTION */
         .calculator-section { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -424,29 +365,6 @@
             box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
         }
         
-        /* MOCKUP PREVIEW SECTION */
-        .mockup-section {
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-        }
-
-        .mockup-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            background: rgba(26, 26, 26, 0.95);
-            border: 1px solid var(--dark-green);
-            border-radius: 16px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
-        }
-
-        @media (max-width: 600px) {
-            .mockup-wrapper { padding: 18px; }
-        }
-
-        /* PAYMENT INFO SECTION */
         .payment-section { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.7);
@@ -505,7 +423,6 @@
             margin-top: 15px;
         }
         
-        /* INFO BOX */
         .info-box {
             background: rgba(0, 51, 0, 0.9);
             padding: 25px;
@@ -538,7 +455,6 @@
             margin-bottom: 8px;
         }
         
-        /* GALLERY */
         .gallery { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -612,7 +528,6 @@
         
         .instagram-links a:hover { background: var(--neon-green); color: var(--black); }
         
-        /* FAQ */
         .faq { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -647,7 +562,6 @@
         
         .faq-answer.show { max-height: 500px; padding: 0 20px 20px 20px; }
         
-        /* FOOTER */
         footer {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(10px);
@@ -656,7 +570,6 @@
             border-top: 1px solid var(--dark-green);
         }
         
-        /* REVEAL ANIMATION */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -668,80 +581,33 @@
             transform: translateY(0);
         }
         
-        /* MOBILE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .section-title { font-size: 2rem; }
-            
             .calc-wrapper { padding: 20px; }
             .packages-grid { grid-template-columns: 1fr; }
             .payment-grid { grid-template-columns: 1fr; }
-            .section-nav { 
-                right: 10px; 
-                padding: 10px 8px;
-            }
-            .section-nav-item {
-                width: 10px;
-                height: 10px;
-            }
-            .section-nav-tooltip {
-                display: none;
-            }
-            
             header { padding: 10px 0; }
-            
             .header-content { gap: 10px; }
-            
             .logo { font-size: 1.3rem; order: 1; }
-            
             .header-right {
                 order: 2;
                 width: 100%;
                 justify-content: flex-end;
                 margin-top: 5px;
             }
-            
             nav ul { display: none; }
-            
             .lang-btn { padding: 5px 10px; font-size: 0.8rem; }
-            
             .info-box { padding: 20px; margin: 30px 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- LANGUAGE SWITCHER -->
     <div class="lang-switch">
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
 
-    <!-- SECTION NAVIGATION INDICATOR -->
-    <nav class="section-nav">
-        <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
-            <span class="section-nav-tooltip">Inicio</span>
-        </div>
-        <div class="section-nav-item" data-section="packages" onclick="scrollToSection('packages')">
-            <span class="section-nav-tooltip">Paquetes</span>
-        </div>
-        <div class="section-nav-item" data-section="mockup" onclick="scrollToSection('mockup')">
-            <span class="section-nav-tooltip">Mockup</span>
-        </div>
-        <div class="section-nav-item" data-section="calculator" onclick="scrollToSection('calculator')">
-            <span class="section-nav-tooltip">Cotizador</span>
-        </div>
-        <div class="section-nav-item" data-section="payment" onclick="scrollToSection('payment')">
-            <span class="section-nav-tooltip">Pagos</span>
-        </div>
-        <div class="section-nav-item" data-section="gallery" onclick="scrollToSection('gallery')">
-            <span class="section-nav-tooltip">Ejemplos</span>
-        </div>
-        <div class="section-nav-item" data-section="faq" onclick="scrollToSection('faq')">
-            <span class="section-nav-tooltip">FAQ</span>
-        </div>
-    </nav>
-
-    <!-- HEADER -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -760,8 +626,7 @@
         </div>
     </header>
 
-    <!-- HERO -->
-    <section id="hero" class="hero">
+    <section class="hero">
         <div class="container">
             <h1 data-es="Stickers Personalizados" data-en="Custom Stickers">Stickers Personalizados</h1>
             <p data-es="Vinilo impermeable y papel fotográfico de alta calidad. Paquetes prediseñados o cotiza tu pedido personalizado." data-en="Waterproof vinyl and high quality photo paper. Pre-designed packages or customize your order.">Vinilo impermeable y papel fotográfico de alta calidad. Paquetes prediseñados o cotiza tu pedido personalizado.</p>
@@ -771,8 +636,8 @@
         </div>
     </section>
 
-    <!-- PACKAGES SECTION (TEMPLATES PARA PRINCIPIANTES) -->
-    <section id="packages" class="packages-section reveal">
+    <!-- PACKAGES SECTION -->
+    <section class="packages-section reveal">
         <div class="container">
             <h2 class="section-title" data-es="Paquetes Populares" data-en="Popular Packages">Paquetes Populares</h2>
             <p class="section-subtitle" data-es="¿No sabes qué elegir? Estos packs son los más pedidos por nuestros clientes. Ideales para empezar." data-en="Not sure what to choose? These packs are the most requested by our clients. Perfect to start.">¿No sabes qué elegir? Estos packs son los más pedidos por nuestros clientes. Ideales para empezar.</p>
@@ -877,565 +742,7 @@
         </div>
     </section>
 
-    <!-- MOCKUP PREVIEW SECTION -->
-    <section id="mockup" class="mockup-section reveal">
-        <div class="container">
-            <h2 class="section-title" data-es="Previsualiza tu Sticker" data-en="Preview Your Sticker">Previsualiza tu Sticker</h2>
-            <p class="section-subtitle" data-es="Sube tu diseño y mira cómo se vería antes de pedirlo. Así sabrás exactamente qué vas a recibir." data-en="Upload your design and see how it would look before ordering. You'll know exactly what you'll get.">Sube tu diseño y mira cómo se vería antes de pedirlo. Así sabrás exactamente qué vas a recibir.</p>
-
-            <div class="mockup-wrapper">
-                <!-- === STIKMANIA MOCKUP WIDGET v1.0 === -->
-                <div id="stik-mockup-widget">
-                <style>
-                #stik-mockup-widget {
-                --neon: #00FF00; --dark: #003300; --card: #1a1a1a; --text: #fff;
-                font-family: 'Inter', sans-serif;
-                color: var(--text);
-                }
-                #stik-mockup-widget * { box-sizing: border-box; }
-                #stik-mockup-widget .mw-tabs { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
-                #stik-mockup-widget .mw-tab {
-                    font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem;
-                    background: transparent; border: 2px solid var(--dark); color: #aaa;
-                    padding: 9px 16px; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
-                    transition: all 0.25s ease;
-                }
-                #stik-mockup-widget .mw-tab.active { border-color: var(--neon); color: var(--neon); background: rgba(0,255,0,0.08); }
-                #stik-mockup-widget .mw-workspace { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; align-items: start; }
-                @media (max-width: 640px) { #stik-mockup-widget .mw-workspace { grid-template-columns: 1fr; } }
-                #stik-mockup-widget .mw-mat {
-                    position: relative; border-radius: 12px; padding: 12px; min-height: 300px;
-                    display: flex; align-items: center; justify-content: center; overflow: hidden;
-                    background:
-                        linear-gradient(rgba(0,255,0,0.06) 1px, transparent 1px) 0 0/24px 24px,
-                        linear-gradient(90deg, rgba(0,255,0,0.06) 1px, transparent 1px) 0 0/24px 24px,
-                        #0a0a0a;
-                    border: 1px solid var(--dark);
-                }
-                #stik-mockup-widget .mw-mat canvas { width: 100%; height: auto; border-radius: 8px; display: block; touch-action: none; }
-                #stik-mockup-widget .mw-mat canvas.draggable { cursor: grab; }
-                #stik-mockup-widget .mw-mat canvas.dragging { cursor: grabbing; }
-                #stik-mockup-widget .mw-empty-hint {
-                    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-                    text-align: center; padding: 30px; color: #9fdc9f; font-size: 0.9rem; font-weight: 500; pointer-events: none;
-                }
-                #stik-mockup-widget .mw-empty-hint span { background: rgba(0,0,0,0.5); border: 1px solid var(--dark); padding: 10px 16px; border-radius: 8px; line-height: 1.5; }
-                #stik-mockup-widget .mw-drop-active .mw-mat { outline: 2px dashed var(--neon); outline-offset: -6px; }
-                #stik-mockup-widget .mw-panel { display: flex; flex-direction: column; gap: 16px; }
-                #stik-mockup-widget .mw-field label { display: block; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem; color: #ddd; margin-bottom: 8px; }
-                #stik-mockup-widget .mw-hint { font-size: 0.75rem; color: #888; margin: 6px 0 0; line-height: 1.4; }
-                #stik-mockup-widget input[type=file] { display: none; }
-                #stik-mockup-widget #mwFileName { font-size: 0.78rem; color: #888; margin-top: 8px; word-break: break-all; }
-                #stik-mockup-widget .mw-checkbox-row { display: flex; align-items: flex-start; gap: 9px; }
-                #stik-mockup-widget .mw-checkbox-row input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--neon); }
-                #stik-mockup-widget .mw-checkbox-row .mw-txt { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem; }
-                #stik-mockup-widget .mw-product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-                #stik-mockup-widget .mw-product-opt {
-                    background: #111; border: 1.5px solid var(--dark); border-radius: 8px; padding: 10px 6px 8px;
-                    cursor: pointer; text-align: center; font-size: 0.72rem; font-weight: 600; color: #999;
-                }
-                #stik-mockup-widget .mw-product-opt span { display: block; font-size: 20px; margin-bottom: 4px; }
-                #stik-mockup-widget .mw-product-opt.active { border-color: var(--neon); color: var(--neon); background: rgba(0,255,0,0.08); }
-                #stik-mockup-widget input[type=range] { accent-color: var(--neon); width: 100%; }
-                #stik-mockup-widget .mw-row-top { display: flex; justify-content: space-between; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600; color: #999; margin-bottom: 6px; }
-                #stik-mockup-widget .mw-swatches { display: flex; gap: 8px; }
-                #stik-mockup-widget .mw-swatch { flex: 1; height: 32px; border-radius: 6px; border: 1.5px solid var(--dark); cursor: pointer; }
-                #stik-mockup-widget .mw-swatch.active { border-color: var(--neon); box-shadow: 0 0 0 2px rgba(0,255,0,0.15); }
-                #stik-mockup-widget .mw-swatch.light { background: #f0f0f0; }
-                #stik-mockup-widget .mw-swatch.dark { background: #000; border-color: #333; }
-                #stik-mockup-widget .mw-swatch.checker {
-                    background-image: linear-gradient(45deg, #555 25%, transparent 25%), linear-gradient(-45deg, #555 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #555 75%), linear-gradient(-45deg, transparent 75%, #555 75%);
-                    background-size: 10px 10px; background-position: 0 0, 0 5px, 5px -5px, -5px 0px; background-color: #ddd;
-                }
-                #stik-mockup-widget .mw-divider { height: 1px; background: var(--dark); margin: 2px 0; }
-                #stik-mockup-widget .mw-btn-outline {
-                    background: transparent; border: 2px solid var(--dark); color: #ccc; font-family: inherit; font-weight: 600;
-                    padding: 10px; border-radius: 8px; width: 100%; cursor: pointer; font-size: 0.85rem;
-                }
-                #stik-mockup-widget .mw-btn-outline:hover { border-color: var(--neon); color: var(--neon); }
-                #stik-mockup-widget .mw-footnote { font-size: 0.72rem; color: #777; text-align: center; margin-top: 4px; }
-                #stik-mockup-widget .btn:disabled { background: #333; color: #777; cursor: not-allowed; }
-                #stik-mockup-widget .btn:disabled:hover { background: #333; }
-                </style>
-
-                <div class="mw-tabs">
-                    <button type="button" class="mw-tab active" id="mwTabCutout" data-es="Sticker recortado" data-en="Cut-out sticker">Sticker recortado</button>
-                    <button type="button" class="mw-tab" id="mwTabProduct" data-es="Sobre un producto" data-en="On a product">Sobre un producto</button>
-                </div>
-
-                <div class="mw-workspace">
-                    <div class="mw-mat" id="mwMatPanel">
-                        <canvas id="mwCanvas" width="900" height="640"></canvas>
-                        <div class="mw-empty-hint" id="mwEmptyHint"><span data-es="Sube una imagen (PNG o JPG) para ver el mockup" data-en="Upload an image (PNG or JPG) to see the mockup">Sube una imagen (PNG o JPG) para ver el mockup</span></div>
-                    </div>
-
-                    <div class="mw-panel">
-                        <div class="mw-field">
-                            <label data-es="Tu diseño" data-en="Your design">Tu diseño</label>
-                            <input type="file" id="mwFileInput" accept=".png,.jpg,.jpeg,image/png,image/jpeg">
-                            <button type="button" class="btn btn-small" id="mwUploadBtn" style="width:100%;" data-es="Elegir imagen" data-en="Choose image">Elegir imagen</button>
-                            <div id="mwFileName" data-es="Ningún archivo seleccionado" data-en="No file selected">Ningún archivo seleccionado</div>
-                        </div>
-
-                        <div class="mw-checkbox-row">
-                            <input type="checkbox" id="mwRemoveBg" checked>
-                            <div>
-                                <div class="mw-txt" data-es="Quitar fondo automáticamente" data-en="Remove background automatically">Quitar fondo automáticamente</div>
-                                <p class="mw-hint" data-es="Funciona mejor si el diseño está sobre un fondo blanco o de un solo color." data-en="Works best if the design is on a white or solid-color background.">Funciona mejor si el diseño está sobre un fondo blanco o de un solo color.</p>
-                            </div>
-                        </div>
-
-                        <div class="mw-divider" id="mwProductDivider" style="display:none;"></div>
-
-                        <div class="mw-field" id="mwProductPicker" style="display:none;">
-                            <label data-es="Producto" data-en="Product">Producto</label>
-                            <div class="mw-product-grid">
-                                <div class="mw-product-opt active" data-product="laptop"><span>&#128187;</span><span data-es="Laptop" data-en="Laptop">Laptop</span></div>
-                                <div class="mw-product-opt" data-product="bottle"><span>&#129380;</span><span data-es="Botella" data-en="Bottle">Botella</span></div>
-                                <div class="mw-product-opt" data-product="notebook"><span>&#128211;</span><span data-es="Cuaderno" data-en="Notebook">Cuaderno</span></div>
-                            </div>
-                        </div>
-
-                        <div class="mw-field" id="mwTransformBlock" style="display:none;">
-                            <label data-es="Ajustar sticker" data-en="Adjust sticker">Ajustar sticker</label>
-                            <div class="mw-row-top"><span data-es="Tamaño" data-en="Size">Tamaño</span></div>
-                            <input type="range" id="mwScaleRange" min="10" max="100" value="40">
-                            <div class="mw-row-top" style="margin-top:10px;"><span data-es="Rotación" data-en="Rotation">Rotación</span></div>
-                            <input type="range" id="mwRotationRange" min="-45" max="45" value="0">
-                            <p class="mw-hint" data-es="Arrastra el sticker sobre el producto para moverlo." data-en="Drag the sticker over the product to move it.">Arrastra el sticker sobre el producto para moverlo.</p>
-                            <button type="button" class="mw-btn-outline" id="mwResetTransform" style="margin-top:8px;" data-es="Restablecer posición" data-en="Reset position">Restablecer posición</button>
-                        </div>
-
-                        <div class="mw-field" id="mwBackdropBlock">
-                            <label data-es="Fondo de vista previa" data-en="Preview background">Fondo de vista previa</label>
-                            <div class="mw-swatches">
-                                <div class="mw-swatch light active" data-bg="light" title="Claro"></div>
-                                <div class="mw-swatch dark" data-bg="dark" title="Oscuro"></div>
-                                <div class="mw-swatch checker" data-bg="checker" title="Transparente"></div>
-                            </div>
-                        </div>
-
-                        <div class="mw-divider"></div>
-
-                        <button type="button" class="btn" id="mwDownloadBtn" style="width:100%;" disabled data-es="Descargar mockup" data-en="Download mockup">Descargar mockup</button>
-                        <p class="mw-footnote" data-es="Vista previa aproximada. El resultado final puede variar según el material." data-en="Approximate preview. Final result may vary depending on material.">Vista previa aproximada. El resultado final puede variar según el material.</p>
-                    </div>
-                </div>
-                </div>
-                <!-- === END MOCKUP WIDGET === -->
-            </div>
-        </div>
-    </section>
-
-    <script>
-    (function(){
-      const canvas = document.getElementById('mwCanvas');
-      const ctx = canvas.getContext('2d');
-      const W = canvas.width, H = canvas.height;
-
-      const fileInput = document.getElementById('mwFileInput');
-      const uploadBtn = document.getElementById('mwUploadBtn');
-      const fileNameEl = document.getElementById('mwFileName');
-      const removeBgChk = document.getElementById('mwRemoveBg');
-      const emptyHint = document.getElementById('mwEmptyHint');
-      const matPanel = document.getElementById('mwMatPanel');
-      const downloadBtn = document.getElementById('mwDownloadBtn');
-      const tabCutout = document.getElementById('mwTabCutout');
-      const tabProduct = document.getElementById('mwTabProduct');
-      const productPicker = document.getElementById('mwProductPicker');
-      const productDivider = document.getElementById('mwProductDivider');
-      const transformBlock = document.getElementById('mwTransformBlock');
-      const backdropBlock = document.getElementById('mwBackdropBlock');
-      const scaleRange = document.getElementById('mwScaleRange');
-      const rotationRange = document.getElementById('mwRotationRange');
-      const resetTransformBtn = document.getElementById('mwResetTransform');
-
-      const defaultTransforms = {
-        laptop:   { x:0.5, y:0.40, scale:0.34, rotation:0 },
-        bottle:   { x:0.5, y:0.46, scale:0.28, rotation:0 },
-        notebook: { x:0.5, y:0.48, scale:0.36, rotation:0 }
-      };
-
-      const state = {
-        mode: 'cutout',
-        product: 'laptop',
-        rawImage: null,
-        processedCanvas: null,
-        backdrop: 'light',
-        transforms: JSON.parse(JSON.stringify(defaultTransforms)),
-        dragging: false,
-        dragOffset: {x:0, y:0}
-      };
-
-      uploadBtn.addEventListener('click', () => fileInput.click());
-      fileInput.addEventListener('change', (e) => {
-        const f = e.target.files && e.target.files[0];
-        if (f) loadFile(f);
-      });
-
-      ['dragover','dragenter'].forEach(evt => {
-        matPanel.addEventListener(evt, (e) => { e.preventDefault(); matPanel.parentElement.parentElement.classList.add('mw-drop-active'); });
-      });
-      ['dragleave','drop'].forEach(evt => {
-        matPanel.addEventListener(evt, (e) => { e.preventDefault(); matPanel.parentElement.parentElement.classList.remove('mw-drop-active'); });
-      });
-      matPanel.addEventListener('drop', (e) => {
-        const f = e.dataTransfer.files && e.dataTransfer.files[0];
-        if (f) loadFile(f);
-      });
-
-      function loadFile(f){
-        if(!/image\/(png|jpe?g)/i.test(f.type)){
-          fileNameEl.textContent = (document.documentElement.lang === 'en')
-            ? 'Unsupported format. Use PNG or JPG.'
-            : 'Formato no soportado. Usa PNG o JPG.';
-          return;
-        }
-        fileNameEl.textContent = f.name;
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-          const img = new Image();
-          img.onload = () => { state.rawImage = img; processImage(); };
-          img.src = ev.target.result;
-        };
-        reader.readAsDataURL(f);
-      }
-
-      removeBgChk.addEventListener('change', () => { if(state.rawImage) processImage(); });
-
-      function processImage(){
-        const img = state.rawImage;
-        const maxDim = 1100;
-        let w = img.naturalWidth, h = img.naturalHeight;
-        const scale = Math.min(1, maxDim / Math.max(w, h));
-        w = Math.round(w * scale); h = Math.round(h * scale);
-
-        const src = document.createElement('canvas');
-        src.width = w; src.height = h;
-        const sctx = src.getContext('2d');
-        sctx.drawImage(img, 0, 0, w, h);
-        const data = sctx.getImageData(0, 0, w, h);
-
-        const mask = floodFillBackgroundMask(data, w, h);
-
-        if (removeBgChk.checked){
-          const px = data.data;
-          for (let i = 0; i < mask.length; i++){
-            if (mask[i]) px[i*4+3] = 0;
-          }
-          sctx.putImageData(data, 0, 0);
-        }
-
-        const bbox = computeForegroundBBox(mask, w, h);
-        const pad = Math.round(Math.max(w,h) * 0.015);
-        const bx = Math.max(0, bbox.minX - pad);
-        const by = Math.max(0, bbox.minY - pad);
-        const bw = Math.min(w, bbox.maxX + pad) - bx;
-        const bh = Math.min(h, bbox.maxY + pad) - by;
-
-        const trimmed = document.createElement('canvas');
-        trimmed.width = Math.max(1, bw);
-        trimmed.height = Math.max(1, bh);
-        trimmed.getContext('2d').drawImage(src, bx, by, bw, bh, 0, 0, bw, bh);
-
-        state.processedCanvas = trimmed;
-        emptyHint.style.display = 'none';
-        downloadBtn.disabled = false;
-        render();
-      }
-
-      function floodFillBackgroundMask(imageData, w, h){
-        const px = imageData.data;
-        const mask = new Uint8Array(w*h);
-        const visited = new Uint8Array(w*h);
-        const TOL = 42;
-        const stack = [];
-        const corners = [[0,0],[w-1,0],[0,h-1],[w-1,h-1]];
-
-        function idx(x,y){ return y*w+x; }
-        function colorAt(x,y){
-          const i = idx(x,y)*4;
-          return [px[i], px[i+1], px[i+2]];
-        }
-        function closeEnough(c1,c2){
-          const dr=c1[0]-c2[0], dg=c1[1]-c2[1], db=c1[2]-c2[2];
-          return (dr*dr+dg*dg+db*db) <= TOL*TOL*3;
-        }
-
-        corners.forEach(([cx,cy]) => {
-          const seed = colorAt(cx,cy);
-          const startIdx = idx(cx,cy);
-          if (visited[startIdx]) return;
-          stack.push([cx,cy]);
-          visited[startIdx] = 1;
-          while(stack.length){
-            const [x,y] = stack.pop();
-            mask[idx(x,y)] = 1;
-            const neighbors = [[x+1,y],[x-1,y],[x,y+1],[x,y-1]];
-            for (const [nx,ny] of neighbors){
-              if (nx<0||ny<0||nx>=w||ny>=h) continue;
-              const ni = idx(nx,ny);
-              if (visited[ni]) continue;
-              if (closeEnough(colorAt(nx,ny), seed)){
-                visited[ni] = 1;
-                stack.push([nx,ny]);
-              }
-            }
-          }
-        });
-        return mask;
-      }
-
-      function computeForegroundBBox(mask, w, h){
-        let minX=w, minY=h, maxX=0, maxY=0, found=false;
-        for (let y=0;y<h;y++){
-          for (let x=0;x<w;x++){
-            if (!mask[y*w+x]){
-              found = true;
-              if (x<minX) minX=x;
-              if (x>maxX) maxX=x;
-              if (y<minY) minY=y;
-              if (y>maxY) maxY=y;
-            }
-          }
-        }
-        if (!found) return {minX:0,minY:0,maxX:w,maxY:h};
-        return {minX,minY,maxX:maxX+1,maxY:maxY+1};
-      }
-
-      function makeSilhouette(srcCanvas){
-        const c = document.createElement('canvas');
-        c.width = srcCanvas.width; c.height = srcCanvas.height;
-        const cx = c.getContext('2d');
-        cx.drawImage(srcCanvas,0,0);
-        cx.globalCompositeOperation = 'source-in';
-        cx.fillStyle = '#ffffff';
-        cx.fillRect(0,0,c.width,c.height);
-        return c;
-      }
-      function makeDilated(silhouette, radius){
-        const c = document.createElement('canvas');
-        c.width = silhouette.width; c.height = silhouette.height;
-        const cx = c.getContext('2d');
-        const steps = 20;
-        for(let i=0;i<steps;i++){
-          const angle = (i/steps)*Math.PI*2;
-          cx.drawImage(silhouette, Math.cos(angle)*radius, Math.sin(angle)*radius);
-        }
-        return c;
-      }
-
-      function setMode(mode){
-        state.mode = mode;
-        tabCutout.classList.toggle('active', mode==='cutout');
-        tabProduct.classList.toggle('active', mode==='product');
-        productPicker.style.display = mode==='product' ? 'block' : 'none';
-        productDivider.style.display = mode==='product' ? 'block' : 'none';
-        transformBlock.style.display = mode==='product' ? 'block' : 'none';
-        backdropBlock.style.display = mode==='cutout' ? 'block' : 'none';
-        canvas.classList.toggle('draggable', mode==='product');
-        syncSlidersToProduct();
-        render();
-      }
-      tabCutout.addEventListener('click', () => setMode('cutout'));
-      tabProduct.addEventListener('click', () => setMode('product'));
-
-      document.querySelectorAll('#stik-mockup-widget .mw-product-opt').forEach(el => {
-        el.addEventListener('click', () => {
-          document.querySelectorAll('#stik-mockup-widget .mw-product-opt').forEach(o=>o.classList.remove('active'));
-          el.classList.add('active');
-          state.product = el.dataset.product;
-          syncSlidersToProduct();
-          render();
-        });
-      });
-
-      function syncSlidersToProduct(){
-        const t = state.transforms[state.product];
-        scaleRange.value = Math.round(t.scale * 100);
-        rotationRange.value = t.rotation;
-      }
-
-      scaleRange.addEventListener('input', () => {
-        state.transforms[state.product].scale = scaleRange.value / 100;
-        render();
-      });
-      rotationRange.addEventListener('input', () => {
-        state.transforms[state.product].rotation = parseInt(rotationRange.value,10);
-        render();
-      });
-      resetTransformBtn.addEventListener('click', () => {
-        state.transforms[state.product] = JSON.parse(JSON.stringify(defaultTransforms[state.product]));
-        syncSlidersToProduct();
-        render();
-      });
-
-      document.querySelectorAll('#stik-mockup-widget .mw-swatch').forEach(el => {
-        el.addEventListener('click', () => {
-          document.querySelectorAll('#stik-mockup-widget .mw-swatch').forEach(o=>o.classList.remove('active'));
-          el.classList.add('active');
-          state.backdrop = el.dataset.bg;
-          render();
-        });
-      });
-
-      function getCanvasPos(e){
-        const rect = canvas.getBoundingClientRect();
-        const cx = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-        const cy = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-        return { x: (cx / rect.width) * W, y: (cy / rect.height) * H };
-      }
-      canvas.addEventListener('pointerdown', (e) => {
-        if (state.mode !== 'product' || !state.processedCanvas) return;
-        const pos = getCanvasPos(e);
-        const t = state.transforms[state.product];
-        state.dragging = true;
-        state.dragOffset = { x: pos.x/W - t.x, y: pos.y/H - t.y };
-        canvas.classList.add('dragging');
-        canvas.setPointerCapture(e.pointerId);
-      });
-      canvas.addEventListener('pointermove', (e) => {
-        if (!state.dragging) return;
-        const pos = getCanvasPos(e);
-        const t = state.transforms[state.product];
-        t.x = Math.min(0.95, Math.max(0.05, pos.x/W - state.dragOffset.x));
-        t.y = Math.min(0.95, Math.max(0.05, pos.y/H - state.dragOffset.y));
-        render();
-      });
-      ['pointerup','pointerleave','pointercancel'].forEach(evt=>{
-        canvas.addEventListener(evt, () => { state.dragging=false; canvas.classList.remove('dragging'); });
-      });
-
-      function drawLaptop(c){
-        c.fillStyle = '#2c332d';
-        roundRect(c, W*0.5-260, H*0.62, 520, 18, 6); c.fill();
-        const grad = c.createLinearGradient(0, H*0.14, 0, H*0.62);
-        grad.addColorStop(0, '#e9ebe6');
-        grad.addColorStop(1, '#c3c7bf');
-        c.fillStyle = grad;
-        roundRect(c, W*0.5-230, H*0.14, 460, H*0.48, 14); c.fill();
-        c.fillStyle = 'rgba(255,255,255,0.35)';
-        c.beginPath(); c.arc(W*0.5, H*0.14+34, 4, 0, Math.PI*2); c.fill();
-      }
-      function drawBottle(c){
-        const bx = W*0.5-95, by=H*0.14, bw=190, bh=H*0.68;
-        const grad = c.createLinearGradient(bx,0,bx+bw,0);
-        grad.addColorStop(0,'#b9d6d2'); grad.addColorStop(0.5,'#e4f1ee'); grad.addColorStop(1,'#a9cdc8');
-        c.fillStyle = grad;
-        roundRect(c, bx, by+40, bw, bh-40, 34); c.fill();
-        c.fillStyle = '#8fb3ae';
-        roundRect(c, bx+bw*0.32, by, bw*0.36, 46, 8); c.fill();
-        c.fillStyle = 'rgba(255,255,255,0.5)';
-        roundRect(c, bx+18, by+70, 22, bh-120, 11); c.fill();
-      }
-      function drawNotebook(c){
-        const nx=W*0.5-190, ny=H*0.16, nw=380, nh=H*0.62;
-        c.fillStyle = '#7c5c42';
-        roundRect(c, nx, ny, nw, nh, 10); c.fill();
-        c.fillStyle = 'rgba(0,0,0,0.12)';
-        c.fillRect(nx, ny, 14, nh);
-        c.strokeStyle = '#5a3f2c';
-        c.lineWidth = 6;
-        c.beginPath();
-        c.moveTo(nx+nw-40, ny-6); c.lineTo(nx+nw-40, ny+nh+6);
-        c.stroke();
-      }
-      function roundRect(c,x,y,w,h,r){
-        c.beginPath();
-        c.moveTo(x+r,y);
-        c.arcTo(x+w,y,x+w,y+h,r);
-        c.arcTo(x+w,y+h,x,y+h,r);
-        c.arcTo(x,y+h,x,y,r);
-        c.arcTo(x,y,x+w,y,r);
-        c.closePath();
-      }
-
-      function render(){
-        ctx.clearRect(0,0,W,H);
-
-        if (state.mode === 'cutout'){
-          drawCutoutBackdrop();
-          if (state.processedCanvas) drawCutoutSticker();
-        } else {
-          ctx.fillStyle = '#e9e9e9';
-          ctx.fillRect(0,0,W,H);
-          if (state.product === 'laptop') drawLaptop(ctx);
-          if (state.product === 'bottle') drawBottle(ctx);
-          if (state.product === 'notebook') drawNotebook(ctx);
-          if (state.processedCanvas) drawProductSticker();
-        }
-      }
-
-      function drawCutoutBackdrop(){
-        if (state.backdrop === 'light'){
-          ctx.fillStyle = '#f0f0f0'; ctx.fillRect(0,0,W,H);
-        } else if (state.backdrop === 'dark'){
-          ctx.fillStyle = '#050505'; ctx.fillRect(0,0,W,H);
-        } else {
-          const cell = 20;
-          for (let y=0; y<H; y+=cell){
-            for (let x=0; x<W; x+=cell){
-              const even = ((x/cell + y/cell) % 2 === 0);
-              ctx.fillStyle = even ? '#dddddd' : '#f2f2f2';
-              ctx.fillRect(x,y,cell,cell);
-            }
-          }
-        }
-      }
-
-      function fitBox(imgW, imgH, maxW, maxH){
-        const ratio = Math.min(maxW/imgW, maxH/imgH);
-        return { w: imgW*ratio, h: imgH*ratio };
-      }
-
-      function drawCutoutSticker(){
-        const pc = state.processedCanvas;
-        const box = fitBox(pc.width, pc.height, W*0.62, H*0.62);
-        const dx = (W - box.w)/2, dy = (H - box.h)/2;
-        const borderPx = Math.max(6, Math.round(Math.min(box.w, box.h) * 0.03));
-
-        const silhouette = makeSilhouette(pc);
-        const dilated = makeDilated(silhouette, borderPx);
-
-        ctx.save();
-        ctx.shadowColor = 'rgba(0,0,0,0.35)';
-        ctx.shadowBlur = 26;
-        ctx.shadowOffsetY = 14;
-        ctx.drawImage(dilated, dx, dy, box.w, box.h);
-        ctx.restore();
-
-        ctx.drawImage(pc, dx, dy, box.w, box.h);
-      }
-
-      function drawProductSticker(){
-        const t = state.transforms[state.product];
-        const pc = state.processedCanvas;
-        const box = fitBox(pc.width, pc.height, W*t.scale, W*t.scale);
-        const cx = t.x * W, cy = t.y * H;
-
-        ctx.save();
-        ctx.translate(cx, cy);
-        ctx.rotate(t.rotation * Math.PI/180);
-        ctx.shadowColor = 'rgba(0,0,0,0.35)';
-        ctx.shadowBlur = 8;
-        ctx.shadowOffsetY = 3;
-        ctx.globalAlpha = 0.97;
-        ctx.drawImage(pc, -box.w/2, -box.h/2, box.w, box.h);
-        ctx.restore();
-      }
-
-      downloadBtn.addEventListener('click', () => {
-        const link = document.createElement('a');
-        link.download = 'mockup-sticker.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-      });
-
-      render();
-    })();
-    </script>
-
-    <!-- CALCULATOR SECTION (PARA EXPERTOS) -->
+    <!-- CALCULATOR SECTION -->
     <section id="calculator" class="calculator-section reveal">
         <div class="container">
             <h2 class="section-title" data-es="Cotizador Personalizado" data-en="Custom Calculator">Cotizador Personalizado</h2>
@@ -1562,7 +869,6 @@
                 <!-- === END WIDGET === -->
             </div>
             
-            <!-- INFO BOX - Precio por m² -->
             <div class="info-box">
                 <h3 data-es="📊 Precio de Referencia por Metro Cuadrado" data-en="📊 Reference Price per Square Meter">📊 Precio de Referencia por Metro Cuadrado</h3>
                 <p data-es="El metro cuadrado de stickers está concebido en estos precios como referencia general:" data-en="The square meter of stickers is conceived at these prices as a general reference:">El metro cuadrado de stickers está concebido en estos precios como referencia general:</p>
@@ -1576,14 +882,13 @@
     </section>
 
     <!-- PAYMENT INFO SECTION -->
-    <section id="payment" class="payment-section reveal">
+    <section class="payment-section reveal">
         <div class="container">
             <h2 class="section-title" data-es="Métodos de Pago" data-en="Payment Methods">Métodos de Pago</h2>
             <p class="section-subtitle" data-es="Aceptamos múltiples formas de pago para tu comodidad. Proceso claro y transparente." data-en="We accept multiple payment methods for your convenience. Clear and transparent process.">Aceptamos múltiples formas de pago para tu comodidad. Proceso claro y transparente.</p>
             
             <div class="payment-grid">
                 
-                <!-- PAYMENT CARD 1 -->
                 <div class="payment-card">
                     <h3 data-es="💳 Métodos Aceptados" data-en="Accepted Methods">💳 Métodos Aceptados</h3>
                     <ul class="payment-methods">
@@ -1597,7 +902,6 @@
                     </div>
                 </div>
                 
-                <!-- PAYMENT CARD 2 -->
                 <div class="payment-card">
                     <h3 data-es="📋 Proceso de Compra" data-en="Purchase Process">📋 Proceso de Compra</h3>
                     <ul class="payment-methods">
@@ -1614,12 +918,11 @@
     </section>
 
     <!-- GALLERY -->
-    <section id="gallery" class="gallery reveal">
+    <section class="gallery reveal">
         <div class="container">
             <h2 class="section-title" data-es="Ejemplos de Nuestros Stickers" data-en="Examples of Our Stickers">Ejemplos de Nuestros Stickers</h2>
             
             <div class="gallery-grid">
-                <!-- Imágenes originales (4) -->
                 <div class="gallery-item">
                     <img src="images/delitaystickers_envase de cristal.png" alt="Sticker en envase de cristal" loading="lazy">
                     <span class="industry-tag">Food</span>
@@ -1636,8 +939,6 @@
                     <img src="images/verda_stickers.png" alt="Stickers Verda" loading="lazy">
                     <span class="industry-tag">Branding</span>
                 </div>
-                
-                <!-- NUEVAS IMÁGENES (4) -->
                 <div class="gallery-item">
                     <img src="images/Laptop_HDD_iPhone.jpg" alt="Stickers en tecnología" loading="lazy">
                     <span class="industry-tag">Tecnología</span>
@@ -1666,7 +967,7 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="faq reveal">
+    <section class="faq reveal">
         <div class="container">
             <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
             
@@ -1732,7 +1033,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p style="color: var(--white); margin-bottom: 10px;">
@@ -1748,7 +1048,6 @@
     </footer>
 
     <script>
-        // LANGUAGE SYSTEM
         let currentLang = localStorage.getItem('stikmania_lang') || 'es';
         
         function toggleLanguage() {
@@ -1767,37 +1066,6 @@
         
         updateLanguage();
         
-        // SECTION NAVIGATION
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-        
-        // Update active section on scroll
-        window.addEventListener('scroll', () => {
-            const sections = ['hero', 'packages', 'mockup', 'calculator', 'payment', 'gallery', 'faq'];
-            const scrollPosition = window.scrollY + 200;
-            
-            sections.forEach(sectionId => {
-                const section = document.getElementById(sectionId);
-                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
-                
-                if (section && navItem) {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navItem.classList.add('active');
-                    } else {
-                        navItem.classList.remove('active');
-                    }
-                }
-            });
-        });
-        
-        // SCROLL REVEAL
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             reveals.forEach(element => {
@@ -1813,7 +1081,6 @@
         window.addEventListener("scroll", reveal);
         reveal();
         
-        // FAQ TOGGLE
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             const sign = element.querySelector('span:last-child');
@@ -1827,14 +1094,11 @@
             }
         }
         
-        // ORDER PACKAGE FUNCTION (Para templates con multiplicador)
         function orderPackage(packageName, specs, material, packageType) {
-            // Obtener el multiplicador seleccionado
             const multiplierSelect = document.getElementById(`multiplier-${packageType}`);
             const multiplier = multiplierSelect ? multiplierSelect.value : 1;
             const multiplierText = multiplierSelect ? multiplierSelect.options[multiplierSelect.selectedIndex].text : '1x';
             
-            // Calcular precio total basado en el multiplicador
             const basePrices = {
                 'emprendedor': 2,
                 'evento': 3,
@@ -1847,7 +1111,7 @@
             window.open(`https://wa.me/5359758756?text=${encodeURIComponent(msg)}`, '_blank');
         }
         
-        // CALCULATOR WIDGET SCRIPT v3.2 (config.json prioritario)
+        // CALCULATOR WIDGET SCRIPT v3.2
         (function() {
         const SHEET_SIZES = { a4: { w: 210, h: 297 }, letter: { w: 215.9, h: 279.4 } };
         const ADMIN_PASS = "aggmgm272000";
@@ -1888,7 +1152,7 @@
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
         cfg = JSON.parse(saved);
-        console.log('⚠️ Usando localStorage (config.json no disponible):', cfg);
+        console.log('⚠️ Usando localStorage:', cfg);
         }
         } catch(e) { console.error('Error cargando localStorage:', e); }
         }
@@ -1903,7 +1167,6 @@
         const el = document.getElementById(id);
         if (el && cfg[id.replace('admin','').toLowerCase()] !== undefined) {
         el.value = cfg[id.replace('admin','').toLowerCase()];
-        console.log('📊 Campo ' + id + ' = ' + el.value);
         }
         });
         
@@ -1923,7 +1186,7 @@
         discVinyl: nums[6]||1, discPhoto: nums[7]||0.5
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(cfg));
-        alert('✅ Configuración guardada en navegador (temporal)\n\n⚠️ IMPORTANTE: Esto NO actualiza config.json\n\nPara cambios permanentes:\n1. Click en "📥 Descargar JSON"\n2. Sube el archivo a GitHub\n3. Reemplaza config.json');
+        alert('✅ Configuración guardada en navegador\n\n⚠️ Para cambios permanentes:\n1. Click en "📥 Descargar JSON"\n2. Sube el archivo a GitHub\n3. Reemplaza config.json');
         };
         
         window.stikDownloadConfig = function() {
@@ -1960,7 +1223,7 @@
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
         
-        alert('✅ JSON descargado\n\n📁 AHORA SUBE ESTE ARCHIVO A GITHUB:\n1. Ve a tu repositorio\n2. Sube config.json (reemplaza el existente)\n3. Commit los cambios\n4. Espera 2-3 minutos\n5. Recarga la página con Ctrl+F5');
+        alert('✅ JSON descargado\n\n📁 SUBE ESTE ARCHIVO A GITHUB:\n1. Ve a tu repositorio\n2. Sube config.json\n3. Commit los cambios\n4. Espera 2-3 minutos\n5. Recarga con Ctrl+F5');
         };
         
         function setupLongPress() {
@@ -1983,7 +1246,7 @@
         
         window.stikCalculate = function() {
         const cfg = appConfig;
-        if (!cfg) { alert('⚠️ Configuración no cargada. Recarga la página con Ctrl+F5.'); return; }
+        if (!cfg) { alert('⚠️ Configuración no cargada. Recarga con Ctrl+F5.'); return; }
         
         const qty = parseInt(document.getElementById('stikQty').value)||1;
         const sW = (parseFloat(document.getElementById('stikW').value)||1)*10;
@@ -2051,6 +1314,19 @@
         loadConfig().then(cfg => { appConfig = cfg; setupLongPress(); });
         }
         })();
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('❌ Error registrando Service Worker:', error);
+                    });
+            });
+        }
     </script>
 
 </body>

@@ -6,6 +6,15 @@
     <title>Branding Digital | STIKMANIA</title>
     <meta name="description" content="Servicios de branding digital y aplicado. Logos, identidad visual y papelería en Cuba.">
     
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00FF00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
@@ -18,12 +27,10 @@
     <style>
         :root {
             --neon-green: #00FF00;
-            --green: #006600;
             --dark-green: #003300;
             --black: #000000;
             --white: #FFFFFF;
             --gray: #1a1a1a;
-            --gray-light: #2a2a2a;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,7 +38,7 @@
         html { scroll-behavior: smooth; }
         
         html, body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             background: var(--black);
             color: var(--white);
             line-height: 1.6;
@@ -39,7 +46,6 @@
             position: relative;
         }
         
-        /* BACKGROUND CON IMAGEN Y BLUR */
         body::before {
             content: '';
             position: fixed;
@@ -47,7 +53,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/var_plata.png');
+            background-image: url('images/var_malva.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -106,7 +112,6 @@
         
         .btn-outline:hover { background: var(--neon-green); color: var(--black); }
         
-        /* LANGUAGE SWITCHER */
         .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1001; }
         
         .lang-btn {
@@ -123,7 +128,7 @@
         
         .lang-btn:hover { background: var(--neon-green); color: var(--black); }
         
-        /* SECTION NAVIGATION INDICATOR */
+        /* SECTION NAVIGATION */
         .section-nav {
             position: fixed;
             right: 20px;
@@ -183,7 +188,6 @@
             visibility: visible;
         }
         
-        /* HEADER */
         header {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(10px);
@@ -210,7 +214,6 @@
         nav ul { display: flex; list-style: none; gap: 30px; }
         nav a:hover { color: var(--neon-green); }
         
-        /* HERO */
         .hero {
             padding: 160px 0 60px 0;
             background: rgba(0, 0, 0, 0.6);
@@ -242,7 +245,6 @@
             margin-top: 20px;
         }
         
-        /* PACKAGES */
         .packages { padding: 80px 0; }
         
         .section-title {
@@ -346,7 +348,6 @@
             margin-bottom: 20px;
         }
         
-        /* GALLERY */
         .gallery { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -387,7 +388,6 @@
         
         .gallery-item a:hover { text-decoration: underline; }
         
-        /* QUESTIONNAIRE */
         .questionnaire { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -454,7 +454,6 @@
             font-weight: 600;
         }
         
-        /* FAQ */
         .faq { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -489,7 +488,6 @@
         
         .faq-answer.show { max-height: 500px; padding: 0 20px 20px 20px; }
         
-        /* FOOTER */
         footer {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(10px);
@@ -498,7 +496,6 @@
             border-top: 1px solid var(--dark-green);
         }
         
-        /* REVEAL ANIMATION */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -510,7 +507,6 @@
             transform: translateY(0);
         }
         
-        /* MOBILE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .section-title { font-size: 2rem; }
@@ -534,12 +530,11 @@
 </head>
 <body>
 
-    <!-- LANGUAGE SWITCHER -->
     <div class="lang-switch">
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
 
-    <!-- SECTION NAVIGATION INDICATOR -->
+    <!-- SECTION NAVIGATION -->
     <nav class="section-nav">
         <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
             <span class="section-nav-tooltip">Inicio</span>
@@ -558,7 +553,6 @@
         </div>
     </nav>
 
-    <!-- HEADER -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -575,7 +569,6 @@
         </div>
     </header>
 
-    <!-- HERO -->
     <section id="hero" class="hero">
         <div class="container">
             <h1 data-es="Branding Digital" data-en="Digital Branding">Branding Digital</h1>
@@ -586,7 +579,6 @@
         </div>
     </section>
 
-    <!-- PACKAGES -->
     <section id="packages" class="packages reveal">
         <div class="container">
             <h2 class="section-title" data-es="Paquetes de Branding" data-en="Branding Packages">Paquetes de Branding</h2>
@@ -653,7 +645,6 @@
         </div>
     </section>
 
-    <!-- GALLERY -->
     <section id="gallery" class="gallery reveal">
         <div class="container">
             <h2 class="section-title" data-es="Clientes que Confían" data-en="Trusting Clients">Clientes que Confían</h2>
@@ -684,7 +675,6 @@
         </div>
     </section>
 
-    <!-- QUESTIONNAIRE -->
     <section id="questionnaire" class="questionnaire reveal">
         <div class="container">
             <h2 class="section-title" data-es="Cuestionario de Branding" data-en="Branding Questionnaire">Cuestionario de Branding</h2>
@@ -760,7 +750,6 @@
         </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq" class="faq reveal">
         <div class="container">
             <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
@@ -830,7 +819,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p style="color: var(--white); margin-bottom: 10px;">
@@ -846,7 +834,6 @@
     </footer>
 
     <script>
-        // LANGUAGE SYSTEM
         let currentLang = localStorage.getItem('stikmania_lang') || 'es';
         
         function toggleLanguage() {
@@ -895,7 +882,6 @@
             });
         });
         
-        // SCROLL REVEAL
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             reveals.forEach(element => {
@@ -911,7 +897,6 @@
         window.addEventListener("scroll", reveal);
         reveal();
         
-        // AUTO-FILL PACKAGE WHEN SELECTED
         function selectPackage(packageType) {
             const packageSelect = document.getElementById('q_package');
             const packageMessage = document.getElementById('package-message');
@@ -928,24 +913,20 @@
             packageName.textContent = packageNames[packageType];
             packageMessage.classList.add('show');
             
-            // Highlight selected card
             document.querySelectorAll('.package-card').forEach(card => {
                 card.classList.remove('seleccionado');
             });
             document.getElementById(`package-${packageType}`).classList.add('seleccionado');
             
-            // Scroll to questionnaire
             document.getElementById('questionnaire').scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
             
-            // Highlight the select field
             packageSelect.style.borderColor = 'var(--neon-green)';
             packageSelect.style.background = 'var(--gray)';
         }
         
-        // Toggle FAQ
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             const sign = element.querySelector('span:last-child');
@@ -959,7 +940,6 @@
             }
         }
         
-        // Submit questionnaire via WhatsApp
         function submitQuestionnaire(e) {
             e.preventDefault();
             
@@ -995,7 +975,6 @@
             window.open(url, '_blank');
         }
         
-        // Smooth scroll for questionnaire links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
@@ -1011,6 +990,19 @@
                 }
             });
         });
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('❌ Error registrando Service Worker:', error);
+                    });
+            });
+        }
     </script>
 
 </body>

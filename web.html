@@ -6,6 +6,15 @@
     <title>Desarrollo Web | STIKMANIA</title>
     <meta name="description" content="Desarrollo de páginas web profesionales en Cuba. Landing, E-commerce, Portfolio y Web Apps.">
     
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00FF00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
@@ -18,12 +27,10 @@
     <style>
         :root {
             --neon-green: #00FF00;
-            --green: #006600;
             --dark-green: #003300;
             --black: #000000;
             --white: #FFFFFF;
             --gray: #1a1a1a;
-            --gray-light: #2a2a2a;
             --web: #4fc3f7;
         }
         
@@ -32,7 +39,7 @@
         html { scroll-behavior: smooth; }
         
         html, body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             background: var(--black);
             color: var(--white);
             line-height: 1.6;
@@ -40,7 +47,6 @@
             position: relative;
         }
         
-        /* BACKGROUND CON IMAGEN Y BLUR */
         body::before {
             content: '';
             position: fixed;
@@ -66,13 +72,7 @@
         
         a { color: inherit; text-decoration: none; }
         
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
         
         .btn {
             display: inline-block;
@@ -113,7 +113,8 @@
         
         .btn-outline:hover { background: var(--web); color: var(--black); }
         
-        /* LANGUAGE SWITCHER */
+        .btn-small { padding: 8px 16px; font-size: 0.85rem; }
+        
         .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1001; }
         
         .lang-btn {
@@ -130,7 +131,7 @@
         
         .lang-btn:hover { background: var(--neon-green); color: var(--black); }
         
-        /* SECTION NAVIGATION INDICATOR */
+        /* SECTION NAVIGATION */
         .section-nav {
             position: fixed;
             right: 20px;
@@ -190,7 +191,6 @@
             visibility: visible;
         }
         
-        /* HEADER */
         header {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(10px);
@@ -217,7 +217,6 @@
         nav ul { display: flex; list-style: none; gap: 30px; }
         nav a:hover { color: var(--neon-green); }
         
-        /* HERO */
         .hero {
             padding: 160px 0 60px 0;
             background: rgba(0, 0, 0, 0.6);
@@ -249,7 +248,6 @@
             margin-top: 20px;
         }
         
-        /* PACKAGES */
         .packages { padding: 80px 0; }
         
         .section-title {
@@ -353,7 +351,6 @@
             margin-bottom: 20px;
         }
         
-        /* PORTFOLIO SECTION */
         .portfolio { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -449,7 +446,6 @@
             font-weight: 500;
         }
         
-        /* INFO SECTION */
         .info-section { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -499,7 +495,6 @@
             margin-right: 10px;
         }
         
-        /* CONTRACT INFO */
         .contract-info {
             padding: 80px 0;
             background: linear-gradient(135deg, rgba(13, 27, 42, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
@@ -526,7 +521,6 @@
         
         .contract-download { text-align: center; margin-top: 30px; }
         
-        /* QUESTIONNAIRE */
         .questionnaire { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -593,7 +587,6 @@
             font-weight: 600;
         }
         
-        /* FAQ */
         .faq { 
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.5);
@@ -628,7 +621,6 @@
         
         .faq-answer.show { max-height: 500px; padding: 0 20px 20px 20px; }
         
-        /* FOOTER */
         footer {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(10px);
@@ -637,7 +629,6 @@
             border-top: 1px solid var(--dark-green);
         }
         
-        /* REVEAL ANIMATION */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -649,7 +640,6 @@
             transform: translateY(0);
         }
         
-        /* MOBILE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .section-title { font-size: 2rem; }
@@ -676,12 +666,11 @@
 </head>
 <body>
 
-    <!-- LANGUAGE SWITCHER -->
     <div class="lang-switch">
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
 
-    <!-- SECTION NAVIGATION INDICATOR -->
+    <!-- SECTION NAVIGATION -->
     <nav class="section-nav">
         <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
             <span class="section-nav-tooltip">Inicio</span>
@@ -703,7 +692,6 @@
         </div>
     </nav>
 
-    <!-- HEADER -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -720,7 +708,6 @@
         </div>
     </header>
 
-    <!-- HERO -->
     <section id="hero" class="hero">
         <div class="container">
             <h1 data-es="Desarrollo Web Profesional" data-en="Professional Web Development">Desarrollo Web Profesional</h1>
@@ -731,7 +718,6 @@
         </div>
     </section>
 
-    <!-- PACKAGES -->
     <section id="packages" class="packages reveal">
         <div class="container">
             <h2 class="section-title" data-es="Tipos de Web y Precios" data-en="Web Types and Prices">Tipos de Web y Precios</h2>
@@ -819,7 +805,6 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="portfolio reveal">
         <div class="container">
             <h2 class="section-title" data-es="Ejemplos de Nuestros Trabajos" data-en="Examples of Our Work">Ejemplos de Nuestros Trabajos</h2>
@@ -869,7 +854,6 @@
         </div>
     </section>
 
-    <!-- INFO SECTION -->
     <section id="info" class="info-section reveal">
         <div class="container">
             <h2 class="section-title" data-es="¿Qué Incluye el Precio?" data-en="What Does the Price Include?">¿Qué Incluye el Precio?</h2>
@@ -922,7 +906,6 @@
         </div>
     </section>
 
-    <!-- CONTRACT INFO -->
     <div class="container">
         <div class="contract-info">
             <h2 data-es="Contrato de Servicio Web" data-en="Web Service Contract">Contrato de Servicio Web</h2>
@@ -936,7 +919,6 @@
         </div>
     </div>
 
-    <!-- QUESTIONNAIRE -->
     <section id="questionnaire" class="questionnaire reveal">
         <div class="container">
             <h2 class="section-title" data-es="Cuestionario de Desarrollo Web" data-en="Web Development Questionnaire">Cuestionario de Desarrollo Web</h2>
@@ -1014,7 +996,6 @@
         </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq" class="faq reveal">
         <div class="container">
             <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
@@ -1091,7 +1072,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p style="color: var(--white); margin-bottom: 10px;">
@@ -1107,7 +1087,6 @@
     </footer>
 
     <script>
-        // LANGUAGE SYSTEM
         let currentLang = localStorage.getItem('stikmania_lang') || 'es';
         
         function toggleLanguage() {
@@ -1156,7 +1135,6 @@
             });
         });
         
-        // SCROLL REVEAL
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             reveals.forEach(element => {
@@ -1172,7 +1150,6 @@
         window.addEventListener("scroll", reveal);
         reveal();
         
-        // AUTO-FILL PACKAGE WHEN SELECTED
         function selectPackage(packageType) {
             const packageSelect = document.getElementById('q_package');
             const packageMessage = document.getElementById('package-message');
@@ -1190,24 +1167,20 @@
             packageName.textContent = packageNames[packageType];
             packageMessage.classList.add('show');
             
-            // Highlight selected card
             document.querySelectorAll('.package-card').forEach(card => {
                 card.classList.remove('seleccionado');
             });
             document.getElementById(`package-${packageType}`).classList.add('seleccionado');
             
-            // Scroll to questionnaire
             document.getElementById('questionnaire').scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
             
-            // Highlight the select field
             packageSelect.style.borderColor = 'var(--web)';
             packageSelect.style.background = 'var(--gray)';
         }
         
-        // Toggle FAQ
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             const sign = element.querySelector('span:last-child');
@@ -1221,7 +1194,6 @@
             }
         }
         
-        // Submit questionnaire via WhatsApp
         function submitQuestionnaire(e) {
             e.preventDefault();
             
@@ -1255,7 +1227,6 @@
             window.open(url, '_blank');
         }
         
-        // Smooth scroll for questionnaire links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
@@ -1271,6 +1242,19 @@
                 }
             });
         });
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('❌ Error registrando Service Worker:', error);
+                    });
+            });
+        }
     </script>
 
 </body>

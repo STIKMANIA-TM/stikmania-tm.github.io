@@ -1,0 +1,52 @@
+{
+  "name": "STIKMANIA - Diseño que se pega",
+  "short_name": "STIKMANIA",
+  "description": "Stickers personalizados, branding profesional y desarrollo web en La Habana, Cuba",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00FF00",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "design", "shopping"],
+  "shortcuts": [
+    {
+      "name": "Tienda Stickers",
+      "short_name": "Stickers",
+      "description": "Ver tienda de stickers personalizados",
+      "url": "/stickers.html",
+      "icons": [{ "src": "images/favicon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Branding",
+      "short_name": "Branding",
+      "description": "Servicios de branding digital",
+      "url": "/branding.html",
+      "icons": [{ "src": "images/favicon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Desarrollo Web",
+      "short_name": "Web",
+      "description": "Servicios de desarrollo web",
+      "url": "/web.html",
+      "icons": [{ "src": "images/favicon.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

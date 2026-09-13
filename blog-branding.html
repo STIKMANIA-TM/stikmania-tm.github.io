@@ -6,6 +6,15 @@
     <title data-es="Por qué tu emprendimiento necesita branding profesional | STIKMANIA" data-en="Why your business needs professional branding | STIKMANIA">Por qué tu emprendimiento necesita branding profesional | STIKMANIA</title>
     <meta name="description" content="Descubre por qué el branding profesional es esencial para tu emprendimiento en Cuba. Impacto en ventas, percepción y crecimiento.">
     
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00FF00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
@@ -509,6 +518,19 @@
                 }
             });
         });
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('❌ Error registrando Service Worker:', error);
+                    });
+            });
+        }
     </script>
 
 </body>
