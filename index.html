@@ -93,6 +93,66 @@
         
         body { background-color: rgba(0, 0, 0, 0.85); }
         
+        /* SECTION NAVIGATION INDICATOR */
+        .section-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 15px 10px;
+            border-radius: 30px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .section-nav-item {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--dark-green);
+            border: 2px solid var(--neon-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .section-nav-item:hover {
+            background: var(--neon-green);
+            transform: scale(1.2);
+        }
+        
+        .section-nav-item.active {
+            background: var(--neon-green);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        .section-nav-tooltip {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--neon-green);
+        }
+        
+        .section-nav-item:hover .section-nav-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
         /* BACKGROUND ANIMADO */
         body::before {
             content: '';
@@ -664,6 +724,17 @@
             .contact-buttons { gap: 10px; }
             .contact-btn { width: 45px; height: 45px; }
             .lang-switch { top: 10px; right: 10px; }
+            .section-nav { 
+                right: 10px; 
+                padding: 10px 8px;
+            }
+            .section-nav-item {
+                width: 10px;
+                height: 10px;
+            }
+            .section-nav-tooltip {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -673,6 +744,25 @@
     <div class="lang-switch">
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
+
+    <!-- SECTION NAVIGATION INDICATOR -->
+    <nav class="section-nav">
+        <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
+            <span class="section-nav-tooltip">Inicio</span>
+        </div>
+        <div class="section-nav-item" data-section="services" onclick="scrollToSection('services')">
+            <span class="section-nav-tooltip">Servicios</span>
+        </div>
+        <div class="section-nav-item" data-section="blog" onclick="scrollToSection('blog')">
+            <span class="section-nav-tooltip">Blog</span>
+        </div>
+        <div class="section-nav-item" data-section="about" onclick="scrollToSection('about')">
+            <span class="section-nav-tooltip">Nosotros</span>
+        </div>
+        <div class="section-nav-item" data-section="contact" onclick="scrollToSection('contact')">
+            <span class="section-nav-tooltip">Contacto</span>
+        </div>
+    </nav>
 
     <!-- HEADER -->
     <header>
@@ -692,7 +782,7 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="container">
             <img src="images/logo.png" alt="STIKMANIA Logo" class="hero-logo">
             <h1 data-es="Diseño que se pega" data-en="Design that sticks">Diseño que se pega</h1>
@@ -903,6 +993,36 @@
         }
         
         updateLanguage();
+        
+        // SECTION NAVIGATION
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Update active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'services', 'blog', 'about', 'contact'];
+            const scrollPosition = window.scrollY + 200;
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
+                
+                if (section && navItem) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navItem.classList.add('active');
+                    } else {
+                        navItem.classList.remove('active');
+                    }
+                }
+            });
+        });
         
         // SCROLL REVEAL ANIMATION
         function reveal() {

@@ -28,6 +28,8 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        html { scroll-behavior: smooth; }
+        
         html, body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--black);
@@ -63,13 +65,7 @@
         
         a { color: inherit; text-decoration: none; }
         
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
         
         .btn {
             display: inline-block;
@@ -126,6 +122,66 @@
         }
         
         .lang-btn:hover { background: var(--neon-green); color: var(--black); }
+        
+        /* SECTION NAVIGATION INDICATOR */
+        .section-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 15px 10px;
+            border-radius: 30px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .section-nav-item {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--dark-green);
+            border: 2px solid var(--neon-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .section-nav-item:hover {
+            background: var(--neon-green);
+            transform: scale(1.2);
+        }
+        
+        .section-nav-item.active {
+            background: var(--neon-green);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        .section-nav-tooltip {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--neon-green);
+        }
+        
+        .section-nav-item:hover .section-nav-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
         
         /* HEADER */
         header {
@@ -462,6 +518,17 @@
             .packages-grid { grid-template-columns: 1fr; }
             .questionnaire-form { padding: 25px; }
             .lang-switch { top: 10px; right: 10px; }
+            .section-nav { 
+                right: 10px; 
+                padding: 10px 8px;
+            }
+            .section-nav-item {
+                width: 10px;
+                height: 10px;
+            }
+            .section-nav-tooltip {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -471,6 +538,25 @@
     <div class="lang-switch">
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
+
+    <!-- SECTION NAVIGATION INDICATOR -->
+    <nav class="section-nav">
+        <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
+            <span class="section-nav-tooltip">Inicio</span>
+        </div>
+        <div class="section-nav-item" data-section="packages" onclick="scrollToSection('packages')">
+            <span class="section-nav-tooltip">Paquetes</span>
+        </div>
+        <div class="section-nav-item" data-section="gallery" onclick="scrollToSection('gallery')">
+            <span class="section-nav-tooltip">Ejemplos</span>
+        </div>
+        <div class="section-nav-item" data-section="questionnaire" onclick="scrollToSection('questionnaire')">
+            <span class="section-nav-tooltip">Cuestionario</span>
+        </div>
+        <div class="section-nav-item" data-section="faq" onclick="scrollToSection('faq')">
+            <span class="section-nav-tooltip">FAQ</span>
+        </div>
+    </nav>
 
     <!-- HEADER -->
     <header>
@@ -490,7 +576,7 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="container">
             <h1 data-es="Branding Digital" data-en="Digital Branding">Branding Digital</h1>
             <p data-es="Logos profesionales, identidad visual completa y papelería corporativa. Diseños que transmiten la esencia de tu marca y conectan con tu audiencia." data-en="Professional logos, complete visual identity and corporate stationery. Designs that convey the essence of your brand and connect with your audience.">Logos profesionales, identidad visual completa y papelería corporativa. Diseños que transmiten la esencia de tu marca y conectan con tu audiencia.</p>
@@ -501,7 +587,7 @@
     </section>
 
     <!-- PACKAGES -->
-    <section class="packages reveal">
+    <section id="packages" class="packages reveal">
         <div class="container">
             <h2 class="section-title" data-es="Paquetes de Branding" data-en="Branding Packages">Paquetes de Branding</h2>
             
@@ -568,7 +654,7 @@
     </section>
 
     <!-- GALLERY -->
-    <section class="gallery reveal">
+    <section id="gallery" class="gallery reveal">
         <div class="container">
             <h2 class="section-title" data-es="Clientes que Confían" data-en="Trusting Clients">Clientes que Confían</h2>
             <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Algunos de los proyectos de identidad visual que hemos creado" data-en="Some of the visual identity projects we have created">Algunos de los proyectos de identidad visual que hemos creado</p>
@@ -675,7 +761,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq reveal">
+    <section id="faq" class="faq reveal">
         <div class="container">
             <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
             
@@ -778,6 +864,36 @@
         }
         
         updateLanguage();
+        
+        // SECTION NAVIGATION
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Update active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'packages', 'gallery', 'questionnaire', 'faq'];
+            const scrollPosition = window.scrollY + 200;
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
+                
+                if (section && navItem) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navItem.classList.add('active');
+                    } else {
+                        navItem.classList.remove('active');
+                    }
+                }
+            });
+        });
         
         // SCROLL REVEAL
         function reveal() {

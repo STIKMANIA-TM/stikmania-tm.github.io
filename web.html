@@ -29,6 +29,8 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        html { scroll-behavior: smooth; }
+        
         html, body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--black);
@@ -127,6 +129,66 @@
         }
         
         .lang-btn:hover { background: var(--neon-green); color: var(--black); }
+        
+        /* SECTION NAVIGATION INDICATOR */
+        .section-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 15px 10px;
+            border-radius: 30px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .section-nav-item {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--dark-green);
+            border: 2px solid var(--neon-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .section-nav-item:hover {
+            background: var(--neon-green);
+            transform: scale(1.2);
+        }
+        
+        .section-nav-item.active {
+            background: var(--neon-green);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        .section-nav-tooltip {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--neon-green);
+        }
+        
+        .section-nav-item:hover .section-nav-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
         
         /* HEADER */
         header {
@@ -597,6 +659,17 @@
             .questionnaire-form { padding: 25px; }
             .contract-info { margin: 20px; padding: 25px; }
             .lang-switch { top: 10px; right: 10px; }
+            .section-nav { 
+                right: 10px; 
+                padding: 10px 8px;
+            }
+            .section-nav-item {
+                width: 10px;
+                height: 10px;
+            }
+            .section-nav-tooltip {
+                display: none;
+            }
             .portfolio-image { height: 180px; }
         }
     </style>
@@ -607,6 +680,28 @@
     <div class="lang-switch">
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
+
+    <!-- SECTION NAVIGATION INDICATOR -->
+    <nav class="section-nav">
+        <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
+            <span class="section-nav-tooltip">Inicio</span>
+        </div>
+        <div class="section-nav-item" data-section="packages" onclick="scrollToSection('packages')">
+            <span class="section-nav-tooltip">Paquetes</span>
+        </div>
+        <div class="section-nav-item" data-section="portfolio" onclick="scrollToSection('portfolio')">
+            <span class="section-nav-tooltip">Ejemplos</span>
+        </div>
+        <div class="section-nav-item" data-section="info" onclick="scrollToSection('info')">
+            <span class="section-nav-tooltip">Info</span>
+        </div>
+        <div class="section-nav-item" data-section="questionnaire" onclick="scrollToSection('questionnaire')">
+            <span class="section-nav-tooltip">Cuestionario</span>
+        </div>
+        <div class="section-nav-item" data-section="faq" onclick="scrollToSection('faq')">
+            <span class="section-nav-tooltip">FAQ</span>
+        </div>
+    </nav>
 
     <!-- HEADER -->
     <header>
@@ -626,7 +721,7 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="container">
             <h1 data-es="Desarrollo Web Profesional" data-en="Professional Web Development">Desarrollo Web Profesional</h1>
             <p data-es="Sitios web modernos, rápidos y optimizados. Desde landing pages hasta e-commerce y web apps. Servicio documentado bajo contrato." data-en="Modern, fast and optimized websites. From landing pages to e-commerce and web apps. Documented service under contract.">Sitios web modernos, rápidos y optimizados. Desde landing pages hasta e-commerce y web apps. Servicio documentado bajo contrato.</p>
@@ -637,7 +732,7 @@
     </section>
 
     <!-- PACKAGES -->
-    <section class="packages reveal">
+    <section id="packages" class="packages reveal">
         <div class="container">
             <h2 class="section-title" data-es="Tipos de Web y Precios" data-en="Web Types and Prices">Tipos de Web y Precios</h2>
             <p style="text-align: center; color: var(--white); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Precios accesibles y competitivos para el mercado actual. Todos los proyectos incluyen contrato y capacitación." data-en="Accessible and competitive prices for the current market. All projects include contract and training.">Precios accesibles y competitivos para el mercado actual. Todos los proyectos incluyen contrato y capacitación.</p>
@@ -725,7 +820,7 @@
     </section>
 
     <!-- PORTFOLIO SECTION -->
-    <section class="portfolio reveal">
+    <section id="portfolio" class="portfolio reveal">
         <div class="container">
             <h2 class="section-title" data-es="Ejemplos de Nuestros Trabajos" data-en="Examples of Our Work">Ejemplos de Nuestros Trabajos</h2>
             <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Algunos de los proyectos web que hemos desarrollado para clientes en Cuba" data-en="Some of the web projects we have developed for clients in Cuba">Algunos de los proyectos web que hemos desarrollado para clientes en Cuba</p>
@@ -775,7 +870,7 @@
     </section>
 
     <!-- INFO SECTION -->
-    <section class="info-section reveal">
+    <section id="info" class="info-section reveal">
         <div class="container">
             <h2 class="section-title" data-es="¿Qué Incluye el Precio?" data-en="What Does the Price Include?">¿Qué Incluye el Precio?</h2>
             
@@ -814,7 +909,7 @@
                 </div>
                 
                 <div class="info-card">
-                    <h3 data-es="🎓 Capacitación" data-en="🎓 Training"> Capacitación</h3>
+                    <h3 data-es="🎓 Capacitación" data-en="🎓 Training">🎓 Capacitación</h3>
                     <p data-es="Te enseñamos a gestionar tu sitio web para que puedas actualizar contenido básico sin depender de nosotros." data-en="We teach you to manage your website so you can update basic content without depending on us.">Te enseñamos a gestionar tu sitio web para que puedas actualizar contenido básico sin depender de nosotros.</p>
                     <ul>
                         <li data-es="Sesión de capacitación incluida" data-en="Training session included">Sesión de capacitación incluida</li>
@@ -920,7 +1015,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq reveal">
+    <section id="faq" class="faq reveal">
         <div class="container">
             <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
             
@@ -1030,6 +1125,36 @@
         }
         
         updateLanguage();
+        
+        // SECTION NAVIGATION
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Update active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'packages', 'portfolio', 'info', 'questionnaire', 'faq'];
+            const scrollPosition = window.scrollY + 200;
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
+                
+                if (section && navItem) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navItem.classList.add('active');
+                    } else {
+                        navItem.classList.remove('active');
+                    }
+                }
+            });
+        });
         
         // SCROLL REVEAL
         function reveal() {

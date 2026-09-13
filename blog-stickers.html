@@ -26,6 +26,8 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        html { scroll-behavior: smooth; }
+        
         html, body {
             font-family: 'Inter', system-ui, sans-serif;
             background: var(--black);
@@ -74,6 +76,66 @@
             font-family: 'Pirata One', display;
             font-size: 1.8rem;
             color: var(--neon-green);
+        }
+        
+        /* SECTION NAVIGATION - Simplified for blogs */
+        .section-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 15px 10px;
+            border-radius: 30px;
+            border: 1px solid var(--dark-green);
+        }
+        
+        .section-nav-item {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--dark-green);
+            border: 2px solid var(--neon-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .section-nav-item:hover {
+            background: var(--neon-green);
+            transform: scale(1.2);
+        }
+        
+        .section-nav-item.active {
+            background: var(--neon-green);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        .section-nav-tooltip {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--neon-green);
+        }
+        
+        .section-nav-item:hover .section-nav-tooltip {
+            opacity: 1;
+            visibility: visible;
         }
         
         .article { padding: 100px 0; }
@@ -197,6 +259,17 @@
             .article-header h1 { font-size: 2rem; }
             .article-content { padding: 25px; }
             .lang-switch { top: 10px; right: 10px; }
+            .section-nav { 
+                right: 10px; 
+                padding: 10px 8px;
+            }
+            .section-nav-item {
+                width: 10px;
+                height: 10px;
+            }
+            .section-nav-tooltip {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -206,13 +279,26 @@
         <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
 
+    <!-- SECTION NAVIGATION - Simplified -->
+    <nav class="section-nav">
+        <div class="section-nav-item active" data-section="article" onclick="scrollToSection('article')">
+            <span class="section-nav-tooltip">Artículo</span>
+        </div>
+        <div class="section-nav-item" data-section="cta" onclick="scrollToSection('cta')">
+            <span class="section-nav-tooltip">Cotizar</span>
+        </div>
+        <div class="section-nav-item" data-section="contact" onclick="scrollToSection('contact')">
+            <span class="section-nav-tooltip">Contacto</span>
+        </div>
+    </nav>
+
     <header>
         <div class="container">
             <a href="index.html" class="logo">STIKMANIA</a>
         </div>
     </header>
 
-    <article class="article">
+    <article id="article" class="article">
         <div class="container">
             <div class="article-header">
                 <div class="article-icon">
@@ -316,10 +402,11 @@
                 <h3 data-es="Presupuesto alto ($10+ USD)" data-en="High budget ($10+ USD)">Presupuesto alto ($10+ USD)</h3>
                 <p data-es="Combina diferentes tamaños y materiales. Vinilo para exteriores + papel para interiores." data-en="Combine different sizes and materials. Vinyl for outdoors + paper for interiors.">Combina diferentes tamaños y materiales. Vinilo para exteriores + papel para interiores.</p>
                 
-                <div class="cta-box">
+                <!-- CTA SECTION -->
+                <div id="cta" class="cta-box">
                     <h3 data-es="¿Listo para crear tus stickers?" data-en="Ready to create your stickers?">¿Listo para crear tus stickers?</h3>
                     <p data-es="En STIKMANIA te asesoramos para elegir el material, tamaño y diseño perfecto para tu negocio." data-en="At STIKMANIA we advise you to choose the perfect material, size and design for your business.">En STIKMANIA te asesoramos para elegir el material, tamaño y diseño perfecto para tu negocio.</p>
-                    <a href="stickers.html" class="btn" data-es="Ver Catálogo y Precios" data-en="View Catalog and Prices">Ver Catálogo y Precios</a>
+                    <a href="stickers.html" class="btn" data-es="Ir al Cotizador" data-en="Go to Calculator">Ir al Cotizador</a>
                 </div>
                 
                 <h2 data-es="Conclusión" data-en="Conclusion">Conclusión</h2>
@@ -341,6 +428,15 @@
             </div>
         </div>
     </article>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" style="padding: 60px 0; background: rgba(0,0,0,0.7);">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: var(--neon-green); margin-bottom: 20px;" data-es="Contáctanos" data-en="Contact Us">Contáctanos</h2>
+            <p style="color: #ccc; margin-bottom: 30px;" data-es="La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com" data-en="Havana, Cuba | +53 5 975 8756 | stikmania795@gmail.com">La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com</p>
+            <a href="https://wa.me/5359758756" target="_blank" class="btn" data-es="Hablar por WhatsApp" data-en="Chat on WhatsApp">Hablar por WhatsApp</a>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
@@ -369,6 +465,36 @@
         }
         
         updateLanguage();
+        
+        // SECTION NAVIGATION
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Update active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['article', 'cta', 'contact'];
+            const scrollPosition = window.scrollY + 200;
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
+                
+                if (section && navItem) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navItem.classList.add('active');
+                    } else {
+                        navItem.classList.remove('active');
+                    }
+                }
+            });
+        });
     </script>
 
 </body>
