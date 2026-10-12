@@ -1,6 +1,6 @@
 /* ============================================
    STIKMANIA - Main JavaScript (Compartido)
-   Versión 4.2 - Con indicador de progreso
+   Versión 4.5 - Header simétrico y progreso
    ============================================ */
 
 // 1. LOADER
@@ -95,10 +95,10 @@ function initHeaderScroll() {
     
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
-            header.style.padding = '10px 0';
+            header.style.padding = '8px 0';
             header.style.borderBottomColor = 'rgba(0, 255, 0, 0.3)';
         } else {
-            header.style.padding = '15px 0';
+            header.style.padding = '10px 0';
             header.style.borderBottomColor = '';
         }
     });

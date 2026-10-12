@@ -1,6 +1,6 @@
 /* ============================================
    STIKMANIA - SISTEMA DE DISEÑO UNIFICADO
-   Versión 4.4 - Header móvil simétrico
+   Versión 4.5 - Header con 4 elementos simétricos
    ============================================ */
 
 :root {
@@ -99,59 +99,69 @@ img { max-width: 100%; display: block; }
 .pack-image { color: var(--neon-green); }
 .btn .icon-sm { margin-right: 8px; margin-top: -2px; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; position: relative; z-index: 1; }
 .section { padding: 80px 0; position: relative; }
 .section-dark { background: rgba(26, 26, 26, 0.5); }
 .section-header { text-align: center; margin-bottom: 50px; }
 .section-header h2 { margin-bottom: 15px; }
 .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
 
-.lang-switch { position: fixed; top: 12px; right: 16px; z-index: 1001; }
-.lang-btn {
-  background: var(--black); border: 1px solid var(--neon-green); color: var(--neon-green);
-  padding: 6px 14px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.8rem;
-  letter-spacing: 1px; cursor: pointer; font-family: var(--font-body); transition: all var(--transition-fast);
-}
-.lang-btn:hover { background: var(--neon-green); color: var(--black); }
-
+/* === HEADER CON 4 ELEMENTOS SIMÉTRICOS === */
 header {
-  background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); padding: 12px 0;
+  background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); padding: 10px 0;
   position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--dark-green);
 }
 .header-content { 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  gap: 10px;
-  padding: 0 15px;
+  gap: 8px;
 }
-.logo { font-family: var(--font-display); font-size: 1.4rem; color: var(--neon-green); flex-shrink: 0; }
 
-/* Botón Comprar fijo en header */
+/* 4 elementos en fila: Logo | Comprar | Hamburguesa | EN */
+.logo { font-family: var(--font-display); font-size: 1.3rem; color: var(--neon-green); flex-shrink: 0; }
+
 .header-buy-btn {
-  padding: 8px 16px !important;
-  font-size: 0.8rem !important;
+  padding: 8px 14px !important;
+  font-size: 0.75rem !important;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
+.menu-toggle { 
+  background: none; 
+  border: 1px solid var(--neon-green);
+  border-radius: var(--radius-sm);
+  cursor: pointer; 
+  padding: 6px 8px; 
+  z-index: 1002; 
+  flex-shrink: 0;
+  display: none;
+}
+.menu-toggle span { display: block; width: 20px; height: 2px; background: var(--neon-green); margin: 4px 0; transition: all 0.3s ease; }
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.header-lang-btn {
+  background: var(--black); 
+  border: 1px solid var(--neon-green); 
+  color: var(--neon-green);
+  padding: 6px 10px; 
+  border-radius: var(--radius-sm); 
+  font-weight: 700; 
+  font-size: 0.75rem;
+  letter-spacing: 1px; 
+  cursor: pointer; 
+  font-family: var(--font-body); 
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+.header-lang-btn:hover { background: var(--neon-green); color: var(--black); }
+
 nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
 nav a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
 nav a:hover { color: var(--neon-green); }
-
-.menu-toggle { 
-  display: none; 
-  background: none; 
-  border: none; 
-  cursor: pointer; 
-  padding: 8px; 
-  z-index: 1002; 
-  flex-shrink: 0;
-}
-.menu-toggle span { display: block; width: 24px; height: 2px; background: var(--neon-green); margin: 5px 0; transition: all 0.3s ease; }
-.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
 .btn {
   display: inline-block; padding: 12px 28px; font-weight: 600; text-transform: uppercase;
@@ -355,23 +365,19 @@ footer { background: #000; padding: 60px 0 30px 0; border-top: 1px solid var(--d
   .menu-toggle { display: block; }
   .header-content { 
     padding: 0 10px;
-    gap: 8px;
+    gap: 6px;
   }
-  .logo { font-size: 1.2rem; }
+  .logo { font-size: 1.1rem; }
   .header-buy-btn {
-    padding: 6px 12px !important;
+    padding: 6px 10px !important;
     font-size: 0.7rem !important;
   }
-  .lang-switch { 
-    top: 8px; 
-    right: 8px;
-  }
-  .lang-btn {
-    padding: 5px 10px;
+  .header-lang-btn {
+    padding: 5px 8px;
     font-size: 0.7rem;
   }
   nav {
-    position: fixed; top: 55px; left: 0; width: 100%; background: rgba(0, 0, 0, 0.98);
+    position: fixed; top: 50px; left: 0; width: 100%; background: rgba(0, 0, 0, 0.98);
     backdrop-filter: blur(10px); border-bottom: 1px solid var(--dark-green);
     transform: translateY(-120%); transition: transform 0.3s ease; z-index: 999; padding: 20px 0;
   }
@@ -382,7 +388,7 @@ footer { background: #000; padding: 60px 0 30px 0; border-top: 1px solid var(--d
   nav a { display: block; padding: 15px 0; font-size: 1rem; }
   nav a.btn { text-align: center; margin-top: 10px; }
   .section { padding: 60px 0; }
-  .hero { min-height: auto; padding: 120px 0 60px 0; }
+  .hero { min-height: auto; padding: 110px 0 60px 0; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
   .form-row { grid-template-columns: 1fr; }
