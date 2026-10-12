@@ -1,6 +1,6 @@
 /* ============================================
    STIKMANIA - Main JavaScript (Compartido)
-   Versión 3.0 - Con menú hamburguesa
+   Versión 4.2 - Con indicador de progreso
    ============================================ */
 
 // 1. LOADER
@@ -184,6 +184,25 @@ function initDynamicYear() {
     });
 }
 
+// 10. INDICADOR DE PROGRESO LATERAL
+function initScrollProgress() {
+    var progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    progressBar.id = 'scrollProgress';
+    document.body.appendChild(progressBar);
+    
+    function updateProgress() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrollPercent = (scrollTop / scrollHeight) * 100;
+        progressBar.style.height = scrollPercent + '%';
+    }
+    
+    window.addEventListener('scroll', updateProgress);
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+}
+
 // === INICIALIZACIÓN ===
 document.addEventListener('DOMContentLoaded', function() {
     initFAQ();
@@ -193,4 +212,5 @@ document.addEventListener('DOMContentLoaded', function() {
     initLanguage();
     initDynamicYear();
     initServiceWorker();
+    initScrollProgress();
 });
