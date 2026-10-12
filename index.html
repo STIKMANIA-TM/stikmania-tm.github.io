@@ -21,7 +21,7 @@
     <!-- Open Graph -->
     <meta property="og:title" content="STIKMANIA | Stickers que se pegan, diseños que venden">
     <meta property="og:description" content="Para ti, tu negocio o tu arte. Stickers, etiquetas y empaques personalizados en La Habana, Cuba.">
-    <meta property="og:image" content="https://stikmania-tm.github.io/images/logo.png">
+    <meta property="og:image" content="https://stikmania-tm.github.io/images/logoW.png">
     <meta property="og:url" content="https://stikmania-tm.github.io">
     <meta property="og:type" content="website">
     
@@ -61,7 +61,7 @@
     <!-- Loader -->
     <div id="loader"><div class="loader-spinner"></div></div>
 
-    <!-- Botón de idioma (siempre visible) -->
+    <!-- Botón de idioma -->
     <div class="lang-switch">
         <button class="lang-btn" id="langToggle" aria-label="Cambiar idioma">EN</button>
     </div>
@@ -71,13 +71,20 @@
         <div class="container">
             <div class="header-content">
                 <a href="#top" class="logo">STIKMANIA</a>
-                <nav>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav id="mainNav">
                     <ul>
                         <li><a href="#tienda" data-es="Tienda" data-en="Shop">Tienda</a></li>
                         <li><a href="#empresas" data-es="Empresas" data-en="Business">Empresas</a></li>
                         <li><a href="#artesanos" data-es="Artesanos" data-en="Artisans">Artesanos</a></li>
                         <li><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
-                        <li><a href="#cotizador" class="btn btn-primary" style="padding: 8px 16px;" data-es="Cotizar" data-en="Quote">Cotizar</a></li>
+                        <li><a href="#cotizador" class="btn btn-primary" style="padding: 8px 16px;" data-es="Comprar" data-en="Buy">Comprar</a></li>
                     </ul>
                 </nav>
             </div>
@@ -89,7 +96,6 @@
         <div class="container">
             <div class="hero-badge fade-in" data-es="La tienda número 1 de stickers en Cuba" data-en="The number 1 sticker store in Cuba">La tienda número 1 de stickers en Cuba</div>
             
-            <!-- Logo blanco -->
             <img src="images/logoW.png" alt="STIKMANIA" class="hero-logo fade-in">
             <h1 class="sr-only" data-es="Stickers, etiquetas y empaques personalizados en Cuba" data-en="Custom stickers, labels and packaging in Cuba">Stickers, etiquetas y empaques personalizados en Cuba</h1>
             
@@ -110,7 +116,6 @@
                 </a>
             </div>
             
-            <!-- Trust Badges -->
             <div class="trust-badges fade-in">
                 <div class="trust-badge">
                     <svg class="icon icon-md trust-badge-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -461,7 +466,7 @@
         </div>
     </section>
 
-    <!-- GALERÍA (etiquetas intercambiadas) -->
+    <!-- GALERÍA -->
     <section id="galeria" class="section">
         <div class="container">
             <div class="section-header fade-in">

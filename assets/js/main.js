@@ -1,5 +1,6 @@
 /* ============================================
    STIKMANIA - Main JavaScript (Compartido)
+   Versión 3.0 - Con menú hamburguesa
    ============================================ */
 
 // 1. LOADER
@@ -15,7 +16,7 @@ window.addEventListener('load', function() {
     }
 });
 
-// 2. SCROLL REVEAL (reemplaza AOS)
+// 2. SCROLL REVEAL
 function revealOnScroll() {
     var elements = document.querySelectorAll('.fade-in');
     var windowHeight = window.innerHeight;
@@ -42,7 +43,6 @@ function initFAQ() {
             var answer = this.nextElementSibling;
             var sign = this.querySelector('span:last-child');
             
-            // Cerrar otros abiertos (accordion behavior)
             var allAnswers = document.querySelectorAll('.faq-answer.show');
             allAnswers.forEach(function(openAnswer) {
                 if (openAnswer !== answer) {
@@ -63,7 +63,7 @@ function initFAQ() {
     });
 }
 
-// 4. SMOOTH SCROLL para anchors internos
+// 4. SMOOTH SCROLL
 function initSmoothScroll() {
     var links = document.querySelectorAll('a[href^="#"]');
     
@@ -75,7 +75,7 @@ function initSmoothScroll() {
             var target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                var headerOffset = 80; // Altura del header fixed
+                var headerOffset = 80;
                 var elementPosition = target.getBoundingClientRect().top;
                 var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 
@@ -104,22 +104,50 @@ function initHeaderScroll() {
     });
 }
 
-// 6. SERVICE WORKER REGISTRATION
+// 6. MENÚ HAMBURGUESA MÓVIL
+function initMobileMenu() {
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mainNav');
+    
+    if (toggle && nav) {
+        toggle.addEventListener('click', function() {
+            toggle.classList.toggle('active');
+            nav.classList.toggle('open');
+        });
+        
+        var links = nav.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                toggle.classList.remove('active');
+                nav.classList.remove('open');
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            if (nav.classList.contains('open')) {
+                toggle.classList.remove('active');
+                nav.classList.remove('open');
+            }
+        });
+    }
+}
+
+// 7. SERVICE WORKER
 function initServiceWorker() {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('/sw.js')
                 .then(function(registration) {
-                    console.log('✅ SW registrado:', registration.scope);
+                    console.log('SW registrado:', registration.scope);
                 })
                 .catch(function(error) {
-                    console.log('❌ Error SW:', error);
+                    console.log('Error SW:', error);
                 });
         });
     }
 }
 
-// 7. IDIOMA (mantener preferencia)
+// 8. IDIOMA
 function initLanguage() {
     var currentLang = localStorage.getItem('stikmania_lang') || 'es';
     var langBtn = document.getElementById('langToggle');
@@ -147,7 +175,7 @@ function initLanguage() {
     updateLanguage();
 }
 
-// 8. AÑO DINÁMICO EN FOOTER
+// 9. AÑO DINÁMICO
 function initDynamicYear() {
     var yearSpans = document.querySelectorAll('.current-year');
     var year = new Date().getFullYear();
@@ -161,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQ();
     initSmoothScroll();
     initHeaderScroll();
+    initMobileMenu();
     initLanguage();
     initDynamicYear();
     initServiceWorker();
