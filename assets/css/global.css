@@ -1,6 +1,6 @@
 /* ============================================
    STIKMANIA - SISTEMA DE DISEÑO UNIFICADO
-   Versión 4.6 - Header móvil optimizado
+   Versión 4.7 - Header móvil perfecto
    ============================================ */
 
 :root {
@@ -158,6 +158,8 @@ header {
   font-family: var(--font-body); 
   transition: all var(--transition-fast);
   flex-shrink: 0;
+  min-width: 40px; /* Ancho fijo para evitar que se mueva */
+  text-align: center;
 }
 .header-lang-btn:hover { background: var(--neon-green); color: var(--black); }
 
@@ -366,17 +368,18 @@ footer { background: #000; padding: 60px 0 30px 0; border-top: 1px solid var(--d
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
   .header-content { 
-    padding: 0 8px;
-    gap: 4px;
+    padding: 0 6px;
+    gap: 3px;
   }
-  .logo { font-size: 1rem; }
+  .logo { font-size: 0.95rem; }
   .header-buy-btn {
     padding: 5px 8px !important;
     font-size: 0.65rem !important;
   }
   .header-lang-btn {
-    padding: 4px 6px;
+    padding: 5px 8px;
     font-size: 0.65rem;
+    min-width: 36px; /* Ancho fijo para EN y ES */
   }
   .menu-toggle {
     padding: 5px 6px;
