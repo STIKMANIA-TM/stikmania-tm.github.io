@@ -1,10 +1,50 @@
 /* ============================================
-   STIKMANIA - Cotizador Unificado (v2)
-   Sin emojis | Mensaje limpio
+   STIKMANIA - Cotizador Unificado (v3)
+   Con entrega a domicilio por municipio
    ============================================ */
 
 (function() {
-    // Configuración por defecto (fallback si falla config.json)
+    // Precios de entrega por municipio
+    var deliveryPrices = {
+        'no': 0,
+        'la-lisa': 3,
+        'playa': 5,
+        'marianao': 5,
+        'boyeros': 7,
+        'plaza': 7,
+        'cerro': 7,
+        'centro-habana': 7,
+        'habana-vieja': 8,
+        'diez-de-octubre': 8,
+        'arroyo-naranjo': 8,
+        'regla': 10,
+        'san-miguel': 10,
+        'cotorro': 12,
+        'habana-del-este': 12,
+        'guanabacoa': 12
+    };
+    
+    // Nombres de municipios para mostrar
+    var deliveryNames = {
+        'no': '',
+        'la-lisa': 'La Lisa',
+        'playa': 'Playa',
+        'marianao': 'Marianao',
+        'boyeros': 'Boyeros',
+        'plaza': 'Plaza',
+        'cerro': 'Cerro',
+        'centro-habana': 'Centro Habana',
+        'habana-vieja': 'Habana Vieja',
+        'diez-de-octubre': 'Diez de Octubre',
+        'arroyo-naranjo': 'Arroyo Naranjo',
+        'regla': 'Regla',
+        'san-miguel': 'San Miguel del Padrón',
+        'cotorro': 'Cotorro',
+        'habana-del-este': 'Habana del Este',
+        'guanabacoa': 'Guanabacoa'
+    };
+    
+    // Configuración por defecto
     var defaultConfig = {
         costVinyl: 2.00,
         costPhoto: 1.20,
@@ -57,13 +97,15 @@
         var widthEl = document.getElementById('calc-width');
         var heightEl = document.getElementById('calc-height');
         var materialEl = document.getElementById('calc-material');
+        var deliveryEl = document.getElementById('calc-delivery');
         
-        if (!qtyEl || !widthEl || !heightEl || !materialEl) return;
+        if (!qtyEl || !widthEl || !heightEl || !materialEl || !deliveryEl) return;
         
         var qty = parseInt(qtyEl.value) || 10;
         var w = parseFloat(widthEl.value) || 5;
         var h = parseFloat(heightEl.value) || 5;
         var material = materialEl.value;
+        var delivery = deliveryEl.value;
         
         // Validaciones
         if (qty < 10) qty = 10;
@@ -95,7 +137,7 @@
         
         var total = qty * basePrice * sizeMultiplier;
         
-        // Descuentos por volumen (sin emojis)
+        // Descuentos por volumen
         var discountText = '';
         var discountPercent = 0;
         if (qty >= 500) {
@@ -119,10 +161,16 @@
             discountText += (discountText ? ' | ' : '') + '+' + bonus + ' stickers de regalo';
         }
         
+        // Costo de entrega
+        var deliveryCost = deliveryPrices[delivery] || 0;
+        var deliveryName = deliveryNames[delivery] || '';
+        var totalWithDelivery = total + deliveryCost;
+        
         // Actualizar interfaz
         var summaryEl = document.getElementById('calc-summary');
         var priceEl = document.getElementById('calc-price');
         var discountEl = document.getElementById('calc-discount');
+        var deliveryCostEl = document.getElementById('calc-delivery-cost');
         var resultBox = document.getElementById('calc-result');
         var whatsappBtn = document.getElementById('calc-whatsapp');
         
@@ -130,25 +178,40 @@
             summaryEl.textContent = qty + ' unidades de ' + w + 'x' + h + ' cm en ' + matName;
         }
         if (priceEl) {
-            priceEl.textContent = '$' + total.toFixed(2) + ' USD';
+            priceEl.textContent = '$' + totalWithDelivery.toFixed(2) + ' USD';
         }
         if (discountEl) {
             discountEl.textContent = discountText;
             discountEl.style.display = discountText ? 'block' : 'none';
         }
+        if (deliveryCostEl) {
+            if (deliveryCost > 0) {
+                deliveryCostEl.textContent = 'Entrega a domicilio en ' + deliveryName + ': +$' + deliveryCost.toFixed(2) + ' USD';
+                deliveryCostEl.style.display = 'block';
+            } else {
+                deliveryCostEl.textContent = '';
+                deliveryCostEl.style.display = 'none';
+            }
+        }
         
-        // Mensaje de WhatsApp SIN última oración y SIN emojis
+        // Mensaje de WhatsApp
         var msg = '*PEDIDO STIKMANIA*\n\n' +
                   'Cantidad: ' + qty + ' unidades\n' +
                   'Tamaño: ' + w + 'x' + h + ' cm\n' +
                   'Material: ' + matName + '\n' +
-                  'Presupuesto: $' + total.toFixed(2) + ' USD';
+                  'Subtotal: $' + total.toFixed(2) + ' USD';
         
         if (discountPercent > 0) {
             msg += '\nDescuento aplicado: ' + discountPercent + '%';
         }
         if (bonus > 0) {
             msg += '\nStickers de regalo: ' + bonus;
+        }
+        
+        if (deliveryCost > 0) {
+            msg += '\n\n*Entrega a domicilio*\nMunicipio: ' + deliveryName + '\nCosto de entrega: $' + deliveryCost.toFixed(2) + ' USD\n*Total con entrega: $' + totalWithDelivery.toFixed(2) + ' USD*';
+        } else {
+            msg += '\n\n*Total: $' + total.toFixed(2) + ' USD*\nEntrega: Recojo en punto acordado';
         }
         
         if (whatsappBtn) {
@@ -172,7 +235,7 @@
         }
         
         // Recalcular automáticamente si ya hay resultado visible
-        var inputs = document.querySelectorAll('#calc-qty, #calc-width, #calc-height, #calc-material');
+        var inputs = document.querySelectorAll('#calc-qty, #calc-width, #calc-height, #calc-material, #calc-delivery');
         inputs.forEach(function(input) {
             input.addEventListener('change', function() {
                 var resultBox = document.getElementById('calc-result');

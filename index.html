@@ -412,7 +412,7 @@
         </div>
     </section>
 
-    <!-- COTIZADOR -->
+    <!-- COTIZADOR CON ENTREGA -->
     <section id="cotizador" class="section section-dark">
         <div class="container">
             <div class="section-header fade-in">
@@ -447,7 +447,30 @@
                     </div>
                 </div>
                 
-                <button class="btn btn-primary btn-block" id="calc-submit" style="padding: 16px; font-size: 1rem;">
+                <!-- Entrega a domicilio -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label data-es="¿Necesitas entrega a domicilio?" data-en="Do you need home delivery?">¿Necesitas entrega a domicilio?</label>
+                    <select id="calc-delivery">
+                        <option value="no" data-es="No, recojo en el punto acordado" data-en="No, I'll pick up at the agreed point">No, recojo en el punto acordado</option>
+                        <option value="la-lisa" data-es="La Lisa (+$3 USD)" data-en="La Lisa (+$3 USD)">La Lisa (+$3 USD)</option>
+                        <option value="playa" data-es="Playa (+$5 USD)" data-en="Playa (+$5 USD)">Playa (+$5 USD)</option>
+                        <option value="marianao" data-es="Marianao (+$5 USD)" data-en="Marianao (+$5 USD)">Marianao (+$5 USD)</option>
+                        <option value="boyeros" data-es="Boyeros (+$7 USD)" data-en="Boyeros (+$7 USD)">Boyeros (+$7 USD)</option>
+                        <option value="plaza" data-es="Plaza (+$7 USD)" data-en="Plaza (+$7 USD)">Plaza (+$7 USD)</option>
+                        <option value="cerro" data-es="Cerro (+$7 USD)" data-en="Cerro (+$7 USD)">Cerro (+$7 USD)</option>
+                        <option value="centro-habana" data-es="Centro Habana (+$7 USD)" data-en="Centro Habana (+$7 USD)">Centro Habana (+$7 USD)</option>
+                        <option value="habana-vieja" data-es="Habana Vieja (+$8 USD)" data-en="Habana Vieja (+$8 USD)">Habana Vieja (+$8 USD)</option>
+                        <option value="diez-de-octubre" data-es="Diez de Octubre (+$8 USD)" data-en="Diez de Octubre (+$8 USD)">Diez de Octubre (+$8 USD)</option>
+                        <option value="arroyo-naranjo" data-es="Arroyo Naranjo (+$8 USD)" data-en="Arroyo Naranjo (+$8 USD)">Arroyo Naranjo (+$8 USD)</option>
+                        <option value="regla" data-es="Regla (+$10 USD)" data-en="Regla (+$10 USD)">Regla (+$10 USD)</option>
+                        <option value="san-miguel" data-es="San Miguel del Padrón (+$10 USD)" data-en="San Miguel del Padrón (+$10 USD)">San Miguel del Padrón (+$10 USD)</option>
+                        <option value="cotorro" data-es="Cotorro (+$12 USD)" data-en="Cotorro (+$12 USD)">Cotorro (+$12 USD)</option>
+                        <option value="habana-del-este" data-es="Habana del Este (+$12 USD)" data-en="Habana del Este (+$12 USD)">Habana del Este (+$12 USD)</option>
+                        <option value="guanabacoa" data-es="Guanabacoa (+$12 USD)" data-en="Guanabacoa (+$12 USD)">Guanabacoa (+$12 USD)</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-primary btn-block" id="calc-submit" style="padding: 16px; font-size: 1rem; margin-top: 20px;">
                     <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/><path d="M8 16h.01"/><path d="M12 16h.01"/><path d="M16 16h.01"/></svg>
                     <span data-es="Calcular presupuesto" data-en="Calculate budget">Calcular presupuesto</span>
                 </button>
@@ -456,6 +479,7 @@
                     <p style="color: #ccc;"><span data-es="Presupuesto para" data-en="Quote for">Presupuesto para</span> <span id="calc-summary"></span></p>
                     <div class="result-price" id="calc-price">$0.00 USD</div>
                     <p style="color: #00cc00; font-size: 0.9rem; margin-bottom: 20px;" id="calc-discount"></p>
+                    <p style="color: var(--cyan); font-size: 0.85rem; margin-bottom: 20px;" id="calc-delivery-cost"></p>
                     <a id="calc-whatsapp" href="#" target="_blank" class="btn btn-primary btn-large">
                         <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
                         <span data-es="Enviar pedido por WhatsApp" data-en="Send order via WhatsApp">Enviar pedido por WhatsApp</span>
