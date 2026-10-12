@@ -1,6 +1,6 @@
 /* ============================================
    STIKMANIA - SISTEMA DE DISEÑO UNIFICADO
-   Versión 4.5 - Header con 4 elementos simétricos
+   Versión 4.6 - Header móvil optimizado
    ============================================ */
 
 :root {
@@ -116,9 +116,11 @@ header {
   justify-content: space-between; 
   align-items: center; 
   gap: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-/* 4 elementos en fila: Logo | Comprar | Hamburguesa | EN */
 .logo { font-family: var(--font-display); font-size: 1.3rem; color: var(--neon-green); flex-shrink: 0; }
 
 .header-buy-btn {
@@ -364,20 +366,27 @@ footer { background: #000; padding: 60px 0 30px 0; border-top: 1px solid var(--d
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
   .header-content { 
-    padding: 0 10px;
-    gap: 6px;
+    padding: 0 8px;
+    gap: 4px;
   }
-  .logo { font-size: 1.1rem; }
+  .logo { font-size: 1rem; }
   .header-buy-btn {
-    padding: 6px 10px !important;
-    font-size: 0.7rem !important;
+    padding: 5px 8px !important;
+    font-size: 0.65rem !important;
   }
   .header-lang-btn {
-    padding: 5px 8px;
-    font-size: 0.7rem;
+    padding: 4px 6px;
+    font-size: 0.65rem;
+  }
+  .menu-toggle {
+    padding: 5px 6px;
+  }
+  .menu-toggle span {
+    width: 18px;
+    margin: 3px 0;
   }
   nav {
-    position: fixed; top: 50px; left: 0; width: 100%; background: rgba(0, 0, 0, 0.98);
+    position: fixed; top: 45px; left: 0; width: 100%; background: rgba(0, 0, 0, 0.98);
     backdrop-filter: blur(10px); border-bottom: 1px solid var(--dark-green);
     transform: translateY(-120%); transition: transform 0.3s ease; z-index: 999; padding: 20px 0;
   }
@@ -388,7 +397,7 @@ footer { background: #000; padding: 60px 0 30px 0; border-top: 1px solid var(--d
   nav a { display: block; padding: 15px 0; font-size: 1rem; }
   nav a.btn { text-align: center; margin-top: 10px; }
   .section { padding: 60px 0; }
-  .hero { min-height: auto; padding: 110px 0 60px 0; }
+  .hero { min-height: auto; padding: 100px 0 60px 0; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
   .form-row { grid-template-columns: 1fr; }
