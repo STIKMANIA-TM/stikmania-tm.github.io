@@ -1,6 +1,6 @@
 /* ============================================
    STIKMANIA - SISTEMA DE DISEÑO UNIFICADO
-   Versión 4.3 - Botón comprar fijo + progreso visible
+   Versión 4.4 - Header móvil simétrico
    ============================================ */
 
 :root {
@@ -115,25 +115,39 @@ img { max-width: 100%; display: block; }
 .lang-btn:hover { background: var(--neon-green); color: var(--black); }
 
 header {
-  background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); padding: 15px 0;
+  background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); padding: 12px 0;
   position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--dark-green);
 }
-.header-content { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
-.logo { font-family: var(--font-display); font-size: 1.6rem; color: var(--neon-green); }
+.header-content { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 10px;
+  padding: 0 15px;
+}
+.logo { font-family: var(--font-display); font-size: 1.4rem; color: var(--neon-green); flex-shrink: 0; }
 
 /* Botón Comprar fijo en header */
 .header-buy-btn {
-  padding: 8px 20px !important;
-  font-size: 0.85rem !important;
+  padding: 8px 16px !important;
+  font-size: 0.8rem !important;
   white-space: nowrap;
-  order: 2;
+  flex-shrink: 0;
 }
 
 nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
 nav a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
 nav a:hover { color: var(--neon-green); }
 
-.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1002; order: 3; }
+.menu-toggle { 
+  display: none; 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  padding: 8px; 
+  z-index: 1002; 
+  flex-shrink: 0;
+}
 .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--neon-green); margin: 5px 0; transition: all 0.3s ease; }
 .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
@@ -339,13 +353,25 @@ footer { background: #000; padding: 60px 0 30px 0; border-top: 1px solid var(--d
 @media (max-width: 968px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
-  .header-content { padding-right: 10px; }
+  .header-content { 
+    padding: 0 10px;
+    gap: 8px;
+  }
+  .logo { font-size: 1.2rem; }
   .header-buy-btn {
-    padding: 6px 14px !important;
-    font-size: 0.75rem !important;
+    padding: 6px 12px !important;
+    font-size: 0.7rem !important;
+  }
+  .lang-switch { 
+    top: 8px; 
+    right: 8px;
+  }
+  .lang-btn {
+    padding: 5px 10px;
+    font-size: 0.7rem;
   }
   nav {
-    position: fixed; top: 60px; left: 0; width: 100%; background: rgba(0, 0, 0, 0.98);
+    position: fixed; top: 55px; left: 0; width: 100%; background: rgba(0, 0, 0, 0.98);
     backdrop-filter: blur(10px); border-bottom: 1px solid var(--dark-green);
     transform: translateY(-120%); transition: transform 0.3s ease; z-index: 999; padding: 20px 0;
   }
@@ -355,7 +381,6 @@ footer { background: #000; padding: 60px 0 30px 0; border-top: 1px solid var(--d
   nav li:last-child { border-bottom: none; padding-top: 15px; }
   nav a { display: block; padding: 15px 0; font-size: 1rem; }
   nav a.btn { text-align: center; margin-top: 10px; }
-  .lang-switch { top: 10px; right: 10px; }
   .section { padding: 60px 0; }
   .hero { min-height: auto; padding: 120px 0 60px 0; }
   .hero-ctas { flex-direction: column; }
