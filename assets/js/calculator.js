@@ -1,6 +1,6 @@
 /* ============================================
-   STIKMANIA - Cotizador Unificado (v3)
-   Con entrega a domicilio por municipio
+   STIKMANIA - Cotizador Unificado (v4)
+   Precios base actualizados + Entrega por municipio
    ============================================ */
 
 (function() {
@@ -44,11 +44,11 @@
         'guanabacoa': 'Guanabacoa'
     };
     
-    // Configuración por defecto
+    // Configuración por defecto (Precios base actualizados)
     var defaultConfig = {
-        costVinyl: 2.00,
-        costPhoto: 1.20,
-        costTransparent: 2.50,
+        costVinyl: 0.18,        // Actualizado
+        costPhoto: 0.12,        // Actualizado
+        costTransparent: 0.20,  // Se mantiene
         formatVinyl: 'a4',
         formatPhoto: 'a4',
         cutMargin: 0.5,
@@ -61,7 +61,7 @@
     
     var config = defaultConfig;
     
-    // Cargar configuración desde config.json
+    // Cargar configuración desde config.json (si existe)
     function loadConfig() {
         fetch('/config.json?v=' + Date.now())
             .then(function(response) {
@@ -71,9 +71,9 @@
             .then(function(data) {
                 if (data && data.calculator) {
                     config = {
-                        costVinyl: data.calculator.costVinyl || 2.00,
-                        costPhoto: data.calculator.costPhoto || 1.20,
-                        costTransparent: data.calculator.costTransparent || 2.50,
+                        costVinyl: data.calculator.costVinyl || 0.18,
+                        costPhoto: data.calculator.costPhoto || 0.12,
+                        costTransparent: data.calculator.costTransparent || 0.20,
                         formatVinyl: data.calculator.formatVinyl || 'a4',
                         formatPhoto: data.calculator.formatPhoto || 'a4',
                         cutMargin: data.calculator.cutMargin || 0.5,
@@ -114,14 +114,14 @@
         if (w > 30) w = 30;
         if (h > 30) h = 30;
         
-        // Precio base según material
+        // Precio base según material (ACTUALIZADO)
         var basePrice = 0;
         var matName = '';
         if (material === 'vinyl') {
-            basePrice = 0.15;
+            basePrice = 0.18; // Nuevo precio
             matName = 'Vinilo Impermeable';
         } else if (material === 'photo') {
-            basePrice = 0.10;
+            basePrice = 0.12; // Nuevo precio
             matName = 'Papel Fotográfico';
         } else if (material === 'transparent') {
             basePrice = 0.20;
