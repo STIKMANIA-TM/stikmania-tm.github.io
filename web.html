@@ -3,1259 +3,682 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desarrollo Web | STIKMANIA</title>
-    <meta name="description" content="Desarrollo de páginas web profesionales en Cuba. Landing, E-commerce, Portfolio y Web Apps.">
+    <title>Desarrollo Web Profesional en Cuba | STIKMANIA</title>
+    <meta name="description" content="Desarrollo de páginas web profesionales en Cuba. Landing pages, e-commerce, portfolios y web apps. Diseño moderno, responsive y optimizado para SEO.">
+    <meta name="keywords" content="desarrollo web Cuba, páginas web La Habana, diseño web, landing pages, e-commerce Cuba, web apps, SEO Cuba">
     
-    <!-- PWA Meta Tags -->
+    <!-- PWA -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00FF00">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
-    <link rel="apple-touch-icon" href="images/favicon.png">
-    <meta name="mobile-web-app-capable" content="yes">
-    
-    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="images/icon-192.png">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
     
+    <!-- Sistema de diseño unificado -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    
     <style>
-        :root {
-            --neon-green: #00FF00;
-            --dark-green: #003300;
-            --black: #000000;
-            --white: #FFFFFF;
-            --gray: #1a1a1a;
-            --web: #4fc3f7;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
-        
-        html, body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-            min-height: 100vh;
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/var_verde.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(4px);
-            opacity: 0.6;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Pirata One', display;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        a { color: inherit; text-decoration: none; }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
-        
-        .btn {
-            display: inline-block;
-            background: var(--web);
-            color: var(--black);
-            padding: 12px 28px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn:hover::before { width: 300px; height: 300px; }
-        .btn:hover { background: var(--white); transform: translateY(-2px); }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--web);
-            color: var(--web);
-        }
-        
-        .btn-outline:hover { background: var(--web); color: var(--black); }
-        
-        .btn-small { padding: 8px 16px; font-size: 0.85rem; }
-        
-        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1001; }
-        
-        .lang-btn {
-            background: var(--black);
-            border: 2px solid var(--neon-green);
-            color: var(--neon-green);
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
-        
-        /* SECTION NAVIGATION */
-        .section-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 15px 10px;
-            border-radius: 30px;
-            border: 1px solid var(--dark-green);
-        }
-        
-        .section-nav-item {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--dark-green);
-            border: 2px solid var(--neon-green);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .section-nav-item:hover {
-            background: var(--neon-green);
-            transform: scale(1.2);
-        }
-        
-        .section-nav-item.active {
-            background: var(--neon-green);
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-        
-        .section-nav-tooltip {
-            position: absolute;
-            right: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid var(--neon-green);
-        }
-        
-        .section-nav-item:hover .section-nav-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        header {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--dark-green);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Pirata One', display;
-            font-size: 1.8rem;
-            color: var(--neon-green);
-        }
-        
-        nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a:hover { color: var(--neon-green); }
-        
-        .hero {
-            padding: 160px 0 60px 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-            text-align: center;
-        }
-        
-        .hero h1 { 
-            font-size: 3rem; 
-            margin-bottom: 20px; 
-            color: var(--web);
-            text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
-        }
-        
-        .hero p { 
-            font-size: 1.2rem; 
-            color: var(--white); 
-            max-width: 600px; 
-            margin: 0 auto 30px auto;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-        }
-        
-        .production-time {
-            display: inline-block;
-            background: rgba(26, 26, 26, 0.9);
-            padding: 10px 20px;
-            border: 1px solid var(--web);
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-        
-        .packages { padding: 80px 0; }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--web);
-            text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
-        }
-        
-        .packages-grid {
+        /* Estilos específicos de web */
+        .web-types-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
         }
-        
-        .package-card {
-            background: rgba(26, 26, 26, 0.9);
-            border: 1px solid var(--dark-green);
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .web-type-card {
+            background: var(--gray);
+            border: 2px solid var(--gray-light);
+            border-radius: var(--radius-xl);
+            padding: 35px 30px;
+            transition: all var(--transition-base);
             position: relative;
-            backdrop-filter: blur(10px);
-            cursor: pointer;
         }
-        
-        .package-card:hover {
-            border-color: var(--web);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(79, 195, 247, 0.15);
+        .web-type-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyan);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.15);
         }
-        
-        .package-card.seleccionado {
-            background: rgba(13, 27, 42, 0.9);
-            border-color: var(--web);
+        .web-type-card.featured {
+            border-color: var(--cyan);
         }
-        
-        .package-card.destacado {
-            border-color: var(--web);
-            box-shadow: 0 0 20px rgba(79, 195, 247, 0.2);
-        }
-        
-        .package-badge {
+        .web-type-card.featured::before {
+            content: 'MÁS POPULAR';
             position: absolute;
-            top: -12px;
-            right: 20px;
-            background: var(--web);
+            top: -12px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--cyan);
             color: var(--black);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            padding: 4px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
-        
-        .package-header {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--dark-green);
+        .web-type-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--cyan);
         }
-        
-        .package-type {
-            font-size: 1.5rem;
-            color: var(--web);
+        .web-type-card h3 {
+            color: var(--cyan);
             margin-bottom: 10px;
         }
-        
-        .package-price {
-            font-family: 'Pirata One', display;
+        .web-type-price {
+            font-family: var(--font-display);
             font-size: 2.5rem;
             color: var(--white);
+            margin-bottom: 20px;
         }
-        
-        .package-price span { font-size: 1rem; color: var(--web); }
-        
-        .package-features {
+        .web-type-price small {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+        }
+        .web-type-features {
             list-style: none;
             margin-bottom: 25px;
         }
-        
-        .package-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--dark-green);
-            color: var(--white);
-            font-size: 0.95rem;
+        .web-type-features li {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: #ccc;
+            border-bottom: 1px solid var(--border-subtle);
         }
-        
-        .package-features li:last-child { border-bottom: none; }
-        .package-features li::before {
-            content: "✓";
-            color: var(--web);
-            margin-right: 10px;
+        .web-type-features li:last-child { border-bottom: none; }
+        .web-type-features li::before {
+            content: '✓ ';
+            color: var(--cyan);
             font-weight: bold;
         }
-        
-        .package-time {
-            text-align: center;
-            color: var(--web);
-            font-size: 0.85rem;
-            margin-bottom: 20px;
+        .btn-web {
+            background: var(--cyan);
+            color: var(--black);
         }
-        
-        .portfolio { 
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
+        .btn-web:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
         }
-        
-        .portfolio-grid {
+        .portfolio-web-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
-        .portfolio-card {
-            background: rgba(26, 26, 26, 0.9);
-            border: 1px solid var(--dark-green);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
-        }
-        
-        .portfolio-card:hover {
-            border-color: var(--web);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(79, 195, 247, 0.15);
-        }
-        
-        .portfolio-image {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
+        .portfolio-web-card {
             background: var(--gray);
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-base);
         }
-        
-        .portfolio-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .portfolio-web-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyan);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.2);
         }
-        
-        .portfolio-card:hover .portfolio-image img {
-            transform: scale(1.05);
+        .portfolio-web-image {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(0,102,204,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
         }
-        
-        .portfolio-overlay {
+        .portfolio-web-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity var(--transition-base);
         }
-        
-        .portfolio-card:hover .portfolio-overlay {
-            opacity: 1;
-        }
-        
-        .portfolio-info {
-            padding: 20px;
-        }
-        
-        .portfolio-info h3 {
-            color: var(--web);
+        .portfolio-web-card:hover .portfolio-web-overlay { opacity: 1; }
+        .portfolio-web-info { padding: 25px; }
+        .portfolio-web-info h3 {
+            color: var(--cyan);
             margin-bottom: 10px;
             font-size: 1.3rem;
         }
-        
-        .portfolio-info p {
-            color: #ccc;
-            font-size: 0.95rem;
+        .portfolio-web-info p {
+            color: #aaa;
+            font-size: 0.9rem;
             margin-bottom: 15px;
-            line-height: 1.6;
         }
-        
-        .portfolio-tags {
+        .tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
         }
-        
-        .tag {
-            background: var(--dark-green);
-            color: var(--neon-green);
+        .tech-tag {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
             padding: 4px 12px;
-            border-radius: 4px;
+            border-radius: var(--radius-full);
             font-size: 0.75rem;
-            font-weight: 500;
+            font-weight: 600;
         }
-        
-        .info-section { 
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-        }
-        
-        .info-grid {
+        .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
+            margin-top: 40px;
         }
-        
-        .info-card {
-            background: rgba(26, 26, 26, 0.9);
-            padding: 30px;
-            border: 1px solid var(--dark-green);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .info-card h3 {
-            color: var(--web);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .info-card p {
-            color: var(--white);
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-        
-        .info-card ul {
-            list-style: none;
-            margin-top: 15px;
-        }
-        
-        .info-card ul li {
-            padding: 8px 0;
-            color: var(--white);
-            font-size: 0.9rem;
-        }
-        
-        .info-card ul li::before {
-            content: "→";
-            color: var(--web);
-            margin-right: 10px;
-        }
-        
-        .contract-info {
-            padding: 80px 0;
-            background: linear-gradient(135deg, rgba(13, 27, 42, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
-            border: 2px solid var(--web);
-            border-radius: 12px;
-            margin: 80px 20px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .contract-info h2 {
+        .process-step {
             text-align: center;
-            color: var(--web);
-            margin-bottom: 30px;
+            position: relative;
         }
-        
-        .contract-info p {
-            color: var(--white);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-            line-height: 1.8;
-        }
-        
-        .contract-download { text-align: center; margin-top: 30px; }
-        
-        .questionnaire { 
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-        }
-        
-        .questionnaire-form {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(26, 26, 26, 0.9);
-            padding: 40px;
-            border: 1px solid var(--dark-green);
-            backdrop-filter: blur(10px);
-        }
-        
-        .form-group { margin-bottom: 20px; }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--web);
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: var(--gray);
-            border: 1px solid var(--dark-green);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--web);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .package-message {
-            display: none;
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(13, 27, 42, 0.9);
-            border: 1px solid var(--web);
-            border-radius: 4px;
-        }
-        
-        .package-message.show {
-            display: block;
-        }
-        
-        .package-message p {
-            color: var(--web);
-            font-weight: 600;
-        }
-        
-        .faq { 
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-        }
-        
-        .faq-item {
-            background: rgba(26, 26, 26, 0.9);
-            margin-bottom: 15px;
-            border: 1px solid var(--dark-green);
-            backdrop-filter: blur(10px);
-        }
-        
-        .faq-question {
-            padding: 20px;
-            cursor: pointer;
+        .process-number {
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, var(--cyan), #0066cc);
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            font-weight: 600;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--black);
+            margin: 0 auto 20px auto;
         }
-        
-        .faq-question:hover { color: var(--web); }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 20px;
-            color: var(--white);
+        .process-step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
         }
-        
-        .faq-answer.show { max-height: 500px; padding: 0 20px 20px 20px; }
-        
-        footer {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--dark-green);
-        }
-        
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .section-title { font-size: 2rem; }
-            nav ul { display: none; }
-            .packages-grid { grid-template-columns: 1fr; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-            .questionnaire-form { padding: 25px; }
-            .contract-info { margin: 20px; padding: 25px; }
-            .lang-switch { top: 10px; right: 10px; }
-            .section-nav { 
-                right: 10px; 
-                padding: 10px 8px;
-            }
-            .section-nav-item {
-                width: 10px;
-                height: 10px;
-            }
-            .section-nav-tooltip {
-                display: none;
-            }
-            .portfolio-image { height: 180px; }
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="lang-switch">
-        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
-    </div>
+    <!-- Loader -->
+    <div id="loader"><div class="loader-spinner"></div></div>
 
-    <!-- SECTION NAVIGATION -->
-    <nav class="section-nav">
-        <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
-            <span class="section-nav-tooltip">Inicio</span>
-        </div>
-        <div class="section-nav-item" data-section="packages" onclick="scrollToSection('packages')">
-            <span class="section-nav-tooltip">Paquetes</span>
-        </div>
-        <div class="section-nav-item" data-section="portfolio" onclick="scrollToSection('portfolio')">
-            <span class="section-nav-tooltip">Ejemplos</span>
-        </div>
-        <div class="section-nav-item" data-section="info" onclick="scrollToSection('info')">
-            <span class="section-nav-tooltip">Info</span>
-        </div>
-        <div class="section-nav-item" data-section="questionnaire" onclick="scrollToSection('questionnaire')">
-            <span class="section-nav-tooltip">Cuestionario</span>
-        </div>
-        <div class="section-nav-item" data-section="faq" onclick="scrollToSection('faq')">
-            <span class="section-nav-tooltip">FAQ</span>
-        </div>
-    </nav>
-
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo">STIKMANIA</a>
                 <nav>
                     <ul>
-                        <li><a href="index.html" data-es="Inicio" data-en="Home">Inicio</a></li>
-                        <li><a href="index.html#services" data-es="Servicios" data-en="Services">Servicios</a></li>
-                        <li><a href="stickers.html" data-es="Stickers" data-en="Stickers">Stickers</a></li>
-                        <li><a href="branding.html" data-es="Branding" data-en="Branding">Branding</a></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#tienda">Tienda</a></li>
+                        <li><a href="branding.html">Branding</a></li>
+                        <li><a href="#cotizador" class="btn btn-primary" style="padding: 8px 16px;">Cotizar</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <section id="hero" class="hero">
-        <div class="container">
-            <h1 data-es="Desarrollo Web Profesional" data-en="Professional Web Development">Desarrollo Web Profesional</h1>
-            <p data-es="Sitios web modernos, rápidos y optimizados. Desde landing pages hasta e-commerce y web apps. Servicio documentado bajo contrato." data-en="Modern, fast and optimized websites. From landing pages to e-commerce and web apps. Documented service under contract.">Sitios web modernos, rápidos y optimizados. Desde landing pages hasta e-commerce y web apps. Servicio documentado bajo contrato.</p>
-            <div class="production-time">
-                <strong data-es="Tiempo de producción:" data-en="Production time:">Tiempo de producción:</strong> <span data-es="5-45 días hábiles según tipo de proyecto" data-en="5-45 business days depending on project type">5-45 días hábiles según tipo de proyecto</span>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container" style="text-align: center;">
+            <div class="hero-badge fade-in">💻 Desarrollo Web Profesional</div>
+            <h1 class="fade-in" style="background: linear-gradient(90deg, #00FFFF, #0099cc, #00FFFF); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">
+                Webs que venden.<br>Código que funciona.
+            </h1>
+            <p class="hero-subtitle fade-in" style="margin-left: auto; margin-right: auto;">
+                Landing pages, e-commerce, portfolios y web apps. Diseño moderno, responsive y optimizado para SEO. Contratos claros y entrega garantizada.
+            </p>
+            <div class="hero-ctas fade-in" style="justify-content: center;">
+                <a href="#cotizador" class="btn btn-web btn-large">Cotizar proyecto</a>
+                <a href="#tipos" class="btn btn-outline btn-large" style="border-color: var(--cyan); color: var(--cyan);">Ver tipos de web</a>
+            </div>
+            
+            <div class="trust-badges fade-in" style="justify-content: center;">
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">🚀</span>
+                    <span>Entrega 5-45 días</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">📱</span>
+                    <span>100% responsive</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">📄</span>
+                    <span>Contrato incluido</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">🎓</span>
+                    <span>Capacitación gratis</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="packages" class="packages reveal">
+    <!-- TIPOS DE WEB -->
+    <section id="tipos" class="section section-dark">
         <div class="container">
-            <h2 class="section-title" data-es="Tipos de Web y Precios" data-en="Web Types and Prices">Tipos de Web y Precios</h2>
-            <p style="text-align: center; color: var(--white); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Precios accesibles y competitivos para el mercado actual. Todos los proyectos incluyen contrato y capacitación." data-en="Accessible and competitive prices for the current market. All projects include contract and training.">Precios accesibles y competitivos para el mercado actual. Todos los proyectos incluyen contrato y capacitación.</p>
-            
-            <div class="packages-grid">
-                <!-- LANDING / PORTFOLIO -->
-                <div class="package-card" id="package-landing" onclick="selectPackage('landing')">
-                    <div class="package-header">
-                        <h3 class="package-type" data-es="Landing / Portfolio" data-en="Landing / Portfolio">Landing / Portfolio</h3>
-                        <div class="package-price">$20 <span>USD</span></div>
-                    </div>
-                    <ul class="package-features">
-                        <li data-es="1-3 secciones" data-en="1-3 sections">1-3 secciones</li>
-                        <li data-es="Diseño responsive" data-en="Responsive design">Diseño responsive</li>
-                        <li data-es="Formulario de contacto" data-en="Contact form">Formulario de contacto</li>
-                        <li data-es="Optimización básica SEO" data-en="Basic SEO optimization">Optimización básica SEO</li>
-                        <li data-es="Hosting primer año incluido" data-en="First year hosting included">Hosting primer año incluido</li>
-                        <li data-es="Entrega en 5-10 días hábiles" data-en="Delivery in 5-10 business days">Entrega en 5-10 días hábiles</li>
-                    </ul>
-                    <p class="package-time">⏱️ 5-10 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
-                </div>
-                
-                <!-- WEB CORPORATIVA -->
-                <div class="package-card destacado" id="package-corporativa" onclick="selectPackage('corporativa')">
-                    <span class="package-badge" data-es="Más Popular" data-en="Most Popular">Más Popular</span>
-                    <div class="package-header">
-                        <h3 class="package-type" data-es="Web Corporativa" data-en="Corporate Website">Web Corporativa</h3>
-                        <div class="package-price">$50 <span>USD</span></div>
-                    </div>
-                    <ul class="package-features">
-                        <li data-es="4-8 secciones" data-en="4-8 sections">4-8 secciones</li>
-                        <li data-es="Múltiples páginas" data-en="Multiple pages">Múltiples páginas</li>
-                        <li data-es="Panel autoadministrable" data-en="Self-administrable panel">Panel autoadministrable</li>
-                        <li data-es="SEO avanzado" data-en="Advanced SEO">SEO avanzado</li>
-                        <li data-es="Hosting primer año incluido" data-en="First year hosting included">Hosting primer año incluido</li>
-                        <li data-es="Entrega en 10-20 días hábiles" data-en="Delivery in 10-20 business days">Entrega en 10-20 días hábiles</li>
-                    </ul>
-                    <p class="package-time">⏱️ 10-20 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <button class="btn" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
-                </div>
-                
-                <!-- E-COMMERCE -->
-                <div class="package-card" id="package-ecommerce" onclick="selectPackage('ecommerce')">
-                    <div class="package-header">
-                        <h3 class="package-type" data-es="E-commerce" data-en="E-commerce">E-commerce</h3>
-                        <div class="package-price">$80 <span>USD</span></div>
-                    </div>
-                    <ul class="package-features">
-                        <li data-es="Catálogo de productos" data-en="Product catalog">Catálogo de productos</li>
-                        <li data-es="Carrito de compras" data-en="Shopping cart">Carrito de compras</li>
-                        <li data-es="Pasarela de pago" data-en="Payment gateway">Pasarela de pago</li>
-                        <li data-es="Panel de administración" data-en="Administration panel">Panel de administración</li>
-                        <li data-es="Hosting primer año incluido" data-en="First year hosting included">Hosting primer año incluido</li>
-                        <li data-es="Entrega en 15-30 días hábiles" data-en="Delivery in 15-30 business days">Entrega en 15-30 días hábiles</li>
-                    </ul>
-                    <p class="package-time">⏱️ 15-30 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
-                </div>
-                
-                <!-- WEB APP -->
-                <div class="package-card" id="package-webapp" onclick="selectPackage('webapp')">
-                    <div class="package-header">
-                        <h3 class="package-type" data-es="Web App" data-en="Web App">Web App</h3>
-                        <div class="package-price">$80 <span>USD</span></div>
-                    </div>
-                    <ul class="package-features">
-                        <li data-es="Funcionalidad personalizada" data-en="Custom functionality">Funcionalidad personalizada</li>
-                        <li data-es="Base de datos" data-en="Database">Base de datos</li>
-                        <li data-es="Autenticación de usuarios" data-en="User authentication">Autenticación de usuarios</li>
-                        <li data-es="Dashboard administrativo" data-en="Administrative dashboard">Dashboard administrativo</li>
-                        <li data-es="Hosting primer año incluido" data-en="First year hosting included">Hosting primer año incluido</li>
-                        <li data-es="Entrega en 20-45 días hábiles" data-en="Delivery in 20-45 business days">Entrega en 20-45 días hábiles</li>
-                    </ul>
-                    <p class="package-time">⏱️ 20-45 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
-                </div>
+            <div class="section-header fade-in">
+                <h2 style="background: linear-gradient(90deg, #00FFFF, #0099cc, #00FFFF); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">Tipos de web</h2>
+                <p>Precios accesibles para el mercado cubano. Hosting incluido el primer año.</p>
             </div>
             
-            <div style="text-align: center; margin-top: 40px;">
-                <p style="color: var(--white); margin-bottom: 20px;" data-es="¿Necesitas algo personalizado o tienes dudas sobre qué tipo de web elegir?" data-en="Need something custom or have questions about which type of web to choose?">¿Necesitas algo personalizado o tienes dudas sobre qué tipo de web elegir?</p>
-                <a href="https://wa.me/5359758756" target="_blank" class="btn" data-es="Consultar por WhatsApp" data-en="Consult via WhatsApp">Consultar por WhatsApp</a>
+            <div class="web-types-grid">
+                <div class="web-type-card fade-in">
+                    <div class="web-type-icon">🎯</div>
+                    <h3>Landing / Portfolio</h3>
+                    <div class="web-type-price">$20 <small>USD</small></div>
+                    <ul class="web-type-features">
+                        <li>1-3 secciones</li>
+                        <li>Diseño responsive</li>
+                        <li>Formulario de contacto</li>
+                        <li>SEO básico</li>
+                        <li>Hosting 1er año incluido</li>
+                        <li>Entrega 5-10 días</li>
+                    </ul>
+                    <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20una%20landing%20page" target="_blank" class="btn btn-outline btn-block" style="border-color: var(--cyan); color: var(--cyan);">Empezar</a>
+                </div>
+                
+                <div class="web-type-card featured fade-in">
+                    <div class="web-type-icon">🏢</div>
+                    <h3>Web Corporativa</h3>
+                    <div class="web-type-price">$50 <small>USD</small></div>
+                    <ul class="web-type-features">
+                        <li>4-8 secciones</li>
+                        <li>Múltiples páginas</li>
+                        <li>Panel autoadministrable</li>
+                        <li>SEO avanzado</li>
+                        <li>Hosting 1er año incluido</li>
+                        <li>Entrega 10-20 días</li>
+                    </ul>
+                    <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20una%20web%20corporativa" target="_blank" class="btn btn-web btn-block">Empezar</a>
+                </div>
+                
+                <div class="web-type-card fade-in">
+                    <div class="web-type-icon">🛒</div>
+                    <h3>E-commerce</h3>
+                    <div class="web-type-price">$80 <small>USD</small></div>
+                    <ul class="web-type-features">
+                        <li>Catálogo de productos</li>
+                        <li>Carrito de compras</li>
+                        <li>Pasarela de pago</li>
+                        <li>Panel de administración</li>
+                        <li>Hosting 1er año incluido</li>
+                        <li>Entrega 15-30 días</li>
+                    </ul>
+                    <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20un%20e-commerce" target="_blank" class="btn btn-outline btn-block" style="border-color: var(--cyan); color: var(--cyan);">Empezar</a>
+                </div>
+                
+                <div class="web-type-card fade-in">
+                    <div class="web-type-icon">⚙️</div>
+                    <h3>Web App</h3>
+                    <div class="web-type-price">$80 <small>USD</small></div>
+                    <ul class="web-type-features">
+                        <li>Funcionalidad personalizada</li>
+                        <li>Base de datos</li>
+                        <li>Autenticación de usuarios</li>
+                        <li>Dashboard administrativo</li>
+                        <li>Hosting 1er año incluido</li>
+                        <li>Entrega 20-45 días</li>
+                    </ul>
+                    <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20una%20web%20app" target="_blank" class="btn btn-outline btn-block" style="border-color: var(--cyan); color: var(--cyan);">Empezar</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="portfolio reveal">
+    <!-- PROCESO -->
+    <section class="section">
         <div class="container">
-            <h2 class="section-title" data-es="Ejemplos de Nuestros Trabajos" data-en="Examples of Our Work">Ejemplos de Nuestros Trabajos</h2>
-            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Algunos de los proyectos web que hemos desarrollado para clientes en Cuba" data-en="Some of the web projects we have developed for clients in Cuba">Algunos de los proyectos web que hemos desarrollado para clientes en Cuba</p>
+            <div class="section-header fade-in">
+                <h2 style="background: linear-gradient(90deg, #00FFFF, #0099cc, #00FFFF); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">Nuestro proceso</h2>
+                <p>De la idea al lanzamiento en 4 pasos claros.</p>
+            </div>
             
-            <div class="portfolio-grid">
-                
-                <!-- PROYECTO 1: Novoelectra -->
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <img src="images/novoelectra-preview.png" alt="Novoelectra Website" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%2300FF00%22 font-family=%22sans-serif%22 font-size=%2218%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3ENovoelectra Preview%3C/text%3E%3C/svg%3E'">
-                        <div class="portfolio-overlay">
-                            <a href="https://novoelectra.github.io" target="_blank" class="btn btn-small" data-es="Visitar Sitio" data-en="Visit Site">Visitar Sitio</a>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="process-number">1</div>
+                    <h3>Briefing</h3>
+                    <p>Entendemos tu negocio, objetivos y audiencia.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-number">2</div>
+                    <h3>Diseño</h3>
+                    <p>Creamos mockups y prototipos navegables.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-number">3</div>
+                    <h3>Desarrollo</h3>
+                    <p>Código limpio, responsive y optimizado.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-number">4</div>
+                    <h3>Lanzamiento</h3>
+                    <p>Deploy, capacitación y soporte post-entrega.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO WEB -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 style="background: linear-gradient(90deg, #00FFFF, #0099cc, #00FFFF); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">Proyectos realizados</h2>
+                <p>Webs que ya están generando resultados.</p>
+            </div>
+            
+            <div class="portfolio-web-grid">
+                <div class="portfolio-web-card fade-in">
+                    <div class="portfolio-web-image">
+                        ⚡
+                        <div class="portfolio-web-overlay">
+                            <a href="https://novoelectra.github.io" target="_blank" class="btn btn-web" style="padding: 10px 20px; font-size: 0.85rem;">Visitar sitio</a>
                         </div>
                     </div>
-                    <div class="portfolio-info">
+                    <div class="portfolio-web-info">
                         <h3>Novoelectra</h3>
-                        <p data-es="Sitio web corporativo para empresa de soluciones eléctricas. Diseño moderno, responsive y optimizado para SEO." data-en="Corporate website for electrical solutions company. Modern design, responsive and SEO optimized.">Sitio web corporativo para empresa de soluciones eléctricas. Diseño moderno, responsive y optimizado para SEO.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Landing Page</span>
-                            <span class="tag">Responsive</span>
-                            <span class="tag">SEO</span>
+                        <p>Sitio corporativo para empresa de soluciones eléctricas. Diseño moderno, responsive y optimizado para SEO.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Landing</span>
+                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">SEO</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- PROYECTO 2: Mi Pincha -->
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <img src="images/mipincha-preview.png" alt="Mi Pincha Website" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%2300FF00%22 font-family=%22sans-serif%22 font-size=%2218%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EMi Pincha Preview%3C/text%3E%3C/svg%3E'">
-                        <div class="portfolio-overlay">
-                            <a href="https://mipincha.github.io" target="_blank" class="btn btn-small" data-es="Visitar Sitio" data-en="Visit Site">Visitar Sitio</a>
+                <div class="portfolio-web-card fade-in">
+                    <div class="portfolio-web-image">
+                        🛍️
+                        <div class="portfolio-web-overlay">
+                            <a href="https://mipincha.github.io" target="_blank" class="btn btn-web" style="padding: 10px 20px; font-size: 0.85rem;">Visitar sitio</a>
                         </div>
                     </div>
-                    <div class="portfolio-info">
+                    <div class="portfolio-web-info">
                         <h3>Mi Pincha</h3>
-                        <p data-es="Plataforma web para emprendimiento local. Catálogo de productos, integración con WhatsApp y diseño mobile-first." data-en="Web platform for local entrepreneurship. Product catalog, WhatsApp integration and mobile-first design.">Plataforma web para emprendimiento local. Catálogo de productos, integración con WhatsApp y diseño mobile-first.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">E-commerce</span>
-                            <span class="tag">Mobile-First</span>
-                            <span class="tag">WhatsApp</span>
+                        <p>Plataforma para emprendimiento local. Catálogo de productos, integración con WhatsApp y diseño mobile-first.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">E-commerce</span>
+                            <span class="tech-tag">Mobile-first</span>
+                            <span class="tech-tag">WhatsApp</span>
                         </div>
                     </div>
                 </div>
                 
-            </div>
-        </div>
-    </section>
-
-    <section id="info" class="info-section reveal">
-        <div class="container">
-            <h2 class="section-title" data-es="¿Qué Incluye el Precio?" data-en="What Does the Price Include?">¿Qué Incluye el Precio?</h2>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3 data-es="🌐 Hosting y Dominio" data-en="🌐 Hosting and Domain">🌐 Hosting y Dominio</h3>
-                    <p data-es="Primer año de hosting incluido en todos los proyectos. Puedes usar tu dominio propio o nosotros te ayudamos a conseguir uno." data-en="First year of hosting included in all projects. You can use your own domain or we help you get one.">Primer año de hosting incluido en todos los proyectos. Puedes usar tu dominio propio o nosotros te ayudamos a conseguir uno.</p>
-                    <ul>
-                        <li data-es="Hosting gratuito primer año" data-en="Free hosting first year">Hosting gratuito primer año</li>
-                        <li data-es="Configuración de dominio" data-en="Domain configuration">Configuración de dominio</li>
-                        <li data-es="Certificado SSL (HTTPS)" data-en="SSL Certificate (HTTPS)">Certificado SSL (HTTPS)</li>
-                        <li data-es="Renovación desde $50 USD/año" data-en="Renewal from $50 USD/year">Renovación desde $50 USD/año</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card">
-                    <h3 data-es="📱 Diseño Responsive" data-en="📱 Responsive Design">📱 Diseño Responsive</h3>
-                    <p data-es="Tu sitio web se verá perfecto en cualquier dispositivo: computadora, tablet o teléfono móvil." data-en="Your website will look perfect on any device: computer, tablet or mobile phone.">Tu sitio web se verá perfecto en cualquier dispositivo: computadora, tablet o teléfono móvil.</p>
-                    <ul>
-                        <li data-es="Adaptable a todos los dispositivos" data-en="Adaptable to all devices">Adaptable a todos los dispositivos</li>
-                        <li data-es="Optimización de velocidad" data-en="Speed optimization">Optimización de velocidad</li>
-                        <li data-es="Navegación intuitiva" data-en="Intuitive navigation">Navegación intuitiva</li>
-                        <li data-es="Experiencia de usuario optimizada" data-en="Optimized user experience">Experiencia de usuario optimizada</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card">
-                    <h3 data-es="🔒 Contrato Incluido" data-en="🔒 Contract Included">🔒 Contrato Incluido</h3>
-                    <p data-es="Todos los proyectos de desarrollo web incluyen contrato de servicio con alcance definido, cronograma y garantías." data-en="All web development projects include service contract with defined scope, schedule and guarantees.">Todos los proyectos de desarrollo web incluyen contrato de servicio con alcance definido, cronograma y garantías.</p>
-                    <ul>
-                        <li data-es="Contrato documentado" data-en="Documented contract">Contrato documentado</li>
-                        <li data-es="Cronograma de entrega" data-en="Delivery schedule">Cronograma de entrega</li>
-                        <li data-es="Garantías establecidas" data-en="Established guarantees">Garantías establecidas</li>
-                        <li data-es="Soporte post-lanzamiento" data-en="Post-launch support">Soporte post-lanzamiento</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card">
-                    <h3 data-es="🎓 Capacitación" data-en="🎓 Training">🎓 Capacitación</h3>
-                    <p data-es="Te enseñamos a gestionar tu sitio web para que puedas actualizar contenido básico sin depender de nosotros." data-en="We teach you to manage your website so you can update basic content without depending on us.">Te enseñamos a gestionar tu sitio web para que puedas actualizar contenido básico sin depender de nosotros.</p>
-                    <ul>
-                        <li data-es="Sesión de capacitación incluida" data-en="Training session included">Sesión de capacitación incluida</li>
-                        <li data-es="Guía de uso básico" data-en="Basic usage guide">Guía de uso básico</li>
-                        <li data-es="Soporte durante el primer mes" data-en="Support during first month">Soporte durante el primer mes</li>
-                        <li data-es="Asesoramiento técnico" data-en="Technical advice">Asesoramiento técnico</li>
-                    </ul>
+                <div class="portfolio-web-card fade-in">
+                    <div class="portfolio-web-image">
+                        🎨
+                        <div class="portfolio-web-overlay">
+                            <a href="index.html" class="btn btn-web" style="padding: 10px 20px; font-size: 0.85rem;">Ver este sitio</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-web-info">
+                        <h3>STIKMANIA</h3>
+                        <p>Este mismo sitio. PWA con sistema de diseño unificado, cotizador en tiempo real y prueba social dinámica.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PWA</span>
+                            <span class="tech-tag">Unificado</span>
+                            <span class="tech-tag">Cotizador</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="container">
-        <div class="contract-info">
-            <h2 data-es="Contrato de Servicio Web" data-en="Web Service Contract">Contrato de Servicio Web</h2>
-            <p data-es="Todos los proyectos de desarrollo web se realizan bajo contrato de servicio que protege ambas partes. El contrato incluye alcance del proyecto, cronograma de entrega, forma de pago, garantías y soporte post-lanzamiento." data-en="All web development projects are carried out under a service contract that protects both parties. The contract includes project scope, delivery schedule, payment method, guarantees and post-launch support.">Todos los proyectos de desarrollo web se realizan bajo contrato de servicio que protege ambas partes. El contrato incluye alcance del proyecto, cronograma de entrega, forma de pago, garantías y soporte post-lanzamiento.</p>
-            <p data-es="Forma de pago: 50% de anticipo para comenzar el proyecto, 50% restante al momento de la entrega final. Aceptamos efectivo (USD/CUP/EUR) y transferencias bancarias." data-en="Payment method: 50% deposit to start the project, 50% remaining upon final delivery. We accept cash (USD/CUP/EUR) and bank transfers.">Forma de pago: 50% de anticipo para comenzar el proyecto, 50% restante al momento de la entrega final. Aceptamos efectivo (USD/CUP/EUR) y transferencias bancarias.</p>
-            <p data-es="Soporte post-entrega: 1 mes de soporte técnico incluido para corrección de bugs, ajustes menores de diseño y asesoramiento técnico." data-en="Post-delivery support: 1 month of technical support included for bug fixes, minor design adjustments and technical advice.">Soporte post-entrega: 1 mes de soporte técnico incluido para corrección de bugs, ajustes menores de diseño y asesoramiento técnico.</p>
-            <div class="contract-download">
-                <a href="downloads/STIKMANIA_CONTRATO_WEB.pdf" download class="btn btn-outline" data-es="📥 Descargar Contrato (ESPAÑOL)" data-en="📥 Download Contract (SPANISH)">📥 Descargar Contrato (ESPAÑOL)</a>
-                <a href="downloads/STIKMANIA_CONTRACT_WEB_EN.pdf" download class="btn btn-outline" style="margin-left: 10px;" data-es="📥 Download Contract (ENGLISH)" data-en="📥 Download Contract (ENGLISH)">📥 Download Contract (ENGLISH)</a>
+    <!-- GARANTÍAS -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 style="background: linear-gradient(90deg, #00FFFF, #0099cc, #00FFFF); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">Lo que incluye el precio</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="color: var(--cyan);">🌐</div>
+                    <h3>Hosting + Dominio</h3>
+                    <p>Primer año de hosting incluido. Configuración de dominio y certificado SSL.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="color: var(--cyan);">📱</div>
+                    <h3>Diseño Responsive</h3>
+                    <p>Se ve perfecto en cualquier dispositivo: móvil, tablet y desktop.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="color: var(--cyan);">📄</div>
+                    <h3>Contrato Incluido</h3>
+                    <p>Documento que protege ambas partes con alcance, cronograma y garantías.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="color: var(--cyan);">🎓</div>
+                    <h3>Capacitación</h3>
+                    <p>Te enseñamos a gestionar tu web para que seas independiente.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="color: var(--cyan);">🛠️</div>
+                    <h3>Soporte Post-Entrega</h3>
+                    <p>1 mes de soporte técnico incluido para bugs y ajustes menores.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="color: var(--cyan);">🔒</div>
+                    <h3>Seguridad</h3>
+                    <p>HTTPS, backups automáticos y protección contra ataques comunes.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <section id="questionnaire" class="questionnaire reveal">
+    <!-- COTIZADOR WEB -->
+    <section id="cotizador" class="section section-dark">
         <div class="container">
-            <h2 class="section-title" data-es="Cuestionario de Desarrollo Web" data-en="Web Development Questionnaire">Cuestionario de Desarrollo Web</h2>
-            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución" data-en="Complete this form to help us better understand your project and provide you with the best solution">Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución</p>
-            
-            <div id="package-message" class="package-message">
-                <p><span data-es="✓ Tipo de web seleccionado:" data-en="✓ Web type selected:">✓ Tipo de web seleccionado:</span> <span id="selected-package-name"></span></p>
+            <div class="section-header fade-in">
+                <h2 style="background: linear-gradient(90deg, #00FFFF, #0099cc, #00FFFF); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">Cotiza tu proyecto web</h2>
+                <p>Respuesta en menos de 24 horas.</p>
             </div>
             
-            <form class="questionnaire-form" id="webForm" onsubmit="submitQuestionnaire(event)">
-                <div class="form-group">
-                    <label data-es="Nombre completo *" data-en="Full name *">Nombre completo *</label>
-                    <input type="text" id="q_name" required>
+            <div class="calc-wrapper fade-in">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" id="web-name" placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" id="web-phone" placeholder="+53 5 000 0000">
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label data-es="Teléfono *" data-en="Phone *">Teléfono *</label>
-                    <input type="tel" id="q_phone" required>
+                    <label>Marca/Negocio</label>
+                    <input type="text" id="web-brand" placeholder="Nombre de tu proyecto">
                 </div>
                 
                 <div class="form-group">
-                    <label data-es="Nombre de la empresa/marca *" data-en="Company/brand name *">Nombre de la empresa/marca *</label>
-                    <input type="text" id="q_brand" required>
-                </div>
-                
-                <div class="form-group">
-                    <label data-es="¿A qué se dedican? *" data-en="What do you do? *">¿A qué se dedican? *</label>
-                    <textarea id="q_business" rows="3" required placeholder="Describe brevemente tu negocio o proyecto..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label data-es="Tipo de proyecto de interés *" data-en="Type of project of interest *">Tipo de proyecto de interés *</label>
-                    <select id="q_package" required>
-                        <option value="">Selecciona un tipo de web...</option>
-                        <option value="landing" data-es="Landing / Portfolio ($20 USD)" data-en="Landing / Portfolio ($20 USD)">Landing / Portfolio ($20 USD)</option>
-                        <option value="corporativa" data-es="Web Corporativa ($50 USD)" data-en="Corporate Website ($50 USD)">Web Corporativa ($50 USD)</option>
-                        <option value="ecommerce" data-es="E-commerce ($80 USD)" data-en="E-commerce ($80 USD)">E-commerce ($80 USD)</option>
-                        <option value="webapp" data-es="Web App ($80 USD)" data-en="Web App ($80 USD)">Web App ($80 USD)</option>
-                        <option value="personalizado" data-es="Personalizado (consultar)" data-en="Custom (consult)">Personalizado (consultar)</option>
+                    <label>Tipo de web</label>
+                    <select id="web-type">
+                        <option value="landing">Landing / Portfolio ($20 USD)</option>
+                        <option value="corporativa">Web Corporativa ($50 USD)</option>
+                        <option value="ecommerce">E-commerce ($80 USD)</option>
+                        <option value="webapp">Web App ($80 USD)</option>
+                        <option value="personalizado">Proyecto personalizado</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label data-es="¿Ya tienes dominio y hosting?" data-en="Do you already have domain and hosting?">¿Ya tienes dominio y hosting?</label>
-                    <select id="q_hosting">
-                        <option value="">Selecciona...</option>
-                        <option value="si" data-es="Sí, ya tengo ambos" data-en="Yes, I already have both">Sí, ya tengo ambos</option>
-                        <option value="dominio" data-es="Solo tengo dominio" data-en="I only have domain">Solo tengo dominio</option>
-                        <option value="no" data-es="No, necesito ambos" data-en="No, I need both">No, necesito ambos</option>
+                    <label>¿Ya tienes dominio y hosting?</label>
+                    <select id="web-hosting">
+                        <option value="no">No, necesito ambos</option>
+                        <option value="dominio">Solo tengo dominio</option>
+                        <option value="si">Sí, ya tengo ambos</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label data-es="¿Tienes contenido preparado? (textos, imágenes, logos)" data-en="Do you have content ready? (texts, images, logos)">¿Tienes contenido preparado? (textos, imágenes, logos)</label>
-                    <select id="q_content">
-                        <option value="">Selecciona...</option>
-                        <option value="si" data-es="Sí, todo listo" data-en="Yes, all ready">Sí, todo listo</option>
-                        <option value="parcial" data-es="Parcialmente" data-en="Partially">Parcialmente</option>
-                        <option value="no" data-es="No, necesito ayuda" data-en="No, I need help">No, necesito ayuda</option>
-                    </select>
+                    <label>Describe tu proyecto</label>
+                    <textarea id="web-desc" rows="4" placeholder="¿Qué funcionalidades necesitas? ¿Qué páginas quieres incluir?"></textarea>
                 </div>
                 
-                <div class="form-group">
-                    <label data-es="Descripción del proyecto *" data-en="Project description *">Descripción del proyecto *</label>
-                    <textarea id="q_description" rows="4" required placeholder="Describe qué funcionalidades necesitas, páginas que quieres incluir, referencias de webs que te gusten..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label data-es="¿Deadline o fecha límite? (opcional)" data-en="Deadline? (optional)">¿Deadline o fecha límite? (opcional)</label>
-                    <input type="text" id="q_deadline" placeholder="Si tienes una fecha específica...">
-                </div>
-                
-                <button type="submit" class="btn" style="width: 100%;" data-es="Enviar Cuestionario por WhatsApp" data-en="Send Questionnaire via WhatsApp">Enviar Cuestionario por WhatsApp</button>
-            </form>
+                <button class="btn btn-web btn-block" id="web-submit" style="padding: 16px; font-size: 1rem;">
+                    📩 Enviar por WhatsApp
+                </button>
+            </div>
         </div>
     </section>
 
-    <section id="faq" class="faq reveal">
+    <!-- FAQ -->
+    <section class="section">
         <div class="container">
-            <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Qué incluye el hosting del primer año?" data-en="What does the first year hosting include?">¿Qué incluye el hosting del primer año?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p data-es="Incluye alojamiento web, certificado SSL (HTTPS), correos corporativos básicos, y mantenimiento del servidor. Después del primer año, la renovación es desde $50 USD/año." data-en="Includes web hosting, SSL certificate (HTTPS), basic corporate emails, and server maintenance. After the first year, renewal is from $50 USD/year.">Incluye alojamiento web, certificado SSL (HTTPS), correos corporativos básicos, y mantenimiento del servidor. Después del primer año, la renovación es desde $50 USD/año.</p>
-                </div>
+            <div class="section-header fade-in">
+                <h2 style="background: linear-gradient(90deg, #00FFFF, #0099cc, #00FFFF); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">Preguntas frecuentes</h2>
             </div>
             
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Necesito pagar anticipo?" data-en="Do I need to pay a deposit?">¿Necesito pagar anticipo?</span>
-                    <span>+</span>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>¿Qué incluye el hosting del primer año?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Alojamiento web, certificado SSL (HTTPS), correos corporativos básicos y mantenimiento del servidor. Renovación desde $50 USD/año.</p>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    <p data-es="Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final del sitio web." data-en="Yes, we require 50% deposit to start the project. The remaining 50% is paid upon final delivery of the website.">Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final del sitio web.</p>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>¿Necesito pagar anticipo?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Cuánto tiempo tarda el desarrollo?" data-en="How long does development take?">¿Cuánto tiempo tarda el desarrollo?</span>
-                    <span>+</span>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>¿Puedo actualizar el contenido yo mismo?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí. Todos los proyectos incluyen capacitación para que puedas actualizar contenido básico sin depender de nosotros.</p>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    <p data-es="Depende del tipo de proyecto: Landing (5-10 días), Corporativa (10-20 días), E-commerce (15-30 días), Web App (20-45 días). Los tiempos pueden variar según la complejidad y disponibilidad de contenido." data-en="Depends on project type: Landing (5-10 days), Corporate (10-20 days), E-commerce (15-30 days), Web App (20-45 days). Times may vary depending on complexity and content availability.">Depende del tipo de proyecto: Landing (5-10 días), Corporativa (10-20 días), E-commerce (15-30 días), Web App (20-45 días). Los tiempos pueden variar según la complejidad y disponibilidad de contenido.</p>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>¿La web será compatible con móviles?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, todas nuestras webs son 100% responsive. Se adaptan perfectamente a cualquier tamaño de pantalla.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Puedo actualizar el contenido yo mismo?" data-en="Can I update the content myself?">¿Puedo actualizar el contenido yo mismo?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p data-es="Sí. Todos los proyectos incluyen capacitación para que puedas actualizar contenido básico (textos, imágenes) sin depender de nosotros. Para cambios estructurales o nuevas funcionalidades, se cotiza aparte." data-en="Yes. All projects include training so you can update basic content (texts, images) without depending on us. For structural changes or new features, it is quoted separately.">Sí. Todos los proyectos incluyen capacitación para que puedas actualizar contenido básico (textos, imágenes) sin depender de nosotros. Para cambios estructurales o nuevas funcionalidades, se cotiza aparte.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿El sitio web será compatible con móviles?" data-en="Will the website be mobile compatible?">¿El sitio web será compatible con móviles?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p data-es="¡Sí! Todos nuestros sitios son 100% responsive, lo que significa que se adaptan perfectamente a computadoras, tablets y teléfonos móviles." data-en="Yes! All our sites are 100% responsive, which means they adapt perfectly to computers, tablets and mobile phones.">¡Sí! Todos nuestros sitios son 100% responsive, lo que significa que se adaptan perfectamente a computadoras, tablets y teléfonos móviles.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Qué pasa si necesito cambios después de la entrega?" data-en="What if I need changes after delivery?">¿Qué pasa si necesito cambios después de la entrega?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p data-es="Incluimos 1 mes de soporte técnico post-entrega para corrección de bugs y ajustes menores. Después de ese período, los cambios adicionales se cotizan según complejidad ($20-50 USD/hora)." data-en="We include 1 month of post-delivery technical support for bug fixes and minor adjustments. After that period, additional changes are quoted according to complexity ($20-50 USD/hour).">Incluimos 1 mes de soporte técnico post-entrega para corrección de bugs y ajustes menores. Después de ese período, los cambios adicionales se cotizan según complejidad ($20-50 USD/hora).</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Puedo pagar en cuotas?" data-en="Can I pay in installments?">¿Puedo pagar en cuotas?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p data-es="Sí. Para proyectos de $50 USD o más, podemos acordar pagos parciales por fases del proyecto (ej: 50% anticipo, 25% a mitad del proyecto, 25% a la entrega)." data-en="Yes. For projects of $50 USD or more, we can agree on partial payments by project phases (e.g., 50% deposit, 25% at mid-project, 25% at delivery).">Sí. Para proyectos de $50 USD o más, podemos acordar pagos parciales por fases del proyecto (ej: 50% anticipo, 25% a mitad del proyecto, 25% a la entrega).</p>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>¿Qué pasa si necesito cambios después de la entrega?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Incluimos 1 mes de soporte post-entrega para corrección de bugs y ajustes menores. Cambios estructurales se cotizan aparte.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <div class="container fade-in">
+            <h2 style="background: linear-gradient(90deg, #00FFFF, #0099cc, #00FFFF); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite;">¿Listo para tu web?</h2>
+            <p>Presupuesto sin compromiso. Respuesta en 24 horas.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20cotizar%20una%20web" target="_blank" class="btn btn-web btn-large">💬 Hablar por WhatsApp</a>
+                <a href="branding.html" class="btn btn-outline btn-large" style="border-color: var(--cyan); color: var(--cyan);">Ver branding</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p style="color: var(--white); margin-bottom: 10px;">
-                <strong>STIKMANIA</strong> - <span data-es="Diseño que se pega" data-en="Design that sticks">Diseño que se pega</span>
-            </p>
-            <p style="color: var(--white); font-size: 0.9rem;">
-                La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com
-            </p>
-            <p style="color: var(--white); font-size: 0.85rem; margin-top: 20px;">
-                © STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span>
-            </p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>STIKMANIA</h3>
+                    <p>Diseño que se pega. Stickers, etiquetas y empaques personalizados en La Habana, Cuba.</p>
+                    <p style="margin-top: 15px;">© <span class="current-year">2026</span> STIKMANIA. Todos los derechos reservados.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Tienda</h4>
+                    <ul>
+                        <li><a href="index.html#tienda">Packs populares</a></li>
+                        <li><a href="index.html#tienda">Categorías</a></li>
+                        <li><a href="index.html#cotizador">Personalizado</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="branding.html">Branding</a></li>
+                        <li><a href="web.html">Desarrollo web</a></li>
+                        <li><a href="index.html#empresas">Para empresas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5359758756" target="_blank">WhatsApp</a></li>
+                        <li><a href="mailto:stikmania795@gmail.com">Email</a></li>
+                        <li><a href="https://instagram.com/sti_kmania" target="_blank">Instagram</a></li>
+                        <li><a href="tel:+5359758756">+53 5 975 8756</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>La Habana, Cuba • Diseño y producción 100% local</p>
+            </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/5359758756?text=Hola!%20Vengo%20de%20la%20web" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <!-- Scripts compartidos -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Script específico de web -->
     <script>
-        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
-        
-        function toggleLanguage() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            localStorage.setItem('stikmania_lang', currentLang);
-            updateLanguage();
-        }
-        
-        function updateLanguage() {
-            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
-            document.querySelectorAll('[data-es]').forEach(el => {
-                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
-            });
-            document.documentElement.lang = currentLang;
-        }
-        
-        updateLanguage();
-        
-        // SECTION NAVIGATION
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-        
-        // Update active section on scroll
-        window.addEventListener('scroll', () => {
-            const sections = ['hero', 'packages', 'portfolio', 'info', 'questionnaire', 'faq'];
-            const scrollPosition = window.scrollY + 200;
-            
-            sections.forEach(sectionId => {
-                const section = document.getElementById(sectionId);
-                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
-                
-                if (section && navItem) {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
+        document.addEventListener('DOMContentLoaded', function() {
+            var submitBtn = document.getElementById('web-submit');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function() {
+                    var name = document.getElementById('web-name').value || 'No especificado';
+                    var phone = document.getElementById('web-phone').value || 'No especificado';
+                    var brand = document.getElementById('web-brand').value || 'No especificado';
+                    var type = document.getElementById('web-type');
+                    var typeText = type.options[type.selectedIndex].text;
+                    var hosting = document.getElementById('web-hosting');
+                    var hostingText = hosting.options[hosting.selectedIndex].text;
+                    var desc = document.getElementById('web-desc').value || 'No especificado';
                     
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navItem.classList.add('active');
-                    } else {
-                        navItem.classList.remove('active');
-                    }
-                }
-            });
-        });
-        
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            reveals.forEach(element => {
-                var windowHeight = window.innerHeight;
-                var elementTop = element.getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add("active");
-                }
-            });
-        }
-        
-        window.addEventListener("scroll", reveal);
-        reveal();
-        
-        function selectPackage(packageType) {
-            const packageSelect = document.getElementById('q_package');
-            const packageMessage = document.getElementById('package-message');
-            const packageName = document.getElementById('selected-package-name');
-            
-            packageSelect.value = packageType;
-            
-            const packageNames = {
-                'landing': currentLang === 'es' ? 'Landing / Portfolio ($20 USD)' : 'Landing / Portfolio ($20 USD)',
-                'corporativa': currentLang === 'es' ? 'Web Corporativa ($50 USD)' : 'Corporate Website ($50 USD)',
-                'ecommerce': currentLang === 'es' ? 'E-commerce ($80 USD)' : 'E-commerce ($80 USD)',
-                'webapp': currentLang === 'es' ? 'Web App ($80 USD)' : 'Web App ($80 USD)'
-            };
-            
-            packageName.textContent = packageNames[packageType];
-            packageMessage.classList.add('show');
-            
-            document.querySelectorAll('.package-card').forEach(card => {
-                card.classList.remove('seleccionado');
-            });
-            document.getElementById(`package-${packageType}`).classList.add('seleccionado');
-            
-            document.getElementById('questionnaire').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            
-            packageSelect.style.borderColor = 'var(--web)';
-            packageSelect.style.background = 'var(--gray)';
-        }
-        
-        function toggleFaq(element) {
-            const answer = element.nextElementSibling;
-            const sign = element.querySelector('span:last-child');
-            
-            if (answer.classList.contains('show')) {
-                answer.classList.remove('show');
-                sign.textContent = '+';
-            } else {
-                answer.classList.add('show');
-                sign.textContent = '-';
+                    var msg = '💻 *COTIZACIÓN WEB - STIKMANIA*\n\n' +
+                              '• Nombre: ' + name + '\n' +
+                              '• Teléfono: ' + phone + '\n' +
+                              '• Marca: ' + brand + '\n' +
+                              '• Tipo de web: ' + typeText + '\n' +
+                              '• Hosting: ' + hostingText + '\n' +
+                              '• Descripción: ' + desc + '\n\n' +
+                              '✅ Quiero más información.';
+                    
+                    window.open('https://wa.me/5359758756?text=' + encodeURIComponent(msg), '_blank');
+                });
             }
-        }
-        
-        function submitQuestionnaire(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('q_name').value;
-            const phone = document.getElementById('q_phone').value;
-            const brand = document.getElementById('q_brand').value;
-            const business = document.getElementById('q_business').value;
-            const pkg = document.getElementById('q_package').value;
-            const hosting = document.getElementById('q_hosting').value;
-            const content = document.getElementById('q_content').value;
-            const description = document.getElementById('q_description').value;
-            const deadline = document.getElementById('q_deadline').value;
-            
-            const packageSelect = document.getElementById('q_package');
-            const packageName = packageSelect.options[packageSelect.selectedIndex].text;
-            
-            let message = `*CUESTIONARIO DE DESARROLLO WEB - STIKMANIA*\n\n`;
-            message += `*Nombre:* ${name}\n`;
-            message += `*Teléfono:* ${phone}\n`;
-            message += `*Marca:* ${brand}\n`;
-            message += `*Negocio:* ${business}\n`;
-            message += `*Tipo de proyecto:* ${packageName}\n`;
-            message += `*Hosting/Dominio:* ${hosting || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
-            message += `*Contenido:* ${content || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
-            message += `*Descripción:* ${description}\n`;
-            message += `*Deadline:* ${deadline || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
-            message += `\n*Nota:* ${currentLang === 'es' ? 'Pago requiere 50% de anticipo. Contrato de servicio incluido.' : 'Payment requires 50% deposit. Service contract included.'}`;
-            
-            const whatsappNumber = '5359758756';
-            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        }
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
         });
-
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('✅ Service Worker registrado:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('❌ Error registrando Service Worker:', error);
-                    });
-            });
-        }
     </script>
-
 </body>
 </html>

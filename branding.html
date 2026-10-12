@@ -3,1007 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branding Digital | STIKMANIA</title>
-    <meta name="description" content="Servicios de branding digital y aplicado. Logos, identidad visual y papelería en Cuba.">
+    <title>Branding Digital Profesional | STIKMANIA Cuba</title>
+    <meta name="description" content="Servicios de branding digital en Cuba. Logos profesionales, identidad visual completa y papelería corporativa. Diseño que eleva tu marca.">
+    <meta name="keywords" content="branding Cuba, diseño de logos, identidad visual, papelería corporativa, branding La Habana, diseño gráfico Cuba">
     
-    <!-- PWA Meta Tags -->
+    <!-- PWA -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00FF00">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
-    <link rel="apple-touch-icon" href="images/favicon.png">
-    <meta name="mobile-web-app-capable" content="yes">
-    
-    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="images/icon-192.png">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
     
+    <!-- Sistema de diseño unificado -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    
     <style>
-        :root {
-            --neon-green: #00FF00;
-            --dark-green: #003300;
-            --black: #000000;
-            --white: #FFFFFF;
-            --gray: #1a1a1a;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
-        
-        html, body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-            min-height: 100vh;
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/var_malva.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(4px);
-            opacity: 0.6;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Pirata One', display;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        a { color: inherit; text-decoration: none; }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
-        
-        .btn {
-            display: inline-block;
-            background: var(--neon-green);
-            color: var(--black);
-            padding: 12px 28px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn:hover::before { width: 300px; height: 300px; }
-        .btn:hover { background: var(--white); transform: translateY(-2px); }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--neon-green);
-            color: var(--neon-green);
-        }
-        
-        .btn-outline:hover { background: var(--neon-green); color: var(--black); }
-        
-        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1001; }
-        
-        .lang-btn {
-            background: var(--black);
-            border: 2px solid var(--neon-green);
-            color: var(--neon-green);
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
-        
-        /* SECTION NAVIGATION */
-        .section-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 15px 10px;
-            border-radius: 30px;
-            border: 1px solid var(--dark-green);
-        }
-        
-        .section-nav-item {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--dark-green);
-            border: 2px solid var(--neon-green);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .section-nav-item:hover {
-            background: var(--neon-green);
-            transform: scale(1.2);
-        }
-        
-        .section-nav-item.active {
-            background: var(--neon-green);
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-        
-        .section-nav-tooltip {
-            position: absolute;
-            right: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid var(--neon-green);
-        }
-        
-        .section-nav-item:hover .section-nav-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        header {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--dark-green);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Pirata One', display;
-            font-size: 1.8rem;
-            color: var(--neon-green);
-        }
-        
-        nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a:hover { color: var(--neon-green); }
-        
-        .hero {
-            padding: 160px 0 60px 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-            text-align: center;
-        }
-        
-        .hero h1 { 
-            font-size: 3rem; 
-            margin-bottom: 20px; 
-            color: var(--neon-green);
-            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-        }
-        
-        .hero p { 
-            font-size: 1.2rem; 
-            color: var(--white); 
-            max-width: 600px; 
-            margin: 0 auto 30px auto;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-        }
-        
-        .production-time {
-            display: inline-block;
-            background: rgba(26, 26, 26, 0.9);
-            padding: 10px 20px;
-            border: 1px solid var(--neon-green);
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-        
-        .packages { padding: 80px 0; }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--neon-green);
-            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-        }
-        
-        .packages-grid {
+        /* Estilos específicos de branding */
+        .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
+            margin-top: 40px;
         }
-        
-        .package-card {
-            background: rgba(26, 26, 26, 0.9);
-            border: 1px solid var(--dark-green);
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .pricing-card {
+            background: var(--gray);
+            border: 2px solid var(--gray-light);
+            border-radius: var(--radius-xl);
+            padding: 35px 30px;
+            text-align: center;
+            transition: all var(--transition-base);
             position: relative;
-            backdrop-filter: blur(10px);
-            cursor: pointer;
         }
-        
-        .package-card:hover {
+        .pricing-card:hover {
+            transform: translateY(-10px);
             border-color: var(--neon-green);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 255, 0, 0.15);
+            box-shadow: var(--shadow-lg);
         }
-        
-        .package-card.seleccionado {
-            background: rgba(0, 51, 0, 0.9);
+        .pricing-card.featured {
             border-color: var(--neon-green);
+            box-shadow: var(--shadow-md);
         }
-        
-        .package-card.destacado {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-        }
-        
-        .package-badge {
+        .pricing-card.featured::before {
+            content: 'MÁS POPULAR';
             position: absolute;
-            top: -12px;
-            right: 20px;
+            top: -12px; left: 50%;
+            transform: translateX(-50%);
             background: var(--neon-green);
             color: var(--black);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            padding: 4px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
-        
-        .package-header {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--dark-green);
-        }
-        
-        .package-type {
-            font-size: 1.5rem;
+        .pricing-card h3 {
             color: var(--neon-green);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
-        
-        .package-price {
-            font-family: 'Pirata One', display;
-            font-size: 2.5rem;
+        .pricing-price {
+            font-family: var(--font-display);
+            font-size: 3rem;
             color: var(--white);
-        }
-        
-        .package-price span { font-size: 1rem; color: var(--neon-green); }
-        
-        .package-features {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-        
-        .package-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--dark-green);
-            color: var(--white);
-            font-size: 0.95rem;
-        }
-        
-        .package-features li:last-child { border-bottom: none; }
-        .package-features li::before {
-            content: "✓";
-            color: var(--neon-green);
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        
-        .package-time {
-            text-align: center;
-            color: var(--neon-green);
-            font-size: 0.85rem;
             margin-bottom: 20px;
         }
-        
-        .gallery { 
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
+        .pricing-price small {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-family: var(--font-body);
         }
-        
-        .gallery-grid {
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        .pricing-features li {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: #ccc;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .pricing-features li:last-child { border-bottom: none; }
+        .pricing-features li::before {
+            content: '✓ ';
+            color: var(--neon-green);
+            font-weight: bold;
+        }
+        .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
-        
-        .gallery-item {
-            background: rgba(26, 26, 26, 0.9);
+        .portfolio-item {
+            background: var(--gray);
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius-lg);
             padding: 30px;
-            border: 1px solid var(--dark-green);
-            border-radius: 8px;
             text-align: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            transition: all var(--transition-base);
         }
-        
-        .gallery-item:hover {
+        .portfolio-item:hover {
             border-color: var(--neon-green);
             transform: translateY(-5px);
         }
-        
-        .gallery-item img {
-            max-height: 120px;
+        .portfolio-item img {
+            max-height: 100px;
             margin: 0 auto 15px auto;
             object-fit: contain;
-        }
-        
-        .gallery-item a {
-            color: var(--neon-green);
-            font-size: 0.9rem;
-        }
-        
-        .gallery-item a:hover { text-decoration: underline; }
-        
-        .questionnaire { 
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-        }
-        
-        .questionnaire-form {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(26, 26, 26, 0.9);
-            padding: 40px;
-            border: 1px solid var(--dark-green);
-            backdrop-filter: blur(10px);
-        }
-        
-        .form-group { margin-bottom: 20px; }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--neon-green);
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: var(--gray);
-            border: 1px solid var(--dark-green);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--neon-green);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .package-message {
-            display: none;
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(0, 51, 0, 0.9);
-            border: 1px solid var(--neon-green);
-            border-radius: 4px;
-        }
-        
-        .package-message.show {
-            display: block;
-        }
-        
-        .package-message p {
-            color: var(--neon-green);
-            font-weight: 600;
-        }
-        
-        .faq { 
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-        }
-        
-        .faq-item {
-            background: rgba(26, 26, 26, 0.9);
-            margin-bottom: 15px;
-            border: 1px solid var(--dark-green);
-            backdrop-filter: blur(10px);
-        }
-        
-        .faq-question {
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-        }
-        
-        .faq-question:hover { color: var(--neon-green); }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 20px;
-            color: var(--white);
-        }
-        
-        .faq-answer.show { max-height: 500px; padding: 0 20px 20px 20px; }
-        
-        footer {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--dark-green);
-        }
-        
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .section-title { font-size: 2rem; }
-            nav ul { display: none; }
-            .packages-grid { grid-template-columns: 1fr; }
-            .questionnaire-form { padding: 25px; }
-            .lang-switch { top: 10px; right: 10px; }
-            .section-nav { 
-                right: 10px; 
-                padding: 10px 8px;
-            }
-            .section-nav-item {
-                width: 10px;
-                height: 10px;
-            }
-            .section-nav-tooltip {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
 
-    <div class="lang-switch">
-        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
-    </div>
+    <!-- Loader -->
+    <div id="loader"><div class="loader-spinner"></div></div>
 
-    <!-- SECTION NAVIGATION -->
-    <nav class="section-nav">
-        <div class="section-nav-item active" data-section="hero" onclick="scrollToSection('hero')">
-            <span class="section-nav-tooltip">Inicio</span>
-        </div>
-        <div class="section-nav-item" data-section="packages" onclick="scrollToSection('packages')">
-            <span class="section-nav-tooltip">Paquetes</span>
-        </div>
-        <div class="section-nav-item" data-section="gallery" onclick="scrollToSection('gallery')">
-            <span class="section-nav-tooltip">Ejemplos</span>
-        </div>
-        <div class="section-nav-item" data-section="questionnaire" onclick="scrollToSection('questionnaire')">
-            <span class="section-nav-tooltip">Cuestionario</span>
-        </div>
-        <div class="section-nav-item" data-section="faq" onclick="scrollToSection('faq')">
-            <span class="section-nav-tooltip">FAQ</span>
-        </div>
-    </nav>
-
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo">STIKMANIA</a>
                 <nav>
                     <ul>
-                        <li><a href="index.html" data-es="Inicio" data-en="Home">Inicio</a></li>
-                        <li><a href="index.html#services" data-es="Servicios" data-en="Services">Servicios</a></li>
-                        <li><a href="stickers.html" data-es="Stickers" data-en="Stickers">Stickers</a></li>
-                        <li><a href="web.html" data-es="Web" data-en="Web">Web</a></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#tienda">Tienda</a></li>
+                        <li><a href="web.html">Web</a></li>
+                        <li><a href="#cotizador" class="btn btn-primary" style="padding: 8px 16px;">Cotizar</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <section id="hero" class="hero">
-        <div class="container">
-            <h1 data-es="Branding Digital" data-en="Digital Branding">Branding Digital</h1>
-            <p data-es="Logos profesionales, identidad visual completa y papelería corporativa. Diseños que transmiten la esencia de tu marca y conectan con tu audiencia." data-en="Professional logos, complete visual identity and corporate stationery. Designs that convey the essence of your brand and connect with your audience.">Logos profesionales, identidad visual completa y papelería corporativa. Diseños que transmiten la esencia de tu marca y conectan con tu audiencia.</p>
-            <div class="production-time">
-                <strong data-es="Tiempo de producción:" data-en="Production time:">Tiempo de producción:</strong> <span data-es="2-10 días hábiles según paquete" data-en="2-10 business days depending on package">2-10 días hábiles según paquete</span>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container" style="text-align: center;">
+            <div class="hero-badge fade-in">🎨 Branding Profesional</div>
+            <h1 class="fade-in text-gradient">Identidad visual que<br>hace crecer tu marca</h1>
+            <p class="hero-subtitle fade-in" style="margin-left: auto; margin-right: auto;">
+                Logos profesionales, identidad visual completa y papelería corporativa. Diseños que transmiten la esencia de tu marca y conectan con tu audiencia.
+            </p>
+            <div class="hero-ctas fade-in" style="justify-content: center;">
+                <a href="#cotizador" class="btn btn-primary btn-large">Cotizar proyecto</a>
+                <a href="#paquetes" class="btn btn-outline btn-large">Ver paquetes</a>
             </div>
         </div>
     </section>
 
-    <section id="packages" class="packages reveal">
+    <!-- POR QUÉ BRANDING -->
+    <section class="section section-dark">
         <div class="container">
-            <h2 class="section-title" data-es="Paquetes de Branding" data-en="Branding Packages">Paquetes de Branding</h2>
-            
-            <div class="packages-grid">
-                <!-- BÁSICO -->
-                <div class="package-card" id="package-basico" onclick="selectPackage('basico')">
-                    <div class="package-header">
-                        <h3 class="package-type" data-es="Básico" data-en="Basic">Básico</h3>
-                        <div class="package-price">$10 <span>USD</span></div>
-                    </div>
-                    <ul class="package-features">
-                        <li data-es="Logo principal" data-en="Main logo">Logo principal</li>
-                        <li data-es="Paleta de colores corporativa" data-en="Corporate color palette">Paleta de colores corporativa</li>
-                        <li data-es="2 revisiones incluidas" data-en="2 revisions included">2 revisiones incluidas</li>
-                        <li data-es="Archivos PNG + JPG" data-en="PNG + JPG files">Archivos PNG + JPG</li>
-                        <li data-es="Entrega en 2-4 días hábiles" data-en="Delivery in 2-4 business days">Entrega en 2-4 días hábiles</li>
-                    </ul>
-                    <p class="package-time">⏱️ 2-4 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
-                </div>
-                
-                <!-- INTERMEDIO -->
-                <div class="package-card destacado" id="package-intermedio" onclick="selectPackage('intermedio')">
-                    <span class="package-badge" data-es="Más Popular" data-en="Most Popular">Más Popular</span>
-                    <div class="package-header">
-                        <h3 class="package-type" data-es="Intermedio" data-en="Intermediate">Intermedio</h3>
-                        <div class="package-price">$15 <span>USD</span></div>
-                    </div>
-                    <ul class="package-features">
-                        <li data-es="Todo lo del Básico" data-en="Everything in Basic">Todo lo del Básico</li>
-                        <li data-es="Tipografía corporativa" data-en="Corporate typography">Tipografía corporativa</li>
-                        <li data-es="Guía de uso básica" data-en="Basic usage guide">Guía de uso básica</li>
-                        <li data-es="Archivos editables (AI, EPS)" data-en="Editable files (AI, EPS)">Archivos editables (AI, EPS)</li>
-                        <li data-es="Entrega en 3-6 días hábiles" data-en="Delivery in 3-6 business days">Entrega en 3-6 días hábiles</li>
-                    </ul>
-                    <p class="package-time">⏱️ 3-6 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <button class="btn" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
-                </div>
-                
-                <!-- COMPLETO -->
-                <div class="package-card" id="package-completo" onclick="selectPackage('completo')">
-                    <div class="package-header">
-                        <h3 class="package-type" data-es="Completo" data-en="Complete">Completo</h3>
-                        <div class="package-price">$40 <span>USD</span></div>
-                    </div>
-                    <ul class="package-features">
-                        <li data-es="Logo con variaciones" data-en="Logo with variations">Logo con variaciones</li>
-                        <li data-es="Paleta de colores completa" data-en="Complete color palette">Paleta de colores completa</li>
-                        <li data-es="Tipografía para redes sociales" data-en="Typography for social media">Tipografía para redes sociales</li>
-                        <li data-es="Branding aplicado (papelería)" data-en="Applied branding (stationery)">Branding aplicado (papelería)</li>
-                        <li data-es="Manual de marca" data-en="Brand manual">Manual de marca</li>
-                        <li data-es="Entrega en 5-10 días hábiles" data-en="Delivery in 5-10 business days">Entrega en 5-10 días hábiles</li>
-                    </ul>
-                    <p class="package-time">⏱️ 5-10 <span data-es="días hábiles" data-en="business days">días hábiles</span></p>
-                    <button class="btn btn-outline" style="width: 100%;" data-es="Seleccionar" data-en="Select">Seleccionar</button>
-                </div>
+            <div class="section-header fade-in">
+                <h2 class="text-gradient">¿Por qué necesitas branding?</h2>
+                <p>Una marca sin identidad visual es invisible en el mercado actual.</p>
             </div>
             
-            <div style="text-align: center; margin-top: 40px;">
-                <p style="color: var(--white); margin-bottom: 20px;" data-es="¿Necesitas algo personalizado o tienes dudas sobre qué paquete elegir?" data-en="Need something custom or have questions about which package to choose?">¿Necesitas algo personalizado o tienes dudas sobre qué paquete elegir?</p>
-                <a href="https://wa.me/5359758756" target="_blank" class="btn" data-es="Consultar por WhatsApp" data-en="Consult via WhatsApp">Consultar por WhatsApp</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="gallery reveal">
-        <div class="container">
-            <h2 class="section-title" data-es="Clientes que Confían" data-en="Trusting Clients">Clientes que Confían</h2>
-            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Algunos de los proyectos de identidad visual que hemos creado" data-en="Some of the visual identity projects we have created">Algunos de los proyectos de identidad visual que hemos creado</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/munchies.jpg" alt="Munchies Cuba Logo">
-                    <a href="https://www.instagram.com/munchies_cuba/" target="_blank">@munchies_cuba</a>
+            <div class="benefits-grid">
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">💼</div>
+                    <h3>Profesionalismo</h3>
+                    <p>Una marca con identidad sólida genera confianza inmediata en clientes.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/Nova_LOGO.png" alt="Nova Events Logo">
-                    <a href="https://www.instagram.com/nova_events_cuba/" target="_blank">@nova_events_cuba</a>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Más ventas</h3>
+                    <p>Los productos con branding profesional se venden hasta 20% más caros.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/ashsoap_logo.png" alt="Ash Soap Cuba Logo">
-                    <a href="https://www.instagram.com/ash.soap.cuba/" target="_blank">@ash.soap.cuba</a>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Reconocimiento</h3>
+                    <p>Los clientes recuerdan marcas con identidad visual coherente.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/deli.png" alt="Deli Logo">
-                    <span style="color: var(--neon-green); font-size: 0.9rem;">Deli</span>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/cafe_logo.jpeg" alt="Cafe Logo">
-                    <span style="color: var(--neon-green); font-size: 0.9rem;">Cafe</span>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Diferenciación</h3>
+                    <p>Destaca entre la competencia con una identidad única.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="questionnaire" class="questionnaire reveal">
+    <!-- PAQUETES -->
+    <section id="paquetes" class="section">
         <div class="container">
-            <h2 class="section-title" data-es="Cuestionario de Branding" data-en="Branding Questionnaire">Cuestionario de Branding</h2>
-            <p style="text-align: center; color: var(--white); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-es="Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución" data-en="Complete this form to help us better understand your project and provide you with the best solution">Completa este formulario para ayudarnos a entender mejor tu proyecto y brindarte la mejor solución</p>
-            
-            <div id="package-message" class="package-message">
-                <p><span data-es="✓ Paquete seleccionado:" data-en="✓ Package selected:">✓ Paquete seleccionado:</span> <span id="selected-package-name"></span></p>
+            <div class="section-header fade-in">
+                <h2 class="text-gradient">Paquetes de branding</h2>
+                <p>Elige el que mejor se adapte a tu etapa de negocio.</p>
             </div>
             
-            <form class="questionnaire-form" id="brandingForm" onsubmit="submitQuestionnaire(event)">
-                <div class="form-group">
-                    <label data-es="Nombre completo *" data-en="Full name *">Nombre completo *</label>
-                    <input type="text" id="q_name" required>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>Básico</h3>
+                    <div class="pricing-price">$10 <small>USD</small></div>
+                    <ul class="pricing-features">
+                        <li>Logo principal</li>
+                        <li>Paleta de colores</li>
+                        <li>2 revisiones</li>
+                        <li>Archivos PNG + JPG</li>
+                        <li>Entrega 2-4 días</li>
+                    </ul>
+                    <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20el%20paquete%20Básico%20de%20branding" target="_blank" class="btn btn-outline btn-block">Empezar</a>
+                </div>
+                
+                <div class="pricing-card featured fade-in">
+                    <h3>Intermedio</h3>
+                    <div class="pricing-price">$15 <small>USD</small></div>
+                    <ul class="pricing-features">
+                        <li>Todo lo del Básico</li>
+                        <li>Tipografía corporativa</li>
+                        <li>Guía de uso básica</li>
+                        <li>Archivos editables (AI, EPS)</li>
+                        <li>Entrega 3-6 días</li>
+                    </ul>
+                    <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20el%20paquete%20Intermedio%20de%20branding" target="_blank" class="btn btn-primary btn-block">Empezar</a>
+                </div>
+                
+                <div class="pricing-card fade-in">
+                    <h3>Completo</h3>
+                    <div class="pricing-price">$40 <small>USD</small></div>
+                    <ul class="pricing-features">
+                        <li>Logo con variaciones</li>
+                        <li>Paleta completa</li>
+                        <li>Tipografía para redes</li>
+                        <li>Branding aplicado (papelería)</li>
+                        <li>Manual de marca</li>
+                        <li>Entrega 5-10 días</li>
+                    </ul>
+                    <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20el%20paquete%20Completo%20de%20branding" target="_blank" class="btn btn-outline btn-block">Empezar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="text-gradient">Clientes que confían</h2>
+                <p>Algunas de las marcas que hemos creado.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in">
+                    <img src="images/munchies.jpg" alt="Munchies Cuba" loading="lazy">
+                    <h3 style="font-size: 1rem; margin-bottom: 5px;">Munchies Cuba</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Branding completo</p>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="images/Nova_LOGO.png" alt="Nova Events" loading="lazy">
+                    <h3 style="font-size: 1rem; margin-bottom: 5px;">Nova Events</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Identidad corporativa</p>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="images/ashsoap_logo.png" alt="Ash Soap Cuba" loading="lazy">
+                    <h3 style="font-size: 1rem; margin-bottom: 5px;">Ash Soap Cuba</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Branding artesanal</p>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="images/deli.png" alt="Deli" loading="lazy">
+                    <h3 style="font-size: 1rem; margin-bottom: 5px;">Deli</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Logo y etiquetas</p>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="images/cafe_logo.jpeg" alt="Cafe" loading="lazy">
+                    <h3 style="font-size: 1rem; margin-bottom: 5px;">Cafe</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Branding café</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COTIZADOR / FORMULARIO -->
+    <section id="cotizador" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="text-gradient">Cotiza tu proyecto</h2>
+                <p>Respuesta en menos de 24 horas por WhatsApp.</p>
+            </div>
+            
+            <div class="calc-wrapper fade-in">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" id="brand-name" placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" id="brand-phone" placeholder="+53 5 000 0000">
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label data-es="Teléfono *" data-en="Phone *">Teléfono *</label>
-                    <input type="tel" id="q_phone" required>
+                    <label>Nombre de tu marca/negocio</label>
+                    <input type="text" id="brand-brand" placeholder="Ej: Mi emprendimiento">
                 </div>
                 
                 <div class="form-group">
-                    <label data-es="Nombre de la empresa/marca *" data-en="Company/brand name *">Nombre de la empresa/marca *</label>
-                    <input type="text" id="q_brand" required>
-                </div>
-                
-                <div class="form-group">
-                    <label data-es="¿A qué se dedican? *" data-en="What do you do? *">¿A qué se dedican? *</label>
-                    <textarea id="q_business" rows="3" required placeholder="Describe brevemente tu negocio o proyecto..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label data-es="¿Tienen logo actual? *" data-en="Do you have a current logo? *">¿Tienen logo actual? *</label>
-                    <select id="q_logo" required>
-                        <option value="">Selecciona...</option>
-                        <option value="si" data-es="Sí, queremos rediseñarlo" data-en="Yes, we want to redesign it">Sí, queremos rediseñarlo</option>
-                        <option value="no" data-es="No, necesitamos uno nuevo" data-en="No, we need a new one">No, necesitamos uno nuevo</option>
+                    <label>¿Qué necesitas?</label>
+                    <select id="brand-service">
+                        <option value="basico">Paquete Básico ($10 USD)</option>
+                        <option value="intermedio">Paquete Intermedio ($15 USD)</option>
+                        <option value="completo">Paquete Completo ($40 USD)</option>
+                        <option value="personalizado">Proyecto personalizado</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label data-es="¿Qué quieren transmitir con su marca? *" data-en="What do you want to convey with your brand? *">¿Qué quieren transmitir con su marca? *</label>
-                    <textarea id="q_values" rows="3" required placeholder="Ej: Profesional, urbano, divertido, serio, moderno, ecológico..."></textarea>
+                    <label>Cuéntanos sobre tu marca</label>
+                    <textarea id="brand-desc" rows="4" placeholder="¿A qué se dedica tu negocio? ¿Qué valores quieres transmitir?"></textarea>
                 </div>
                 
-                <div class="form-group">
-                    <label data-es="¿Colores preferidos o a evitar?" data-en="Preferred colors or colors to avoid?">¿Colores preferidos o a evitar?</label>
-                    <textarea id="q_colors" rows="2" placeholder="Menciona colores que te gusten o que definitivamente no quieres..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label data-es="¿Ejemplos de marcas que te gustan? (opcional)" data-en="Examples of brands you like? (optional)">¿Ejemplos de marcas que te gustan? (opcional)</label>
-                    <textarea id="q_references" rows="2" placeholder="Menciona marcas cuyo diseño te inspire..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label data-es="¿Deadline o fecha límite? (opcional)" data-en="Deadline? (optional)">¿Deadline o fecha límite? (opcional)</label>
-                    <input type="text" id="q_deadline" placeholder="Si tienes una fecha específica...">
-                </div>
-                
-                <div class="form-group">
-                    <label data-es="Paquete de interés *" data-en="Package of interest *">Paquete de interés *</label>
-                    <select id="q_package" required>
-                        <option value="">Selecciona un paquete...</option>
-                        <option value="basico" data-es="Básico ($10 USD)" data-en="Basic ($10 USD)">Básico ($10 USD)</option>
-                        <option value="intermedio" data-es="Intermedio ($15 USD)" data-en="Intermediate ($15 USD)">Intermedio ($15 USD)</option>
-                        <option value="completo" data-es="Completo ($40 USD)" data-en="Complete ($40 USD)">Completo ($40 USD)</option>
-                        <option value="personalizado" data-es="Personalizado (consultar)" data-en="Custom (consult)">Personalizado (consultar)</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="btn" style="width: 100%;" data-es="Enviar Cuestionario por WhatsApp" data-en="Send Questionnaire via WhatsApp">Enviar Cuestionario por WhatsApp</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="faq" class="faq reveal">
-        <div class="container">
-            <h2 class="section-title" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Qué incluye cada paquete de branding?" data-en="What does each branding package include?">¿Qué incluye cada paquete de branding?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong data-es="Básico:" data-en="Basic:">Básico:</strong> <span data-es="Logo principal + paleta de colores + 2 revisiones + archivos PNG/JPG." data-en="Main logo + color palette + 2 revisions + PNG/JPG files.">Logo principal + paleta de colores + 2 revisiones + archivos PNG/JPG.</span></p>
-                    <p><strong data-es="Intermedio:" data-en="Intermediate:">Intermedio:</strong> <span data-es="Todo lo del Básico + tipografía corporativa + guía de uso + archivos editables (AI, EPS)." data-en="Everything in Basic + corporate typography + usage guide + editable files (AI, EPS).">Todo lo del Básico + tipografía corporativa + guía de uso + archivos editables (AI, EPS).</span></p>
-                    <p><strong data-es="Completo:" data-en="Complete:">Completo:</strong> <span data-es="Logo con variaciones + paleta completa + tipografía para redes + branding aplicado (papelería) + manual de marca." data-en="Logo with variations + complete palette + typography for social media + applied branding (stationery) + brand manual.">Logo con variaciones + paleta completa + tipografía para redes + branding aplicado (papelería) + manual de marca.</span></p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Cuántas revisiones están incluidas?" data-en="How many revisions are included?">¿Cuántas revisiones están incluidas?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p data-es="Todos los paquetes incluyen 2 revisiones por etapa del proceso. Revisiones adicionales tienen un costo de $5 USD cada una." data-en="All packages include 2 revisions per process stage. Additional revisions cost $5 USD each.">Todos los paquetes incluyen 2 revisiones por etapa del proceso. Revisiones adicionales tienen un costo de $5 USD cada una.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿En qué formatos recibo los archivos?" data-en="In what formats do I receive the files?">¿En qué formatos recibo los archivos?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong data-es="Básico:" data-en="Basic:">Básico:</strong> <span data-es="PNG y JPG (listos para usar)." data-en="PNG and JPG (ready to use).">PNG y JPG (listos para usar).</span></p>
-                    <p><strong data-es="Intermedio y Completo:" data-en="Intermediate and Complete:">Intermedio y Completo:</strong> <span data-es="Incluye archivos editables en AI (Adobe Illustrator) y EPS, además de PNG y JPG." data-en="Includes editable files in AI (Adobe Illustrator) and EPS, plus PNG and JPG.">Incluye archivos editables en AI (Adobe Illustrator) y EPS, además de PNG y JPG.</span></p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Necesito pagar anticipo?" data-en="Do I need to pay a deposit?">¿Necesito pagar anticipo?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p data-es="Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final de los archivos." data-en="Yes, we require 50% deposit to start the project. The remaining 50% is paid upon final delivery of the files.">Sí, requerimos 50% de anticipo para comenzar el proyecto. El 50% restante se paga al momento de la entrega final de los archivos.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Puedo usar el logo para redes sociales?" data-en="Can I use the logo for social media?">¿Puedo usar el logo para redes sociales?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p data-es="¡Sí! Una vez completado el pago total, eres dueño del diseño final y puedes usarlo en redes sociales, web, impresión y cualquier medio que necesites." data-en="Yes! Once full payment is completed, you own the final design and can use it on social media, web, print and any medium you need.">¡Sí! Una vez completado el pago total, eres dueño del diseño final y puedes usarlo en redes sociales, web, impresión y cualquier medio que necesites.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span data-es="¿Qué pasa si no me gusta el diseño?" data-en="What if I don't like the design?">¿Qué pasa si no me gusta el diseño?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p data-es="Por eso incluimos 2 revisiones por etapa. Trabajamos contigo hasta que el diseño refleje la esencia de tu marca. Si después de las revisiones incluidas necesitas más cambios, tienen un costo adicional." data-en="That's why we include 2 revisions per stage. We work with you until the design reflects the essence of your brand. If after the included revisions you need more changes, they have an additional cost.">Por eso incluimos 2 revisiones por etapa. Trabajamos contigo hasta que el diseño refleje la esencia de tu marca. Si después de las revisiones incluidas necesitas más cambios, tienen un costo adicional.</p>
-                </div>
+                <button class="btn btn-primary btn-block" id="brand-submit" style="padding: 16px; font-size: 1rem;">
+                    📩 Enviar por WhatsApp
+                </button>
             </div>
         </div>
     </section>
 
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <div class="container fade-in">
+            <h2 class="text-gradient">¿Listo para crear tu marca?</h2>
+            <p>Diseño profesional a precio de emprendedor. Entrega rápida.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20información%20sobre%20branding" target="_blank" class="btn btn-primary btn-large">💬 Hablar por WhatsApp</a>
+                <a href="index.html" class="btn btn-outline btn-large">Ver tienda</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p style="color: var(--white); margin-bottom: 10px;">
-                <strong>STIKMANIA</strong> - <span data-es="Diseño que se pega" data-en="Design that sticks">Diseño que se pega</span>
-            </p>
-            <p style="color: var(--white); font-size: 0.9rem;">
-                La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com
-            </p>
-            <p style="color: var(--white); font-size: 0.85rem; margin-top: 20px;">
-                © STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span>
-            </p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>STIKMANIA</h3>
+                    <p>Diseño que se pega. Stickers, etiquetas y empaques personalizados en La Habana, Cuba.</p>
+                    <p style="margin-top: 15px;">© <span class="current-year">2026</span> STIKMANIA. Todos los derechos reservados.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Tienda</h4>
+                    <ul>
+                        <li><a href="index.html#tienda">Packs populares</a></li>
+                        <li><a href="index.html#tienda">Categorías</a></li>
+                        <li><a href="index.html#cotizador">Personalizado</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="branding.html">Branding</a></li>
+                        <li><a href="web.html">Desarrollo web</a></li>
+                        <li><a href="index.html#empresas">Para empresas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5359758756" target="_blank">WhatsApp</a></li>
+                        <li><a href="mailto:stikmania795@gmail.com">Email</a></li>
+                        <li><a href="https://instagram.com/sti_kmania" target="_blank">Instagram</a></li>
+                        <li><a href="tel:+5359758756">+53 5 975 8756</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>La Habana, Cuba • Diseño y producción 100% local</p>
+            </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/5359758756?text=Hola!%20Vengo%20de%20la%20web" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <!-- Scripts compartidos -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Script específico de branding -->
     <script>
-        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
-        
-        function toggleLanguage() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            localStorage.setItem('stikmania_lang', currentLang);
-            updateLanguage();
-        }
-        
-        function updateLanguage() {
-            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
-            document.querySelectorAll('[data-es]').forEach(el => {
-                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
-            });
-            document.documentElement.lang = currentLang;
-        }
-        
-        updateLanguage();
-        
-        // SECTION NAVIGATION
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-        
-        // Update active section on scroll
-        window.addEventListener('scroll', () => {
-            const sections = ['hero', 'packages', 'gallery', 'questionnaire', 'faq'];
-            const scrollPosition = window.scrollY + 200;
-            
-            sections.forEach(sectionId => {
-                const section = document.getElementById(sectionId);
-                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
-                
-                if (section && navItem) {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
+        // Formulario de branding
+        document.addEventListener('DOMContentLoaded', function() {
+            var submitBtn = document.getElementById('brand-submit');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function() {
+                    var name = document.getElementById('brand-name').value || 'No especificado';
+                    var phone = document.getElementById('brand-phone').value || 'No especificado';
+                    var brand = document.getElementById('brand-brand').value || 'No especificado';
+                    var service = document.getElementById('brand-service');
+                    var serviceText = service.options[service.selectedIndex].text;
+                    var desc = document.getElementById('brand-desc').value || 'No especificado';
                     
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navItem.classList.add('active');
-                    } else {
-                        navItem.classList.remove('active');
-                    }
-                }
-            });
-        });
-        
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            reveals.forEach(element => {
-                var windowHeight = window.innerHeight;
-                var elementTop = element.getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add("active");
-                }
-            });
-        }
-        
-        window.addEventListener("scroll", reveal);
-        reveal();
-        
-        function selectPackage(packageType) {
-            const packageSelect = document.getElementById('q_package');
-            const packageMessage = document.getElementById('package-message');
-            const packageName = document.getElementById('selected-package-name');
-            
-            packageSelect.value = packageType;
-            
-            const packageNames = {
-                'basico': currentLang === 'es' ? 'Básico ($10 USD)' : 'Basic ($10 USD)',
-                'intermedio': currentLang === 'es' ? 'Intermedio ($15 USD)' : 'Intermediate ($15 USD)',
-                'completo': currentLang === 'es' ? 'Completo ($40 USD)' : 'Complete ($40 USD)'
-            };
-            
-            packageName.textContent = packageNames[packageType];
-            packageMessage.classList.add('show');
-            
-            document.querySelectorAll('.package-card').forEach(card => {
-                card.classList.remove('seleccionado');
-            });
-            document.getElementById(`package-${packageType}`).classList.add('seleccionado');
-            
-            document.getElementById('questionnaire').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            
-            packageSelect.style.borderColor = 'var(--neon-green)';
-            packageSelect.style.background = 'var(--gray)';
-        }
-        
-        function toggleFaq(element) {
-            const answer = element.nextElementSibling;
-            const sign = element.querySelector('span:last-child');
-            
-            if (answer.classList.contains('show')) {
-                answer.classList.remove('show');
-                sign.textContent = '+';
-            } else {
-                answer.classList.add('show');
-                sign.textContent = '-';
+                    var msg = '🎨 *COTIZACIÓN BRANDING - STIKMANIA*\n\n' +
+                              '• Nombre: ' + name + '\n' +
+                              '• Teléfono: ' + phone + '\n' +
+                              '• Marca: ' + brand + '\n' +
+                              '• Servicio: ' + serviceText + '\n' +
+                              '• Descripción: ' + desc + '\n\n' +
+                              '✅ Quiero más información.';
+                    
+                    window.open('https://wa.me/5359758756?text=' + encodeURIComponent(msg), '_blank');
+                });
             }
-        }
-        
-        function submitQuestionnaire(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('q_name').value;
-            const phone = document.getElementById('q_phone').value;
-            const brand = document.getElementById('q_brand').value;
-            const business = document.getElementById('q_business').value;
-            const logo = document.getElementById('q_logo').value;
-            const values = document.getElementById('q_values').value;
-            const colors = document.getElementById('q_colors').value;
-            const references = document.getElementById('q_references').value;
-            const deadline = document.getElementById('q_deadline').value;
-            const pkg = document.getElementById('q_package').value;
-            
-            const packageSelect = document.getElementById('q_package');
-            const packageName = packageSelect.options[packageSelect.selectedIndex].text;
-            
-            let message = `*CUESTIONARIO DE BRANDING - STIKMANIA*\n\n`;
-            message += `*Nombre:* ${name}\n`;
-            message += `*Teléfono:* ${phone}\n`;
-            message += `*Marca:* ${brand}\n`;
-            message += `*Negocio:* ${business}\n`;
-            message += `*Logo actual:* ${logo}\n`;
-            message += `*Valores:* ${values}\n`;
-            message += `*Colores:* ${colors || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
-            message += `*Referencias:* ${references || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
-            message += `*Deadline:* ${deadline || (currentLang === 'es' ? 'No especificado' : 'Not specified')}\n`;
-            message += `*Paquete de interés:* ${packageName}\n`;
-            message += `\n*Nota:* ${currentLang === 'es' ? 'Pago requiere 50% de anticipo para comenzar.' : 'Payment requires 50% deposit to start.'}`;
-            
-            const whatsappNumber = '5359758756';
-            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        }
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
         });
-
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('✅ Service Worker registrado:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('❌ Error registrando Service Worker:', error);
-                    });
-            });
-        }
     </script>
-
 </body>
 </html>

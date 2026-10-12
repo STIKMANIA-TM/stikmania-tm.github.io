@@ -5,16 +5,12 @@
   "description": "Stickers personalizados, branding profesional y desarrollo web en La Habana, Cuba",
   "start_url": "/index.html",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#000000",
   "theme_color": "#00FF00",
   "orientation": "portrait-primary",
   "lang": "es",
   "dir": "ltr",
   "scope": "/",
-  "scope_extensions": [
-    { "origin": "https://stikmania-tm.github.io" }
-  ],
   "icons": [
     {
       "src": "images/icon-192.png",
@@ -29,23 +25,7 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "images/screenshot-home.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Inicio de STIKMANIA"
-    },
-    {
-      "src": "images/screenshot-stickers.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Cotizador de Stickers"
-    }
-  ],
-  "categories": ["business", "design", "shopping", "lifestyle"],
+  "categories": ["business", "design", "shopping"],
   "shortcuts": [
     {
       "name": "Tienda Stickers",
@@ -69,35 +49,5 @@
       "icons": [{ "src": "images/icon-192.png", "sizes": "192x192" }]
     }
   ],
-  "share_target": {
-    "action": "/share",
-    "method": "POST",
-    "enctype": "multipart/form-data",
-    "params": {
-      "title": "title",
-      "text": "text",
-      "url": "url",
-      "files": [
-        {
-          "name": "images",
-          "accept": ["image/*"]
-        }
-      ]
-    }
-  },
-  "related_applications": [],
-  "prefer_related_applications": false,
-  "protocol_handlers": [
-    {
-      "protocol": "web+stikmania",
-      "url": "/?url=%s"
-    }
-  ],
-  "launch_handler": {
-    "client_mode": "navigate-existing"
-  },
-  "edge_side_panel": {
-    "preferred_width": 400
-  },
   "prefer_related_applications": false
 }

@@ -3,535 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-es="Por qué tu emprendimiento necesita branding profesional | STIKMANIA" data-en="Why your business needs professional branding | STIKMANIA">Por qué tu emprendimiento necesita branding profesional | STIKMANIA</title>
+    <title>Por qué tu emprendimiento necesita branding profesional | STIKMANIA</title>
     <meta name="description" content="Descubre por qué el branding profesional es esencial para tu emprendimiento en Cuba. Impacto en ventas, percepción y crecimiento.">
+    <meta name="keywords" content="branding Cuba, importancia del branding, identidad visual, logo profesional, branding para emprendedores">
     
-    <!-- PWA Meta Tags -->
+    <!-- PWA -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00FF00">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
-    <link rel="apple-touch-icon" href="images/favicon.png">
-    <meta name="mobile-web-app-capable" content="yes">
-    
-    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="images/icon-192.png">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
     
+    <!-- Open Graph -->
+    <meta property="og:title" content="Por qué tu emprendimiento necesita branding profesional">
+    <meta property="og:description" content="El impacto del branding en ventas, percepción y crecimiento.">
+    <meta property="og:type" content="article">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
     
+    <!-- Sistema de diseño unificado -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    
     <style>
-        :root {
-            --neon-green: #00FF00;
-            --dark-green: #003300;
-            --black: #000000;
-            --white: #FFFFFF;
-            --gray: #1a1a1a;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
-        
-        html, body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--black);
-            color: var(--white);
-            line-height: 1.8;
-            min-height: 100vh;
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/var_malva.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(4px);
-            opacity: 0.6;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Pirata One', display;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        a { color: var(--neon-green); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        
-        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
-        
-        header {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            border-bottom: 1px solid var(--dark-green);
-        }
-        
-        .logo {
-            font-family: 'Pirata One', display;
-            font-size: 1.8rem;
-            color: var(--neon-green);
-        }
-        
-        /* SECTION NAVIGATION - Simplified for blogs */
-        .section-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 15px 10px;
-            border-radius: 30px;
-            border: 1px solid var(--dark-green);
-        }
-        
-        .section-nav-item {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--dark-green);
-            border: 2px solid var(--neon-green);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .section-nav-item:hover {
-            background: var(--neon-green);
-            transform: scale(1.2);
-        }
-        
-        .section-nav-item.active {
-            background: var(--neon-green);
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-        
-        .section-nav-tooltip {
-            position: absolute;
-            right: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid var(--neon-green);
-        }
-        
-        .section-nav-item:hover .section-nav-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .article { padding: 100px 0; }
-        
-        .article-header {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid var(--dark-green);
-        }
-        
-        .article-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .article-icon svg {
-            width: 80px;
-            height: 80px;
-            stroke: var(--neon-green);
-        }
-        
-        .article-header h1 {
-            font-size: 2.5rem;
-            color: var(--neon-green);
-            margin-bottom: 15px;
-            text-align: center;
-            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-        }
-        
+        .article-container { max-width: 800px; margin: 0 auto; }
         .article-meta {
+            display: flex; gap: 20px; align-items: center;
+            margin-bottom: 30px; color: var(--text-muted);
+            font-size: 0.9rem; flex-wrap: wrap;
+        }
+        .article-category {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid var(--neon-green);
             color: var(--neon-green);
-            font-size: 0.9rem;
-            text-align: center;
+            padding: 5px 15px; border-radius: var(--radius-full);
+            font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
         }
-        
-        .article-content { 
-            margin-bottom: 40px;
-            background: rgba(26, 26, 26, 0.9);
-            padding: 40px;
-            border-radius: 8px;
-            border: 1px solid var(--dark-green);
-            backdrop-filter: blur(10px);
+        .article-content {
+            background: var(--gray);
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius-lg);
+            padding: 50px 40px;
         }
-        
         .article-content h2 {
-            color: var(--neon-green);
-            font-size: 1.8rem;
+            color: var(--neon-green); font-size: 1.8rem;
             margin: 40px 0 20px 0;
         }
-        
+        .article-content h2:first-child { margin-top: 0; }
         .article-content h3 {
-            color: var(--white);
-            font-size: 1.3rem;
+            color: var(--white); font-size: 1.3rem;
             margin: 30px 0 15px 0;
         }
-        
-        .article-content p { margin-bottom: 20px; color: #ccc; }
-        .article-content ul, .article-content ol { margin-bottom: 20px; padding-left: 30px; color: #ccc; }
-        .article-content li { margin-bottom: 10px; }
-        
+        .article-content p, .article-content li {
+            color: #ccc; font-size: 1rem;
+            line-height: 1.8; margin-bottom: 15px;
+        }
+        .article-content ul, .article-content ol {
+            padding-left: 30px; margin-bottom: 20px;
+        }
+        .article-content strong { color: var(--white); }
         .highlight-box {
-            background: rgba(0, 51, 0, 0.9);
-            padding: 25px;
+            background: rgba(0, 51, 0, 0.5);
             border-left: 4px solid var(--neon-green);
+            padding: 20px 25px; border-radius: var(--radius-sm);
             margin: 30px 0;
-            backdrop-filter: blur(10px);
         }
-        
-        .highlight-box p { margin: 0; font-style: italic; }
-        
-        .cta-box {
-            background: rgba(0, 51, 0, 0.9);
-            padding: 30px;
-            border: 1px solid var(--neon-green);
-            border-radius: 8px;
-            margin: 40px 0;
-            text-align: center;
-            backdrop-filter: blur(10px);
+        .highlight-box p { margin: 0; font-style: italic; color: var(--white); }
+        .blog-nav {
+            display: flex; justify-content: space-between;
+            gap: 20px; margin-top: 40px; flex-wrap: wrap;
         }
-        
-        .cta-box h3 { color: var(--neon-green); margin-bottom: 15px; }
-        
-        .btn {
-            display: inline-block;
-            background: var(--neon-green);
-            color: var(--black);
-            padding: 12px 28px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            margin-top: 15px;
+        .blog-nav a {
+            color: var(--neon-green); font-size: 0.9rem;
+            display: flex; align-items: center; gap: 5px;
         }
-        
-        .btn:hover { background: var(--white); }
-        
-        footer {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--dark-green);
-        }
-        
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-        }
-        
-        .lang-btn {
-            background: var(--black);
+        .blog-nav a:hover { text-decoration: underline; }
+        .blog-cta {
+            background: linear-gradient(135deg, rgba(0, 51, 0, 0.8), rgba(0, 0, 0, 0.8));
             border: 2px solid var(--neon-green);
-            color: var(--neon-green);
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            border-radius: var(--radius-lg);
+            padding: 40px; text-align: center; margin-top: 50px;
         }
-        
-        .lang-btn:hover { background: var(--neon-green); color: var(--black); }
-        
+        .blog-cta h3 {
+            color: var(--neon-green); margin-bottom: 15px; font-size: 1.8rem;
+        }
+        .blog-cta p { color: #ccc; margin-bottom: 25px; }
         @media (max-width: 768px) {
-            .article-header h1 { font-size: 2rem; }
-            .article-content { padding: 25px; }
-            .lang-switch { top: 10px; right: 10px; }
-            .section-nav { 
-                right: 10px; 
-                padding: 10px 8px;
-            }
-            .section-nav-item {
-                width: 10px;
-                height: 10px;
-            }
-            .section-nav-tooltip {
-                display: none;
-            }
+            .article-content { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="lang-switch">
-        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
-    </div>
+    <!-- Loader -->
+    <div id="loader"><div class="loader-spinner"></div></div>
 
-    <!-- SECTION NAVIGATION - Simplified -->
-    <nav class="section-nav">
-        <div class="section-nav-item active" data-section="article" onclick="scrollToSection('article')">
-            <span class="section-nav-tooltip">Artículo</span>
-        </div>
-        <div class="section-nav-item" data-section="cta" onclick="scrollToSection('cta')">
-            <span class="section-nav-tooltip">Branding</span>
-        </div>
-        <div class="section-nav-item" data-section="contact" onclick="scrollToSection('contact')">
-            <span class="section-nav-tooltip">Contacto</span>
-        </div>
-    </nav>
-
+    <!-- Header -->
     <header>
         <div class="container">
-            <a href="index.html" class="logo">STIKMANIA</a>
+            <div class="header-content">
+                <a href="index.html" class="logo">STIKMANIA</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#tienda">Tienda</a></li>
+                        <li><a href="branding.html">Branding</a></li>
+                        <li><a href="web.html">Web</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <article id="article" class="article">
+    <!-- HERO DEL ARTÍCULO -->
+    <section class="hero" style="min-height: 50vh; padding: 140px 0 60px 0;">
         <div class="container">
-            <div class="article-header">
-                <div class="article-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M12 6v6l4 2"></path>
-                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                        <path d="M9 9h.01"></path>
-                        <path d="M15 9h.01"></path>
-                    </svg>
+            <div class="article-container">
+                <div class="article-meta fade-in">
+                    <span class="article-category">🎨 Branding</span>
+                    <span>⏱️ 6 min de lectura</span>
+                    <span>📅 Enero 2026</span>
                 </div>
-                <h1 data-es="Por qué tu emprendimiento necesita branding profesional" data-en="Why your business needs professional branding">Por qué tu emprendimiento necesita branding profesional</h1>
-                <div class="article-meta">
-                    <span data-es="Categoría: Branding" data-en="Category: Branding">Categoría: Branding</span> | <span data-es="Lectura: 6 min" data-en="Reading: 6 min">Lectura: 6 min</span>
-                </div>
-            </div>
-            
-            <div class="article-content">
-                <p data-es="Si estás empezando un negocio en Cuba, es probable que pienses: 'Primero vendo, después me preocupo por el logo'. Entendemos la urgencia de generar ingresos, pero hay algo que muchos emprendedores no consideran: el branding no es un gasto, es una inversión que multiplica tus ventas." data-en="If you're starting a business in Cuba, you probably think: 'First I sell, then I worry about the logo'. We understand the urgency of generating income, but there's something many entrepreneurs don't consider: branding is not an expense, it's an investment that multiplies your sales.">Si estás empezando un negocio en Cuba, es probable que pienses: "Primero vendo, después me preocupo por el logo". Entendemos la urgencia de generar ingresos, pero hay algo que muchos emprendedores no consideran: el branding no es un gasto, es una inversión que multiplica tus ventas.</p>
-                
-                <div class="highlight-box">
-                    <p data-es="El branding no es solo un logo bonito. Es la percepción completa que tus clientes tienen de tu marca, y esa percepción determina si compran o no." data-en="Branding is not just a pretty logo. It's the complete perception your customers have of your brand, and that perception determines whether they buy or not.">El branding no es solo un logo bonito. Es la percepción completa que tus clientes tienen de tu marca, y esa percepción determina si compran o no.</p>
-                </div>
-                
-                <h2 data-es="¿Qué es realmente el branding?" data-en="What is branding really?">¿Qué es realmente el branding?</h2>
-                
-                <p data-es="Mucha gente confunde branding con tener un logo. Error. El branding es mucho más:" data-en="Many people confuse branding with having a logo. Wrong. Branding is much more:">Mucha gente confunde branding con tener un logo. Error. El branding es mucho más:</p>
-                
-                <ul>
-                    <li data-es="Logo: El símbolo visual de tu marca" data-en="Logo: The visual symbol of your brand">Logo: El símbolo visual de tu marca</li>
-                    <li data-es="Colores: La paleta que evoca emociones específicas" data-en="Colors: The palette that evokes specific emotions">Colores: La paleta que evoca emociones específicas</li>
-                    <li data-es="Tipografía: Las fuentes que usas en toda comunicación" data-en="Typography: The fonts you use in all communication">Tipografía: Las fuentes que usas en toda comunicación</li>
-                    <li data-es="Voz y tono: Cómo hablas con tus clientes" data-en="Voice and tone: How you talk to your customers">Voz y tono: Cómo hablas con tus clientes</li>
-                    <li data-es="Valores: Lo que representa tu marca" data-en="Values: What your brand represents">Valores: Lo que representa tu marca</li>
-                    <li data-es="Experiencia: Cómo se sienten los clientes al interactuar contigo" data-en="Experience: How customers feel when interacting with you">Experiencia: Cómo se sienten los clientes al interactuar contigo</li>
-                </ul>
-                
-                <p data-es="El branding es la suma de todas las experiencias que una persona tiene con tu negocio." data-en="Branding is the sum of all experiences a person has with your business.">El branding es la suma de todas las experiencias que una persona tiene con tu negocio.</p>
-                
-                <h2 data-es="El impacto real en tus ventas" data-en="The real impact on your sales">El impacto real en tus ventas</h2>
-                
-                <h3 data-es="1. Genera confianza inmediata" data-en="1. Generates immediate trust">1. Genera confianza inmediata</h3>
-                <p data-es="En un mercado saturado como Cuba, donde hay múltiples opciones para casi todo, el branding profesional es tu primera ventaja competitiva. Un cliente prefiere pagar más por una marca que se ve profesional que arriesgarse con algo que parece 'hecho en casa'." data-en="In a saturated market like Cuba, where there are multiple options for almost everything, professional branding is your first competitive advantage. A customer prefers to pay more for a brand that looks professional than to risk something that looks 'homemade'.">En un mercado saturado como Cuba, donde hay múltiples opciones para casi todo, el branding profesional es tu primera ventaja competitiva. Un cliente prefiere pagar más por una marca que se ve profesional que arriesgarse con algo que parece "hecho en casa".</p>
-                
-                <h3 data-es="2. Justifica precios más altos" data-en="2. Justifies higher prices">2. Justifica precios más altos</h3>
-                <p data-es="El branding profesional te permite cobrar más. No es magia, es psicología: las personas asocian diseño profesional con calidad profesional." data-en="Professional branding allows you to charge more. It's not magic, it's psychology: people associate professional design with professional quality.">El branding profesional te permite cobrar más. No es magia, es psicología: las personas asocian diseño profesional con calidad profesional.</p>
-                
-                <ul>
-                    <li data-es="Sin branding: 'Vendo jabones a $5 USD'" data-en="Without branding: 'I sell soaps for $5 USD'">Sin branding: "Vendo jabones a $5 USD"</li>
-                    <li data-es="Con branding: 'Vendo productos de cuidado personal premium a $8 USD'" data-en="With branding: 'I sell premium personal care products for $8 USD'">Con branding: "Vendo productos de cuidado personal premium a $8 USD"</li>
-                </ul>
-                
-                <p data-es="El mismo producto, diferente percepción, 60% más de ganancia." data-en="Same product, different perception, 60% more profit.">El mismo producto, diferente percepción, 60% más de ganancia.</p>
-                
-                <h3 data-es="3. Te diferencia de la competencia" data-en="3. Differentiates you from the competition">3. Te diferencia de la competencia</h3>
-                <p data-es="En Cuba hay miles de emprendedores vendiendo productos similares. El branding es lo que hace que te recuerden y te elijan a ti." data-en="In Cuba there are thousands of entrepreneurs selling similar products. Branding is what makes them remember and choose you.">En Cuba hay miles de emprendedores vendiendo productos similares. El branding es lo que hace que te recuerden y te elijan a ti.</p>
-                
-                <div class="highlight-box">
-                    <p data-es="Si no te diferencias, compites por precio. Si compites por precio, siempre habrá alguien más barato." data-en="If you don't differentiate yourself, you compete on price. If you compete on price, there will always be someone cheaper.">Si no te diferencias, compites por precio. Si compites por precio, siempre habrá alguien más barato.</p>
-                </div>
-                
-                <h3 data-es="4. Facilita el crecimiento" data-en="4. Facilitates growth">4. Facilita el crecimiento</h3>
-                <p data-es="Un branding sólido te permite:" data-en="Solid branding allows you to:">Un branding sólido te permite:</p>
-                <ul>
-                    <li data-es="Lanzar nuevos productos más fácilmente" data-en="Launch new products more easily">Lanzar nuevos productos más fácilmente</li>
-                    <li data-es="Expandirte a nuevas plataformas (Instagram, web, tiendas físicas)" data-en="Expand to new platforms (Instagram, web, physical stores)">Expandirte a nuevas plataformas</li>
-                    <li data-es="Conseguir alianzas con otras marcas" data-en="Get alliances with other brands">Conseguir alianzas con otras marcas</li>
-                    <li data-es="Atraer clientes de mayor valor" data-en="Attract higher value customers">Atraer clientes de mayor valor</li>
-                </ul>
-                
-                <h2 data-es="Casos de éxito reales en Cuba" data-en="Real success stories in Cuba">Casos de éxito reales en Cuba</h2>
-                
-                <h3 data-es="Munchies Cuba" data-en="Munchies Cuba">Munchies Cuba</h3>
-                <p data-es="Empezó como un emprendimiento pequeño de snacks. Con branding profesional (logo, colores, packaging coherente), logró posicionarse como marca premium en el mercado cubano. Hoy es referente en su categoría." data-en="Started as a small snack business. With professional branding (logo, colors, consistent packaging), managed to position itself as a premium brand in the Cuban market. Today it's a reference in its category.">Empezó como un emprendimiento pequeño de snacks. Con branding profesional (logo, colores, packaging coherente), logró posicionarse como marca premium en el mercado cubano. Hoy es referente en su categoría.</p>
-                
-                <h3 data-es="Nova Events" data-en="Nova Events">Nova Events</h3>
-                <p data-es="Servicio de organización de eventos. El branding profesional les permitió transmitir elegancia y profesionalismo, atrayendo clientes dispuestos a pagar más por un servicio 'de lujo'." data-en="Event organization service. Professional branding allowed them to convey elegance and professionalism, attracting customers willing to pay more for a 'luxury' service.">Servicio de organización de eventos. El branding profesional les permitió transmitir elegancia y profesionalismo, atrayendo clientes dispuestos a pagar más por un servicio "de lujo".</p>
-                
-                <h3 data-es="Ash Soap Cuba" data-en="Ash Soap Cuba">Ash Soap Cuba</h3>
-                <p data-es="Jabones artesanales. El branding les permitió destacar en un mercado saturado, justificando precios superiores y construyendo una comunidad leal en redes sociales." data-en="Handmade soaps. Branding allowed them to stand out in a saturated market, justifying higher prices and building a loyal community on social media.">Jabones artesanales. El branding les permitió destacar en un mercado saturado, justificando precios superiores y construyendo una comunidad leal en redes sociales.</p>
-                
-                <h2 data-es="¿Cuándo invertir en branding?" data-en="When to invest in branding?">¿Cuándo invertir en branding?</h2>
-                
-                <p data-es="No esperes a 'tener tiempo' o 'tener dinero'. Invierte en branding cuando:" data-en="Don't wait to 'have time' or 'have money'. Invest in branding when:">No esperes a "tener tiempo" o "tener dinero". Invierte en branding cuando:</p>
-                
-                <ol>
-                    <li data-es="Vas a lanzar tu negocio: Desde el día 1, proyecta profesionalismo." data-en="You're launching your business: From day 1, project professionalism.">Vas a lanzar tu negocio: Desde el día 1, proyecta profesionalismo.</li>
-                    <li data-es="Tus ventas se estancaron: Puede ser problema de percepción, no de producto." data-en="Your sales are stagnant: It may be a perception problem, not product.">Tus ventas se estancaron: Puede ser problema de percepción, no de producto.</li>
-                    <li data-es="Quieres subir precios: El branding justifica el aumento." data-en="You want to raise prices: Branding justifies the increase.">Quieres subir precios: El branding justifica el aumento.</li>
-                    <li data-es="Te expandes: Si pasas de Instagram a tienda física, necesitas consistencia." data-en="You're expanding: If you go from Instagram to physical store, you need consistency.">Te expandes: Si pasas de Instagram a tienda física, necesitas consistencia.</li>
-                    <li data-es="La competencia te supera: Si otros se ven más profesionales, estás perdiendo clientes." data-en="Competition surpasses you: If others look more professional, you're losing customers.">La competencia te supera: Si otros se ven más profesionales, estás perdiendo clientes.</li>
-                </ol>
-                
-                <h2 data-es="ROI del branding: Los números" data-en="ROI of branding: The numbers">ROI del branding: Los números</h2>
-                
-                <p data-es="Invertir $10-40 USD en branding puede generar:" data-en="Investing $10-40 USD in branding can generate:">Invertir $10-40 USD en branding puede generar:</p>
-                
-                <ul>
-                    <li data-es="✅ Aumento del 20-30% en precios (sin perder clientes)" data-en="✅ 20-30% price increase (without losing customers)">✅ Aumento del 20-30% en precios (sin perder clientes)</li>
-                    <li data-es="✅ 2-3x más engagement en redes sociales" data-en="✅ 2-3x more engagement on social media">✅ 2-3x más engagement en redes sociales</li>
-                    <li data-es="✅ 40-50% más de confianza de nuevos clientes" data-en="✅ 40-50% more trust from new customers">✅ 40-50% más de confianza de nuevos clientes</li>
-                    <li data-es="✅ Retorno de inversión en 2-3 meses" data-en="✅ Return on investment in 2-3 months">✅ Retorno de inversión en 2-3 meses</li>
-                </ul>
-                
-                <p data-es="Compara eso con gastar $50-100 USD mensuales en ads sin un branding sólido. El branding es la base; sin él, el marketing es menos efectivo." data-en="Compare that with spending $50-100 USD monthly on ads without solid branding. Branding is the foundation; without it, marketing is less effective.">Compara eso con gastar $50-100 USD mensuales en ads sin un branding sólido. El branding es la base; sin él, el marketing es menos efectivo.</p>
-                
-                <!-- CTA SECTION -->
-                <div id="cta" class="cta-box">
-                    <h3 data-es="¿Listo para profesionalizar tu marca?" data-en="Ready to professionalize your brand?">¿Listo para profesionalizar tu marca?</h3>
-                    <p data-es="En STIKMANIA creamos identidades visuales que conectan con tu audiencia y generan resultados reales." data-en="At STIKMANIA we create visual identities that connect with your audience and generate real results.">En STIKMANIA creamos identidades visuales que conectan con tu audiencia y generan resultados reales.</p>
-                    <a href="branding.html" class="btn" data-es="Ver Paquetes de Branding" data-en="View Branding Packages">Ver Paquetes de Branding</a>
-                </div>
-                
-                <h2 data-es="Conclusión" data-en="Conclusion">Conclusión</h2>
-                
-                <p data-es="El branding profesional no es un lujo, es una necesidad para cualquier emprendimiento que quiera crecer y competir en el mercado cubano actual." data-en="Professional branding is not a luxury, it's a necessity for any business that wants to grow and compete in the current Cuban market.">El branding profesional no es un lujo, es una necesidad para cualquier emprendimiento que quiera crecer y competir en el mercado cubano actual.</p>
-                
-                <p data-es="No se trata de tener el logo 'más bonito'. Se trata de:" data-en="It's not about having the 'prettiest' logo. It's about:">No se trata de tener el logo "más bonito". Se trata de:</p>
-                <ul>
-                    <li data-es="Generar confianza" data-en="Generating trust">Generar confianza</li>
-                    <li data-es="Justificar mejores precios" data-en="Justifying better prices">Justificar mejores precios</li>
-                    <li data-es="Diferenciarte de la competencia" data-en="Differentiating yourself from the competition">Diferenciarte de la competencia</li>
-                    <li data-es="Construir una marca que perdure" data-en="Building a lasting brand">Construir una marca que perdure</li>
-                </ul>
-                
-                <p data-es="La pregunta no es si puedes permitirte el branding profesional. La pregunta es: ¿puedes permitirte NO tenerlo?" data-en="The question is not whether you can afford professional branding. The question is: can you afford NOT to have it?">La pregunta no es si puedes permitirte el branding profesional. La pregunta es: ¿puedes permitirte NO tenerlo?</p>
-                
-                <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--dark-green);">
-                    <strong data-es="¿Hablamos de tu proyecto?" data-en="Shall we talk about your project?">¿Hablamos de tu proyecto?</strong> <span data-es="Escríbenos y diseñemos juntos la identidad visual que tu negocio merece." data-en="Write to us and let's design together the visual identity your business deserves.">Escríbenos y diseñemos juntos la identidad visual que tu negocio merece.</span>
+                <h1 class="fade-in text-gradient" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+                    Por qué tu emprendimiento necesita branding profesional
+                </h1>
+                <p class="hero-subtitle fade-in" style="margin-top: 20px;">
+                    El branding no es un gasto, es una inversión que multiplica tus ventas.
                 </p>
             </div>
         </div>
-    </article>
+    </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" style="padding: 60px 0; background: rgba(0,0,0,0.7);">
-        <div class="container" style="text-align: center;">
-            <h2 style="color: var(--neon-green); margin-bottom: 20px;" data-es="Contáctanos" data-en="Contact Us">Contáctanos</h2>
-            <p style="color: #ccc; margin-bottom: 30px;" data-es="La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com" data-en="Havana, Cuba | +53 5 975 8756 | stikmania795@gmail.com">La Habana, Cuba | +53 5 975 8756 | stikmania795@gmail.com</p>
-            <a href="https://wa.me/5359758756" target="_blank" class="btn" data-es="Hablar por WhatsApp" data-en="Chat on WhatsApp">Hablar por WhatsApp</a>
+    <!-- CONTENIDO DEL ARTÍCULO -->
+    <section class="section">
+        <div class="container">
+            <div class="article-container">
+                <div class="article-content fade-in">
+                    <p>Si estás empezando un negocio en Cuba, es probable que pienses: "Primero vendo, después me preocupo por el logo". Entendemos la urgencia de generar ingresos, pero hay algo que muchos emprendedores no consideran: <strong>el branding no es un gasto, es una inversión que multiplica tus ventas.</strong></p>
+                    
+                    <div class="highlight-box">
+                        <p>💡 El branding no es solo un logo bonito. Es la percepción completa que tus clientes tienen de tu marca, y esa percepción determina si compran o no.</p>
+                    </div>
+                    
+                    <h2>¿Qué es realmente el branding?</h2>
+                    
+                    <p>Mucha gente confunde branding con tener un logo. Error. El branding es mucho más:</p>
+                    <ul>
+                        <li><strong>Logo:</strong> El símbolo visual de tu marca</li>
+                        <li><strong>Colores:</strong> La paleta que evoca emociones específicas</li>
+                        <li><strong>Tipografía:</strong> Las fuentes que usas en toda comunicación</li>
+                        <li><strong>Voz y tono:</strong> Cómo hablas con tus clientes</li>
+                        <li><strong>Valores:</strong> Lo que representa tu marca</li>
+                        <li><strong>Experiencia:</strong> Cómo se sienten los clientes al interactuar contigo</li>
+                    </ul>
+                    
+                    <h2>El impacto real en tus ventas</h2>
+                    
+                    <h3>1. Genera confianza inmediata</h3>
+                    <p>En un mercado saturado como Cuba, donde hay múltiples opciones para casi todo, el branding profesional es tu primera ventaja competitiva. Un cliente prefiere pagar más por una marca que se ve profesional que arriesgarse con algo que parece "hecho en casa".</p>
+                    
+                    <h3>2. Justifica precios más altos</h3>
+                    <p>El branding profesional te permite cobrar más. No es magia, es psicología: las personas asocian diseño profesional con calidad profesional.</p>
+                    <ul>
+                        <li>Sin branding: "Vendo jabones a $5 USD"</li>
+                        <li>Con branding: "Vendo productos de cuidado personal premium a $8 USD"</li>
+                    </ul>
+                    <p><strong>El mismo producto, diferente percepción, 60% más de ganancia.</strong></p>
+                    
+                    <h3>3. Te diferencia de la competencia</h3>
+                    <p>En Cuba hay miles de emprendedores vendiendo productos similares. El branding es lo que hace que te recuerden y te elijan a ti.</p>
+                    
+                    <div class="highlight-box">
+                        <p>⚠️ Si no te diferencias, compites por precio. Si compites por precio, siempre habrá alguien más barato.</p>
+                    </div>
+                    
+                    <h3>4. Facilita el crecimiento</h3>
+                    <p>Un branding sólido te permite:</p>
+                    <ul>
+                        <li>Lanzar nuevos productos más fácilmente</li>
+                        <li>Expandirte a nuevas plataformas (Instagram, web, tiendas físicas)</li>
+                        <li>Conseguir alianzas con otras marcas</li>
+                        <li>Atraer clientes de mayor valor</li>
+                    </ul>
+                    
+                    <h2>Casos de éxito reales en Cuba</h2>
+                    
+                    <h3>🍿 Munchies Cuba</h3>
+                    <p>Empezó como un emprendimiento pequeño de snacks. Con branding profesional (logo, colores, packaging coherente), logró posicionarse como marca premium en el mercado cubano. Hoy es referente en su categoría.</p>
+                    
+                    <h3>🎉 Nova Events</h3>
+                    <p>Servicio de organización de eventos. El branding profesional les permitió transmitir elegancia y profesionalismo, atrayendo clientes dispuestos a pagar más por un servicio "de lujo".</p>
+                    
+                    <h3>🧼 Ash Soap Cuba</h3>
+                    <p>Jabones artesanales. El branding les permitió destacar en un mercado saturado, justificando precios superiores y construyendo una comunidad leal en redes sociales.</p>
+                    
+                    <h2>¿Cuándo invertir en branding?</h2>
+                    
+                    <p>No esperes a "tener tiempo" o "tener dinero". Invierte en branding cuando:</p>
+                    <ol>
+                        <li><strong>Vas a lanzar tu negocio:</strong> Desde el día 1, proyecta profesionalismo</li>
+                        <li><strong>Tus ventas se estancaron:</strong> Puede ser problema de percepción, no de producto</li>
+                        <li><strong>Quieres subir precios:</strong> El branding justifica el aumento</li>
+                        <li><strong>Te expandes:</strong> Si pasas de Instagram a tienda física, necesitas consistencia</li>
+                        <li><strong>La competencia te supera:</strong> Si otros se ven más profesionales, estás perdiendo clientes</li>
+                    </ol>
+                    
+                    <h2>ROI del branding: Los números</h2>
+                    
+                    <p>Invertir $10-40 USD en branding puede generar:</p>
+                    <ul>
+                        <li>✅ Aumento del 20-30% en precios (sin perder clientes)</li>
+                        <li>✅ 2-3x más engagement en redes sociales</li>
+                        <li>✅ 40-50% más de confianza de nuevos clientes</li>
+                        <li>✅ Retorno de inversión en 2-3 meses</li>
+                    </ul>
+                    
+                    <p>Compara eso con gastar $50-100 USD mensuales en ads sin un branding sólido. <strong>El branding es la base; sin él, el marketing es menos efectivo.</strong></p>
+                    
+                    <h2>Conclusión</h2>
+                    
+                    <p>El branding profesional no es un lujo, es una necesidad para cualquier emprendimiento que quiera crecer y competir en el mercado cubano actual.</p>
+                    
+                    <p>La pregunta no es si puedes permitirte el branding profesional. La pregunta es: <strong>¿puedes permitirte NO tenerlo?</strong></p>
+                </div>
+                
+                <!-- CTA DEL BLOG -->
+                <div class="blog-cta fade-in">
+                    <h3>¿Listo para profesionalizar tu marca?</h3>
+                    <p>En STIKMANIA creamos identidades visuales que conectan con tu audiencia y generan resultados reales.</p>
+                    <a href="branding.html" class="btn btn-primary btn-large">Ver paquetes de branding</a>
+                </div>
+                
+                <!-- NAVEGACIÓN ENTRE BLOGS -->
+                <div class="blog-nav fade-in">
+                    <a href="blog-stickers.html">← Anterior: Guía de stickers</a>
+                    <a href="blog-web.html">Siguiente: Web vs redes →</a>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© STIKMANIA TM. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span> | 2026</p>
-            <p style="margin-top: 10px;">
-                <a href="index.html" data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
-            </p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>STIKMANIA</h3>
+                    <p>Diseño que se pega. Stickers, etiquetas y empaques personalizados en La Habana, Cuba.</p>
+                    <p style="margin-top: 15px;">© <span class="current-year">2026</span> STIKMANIA. Todos los derechos reservados.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Tienda</h4>
+                    <ul>
+                        <li><a href="index.html#tienda">Packs populares</a></li>
+                        <li><a href="index.html#tienda">Categorías</a></li>
+                        <li><a href="index.html#cotizador">Personalizado</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Blog</h4>
+                    <ul>
+                        <li><a href="blog-stickers.html">Guía de stickers</a></li>
+                        <li><a href="blog-branding.html">Branding profesional</a></li>
+                        <li><a href="blog-web.html">Web vs redes sociales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5359758756" target="_blank">WhatsApp</a></li>
+                        <li><a href="mailto:stikmania795@gmail.com">Email</a></li>
+                        <li><a href="https://instagram.com/sti_kmania" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>La Habana, Cuba • Diseño y producción 100% local</p>
+            </div>
         </div>
     </footer>
 
-    <script>
-        let currentLang = localStorage.getItem('stikmania_lang') || 'es';
-        
-        function toggleLanguage() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            localStorage.setItem('stikmania_lang', currentLang);
-            updateLanguage();
-        }
-        
-        function updateLanguage() {
-            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
-            document.querySelectorAll('[data-es]').forEach(el => {
-                el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
-            });
-            document.documentElement.lang = currentLang;
-        }
-        
-        updateLanguage();
-        
-        // SECTION NAVIGATION
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-        
-        // Update active section on scroll
-        window.addEventListener('scroll', () => {
-            const sections = ['article', 'cta', 'contact'];
-            const scrollPosition = window.scrollY + 200;
-            
-            sections.forEach(sectionId => {
-                const section = document.getElementById(sectionId);
-                const navItem = document.querySelector(`.section-nav-item[data-section="${sectionId}"]`);
-                
-                if (section && navItem) {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navItem.classList.add('active');
-                    } else {
-                        navItem.classList.remove('active');
-                    }
-                }
-            });
-        });
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/5359758756?text=Hola!%20Leí%20el%20blog%20de%20branding" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
 
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('✅ Service Worker registrado:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('❌ Error registrando Service Worker:', error);
-                    });
-            });
-        }
-    </script>
-
+    <!-- Scripts compartidos -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
