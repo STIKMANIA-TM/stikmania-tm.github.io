@@ -1,3 +1,4 @@
+// === DATOS GLOBALES ===
 const products = [
     { id: 1, name: "Pack Anime Legendario", nameEn: "Legendary Anime Pack", category: "anime", price: 3, oldPrice: 4, discount: 25, rating: 5, reviews: 24, badge: "TOP", badgeType: "hot", description: "Los personajes más icónicos del anime en un solo pack.", descriptionEn: "The most iconic anime characters in a single pack.", specs: ["24 stickers variados", "Tamaños de 4 a 7 cm", "Vinilo impermeable", "+2 años de duración"], specsEn: ["24 assorted stickers", "Sizes from 4 to 7 cm", "Waterproof vinyl", "Over 2 years durability"], icon: "anime" },
     { id: 2, name: "Pack Gamer Ultimate", nameEn: "Ultimate Gamer Pack", category: "gamer", price: 4, oldPrice: null, discount: 0, rating: 5, reviews: 18, badge: null, badgeType: null, description: "Para verdaderos gamers. Logos, personajes y memes gaming.", descriptionEn: "For true gamers. Logos, characters and gaming memes.", specs: ["30 stickers variados", "Tamaños de 4 a 8 cm", "Vinilo impermeable", "Ideal para laptops"], specsEn: ["30 assorted stickers", "Sizes from 4 to 8 cm", "Waterproof vinyl", "Ideal for laptops"], icon: "gamer" },
@@ -21,76 +22,70 @@ let currentFilter = 'all';
 let currentLang = localStorage.getItem('stikmania_lang') || 'es';
 let currentPage = 'hero';
 
-// SPA Navigation
-function navigateTo(page, anchor) {
-    // Hide all pages
-    document.querySelectorAll('.page-section').forEach(section => {
-        section.classList.remove('active');
-    });
-    
-    // Show target page
-    const targetPage = document.getElementById('page-' + page);
-    if (targetPage) {
-        targetPage.classList.add('active');
+// === FUNCIONES GLOBALES (para onclick en HTML) ===
+window.navigateTo = function(page, anchor) {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    const target = document.getElementById('page-' + page);
+    if (target) {
+        target.classList.add('active');
         currentPage = page;
-        
-        // Update bottom nav
         document.querySelectorAll('.bottom-nav-item').forEach(item => {
-            item.classList.remove('active');
-            if (item.dataset.page === page) {
-                item.classList.add('active');
-            }
+            item.classList.toggle('active', item.dataset.page === page);
         });
-        
-        // Scroll to top or anchor
         if (anchor) {
             setTimeout(() => {
-                const element = document.getElementById(anchor);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                const el = document.getElementById(anchor);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
         } else {
             window.scrollTo(0, 0);
         }
-        
-        // Trigger fade-in animations
         setTimeout(() => {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight) {
-                    el.classList.add('active');
-                }
+            document.querySelectorAll('.page-section.active .fade-in').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('active');
             });
         }, 50);
     }
-}
+};
 
-// Close menu helper
-function closeMenu() {
+window.closeMenu = function() {
     const drawer = document.getElementById('menuDrawer');
     const overlay = document.getElementById('menuOverlay');
     const toggle = document.getElementById('menuToggle');
     if (drawer) drawer.classList.remove('active');
     if (overlay) overlay.classList.remove('active');
     if (toggle) toggle.classList.remove('active');
-}
+};
 
+window.removeFromCart = function(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    saveCart();
+    updateCartUI();
+};
+
+window.addToCart = function(product) {
+    const existing = cart.find(item => item.id === product.id);
+    if (existing) existing.quantity++;
+    else cart.push({ ...product, quantity: 1 });
+    saveCart();
+    updateCartUI();
+    showToast(currentLang === 'es' ? 'Añadido al carrito' : 'Added to cart', 'success');
+};
+
+// === INICIALIZACIÓN ===
 document.addEventListener('DOMContentLoaded', function() {
-    try { initLoader(); } catch(e) { console.log('Loader error:', e); }
-    try { initMenu(); } catch(e) { console.log('Menu error:', e); }
-    try { initCart(); } catch(e) { console.log('Cart error:', e); }
-    try { initLanguage(); } catch(e) { console.log('Language error:', e); }
-    try { initBottomNav(); } catch(e) { console.log('BottomNav error:', e); }
-    try { initScrollReveal(); } catch(e) { console.log('ScrollReveal error:', e); }
-    try { initScrollProgress(); } catch(e) { console.log('ScrollProgress error:', e); }
-    try { initDynamicYear(); } catch(e) { console.log('Year error:', e); }
-    try { initFAQ(); } catch(e) { console.log('FAQ error:', e); }
-    try { initSmoothScroll(); } catch(e) { console.log('SmoothScroll error:', e); }
-    
-    // Render products
-    try { renderProducts(products); } catch(e) { console.log('Products error:', e); }
-    try { initFilters(); } catch(e) { console.log('Filters error:', e); }
-    try { initSearch(); } catch(e) { console.log('Search error:', e); }
+    try { initLoader(); } catch(e) { console.log('Loader:', e); }
+    try { initMenu(); } catch(e) { console.log('Menu:', e); }
+    try { initCart(); } catch(e) { console.log('Cart:', e); }
+    try { initLanguage(); } catch(e) { console.log('Lang:', e); }
+    try { initBottomNav(); } catch(e) { console.log('BottomNav:', e); }
+    try { initScrollReveal(); } catch(e) { console.log('Reveal:', e); }
+    try { initScrollProgress(); } catch(e) { console.log('Progress:', e); }
+    try { initDynamicYear(); } catch(e) { console.log('Year:', e); }
+    try { initFAQ(); } catch(e) { console.log('FAQ:', e); }
+    try { renderProducts(products); } catch(e) { console.log('Products:', e); }
+    try { initFilters(); } catch(e) { console.log('Filters:', e); }
+    try { initSearch(); } catch(e) { console.log('Search:', e); }
 });
 
 function initLoader() {
@@ -108,9 +103,9 @@ function initMenu() {
     if (!toggle || !drawer) return;
     
     toggle.addEventListener('click', () => {
-        drawer.classList.add('active');
-        if (overlay) overlay.classList.add('active');
-        toggle.classList.add('active');
+        drawer.classList.toggle('active');
+        if (overlay) overlay.classList.toggle('active');
+        toggle.classList.toggle('active');
     });
     
     if (close) close.addEventListener('click', closeMenu);
@@ -132,29 +127,15 @@ function initCart() {
         if (cartOverlay) cartOverlay.classList.add('active');
     });
     
-    if (cartClose) cartClose.addEventListener('click', closeCart);
-    if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
-    if (checkoutBtn) checkoutBtn.addEventListener('click', checkout);
-    
-    function closeCart() {
+    if (cartClose) cartClose.addEventListener('click', () => {
         cartDrawer.classList.remove('active');
         if (cartOverlay) cartOverlay.classList.remove('active');
-    }
-}
-
-function addToCart(product) {
-    const existing = cart.find(item => item.id === product.id);
-    if (existing) existing.quantity++;
-    else cart.push({ ...product, quantity: 1 });
-    saveCart();
-    updateCartUI();
-    showToast(currentLang === 'es' ? 'Añadido al carrito' : 'Added to cart', 'success');
-}
-
-function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
-    saveCart();
-    updateCartUI();
+    });
+    if (cartOverlay) cartOverlay.addEventListener('click', () => {
+        cartDrawer.classList.remove('active');
+        cartOverlay.classList.remove('active');
+    });
+    if (checkoutBtn) checkoutBtn.addEventListener('click', checkout);
 }
 
 function saveCart() { localStorage.setItem('stikmania_cart', JSON.stringify(cart)); }
@@ -292,7 +273,7 @@ function initSmoothScroll() {
 
 function initScrollReveal() {
     function reveal() {
-        document.querySelectorAll('.fade-in').forEach(el => {
+        document.querySelectorAll('.page-section.active .fade-in').forEach(el => {
             if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
         });
     }
