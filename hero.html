@@ -4,22 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STIKMANIA | Stickers que se pegan, diseños que venden</title>
-    <meta name="description" content="La tienda definitiva de stickers en Cuba. Para ti, tu negocio o tu arte.">
-    
+    <meta name="description" content="La tienda definitiva de stickers en Cuba.">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00FF00">
     <link rel="apple-touch-icon" href="images/icon-192.png">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    
-    <meta property="og:title" content="STIKMANIA | Stickers que se pegan, diseños que venden">
-    <meta property="og:description" content="Para ti, tu negocio o tu arte.">
+    <meta property="og:title" content="STIKMANIA">
     <meta property="og:image" content="https://stikmania-tm.github.io/images/OG_IMAGE.png">
-    <meta property="og:url" content="https://stikmania-tm.github.io/hero.html">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/global.css">
+    <style>
+        :root { --neon-green: #00FF00; --dark-green: #003300; --black: #000000; --white: #FFFFFF; --gray: #1a1a1a; --gray-light: #2a2a2a; --gray-dark: #0a0a0a; --text-muted: #888888; --font-display: 'Pirata One', display; --font-body: 'Inter', system-ui, sans-serif; --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-full: 50px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--black); color: var(--white); line-height: 1.5; overflow-x: hidden; padding-bottom: 65px; position: relative; }
+        body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('../images/var_malva.jpg'); background-size: cover; background-position: center; filter: blur(4px) brightness(0.3); opacity: 0.5; z-index: -2; pointer-events: none; }
+        h1, h2, h3, h4 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 1px; line-height: 1.2; }
+        h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; } h3 { font-size: 1.2rem; }
+        p { margin-bottom: 0.8rem; }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        .text-gradient { background: linear-gradient(90deg, #00FF00, #00cc00, #00FF00); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite; }
+        @keyframes shimmer { to { background-position: 200% center; } }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .icon { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+        .icon-sm { width: 16px; height: 16px; }
+        .icon-md { width: 24px; height: 24px; }
+        .icon-lg { width: 32px; height: 32px; }
+        .icon-xl { width: 48px; height: 48px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 12px; }
+        .section { padding: 40px 0; }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-header h2 { margin-bottom: 8px; }
+        .section-header p { color: var(--text-muted); font-size: 0.9rem; }
+        .btn { display: inline-block; padding: 12px 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: none; cursor: pointer; font-family: var(--font-body); font-size: 0.85rem; border-radius: var(--radius-sm); transition: all 0.2s ease; text-align: center; }
+        .btn-primary { background: var(--neon-green); color: var(--black); }
+        .btn-primary:active { transform: scale(0.95); }
+        .btn-outline { background: transparent; border: 2px solid var(--neon-green); color: var(--neon-green); }
+        .btn-outline:active { background: var(--neon-green); color: var(--black); }
+        .btn-large { padding: 14px 28px; font-size: 0.9rem; }
+        .btn-block { width: 100%; display: block; }
+        header { background: rgba(0, 0, 0, 0.98); backdrop-filter: blur(10px); padding: 8px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--dark-green); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+        .logo { font-family: var(--font-display); font-size: 1rem; color: var(--neon-green); flex-shrink: 0; }
+        .header-actions { display: flex; align-items: center; gap: 6px; }
+        .search-box { display: none; }
+        .cart-btn { position: relative; background: none; border: 1px solid var(--neon-green); border-radius: var(--radius-sm); padding: 5px; cursor: pointer; color: var(--neon-green); display: flex; align-items: center; justify-content: center; }
+        .cart-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+        .cart-count { position: absolute; top: -4px; right: -4px; background: #FF3333; color: var(--white); font-size: 0.6rem; font-weight: 700; width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .cart-count.hidden { display: none; }
+        .menu-toggle { background: none; border: 1px solid var(--neon-green); border-radius: var(--radius-sm); cursor: pointer; padding: 5px; display: flex; flex-direction: column; gap: 3px; }
+        .menu-toggle span { display: block; width: 16px; height: 2px; background: var(--neon-green); transition: all 0.3s ease; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+        .header-lang-btn { background: var(--black); border: 1px solid var(--neon-green); color: var(--neon-green); padding: 4px 6px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.65rem; cursor: pointer; min-width: 30px; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1001; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        .menu-drawer { position: fixed; top: 0; right: 0; width: 260px; height: 100%; background: var(--gray-dark); z-index: 1002; transform: translateX(100%); transition: transform 0.3s ease; overflow-y: auto; padding: 20px; }
+        .menu-drawer.active { transform: translateX(0); }
+        .menu-drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--gray-light); }
+        .menu-drawer-header h3 { color: var(--neon-green); font-size: 1.3rem; }
+        .menu-close { background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .menu-drawer ul { list-style: none; }
+        .menu-drawer li { margin-bottom: 5px; }
+        .menu-drawer a { display: flex; align-items: center; gap: 10px; padding: 12px 15px; color: var(--white); font-size: 0.9rem; border-radius: var(--radius-sm); transition: all 0.2s ease; }
+        .menu-drawer a:hover { background: var(--gray); color: var(--neon-green); }
+        .menu-drawer a svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+        .menu-drawer .divider { height: 1px; background: var(--gray-light); margin: 15px 0; }
+        .cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1004; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .cart-overlay.active { opacity: 1; visibility: visible; }
+        .cart-drawer { position: fixed; top: 0; right: 0; width: 100%; max-width: 320px; height: 100%; background: var(--gray-dark); z-index: 1005; transform: translateX(100%); transition: transform 0.3s ease; display: flex; flex-direction: column; }
+        .cart-drawer.active { transform: translateX(0); }
+        .cart-header { padding: 15px; border-bottom: 1px solid var(--gray-light); display: flex; justify-content: space-between; align-items: center; }
+        .cart-header h3 { color: var(--neon-green); font-size: 1.1rem; }
+        .cart-close { background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .cart-items { flex: 1; overflow-y: auto; padding: 15px; }
+        .cart-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--gray-light); }
+        .cart-item-image { width: 50px; height: 50px; background: var(--gray); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
+        .cart-item-image svg { width: 24px; height: 24px; stroke: var(--neon-green); fill: none; }
+        .cart-item-info { flex: 1; }
+        .cart-item-title { font-size: 0.85rem; margin-bottom: 4px; }
+        .cart-item-price { color: var(--neon-green); font-weight: 600; font-size: 0.85rem; }
+        .cart-item-remove { background: none; border: none; color: #FF3333; cursor: pointer; font-size: 1.2rem; }
+        .cart-empty { text-align: center; padding: 30px 15px; color: var(--text-muted); }
+        .cart-footer { padding: 15px; border-top: 1px solid var(--gray-light); }
+        .cart-total { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1rem; }
+        .cart-total-amount { color: var(--neon-green); font-family: var(--font-display); font-size: 1.3rem; }
+        .checkout-btn { width: 100%; background: var(--neon-green); color: var(--black); border: none; padding: 12px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.9rem; cursor: pointer; }
+        .hero { min-height: 85vh; padding: 100px 0 50px 0; display: flex; align-items: center; position: relative; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, rgba(0, 255, 0, 0.15), transparent 50%); z-index: -1; }
+        .hero-subtitle { font-size: 1rem; color: #ccc; margin-bottom: 25px; }
+        .hero-ctas { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+        .hero-ctas .btn { width: 100%; padding: 14px; font-size: 0.9rem; }
+        .hero-logo { max-width: 300px; width: 85%; margin: 0 auto 20px auto; }
+        .trust-badges { display: flex; flex-wrap: wrap; gap: 15px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); justify-content: center; }
+        .trust-badge { display: flex; align-items: center; gap: 8px; color: #aaa; font-size: 0.8rem; }
+        .trust-badge svg { width: 18px; height: 18px; stroke: var(--neon-green); fill: none; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .benefit { text-align: center; padding: 20px 10px; background: var(--gray); border-radius: var(--radius-lg); border: 1px solid var(--gray-light); }
+        .benefit svg { width: 32px; height: 32px; stroke: var(--neon-green); fill: none; margin-bottom: 10px; }
+        .benefit h3 { font-size: 0.95rem; margin-bottom: 6px; color: var(--neon-green); }
+        .benefit p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.98); border-top: 1px solid var(--dark-green); display: flex; justify-content: space-around; padding: 8px 0; z-index: 999; }
+        .bottom-nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; color: var(--text-muted); font-size: 0.65rem; cursor: pointer; transition: color 0.2s ease; padding: 4px 8px; }
+        .bottom-nav-item.active { color: var(--neon-green); }
+        .bottom-nav-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+        footer { background: #000; padding: 40px 0 20px 0; border-top: 1px solid var(--dark-green); margin-bottom: 65px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-bottom: 30px; }
+        .footer-brand h3 { font-family: var(--font-display); color: var(--neon-green); font-size: 1.5rem; margin-bottom: 10px; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-col h4 { color: var(--white); font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a { color: #999; font-size: 0.85rem; }
+        .footer-col a:hover { color: var(--neon-green); }
+        .footer-bottom { padding-top: 20px; border-top: 1px solid var(--gray-light); text-align: center; color: #666; font-size: 0.8rem; }
+        .whatsapp-float { position: fixed; bottom: 80px; right: 15px; width: 50px; height: 50px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); z-index: 998; }
+        .whatsapp-float svg { width: 26px; height: 26px; fill: white; }
+        #loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        .loader-spinner { width: 50px; height: 50px; border: 3px solid var(--dark-green); border-top: 3px solid var(--neon-green); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .fade-in { opacity: 0; transform: translateY(15px); transition: all 0.6s ease; }
+        .fade-in.active { opacity: 1; transform: translateY(0); }
+        .toast-container { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); z-index: 1006; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
+        .toast { background: var(--gray); border: 1px solid var(--neon-green); border-radius: var(--radius-md); padding: 12px 15px; display: flex; align-items: center; gap: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); animation: slideUp 0.3s ease; pointer-events: auto; min-width: 220px; font-size: 0.85rem; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .scroll-progress { position: fixed; top: 0; right: 0; width: 3px; height: 0%; background: linear-gradient(180deg, var(--neon-green), #00FFFF); z-index: 1003; transition: height 0.1s ease; }
+    </style>
 </head>
 <body>
 
@@ -35,7 +148,7 @@
                         <span class="cart-count hidden" id="cartCount">0</span>
                     </button>
                     <button class="menu-toggle" id="menuToggle" aria-label="Menú"><span></span><span></span><span></span></button>
-                    <button class="header-lang-btn" id="langToggle" aria-label="Cambiar idioma">EN</button>
+                    <button class="header-lang-btn" id="langToggle">EN</button>
                 </div>
             </div>
         </div>
@@ -48,86 +161,75 @@
             <button class="menu-close" id="menuClose">&times;</button>
         </div>
         <ul>
-            <li><a href="hero.html" data-es="🏠 Inicio" data-en="🏠 Home">🏠 Inicio</a></li>
-            <li><a href="index.html" data-es="🏪 Tienda" data-en="🏪 Shop">🏪 Tienda</a></li>
-            <li><a href="empresas.html" data-es="🏢 Para empresas" data-en="🏢 For businesses">🏢 Para empresas</a></li>
-            <li><a href="artesanos.html" data-es="🎨 Para artesanos" data-en="🎨 For artisans">🎨 Para artesanos</a></li>
-            <li><a href="galeria.html" data-es="🖼️ Galería" data-en="🖼️ Gallery">🖼️ Galería</a></li>
+            <li><a href="hero.html"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Inicio</a></li>
+            <li><a href="index.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Tienda</a></li>
+            <li><a href="empresas.html"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>Empresas</a></li>
+            <li><a href="artesanos.html"><svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>Artesanos</a></li>
+            <li><a href="galeria.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"></polyline></svg>Galería</a></li>
         </ul>
     </div>
 
     <div class="cart-overlay" id="cartOverlay"></div>
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
-            <h3 data-es="Tu Carrito" data-en="Your Cart">Tu Carrito</h3>
+            <h3>Tu Carrito</h3>
             <button class="cart-close" id="cartClose">&times;</button>
         </div>
         <div class="cart-items" id="cartItems">
-            <div class="cart-empty" data-es="Tu carrito está vacío" data-en="Your cart is empty">Tu carrito está vacío</div>
+            <div class="cart-empty">Tu carrito está vacío</div>
         </div>
         <div class="cart-footer">
             <div class="cart-total">
-                <span data-es="Total:" data-en="Total:">Total:</span>
+                <span>Total:</span>
                 <span class="cart-total-amount" id="cartTotal">$0.00 USD</span>
             </div>
-            <button class="checkout-btn" id="checkoutBtn" data-es="Finalizar compra por WhatsApp" data-en="Checkout via WhatsApp">Finalizar compra por WhatsApp</button>
+            <button class="checkout-btn" id="checkoutBtn">Finalizar por WhatsApp</button>
         </div>
     </div>
 
-    <!-- HERO COMPLETO -->
-    <section class="hero" id="top">
+    <section class="hero">
         <div class="container">
             <img src="images/logoW.png" alt="STIKMANIA" class="hero-logo fade-in">
-            <h1 class="sr-only" data-es="Stickers, etiquetas y empaques personalizados en Cuba" data-en="Custom stickers, labels and packaging in Cuba">Stickers, etiquetas y empaques personalizados en Cuba</h1>
-            <p class="hero-subtitle fade-in" data-es="Para ti, tu negocio o tu arte. Vinilo impermeable, etiquetas profesionales y empaques personalizados en La Habana." data-en="For you, your business or your art. Waterproof vinyl, professional labels and custom packaging in Havana.">Para ti, tu negocio o tu arte. Vinilo impermeable, etiquetas profesionales y empaques personalizados en La Habana.</p>
+            <h1 class="sr-only">Stickers, etiquetas y empaques personalizados en Cuba</h1>
+            <p class="hero-subtitle fade-in">Para ti, tu negocio o tu arte. Vinilo impermeable, etiquetas profesionales y empaques personalizados en La Habana.</p>
             <div class="hero-ctas fade-in">
-                <a href="index.html" class="btn btn-primary btn-large">
-                    <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                    <span data-es="Ir a la tienda" data-en="Go to shop">Ir a la tienda</span>
-                </a>
-                <a href="index.html#cotizador" class="btn btn-outline btn-large">
-                    <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/><path d="M8 16h.01"/><path d="M12 16h.01"/><path d="M16 16h.01"/></svg>
-                    <span data-es="Cotizar pedido" data-en="Get a quote">Cotizar pedido</span>
-                </a>
-                <a href="https://wa.me/5359758756" target="_blank" class="btn btn-outline btn-large">
-                    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                    <span data-es="WhatsApp" data-en="WhatsApp">WhatsApp</span>
-                </a>
+                <a href="index.html" class="btn btn-primary btn-large">Ver tienda</a>
+                <a href="index.html#cotizador" class="btn btn-outline btn-large">Cotizar pedido</a>
+                <a href="https://wa.me/5359758756" target="_blank" class="btn btn-outline btn-large">WhatsApp</a>
             </div>
             <div class="trust-badges fade-in">
-                <div class="trust-badge"><svg class="icon icon-md trust-badge-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-es="+50 clientes" data-en="+50 clients">+50 clientes</span></div>
-                <div class="trust-badge"><svg class="icon icon-md trust-badge-icon" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg><span data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</span></div>
-                <div class="trust-badge"><svg class="icon icon-md trust-badge-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span data-es="Entrega 2-5 días" data-en="2-5 day delivery">Entrega 2-5 días</span></div>
+                <div class="trust-badge"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>+50 clientes</div>
+                <div class="trust-badge"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>Vinilo impermeable</div>
+                <div class="trust-badge"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>Entrega 2-5 días</div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE ACCESOS RÁPIDOS -->
     <section class="section">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="¿Qué necesitas?" data-en="What do you need?">¿Qué necesitas?</h2>
+                <h2 class="text-gradient">¿Qué necesitas?</h2>
             </div>
             <div class="benefits-grid">
-                <a href="index.html" class="benefit fade-in" style="text-decoration: none;">
-                    <div class="benefit-icon" style="font-size: 3rem;">🛍️</div>
-                    <h3 data-es="Stickers personales" data-en="Personal stickers">Stickers personales</h3>
-                    <p data-es="Packs de anime, gamer, cine y más" data-en="Anime, gamer, movies and more packs">Packs de anime, gamer, cine y más</p>
+                <a href="index.html" class="benefit fade-in">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    <h3>Stickers personales</h3>
+                    <p>Packs de anime, gamer, cine y más</p>
                 </a>
-                <a href="empresas.html" class="benefit fade-in" style="text-decoration: none;">
-                    <div class="benefit-icon" style="font-size: 3rem;">🏢</div>
-                    <h3 data-es="Para mi negocio" data-en="For my business">Para mi negocio</h3>
-                    <p data-es="Etiquetas y empaques corporativos" data-en="Corporate labels and packaging">Etiquetas y empaques corporativos</p>
+                <a href="empresas.html" class="benefit fade-in">
+                    <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
+                    <h3>Para mi negocio</h3>
+                    <p>Etiquetas y empaques corporativos</p>
                 </a>
-                <a href="artesanos.html" class="benefit fade-in" style="text-decoration: none;">
-                    <div class="benefit-icon" style="font-size: 3rem;">🎨</div>
-                    <h3 data-es="Para mi arte" data-en="For my art">Para mi arte</h3>
-                    <p data-es="Empaques para productos artesanales" data-en="Packaging for artisan products">Empaques para productos artesanales</p>
+                <a href="artesanos.html" class="benefit fade-in">
+                    <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                    <h3>Para mi arte</h3>
+                    <p>Empaques para productos artesanales</p>
                 </a>
-                <a href="galeria.html" class="benefit fade-in" style="text-decoration: none;">
-                    <div class="benefit-icon" style="font-size: 3rem;">️</div>
-                    <h3 data-es="Ver trabajos" data-en="View work">Ver trabajos</h3>
-                    <p data-es="Galería de proyectos reales" data-en="Gallery of real projects">Galería de proyectos reales</p>
+                <a href="galeria.html" class="benefit fade-in">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    <h3>Ver trabajos</h3>
+                    <p>Galería de proyectos reales</p>
                 </a>
             </div>
         </div>
@@ -138,21 +240,21 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>STIKMANIA</h3>
-                    <p data-es="Diseño que se pega." data-en="Design that sticks.">Diseño que se pega.</p>
+                    <p>Diseño que se pega.</p>
                     <p style="margin-top: 15px;">© <span class="current-year">2026</span> STIKMANIA.</p>
                 </div>
                 <div class="footer-col">
-                    <h4 data-es="Navegación" data-en="Navigation">Navegación</h4>
+                    <h4>Navegación</h4>
                     <ul>
-                        <li><a href="hero.html" data-es="Inicio" data-en="Home">Inicio</a></li>
-                        <li><a href="index.html" data-es="Tienda" data-en="Shop">Tienda</a></li>
-                        <li><a href="empresas.html" data-es="Empresas" data-en="Business">Empresas</a></li>
-                        <li><a href="artesanos.html" data-es="Artesanos" data-en="Artisans">Artesanos</a></li>
-                        <li><a href="galeria.html" data-es="Galería" data-en="Gallery">Galería</a></li>
+                        <li><a href="hero.html">Inicio</a></li>
+                        <li><a href="index.html">Tienda</a></li>
+                        <li><a href="empresas.html">Empresas</a></li>
+                        <li><a href="artesanos.html">Artesanos</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+                    <h4>Contacto</h4>
                     <ul>
                         <li><a href="https://wa.me/5359758756" target="_blank">WhatsApp</a></li>
                         <li><a href="mailto:stikmania795@gmail.com">Email</a></li>
@@ -161,7 +263,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-es="La Habana, Cuba." data-en="Havana, Cuba.">La Habana, Cuba.</p>
+                <p>La Habana, Cuba.</p>
             </div>
         </div>
     </footer>
@@ -169,25 +271,25 @@
     <nav class="bottom-nav">
         <a href="hero.html" class="bottom-nav-item active">
             <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span data-es="Inicio" data-en="Home">Inicio</span>
+            <span>Inicio</span>
         </a>
         <a href="index.html" class="bottom-nav-item">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            <span data-es="Tienda" data-en="Shop">Tienda</span>
+            <span>Tienda</span>
         </a>
         <a href="empresas.html" class="bottom-nav-item">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span data-es="Empresas" data-en="Business">Empresas</span>
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
+            <span>Empresas</span>
         </a>
         <div class="bottom-nav-item" data-target="cart">
             <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-            <span data-es="Carrito" data-en="Cart">Carrito</span>
+            <span>Carrito</span>
             <span class="cart-count hidden" id="cartCountBottom">0</span>
         </div>
     </nav>
 
-    <a href="https://wa.me/5359758756" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <a href="https://wa.me/5359758756" target="_blank" class="whatsapp-float">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
     <div class="toast-container" id="toastContainer"></div>

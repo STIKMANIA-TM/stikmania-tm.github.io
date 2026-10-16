@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STIKMANIA | Etiquetas y Empaques para Empresas en Cuba</title>
-    <meta name="description" content="Etiquetas adhesivas, stickers corporativos y empaques personalizados para empresas en Cuba. Vinilo industrial, archivos vectoriales, colores Pantone.">
-    <meta name="keywords" content="etiquetas empresas Cuba, stickers corporativos, empaques personalizados, branding empresarial La Habana">
+    <meta name="description" content="Etiquetas adhesivas, stickers corporativos y empaques personalizados para empresas en Cuba.">
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00FF00">
@@ -20,13 +19,146 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/global.css">
+    
+    <style>
+        :root { --neon-green: #00FF00; --dark-green: #003300; --black: #000000; --white: #FFFFFF; --gray: #1a1a1a; --gray-light: #2a2a2a; --gray-dark: #0a0a0a; --cyan: #00FFFF; --yellow: #FFD600; --red: #FF3333; --text-muted: #888888; --font-display: 'Pirata One', display; --font-body: 'Inter', system-ui, sans-serif; --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-full: 50px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--black); color: var(--white); line-height: 1.5; overflow-x: hidden; padding-bottom: 65px; position: relative; }
+        body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('../images/var_malva.jpg'); background-size: cover; background-position: center; filter: blur(4px) brightness(0.3); opacity: 0.5; z-index: -2; pointer-events: none; }
+        h1, h2, h3, h4 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 1px; line-height: 1.2; }
+        h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; } h3 { font-size: 1.2rem; }
+        p { margin-bottom: 0.8rem; }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        .text-gradient { background: linear-gradient(90deg, #00FF00, #00cc00, #00FF00); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite; }
+        @keyframes shimmer { to { background-position: 200% center; } }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .icon { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 12px; }
+        .section { padding: 40px 0; }
+        .section-dark { background: rgba(26, 26, 26, 0.5); }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-header h2 { margin-bottom: 8px; }
+        .section-header p { color: var(--text-muted); font-size: 0.9rem; }
+        .btn { display: inline-block; padding: 12px 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: none; cursor: pointer; font-family: var(--font-body); font-size: 0.85rem; border-radius: var(--radius-sm); transition: all 0.2s ease; text-align: center; }
+        .btn-primary { background: var(--neon-green); color: var(--black); }
+        .btn-primary:active { transform: scale(0.95); }
+        .btn-outline { background: transparent; border: 2px solid var(--neon-green); color: var(--neon-green); }
+        .btn-outline:active { background: var(--neon-green); color: var(--black); }
+        .btn-large { padding: 14px 28px; font-size: 0.9rem; }
+        .btn-block { width: 100%; display: block; }
+        header { background: rgba(0, 0, 0, 0.98); backdrop-filter: blur(10px); padding: 8px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--dark-green); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+        .logo { font-family: var(--font-display); font-size: 1rem; color: var(--neon-green); flex-shrink: 0; }
+        .header-actions { display: flex; align-items: center; gap: 6px; }
+        .cart-btn { position: relative; background: none; border: 1px solid var(--neon-green); border-radius: var(--radius-sm); padding: 5px; cursor: pointer; color: var(--neon-green); display: flex; align-items: center; justify-content: center; }
+        .cart-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+        .cart-count { position: absolute; top: -4px; right: -4px; background: var(--red); color: var(--white); font-size: 0.6rem; font-weight: 700; width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .cart-count.hidden { display: none; }
+        .menu-toggle { background: none; border: 1px solid var(--neon-green); border-radius: var(--radius-sm); cursor: pointer; padding: 5px; display: flex; flex-direction: column; gap: 3px; }
+        .menu-toggle span { display: block; width: 16px; height: 2px; background: var(--neon-green); transition: all 0.3s ease; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+        .header-lang-btn { background: var(--black); border: 1px solid var(--neon-green); color: var(--neon-green); padding: 4px 6px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.65rem; cursor: pointer; min-width: 30px; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1001; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        .menu-drawer { position: fixed; top: 0; right: 0; width: 260px; height: 100%; background: var(--gray-dark); z-index: 1002; transform: translateX(100%); transition: transform 0.3s ease; overflow-y: auto; padding: 20px; }
+        .menu-drawer.active { transform: translateX(0); }
+        .menu-drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--gray-light); }
+        .menu-drawer-header h3 { color: var(--neon-green); font-size: 1.3rem; }
+        .menu-close { background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .menu-drawer ul { list-style: none; }
+        .menu-drawer li { margin-bottom: 5px; }
+        .menu-drawer a { display: flex; align-items: center; gap: 10px; padding: 12px 15px; color: var(--white); font-size: 0.9rem; border-radius: var(--radius-sm); transition: all 0.2s ease; }
+        .menu-drawer a:hover { background: var(--gray); color: var(--neon-green); }
+        .menu-drawer a svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+        .menu-drawer .divider { height: 1px; background: var(--gray-light); margin: 15px 0; }
+        .cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1004; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .cart-overlay.active { opacity: 1; visibility: visible; }
+        .cart-drawer { position: fixed; top: 0; right: 0; width: 100%; max-width: 320px; height: 100%; background: var(--gray-dark); z-index: 1005; transform: translateX(100%); transition: transform 0.3s ease; display: flex; flex-direction: column; }
+        .cart-drawer.active { transform: translateX(0); }
+        .cart-header { padding: 15px; border-bottom: 1px solid var(--gray-light); display: flex; justify-content: space-between; align-items: center; }
+        .cart-header h3 { color: var(--neon-green); font-size: 1.1rem; }
+        .cart-close { background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .cart-items { flex: 1; overflow-y: auto; padding: 15px; }
+        .cart-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--gray-light); }
+        .cart-item-image { width: 50px; height: 50px; background: var(--gray); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
+        .cart-item-image svg { width: 24px; height: 24px; stroke: var(--neon-green); fill: none; }
+        .cart-item-info { flex: 1; }
+        .cart-item-title { font-size: 0.85rem; margin-bottom: 4px; }
+        .cart-item-price { color: var(--neon-green); font-weight: 600; font-size: 0.85rem; }
+        .cart-item-remove { background: none; border: none; color: var(--red); cursor: pointer; font-size: 1.2rem; }
+        .cart-empty { text-align: center; padding: 30px 15px; color: var(--text-muted); }
+        .cart-footer { padding: 15px; border-top: 1px solid var(--gray-light); }
+        .cart-total { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1rem; }
+        .cart-total-amount { color: var(--neon-green); font-family: var(--font-display); font-size: 1.3rem; }
+        .checkout-btn { width: 100%; background: var(--neon-green); color: var(--black); border: none; padding: 12px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.9rem; cursor: pointer; }
+        .page-hero { padding: 30px 0 40px 0; text-align: center; }
+        .page-hero .hero-badge { display: inline-block; background: rgba(0, 255, 0, 0.1); border: 1px solid var(--neon-green); padding: 5px 12px; border-radius: var(--radius-full); font-size: 0.7rem; color: var(--neon-green); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        .page-hero h1 { font-size: 1.6rem; margin-bottom: 15px; }
+        .page-hero .hero-subtitle { font-size: 0.95rem; max-width: 100%; margin-bottom: 20px; color: #ccc; }
+        .page-hero .hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .page-hero .hero-ctas .btn { width: 100%; }
+        .breadcrumbs { padding: 12px 0; font-size: 0.8rem; color: var(--text-muted); }
+        .breadcrumbs a { color: var(--neon-green); }
+        .breadcrumbs span { margin: 0 6px; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .benefit { text-align: center; padding: 20px 10px; }
+        .benefit svg { width: 32px; height: 32px; stroke: var(--neon-green); fill: none; margin-bottom: 10px; }
+        .benefit h3 { font-size: 0.95rem; margin-bottom: 6px; }
+        .benefit p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0; }
+        .brands-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; opacity: 0.7; }
+        .brands-logos img { height: 40px; width: auto; filter: grayscale(100%) brightness(2); }
+        .cta-final { padding: 50px 0; text-align: center; background: linear-gradient(135deg, rgba(0, 51, 0, 0.4), rgba(0, 0, 0, 0.8)); border-top: 2px solid var(--neon-green); border-bottom: 2px solid var(--neon-green); }
+        .cta-final h2 { margin-bottom: 15px; }
+        .cta-final p { color: #ccc; font-size: 1rem; margin-bottom: 25px; }
+        .cta-buttons { display: flex; flex-direction: column; gap: 10px; }
+        .cta-buttons .btn { width: 100%; padding: 14px; font-size: 0.9rem; }
+        footer { background: #000; padding: 40px 0 20px 0; border-top: 1px solid var(--dark-green); margin-bottom: 65px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-bottom: 30px; }
+        .footer-brand h3 { font-family: var(--font-display); color: var(--neon-green); font-size: 1.5rem; margin-bottom: 10px; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-col h4 { color: var(--white); font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a { color: #999; font-size: 0.85rem; }
+        .footer-col a:hover { color: var(--neon-green); }
+        .footer-bottom { padding-top: 20px; border-top: 1px solid var(--gray-light); text-align: center; color: #666; font-size: 0.8rem; }
+        .whatsapp-float { position: fixed; bottom: 80px; right: 15px; width: 50px; height: 50px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); z-index: 998; }
+        .whatsapp-float svg { width: 26px; height: 26px; fill: white; }
+        #loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        .loader-spinner { width: 50px; height: 50px; border: 3px solid var(--dark-green); border-top: 3px solid var(--neon-green); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .fade-in { opacity: 0; transform: translateY(15px); transition: all 0.6s ease; }
+        .fade-in.active { opacity: 1; transform: translateY(0); }
+        .toast-container { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); z-index: 1006; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
+        .toast { background: var(--gray); border: 1px solid var(--neon-green); border-radius: var(--radius-md); padding: 12px 15px; display: flex; align-items: center; gap: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); animation: slideUp 0.3s ease; pointer-events: auto; min-width: 220px; font-size: 0.85rem; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .scroll-progress { position: fixed; top: 0; right: 0; width: 3px; height: 0%; background: linear-gradient(180deg, var(--neon-green), var(--cyan)); z-index: 1003; transition: height 0.1s ease; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.98); border-top: 1px solid var(--dark-green); display: flex; justify-content: space-around; padding: 8px 0; z-index: 999; }
+        .bottom-nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; color: var(--text-muted); font-size: 0.65rem; cursor: pointer; transition: color 0.2s ease; padding: 4px 8px; }
+        .bottom-nav-item.active { color: var(--neon-green); }
+        .bottom-nav-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+        @media (min-width: 769px) {
+            body { padding-bottom: 0; }
+            .bottom-nav { display: none; }
+            footer { margin-bottom: 0; }
+            .whatsapp-float { bottom: 25px; right: 25px; width: 55px; height: 55px; }
+            .whatsapp-float svg { width: 28px; height: 28px; }
+            .benefits-grid { grid-template-columns: repeat(4, 1fr); }
+            .cta-buttons { flex-direction: row; justify-content: center; }
+            .cta-buttons .btn { width: auto; }
+            .page-hero .hero-ctas .btn { width: auto; }
+            .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
 
     <div id="loader"><div class="loader-spinner"></div></div>
 
-    <!-- HEADER -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -37,13 +169,12 @@
                         <span class="cart-count hidden" id="cartCount">0</span>
                     </button>
                     <button class="menu-toggle" id="menuToggle" aria-label="Menú"><span></span><span></span><span></span></button>
-                    <button class="header-lang-btn" id="langToggle" aria-label="Cambiar idioma">EN</button>
+                    <button class="header-lang-btn" id="langToggle">EN</button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- MENÚ DRAWER -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-drawer" id="menuDrawer">
         <div class="menu-drawer-header">
@@ -51,122 +182,116 @@
             <button class="menu-close" id="menuClose">&times;</button>
         </div>
         <ul>
-            <li><a href="hero.html" data-es="🏠 Inicio" data-en="🏠 Home">🏠 Inicio</a></li>
-            <li><a href="index.html" data-es="🏪 Tienda" data-en=" Shop">🏪 Tienda</a></li>
-            <li><a href="empresas.html" data-es="🏢 Para empresas" data-en="🏢 For businesses">🏢 Para empresas</a></li>
-            <li><a href="artesanos.html" data-es=" Para artesanos" data-en="🎨 For artisans">🎨 Para artesanos</a></li>
-            <li><a href="galeria.html" data-es="🖼️ Galería" data-en="🖼️ Gallery">🖼️ Galería</a></li>
+            <li><a href="hero.html"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Inicio</a></li>
+            <li><a href="index.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Tienda</a></li>
+            <li><a href="empresas.html"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>Empresas</a></li>
+            <li><a href="artesanos.html"><svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>Artesanos</a></li>
+            <li><a href="galeria.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"></polyline></svg>Galería</a></li>
         </ul>
     </div>
 
-    <!-- CARRITO DRAWER -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
-            <h3 data-es="Tu Carrito" data-en="Your Cart">Tu Carrito</h3>
+            <h3>Tu Carrito</h3>
             <button class="cart-close" id="cartClose">&times;</button>
         </div>
         <div class="cart-items" id="cartItems">
-            <div class="cart-empty" data-es="Tu carrito está vacío" data-en="Your cart is empty">Tu carrito está vacío</div>
+            <div class="cart-empty">Tu carrito está vacío</div>
         </div>
         <div class="cart-footer">
             <div class="cart-total">
-                <span data-es="Total:" data-en="Total:">Total:</span>
+                <span>Total:</span>
                 <span class="cart-total-amount" id="cartTotal">$0.00 USD</span>
             </div>
-            <button class="checkout-btn" id="checkoutBtn" data-es="Finalizar compra por WhatsApp" data-en="Checkout via WhatsApp">Finalizar compra por WhatsApp</button>
+            <button class="checkout-btn" id="checkoutBtn">Finalizar por WhatsApp</button>
         </div>
     </div>
 
-    <!-- BREADCRUMBS -->
     <div class="container" style="padding-top: 80px;">
         <div class="breadcrumbs fade-in">
-            <a href="hero.html" data-es="Inicio" data-en="Home">Inicio</a>
+            <a href="hero.html">Inicio</a>
             <span>›</span>
-            <span data-es="Para empresas" data-en="For businesses">Para empresas</span>
+            <span>Para empresas</span>
         </div>
     </div>
 
-    <!-- PAGE HERO -->
     <section class="page-hero">
         <div class="container">
-            <div class="hero-badge fade-in" data-es="Soluciones B2B" data-en="B2B Solutions">Soluciones B2B</div>
-            <h1 class="fade-in text-gradient" data-es="Etiquetas que hacen tu marca inolvidable" data-en="Labels that make your brand unforgettable">Etiquetas que hacen tu marca inolvidable</h1>
-            <p class="hero-subtitle fade-in" data-es="Creamos etiquetas adhesivas, stickers e identificadores multifuncionales para tu negocio. Diseñamos experiencias que impulsan la recompra y elevan la percepción de valor." data-en="We create adhesive labels, stickers and multifunctional identifiers for your business.">Creamos etiquetas adhesivas, stickers e identificadores multifuncionales para tu negocio.</p>
+            <div class="hero-badge fade-in">Soluciones B2B</div>
+            <h1 class="fade-in text-gradient">Etiquetas que hacen tu marca inolvidable</h1>
+            <p class="hero-subtitle fade-in">Creamos etiquetas adhesivas, stickers e identificadores multifuncionales para tu negocio.</p>
             <div class="hero-ctas fade-in">
-                <a href="index.html#cotizador" class="btn btn-primary btn-large" data-es="Cotizar para mi empresa" data-en="Quote for my business">Cotizar para mi empresa</a>
-                <a href="galeria.html" class="btn btn-outline btn-large" data-es="Ver trabajos" data-en="View work">Ver trabajos</a>
+                <a href="index.html#cotizador" class="btn btn-primary btn-large">Cotizar para mi empresa</a>
+                <a href="galeria.html" class="btn btn-outline btn-large">Ver trabajos</a>
             </div>
         </div>
     </section>
 
-    <!-- SERVICIOS -->
     <section class="section">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Nuestros servicios" data-en="Our services">Nuestros servicios</h2>
+                <h2 class="text-gradient">Nuestros servicios</h2>
             </div>
             <div class="benefits-grid">
                 <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z"/><path d="M7 7h.01"/></svg>
-                    <h3 data-es="Etiquetas para envases" data-en="Container labels">Etiquetas para envases</h3>
-                    <p data-es="Botellas, frascos y contenedores de alimentos o cosméticos." data-en="Bottles, jars and food or cosmetic containers.">Botellas, frascos y contenedores de alimentos o cosméticos.</p>
+                    <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z"/><path d="M7 7h.01"/></svg>
+                    <h3>Etiquetas para envases</h3>
+                    <p>Botellas, frascos y contenedores de alimentos o cosméticos.</p>
                 </div>
                 <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
-                    <h3 data-es="Empaques" data-en="Packaging">Empaques</h3>
-                    <p data-es="Cajas, bolsas, sellos de seguridad y etiquetas de hecho a mano." data-en="Boxes, bags, security seals and handmade labels.">Cajas, bolsas, sellos de seguridad y etiquetas de hecho a mano.</p>
+                    <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+                    <h3>Empaques</h3>
+                    <p>Cajas, bolsas, sellos de seguridad y etiquetas de hecho a mano.</p>
                 </div>
                 <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
-                    <h3 data-es="Corporativo" data-en="Corporate">Corporativo</h3>
-                    <p data-es="Laptops, señalética interna, carnets y material promocional." data-en="Laptops, internal signage, badges and promotional material.">Laptops, señalética interna, carnets y material promocional.</p>
+                    <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
+                    <h3>Corporativo</h3>
+                    <p>Laptops, señalética interna, carnets y material promocional.</p>
                 </div>
                 <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
-                    <h3 data-es="Promocional" data-en="Promotional">Promocional</h3>
-                    <p data-es="Eventos, ferias comerciales y regalos para clientes." data-en="Events, trade shows and client gifts.">Eventos, ferias comerciales y regalos para clientes.</p>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+                    <h3>Promocional</h3>
+                    <p>Eventos, ferias comerciales y regalos para clientes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BENEFICIOS -->
     <section class="section section-dark">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Por qué elegirnos" data-en="Why choose us">Por qué elegirnos</h2>
+                <h2 class="text-gradient">Por qué elegirnos</h2>
             </div>
             <div class="benefits-grid">
                 <div class="benefit fade-in">
-                    <div class="benefit-icon" style="font-size: 2.5rem;">💰</div>
-                    <h3 data-es="Descuentos por volumen" data-en="Volume discounts">Descuentos por volumen</h3>
-                    <p data-es="Desde 50 unidades con precios escalonados." data-en="From 50 units with tiered pricing.">Desde 50 unidades con precios escalonados.</p>
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <h3>Descuentos por volumen</h3>
+                    <p>Desde 50 unidades con precios escalonados.</p>
                 </div>
                 <div class="benefit fade-in">
-                    <div class="benefit-icon" style="font-size: 2.5rem;"></div>
-                    <h3 data-es="Archivos vectoriales" data-en="Vector files">Archivos vectoriales</h3>
-                    <p data-es="Entregamos en AI, EPS, PDF y SVG." data-en="We deliver in AI, EPS, PDF and SVG.">Entregamos en AI, EPS, PDF y SVG.</p>
+                    <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <h3>Archivos vectoriales</h3>
+                    <p>Entregamos en AI, EPS, PDF y SVG.</p>
                 </div>
                 <div class="benefit fade-in">
-                    <div class="benefit-icon" style="font-size: 2.5rem;"></div>
-                    <h3 data-es="Colores Pantone" data-en="Pantone colors">Colores Pantone</h3>
-                    <p data-es="Exactitud de color garantizada." data-en="Guaranteed color accuracy.">Exactitud de color garantizada.</p>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+                    <h3>Colores Pantone</h3>
+                    <p>Exactitud de color garantizada.</p>
                 </div>
                 <div class="benefit fade-in">
-                    <div class="benefit-icon" style="font-size: 2.5rem;"></div>
-                    <h3 data-es="Entrega rápida" data-en="Fast delivery">Entrega rápida</h3>
-                    <p data-es="3-7 días hábiles según volumen." data-en="3-7 business days depending on volume.">3-7 días hábiles según volumen.</p>
+                    <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <h3>Entrega rápida</h3>
+                    <p>3-7 días hábiles según volumen.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MARCAS -->
     <section class="section">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Confían en nosotros" data-en="They trust us">Confían en nosotros</h2>
+                <h2 class="text-gradient">Confían en nosotros</h2>
             </div>
             <div class="brands-logos fade-in">
                 <img src="images/Nova_LOGO.png" alt="Nova Events" loading="lazy">
@@ -178,39 +303,37 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="cta-final">
         <div class="container fade-in">
-            <h2 class="text-gradient" data-es="¿Listo para profesionalizar tu marca?" data-en="Ready to professionalize your brand?">¿Listo para profesionalizar tu marca?</h2>
-            <p data-es="Cotiza en segundos. Respuesta en menos de 24 horas." data-en="Quote in seconds. Response in less than 24 hours.">Cotiza en segundos. Respuesta en menos de 24 horas.</p>
+            <h2 class="text-gradient">¿Listo para profesionalizar tu marca?</h2>
+            <p>Cotiza en segundos. Respuesta en menos de 24 horas.</p>
             <div class="cta-buttons">
-                <a href="index.html#cotizador" class="btn btn-primary btn-large" data-es="Ir al cotizador" data-en="Go to quote tool">Ir al cotizador</a>
-                <a href="https://wa.me/5359758756" target="_blank" class="btn btn-outline btn-large" data-es="Hablar por WhatsApp" data-en="Chat on WhatsApp">Hablar por WhatsApp</a>
+                <a href="index.html#cotizador" class="btn btn-primary btn-large">Ir al cotizador</a>
+                <a href="https://wa.me/5359758756" target="_blank" class="btn btn-outline btn-large">Hablar por WhatsApp</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>STIKMANIA</h3>
-                    <p data-es="Diseño que se pega." data-en="Design that sticks.">Diseño que se pega.</p>
+                    <p>Diseño que se pega.</p>
                     <p style="margin-top: 15px;">© <span class="current-year">2026</span> STIKMANIA.</p>
                 </div>
                 <div class="footer-col">
-                    <h4 data-es="Navegación" data-en="Navigation">Navegación</h4>
+                    <h4>Navegación</h4>
                     <ul>
-                        <li><a href="hero.html" data-es="Inicio" data-en="Home">Inicio</a></li>
-                        <li><a href="index.html" data-es="Tienda" data-en="Shop">Tienda</a></li>
-                        <li><a href="empresas.html" data-es="Empresas" data-en="Business">Empresas</a></li>
-                        <li><a href="artesanos.html" data-es="Artesanos" data-en="Artisans">Artesanos</a></li>
-                        <li><a href="galeria.html" data-es="Galería" data-en="Gallery">Galería</a></li>
+                        <li><a href="hero.html">Inicio</a></li>
+                        <li><a href="index.html">Tienda</a></li>
+                        <li><a href="empresas.html">Empresas</a></li>
+                        <li><a href="artesanos.html">Artesanos</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+                    <h4>Contacto</h4>
                     <ul>
                         <li><a href="https://wa.me/5359758756" target="_blank">WhatsApp</a></li>
                         <li><a href="mailto:stikmania795@gmail.com">Email</a></li>
@@ -219,34 +342,33 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-es="La Habana, Cuba." data-en="Havana, Cuba.">La Habana, Cuba.</p>
+                <p>La Habana, Cuba.</p>
             </div>
         </div>
     </footer>
 
-    <!-- BOTTOM NAV -->
     <nav class="bottom-nav">
         <a href="hero.html" class="bottom-nav-item">
             <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span data-es="Inicio" data-en="Home">Inicio</span>
+            <span>Inicio</span>
         </a>
         <a href="index.html" class="bottom-nav-item">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            <span data-es="Tienda" data-en="Shop">Tienda</span>
+            <span>Tienda</span>
         </a>
         <a href="empresas.html" class="bottom-nav-item active">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span data-es="Empresas" data-en="Business">Empresas</span>
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
+            <span>Empresas</span>
         </a>
         <div class="bottom-nav-item" data-target="cart">
             <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-            <span data-es="Carrito" data-en="Cart">Carrito</span>
+            <span>Carrito</span>
             <span class="cart-count hidden" id="cartCountBottom">0</span>
         </div>
     </nav>
 
-    <a href="https://wa.me/5359758756" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <a href="https://wa.me/5359758756" target="_blank" class="whatsapp-float">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
     <div class="toast-container" id="toastContainer"></div>
