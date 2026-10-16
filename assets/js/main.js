@@ -24,6 +24,7 @@ let currentPage = 'hero';
 
 // === FUNCIONES GLOBALES (para onclick en HTML) ===
 window.navigateTo = function(page, anchor) {
+    console.log('Navigating to:', page);
     document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
     const target = document.getElementById('page-' + page);
     if (target) {
@@ -74,6 +75,7 @@ window.addToCart = function(product) {
 
 // === INICIALIZACIÓN ===
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing...');
     try { initLoader(); } catch(e) { console.log('Loader:', e); }
     try { initMenu(); } catch(e) { console.log('Menu:', e); }
     try { initCart(); } catch(e) { console.log('Cart:', e); }
@@ -108,8 +110,8 @@ function initMenu() {
         toggle.classList.toggle('active');
     });
     
-    if (close) close.addEventListener('click', closeMenu);
-    if (overlay) overlay.addEventListener('click', closeMenu);
+    if (close) close.addEventListener('click', window.closeMenu);
+    if (overlay) overlay.addEventListener('click', window.closeMenu);
 }
 
 function initCart() {
