@@ -1,57 +1,455 @@
 /* ============================================
-   STIKMANIA - Main JavaScript (Compartido)
-   Versión 4.5 - Header simétrico y progreso
+   STIKMANIA APP - JavaScript Principal
+   Versión 5.3 - Defensivo (funciona en todas las páginas)
    ============================================ */
 
-// 1. LOADER
-window.addEventListener('load', function() {
-    var loader = document.getElementById('loader');
-    if (loader) {
-        setTimeout(function() {
-            loader.style.opacity = '0';
-            setTimeout(function() {
-                if (loader.parentNode) loader.remove();
-            }, 500);
-        }, 400);
+const products = [
+    {
+        id: 1, name: "Pack Anime Legendario", nameEn: "Legendary Anime Pack",
+        category: "anime", price: 3, oldPrice: 4, discount: 25,
+        rating: 5, reviews: 24, badge: "TOP", badgeType: "hot",
+        description: "Los personajes más icónicos del anime en un solo pack.",
+        descriptionEn: "The most iconic anime characters in a single pack.",
+        specs: ["24 stickers variados", "Tamaños de 4 a 7 cm", "Vinilo impermeable", "+2 años de duración"],
+        specsEn: ["24 assorted stickers", "Sizes from 4 to 7 cm", "Waterproof vinyl", "Over 2 years durability"],
+        icon: "anime"
+    },
+    {
+        id: 2, name: "Pack Gamer Ultimate", nameEn: "Ultimate Gamer Pack",
+        category: "gamer", price: 4, oldPrice: null, discount: 0,
+        rating: 5, reviews: 18, badge: null, badgeType: null,
+        description: "Para verdaderos gamers. Logos, personajes y memes gaming.",
+        descriptionEn: "For true gamers. Logos, characters and gaming memes.",
+        specs: ["30 stickers variados", "Tamaños de 4 a 8 cm", "Vinilo impermeable", "Ideal para laptops"],
+        specsEn: ["30 assorted stickers", "Sizes from 4 to 8 cm", "Waterproof vinyl", "Ideal for laptops"],
+        icon: "gamer"
+    },
+    {
+        id: 3, name: "Pack Cine y Series", nameEn: "Movies and Series Pack",
+        category: "cine", price: 3, oldPrice: null, discount: 0,
+        rating: 4, reviews: 15, badge: "NEW", badgeType: "new",
+        description: "Marvel, Star Wars, Netflix y tus series favoritas.",
+        descriptionEn: "Marvel, Star Wars, Netflix and your favorite series.",
+        specs: ["20 stickers premium", "Tamaños de 5 a 8 cm", "Vinilo impermeable", "Colores vibrantes"],
+        specsEn: ["20 premium stickers", "Sizes from 5 to 8 cm", "Waterproof vinyl", "Vibrant colors"],
+        icon: "cine"
+    },
+    {
+        id: 4, name: "Pack Street y Skate", nameEn: "Street and Skate Pack",
+        category: "skate", price: 4, oldPrice: null, discount: 0,
+        rating: 5, reviews: 12, badge: null, badgeType: null,
+        description: "Estilo urbano puro. Thrasher, Santa Cruz y logos clásicos.",
+        descriptionEn: "Pure street style. Thrasher, Santa Cruz and classic logos.",
+        specs: ["15 stickers grandes", "Tamaños de 6 a 10 cm", "Vinilo de alta resistencia", "Para skate y motos"],
+        specsEn: ["15 large stickers", "Sizes from 6 to 10 cm", "High-resistance vinyl", "For skate and bikes"],
+        icon: "skate"
+    },
+    {
+        id: 5, name: "Pack Stikmania", nameEn: "Stikmania Pack",
+        category: "stikmania", price: 3, oldPrice: null, discount: 0,
+        rating: 5, reviews: 30, badge: "EXCLUSIVE", badgeType: "hot",
+        description: "Stickers exclusivos del artista @sti_kmania. Diseños únicos.",
+        descriptionEn: "Exclusive stickers from artist @sti_kmania. Unique designs.",
+        specs: ["18 stickers de autor", "Tamaños de 5 a 7 cm", "Vinilo impermeable", "Diseños originales"],
+        specsEn: ["18 artist stickers", "Sizes from 5 to 7 cm", "Waterproof vinyl", "Original designs"],
+        icon: "stikmania"
+    },
+    {
+        id: 6, name: "Pack Personalizado", nameEn: "Custom Pack",
+        category: "personalizado", price: 2, oldPrice: null, discount: 0,
+        rating: 5, reviews: 45, badge: null, badgeType: null,
+        description: "Envía tus diseños o elige los stickers que más te gusten.",
+        descriptionEn: "Send your designs or choose the stickers you like most.",
+        specs: ["Elige cantidad (10-100)", "Tú eliges los diseños", "Material premium", "Diseño gratis incluido"],
+        specsEn: ["Choose quantity (10-100)", "You choose the designs", "Premium material", "Free design included"],
+        icon: "custom"
+    }
+];
+
+const productIcons = {
+    anime: '<svg viewBox="0 0 24 24"><path d="M4 6c4-2 12-2 16 0"/><path d="M6 6v14"/><path d="M18 6v14"/><path d="M4 10h16"/><path d="M12 6v4"/></svg>',
+    gamer: '<svg viewBox="0 0 24 24"><path d="M6 12h4"/><path d="M8 10v4"/><circle cx="15" cy="11" r="1"/><circle cx="17" cy="13" r="1"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>',
+    cine: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14"/><path d="M17 5v14"/><path d="M3 10h4"/><path d="M3 14h4"/><path d="M17 10h4"/><path d="M17 14h4"/></svg>',
+    skate: '<svg viewBox="0 0 24 24"><path d="M3 14c0 1.5 1.5 2 3 2h12c1.5 0 3-.5 3-2"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/><path d="M7 16V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8"/></svg>',
+    stikmania: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>',
+    custom: '<svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>'
+};
+
+let cart = JSON.parse(localStorage.getItem('stikmania_cart')) || [];
+let currentFilter = 'all';
+let currentLang = localStorage.getItem('stikmania_lang') || 'es';
+
+// === INICIALIZACIÓN DEFENSIVA ===
+document.addEventListener('DOMContentLoaded', function() {
+    initLoader();
+    initMenu();
+    initCart();
+    initLanguage();
+    initBottomNav();
+    initScrollReveal();
+    initScrollProgress();
+    initDynamicYear();
+    initFAQ();
+    initSmoothScroll();
+    
+    // Solo en páginas que tienen tienda
+    if (document.getElementById('productsGrid')) {
+        initProducts();
+        initFilters();
+        initSearch();
+        initModal();
+        initCountdown();
     }
 });
 
-// 2. SCROLL REVEAL
-function revealOnScroll() {
-    var elements = document.querySelectorAll('.fade-in');
-    var windowHeight = window.innerHeight;
+function initLoader() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 500);
+        }, 400);
+    }
+}
+
+function initMenu() {
+    const toggle = document.getElementById('menuToggle');
+    const drawer = document.getElementById('menuDrawer');
+    const overlay = document.getElementById('menuOverlay');
+    const close = document.getElementById('menuClose');
     
-    elements.forEach(function(element) {
-        var elementTop = element.getBoundingClientRect().top;
-        var triggerPoint = windowHeight - 100;
-        
-        if (elementTop < triggerPoint) {
-            element.classList.add('active');
+    if (!toggle || !drawer) return;
+    
+    toggle.addEventListener('click', () => {
+        drawer.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+    });
+    
+    if (close) close.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
+    
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    
+    function closeMenu() {
+        drawer.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+    }
+}
+
+function initCart() {
+    const cartBtn = document.getElementById('cartBtn');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartClose = document.getElementById('cartClose');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    
+    if (!cartBtn || !cartDrawer) return;
+    
+    updateCartUI();
+    
+    cartBtn.addEventListener('click', () => {
+        cartDrawer.classList.add('active');
+        if (cartOverlay) cartOverlay.classList.add('active');
+    });
+    
+    if (cartClose) cartClose.addEventListener('click', closeCart);
+    if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+    if (checkoutBtn) checkoutBtn.addEventListener('click', checkout);
+    
+    function closeCart() {
+        cartDrawer.classList.remove('active');
+        if (cartOverlay) cartOverlay.classList.remove('active');
+    }
+}
+
+function addToCart(product) {
+    const existingItem = cart.find(item => item.id === product.id);
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
+    saveCart();
+    updateCartUI();
+    showToast(currentLang === 'es' ? '✅ Añadido al carrito' : '✅ Added to cart', 'success');
+}
+
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    saveCart();
+    updateCartUI();
+}
+
+function saveCart() {
+    localStorage.setItem('stikmania_cart', JSON.stringify(cart));
+}
+
+function updateCartUI() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    const cartCount = document.getElementById('cartCount');
+    const cartCountBottom = document.getElementById('cartCountBottom');
+    
+    if (!cartItems) return;
+    
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    if (totalItems > 0) {
+        if (cartCount) {
+            cartCount.textContent = totalItems;
+            cartCount.classList.remove('hidden');
         }
+        if (cartCountBottom) {
+            cartCountBottom.textContent = totalItems;
+            cartCountBottom.classList.remove('hidden');
+        }
+    } else {
+        if (cartCount) cartCount.classList.add('hidden');
+        if (cartCountBottom) cartCountBottom.classList.add('hidden');
+    }
+    
+    if (cartTotal) cartTotal.textContent = `$${totalPrice.toFixed(2)} USD`;
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = `<div class="cart-empty">${currentLang === 'es' ? 'Tu carrito está vacío' : 'Your cart is empty'}</div>`;
+    } else {
+        cartItems.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <div class="cart-item-image">${productIcons[item.icon] || ''}</div>
+                <div class="cart-item-info">
+                    <div class="cart-item-title">${currentLang === 'es' ? item.name : item.nameEn}</div>
+                    <div class="cart-item-price">$${item.price} USD x ${item.quantity}</div>
+                </div>
+                <button class="cart-item-remove" onclick="removeFromCart(${item.id})">&times;</button>
+            </div>
+        `).join('');
+    }
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        showToast(currentLang === 'es' ? '❌ Carrito vacío' : '❌ Cart is empty', 'error');
+        return;
+    }
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    let message = '*PEDIDO STIKMANIA*\n\n';
+    cart.forEach(item => {
+        message += `• ${currentLang === 'es' ? item.name : item.nameEn} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)} USD\n`;
+    });
+    message += `\n*Total: $${total.toFixed(2)} USD*`;
+    window.open(`https://wa.me/5359758756?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+function initProducts() {
+    const grid = document.getElementById('productsGrid');
+    if (!grid) return;
+    renderProducts(products);
+}
+
+function renderProducts(productsToRender) {
+    const grid = document.getElementById('productsGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = productsToRender.map(product => `
+        <div class="product-card" data-category="${product.category}" onclick="openProductModal(${product.id})">
+            <div class="product-image">
+                ${product.badge ? `<span class="product-badge ${product.badgeType}">${product.badge}</span>` : ''}
+                ${productIcons[product.icon] || ''}
+            </div>
+            <div class="product-info">
+                <div class="product-title">${currentLang === 'es' ? product.name : product.nameEn}</div>
+                <div class="product-rating">
+                    <span class="stars">${'★'.repeat(product.rating)}${'☆'.repeat(5 - product.rating)}</span>
+                    <span class="reviews">(${product.reviews})</span>
+                </div>
+                <div class="product-price">
+                    <span class="price-current">$${product.price} USD</span>
+                    ${product.oldPrice ? `<span class="price-old">$${product.oldPrice}</span>` : ''}
+                    ${product.discount > 0 ? `<span class="discount-badge">-${product.discount}%</span>` : ''}
+                </div>
+                <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(products.find(p => p.id === ${product.id}))">
+                    ${currentLang === 'es' ? '🛒 Añadir' : '🛒 Add'}
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function initFilters() {
+    const chips = document.querySelectorAll('.filter-chip');
+    chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            chips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            const filter = chip.dataset.filter;
+            currentFilter = filter;
+            if (filter === 'all') {
+                renderProducts(products);
+            } else {
+                renderProducts(products.filter(p => p.category === filter));
+            }
+        });
     });
 }
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+function initSearch() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const filtered = products.filter(p => 
+            p.name.toLowerCase().includes(query) || 
+            p.nameEn.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query)
+        );
+        renderProducts(filtered);
+    });
+}
 
-// 3. FAQ TOGGLE
-function initFAQ() {
-    var questions = document.querySelectorAll('.faq-question');
+function initModal() {
+    const modal = document.getElementById('productModal');
+    const close = document.getElementById('modalClose');
+    const addToCartBtn = document.getElementById('modalAddToCart');
+    const buyNowBtn = document.getElementById('modalBuyNow');
     
-    questions.forEach(function(question) {
-        question.addEventListener('click', function() {
-            var answer = this.nextElementSibling;
-            var sign = this.querySelector('span:last-child');
+    if (!modal) return;
+    
+    if (close) close.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', () => {
+            const productId = parseInt(addToCartBtn.dataset.productId);
+            const product = products.find(p => p.id === productId);
+            if (product) { addToCart(product); closeModal(); }
+        });
+    }
+    
+    if (buyNowBtn) {
+        buyNowBtn.addEventListener('click', () => {
+            const productId = parseInt(buyNowBtn.dataset.productId);
+            const product = products.find(p => p.id === productId);
+            if (product) { addToCart(product); closeModal(); document.getElementById('cartBtn').click(); }
+        });
+    }
+}
+
+function openProductModal(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+    
+    const modal = document.getElementById('productModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalStars = document.getElementById('modalStars');
+    const modalReviews = document.getElementById('modalReviews');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalSpecs = document.getElementById('modalSpecs');
+    const modalPrice = document.getElementById('modalPrice');
+    const addToCartBtn = document.getElementById('modalAddToCart');
+    const buyNowBtn = document.getElementById('modalBuyNow');
+    
+    if (modalImage) modalImage.innerHTML = productIcons[product.icon] || '';
+    if (modalTitle) modalTitle.textContent = currentLang === 'es' ? product.name : product.nameEn;
+    if (modalStars) modalStars.textContent = '★'.repeat(product.rating) + '☆'.repeat(5 - product.rating);
+    if (modalReviews) modalReviews.textContent = `(${product.reviews} reviews)`;
+    if (modalDescription) modalDescription.textContent = currentLang === 'es' ? product.description : product.descriptionEn;
+    if (modalSpecs) modalSpecs.innerHTML = (currentLang === 'es' ? product.specs : product.specsEn).map(s => `<li>${s}</li>`).join('');
+    if (modalPrice) modalPrice.textContent = `$${product.price} USD`;
+    if (addToCartBtn) addToCartBtn.dataset.productId = productId;
+    if (buyNowBtn) buyNowBtn.dataset.productId = productId;
+    
+    if (modal) modal.classList.add('active');
+}
+
+function closeModal() {
+    const modal = document.getElementById('productModal');
+    if (modal) modal.classList.remove('active');
+}
+
+function initCountdown() {
+    let hours = 4, minutes = 23, seconds = 15;
+    const hEl = document.getElementById('hours');
+    const mEl = document.getElementById('minutes');
+    const sEl = document.getElementById('seconds');
+    if (!hEl || !mEl || !sEl) return;
+    
+    setInterval(() => {
+        seconds--;
+        if (seconds < 0) { seconds = 59; minutes--; }
+        if (minutes < 0) { minutes = 59; hours--; }
+        if (hours < 0) hours = 23;
+        hEl.textContent = hours.toString().padStart(2, '0');
+        mEl.textContent = minutes.toString().padStart(2, '0');
+        sEl.textContent = seconds.toString().padStart(2, '0');
+    }, 1000);
+}
+
+function initLanguage() {
+    const langBtn = document.getElementById('langToggle');
+    if (!langBtn) return;
+    
+    function updateLanguage() {
+        langBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
+        document.querySelectorAll('[data-es]').forEach(el => {
+            el.textContent = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+        });
+        document.querySelectorAll('[data-es-placeholder]').forEach(el => {
+            el.placeholder = currentLang === 'es' ? el.getAttribute('data-es-placeholder') : el.getAttribute('data-en-placeholder');
+        });
+        document.documentElement.lang = currentLang;
+        
+        // Re-renderizar productos si estamos en la tienda
+        const grid = document.getElementById('productsGrid');
+        if (grid) {
+            renderProducts(currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter));
+        }
+        updateCartUI();
+    }
+    
+    langBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'es' ? 'en' : 'es';
+        localStorage.setItem('stikmania_lang', currentLang);
+        updateLanguage();
+    });
+    
+    updateLanguage();
+}
+
+function initBottomNav() {
+    const items = document.querySelectorAll('.bottom-nav-item');
+    items.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Si es un enlace <a>, dejar que navegue normalmente
+            if (item.tagName === 'A') return;
             
-            var allAnswers = document.querySelectorAll('.faq-answer.show');
-            allAnswers.forEach(function(openAnswer) {
-                if (openAnswer !== answer) {
-                    openAnswer.classList.remove('show');
-                    var openSign = openAnswer.previousElementSibling.querySelector('span:last-child');
-                    if (openSign) openSign.textContent = '+';
-                }
-            });
-            
+            items.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            const target = item.dataset.target;
+            if (target === 'cart') {
+                const cartBtn = document.getElementById('cartBtn');
+                if (cartBtn) cartBtn.click();
+            }
+        });
+    });
+}
+
+function showToast(message, type = 'success') {
+    const container = document.getElementById('toastContainer');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = `<span class="toast-icon">${type === 'success' ? '✅' : '❌'}</span><span class="toast-message">${message}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 3000);
+}
+
+function initFAQ() {
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const sign = question.querySelector('span:last-child');
             if (answer.classList.contains('show')) {
                 answer.classList.remove('show');
                 if (sign) sign.textContent = '+';
@@ -63,154 +461,53 @@ function initFAQ() {
     });
 }
 
-// 4. SMOOTH SCROLL
 function initSmoothScroll() {
-    var links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            var targetId = this.getAttribute('href');
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
             if (targetId === '#' || targetId.length < 2) return;
-            
-            var target = document.querySelector(targetId);
+            const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                var headerOffset = 80;
-                var elementPosition = target.getBoundingClientRect().top;
-                var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                const offset = 80;
+                const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: position, behavior: 'smooth' });
             }
         });
     });
 }
 
-// 5. HEADER SCROLL EFFECT
-function initHeaderScroll() {
-    var header = document.querySelector('header');
-    if (!header) return;
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.style.padding = '8px 0';
-            header.style.borderBottomColor = 'rgba(0, 255, 0, 0.3)';
-        } else {
-            header.style.padding = '10px 0';
-            header.style.borderBottomColor = '';
-        }
-    });
-}
-
-// 6. MENÚ HAMBURGUESA MÓVIL
-function initMobileMenu() {
-    var toggle = document.getElementById('menuToggle');
-    var nav = document.getElementById('mainNav');
-    
-    if (toggle && nav) {
-        toggle.addEventListener('click', function() {
-            toggle.classList.toggle('active');
-            nav.classList.toggle('open');
-        });
-        
-        var links = nav.querySelectorAll('a');
-        links.forEach(function(link) {
-            link.addEventListener('click', function() {
-                toggle.classList.remove('active');
-                nav.classList.remove('open');
-            });
-        });
-        
-        window.addEventListener('scroll', function() {
-            if (nav.classList.contains('open')) {
-                toggle.classList.remove('active');
-                nav.classList.remove('open');
+function initScrollReveal() {
+    function reveal() {
+        document.querySelectorAll('.fade-in').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                el.classList.add('active');
             }
         });
     }
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+    reveal();
 }
 
-// 7. SERVICE WORKER
-function initServiceWorker() {
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js')
-                .then(function(registration) {
-                    console.log('SW registrado:', registration.scope);
-                })
-                .catch(function(error) {
-                    console.log('Error SW:', error);
-                });
-        });
-    }
-}
-
-// 8. IDIOMA
-function initLanguage() {
-    var currentLang = localStorage.getItem('stikmania_lang') || 'es';
-    var langBtn = document.getElementById('langToggle');
-    
-    function updateLanguage() {
-        if (langBtn) {
-            langBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
-        }
-        document.querySelectorAll('[data-es]').forEach(function(el) {
-            el.textContent = currentLang === 'es' 
-                ? el.getAttribute('data-es') 
-                : el.getAttribute('data-en');
-        });
-        document.documentElement.lang = currentLang;
-    }
-    
-    if (langBtn) {
-        langBtn.addEventListener('click', function() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            localStorage.setItem('stikmania_lang', currentLang);
-            updateLanguage();
-        });
-    }
-    
-    updateLanguage();
-}
-
-// 9. AÑO DINÁMICO
-function initDynamicYear() {
-    var yearSpans = document.querySelectorAll('.current-year');
-    var year = new Date().getFullYear();
-    yearSpans.forEach(function(span) {
-        span.textContent = year;
-    });
-}
-
-// 10. INDICADOR DE PROGRESO LATERAL
 function initScrollProgress() {
-    var progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    progressBar.id = 'scrollProgress';
-    document.body.appendChild(progressBar);
+    const existing = document.getElementById('scrollProgress');
+    if (existing) return;
     
-    function updateProgress() {
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        var scrollPercent = (scrollTop / scrollHeight) * 100;
-        progressBar.style.height = scrollPercent + '%';
-    }
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    bar.id = 'scrollProgress';
+    document.body.appendChild(bar);
     
-    window.addEventListener('scroll', updateProgress);
-    window.addEventListener('resize', updateProgress);
-    updateProgress();
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (scrollHeight > 0) {
+            bar.style.height = (scrollTop / scrollHeight * 100) + '%';
+        }
+    });
 }
 
-// === INICIALIZACIÓN ===
-document.addEventListener('DOMContentLoaded', function() {
-    initFAQ();
-    initSmoothScroll();
-    initHeaderScroll();
-    initMobileMenu();
-    initLanguage();
-    initDynamicYear();
-    initServiceWorker();
-    initScrollProgress();
-});
+function initDynamicYear() {
+    document.querySelectorAll('.current-year').forEach(s => s.textContent = new Date().getFullYear());
+}

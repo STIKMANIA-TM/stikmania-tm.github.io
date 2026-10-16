@@ -3,59 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STIKMANIA | Stickers, Etiquetas y Empaques Personalizados en Cuba</title>
-    <meta name="description" content="La tienda definitiva de stickers en Cuba. Packs de anime, series y videojuegos. Etiquetas para negocios y empaques para artesanos. Vinilo impermeable de alta durabilidad en La Habana.">
-    <meta name="keywords" content="stickers Cuba, pegatinas personalizadas, etiquetas para negocios, empaques artesanales, stickers anime, vinilo impermeable La Habana, stickers al por mayor, branding Cuba">
-    <meta name="author" content="STIKMANIA">
-    <meta name="robots" content="index, follow">
+    <title>STIKMANIA | Tienda de Stickers</title>
+    <meta name="description" content="Packs de stickers personalizados en Cuba. Anime, gamer, cine, skate y más.">
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00FF00">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
     <link rel="apple-touch-icon" href="images/icon-192.png">
     <link rel="icon" type="image/png" href="images/favicon.png">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="STIKMANIA | Stickers que se pegan, diseños que venden">
-    <meta property="og:description" content="Para ti, tu negocio o tu arte. Stickers, etiquetas y empaques personalizados en La Habana, Cuba.">
+    <meta property="og:title" content="STIKMANIA | Tienda">
+    <meta property="og:description" content="Packs de stickers personalizados.">
     <meta property="og:image" content="https://stikmania-tm.github.io/images/OG_IMAGE.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://stikmania-tm.github.io">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="STIKMANIA">
-    <meta property="og:locale" content="es_CU">
-    
-    <!-- Twitter Card (para que también se vea bien en Twitter/X) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="STIKMANIA | Stickers que se pegan, diseños que venden">
-    <meta name="twitter:description" content="Para ti, tu negocio o tu arte. Stickers, etiquetas y empaques personalizados en La Habana, Cuba.">
-    <meta name="twitter:image" content="https://stikmania-tm.github.io/images/OG_IMAGE.png">
-    
-    <meta name="p:domain_verify" content="b6ad72402e33daa9180a078a069c361b">
+    <meta property="og:url" content="https://stikmania-tm.github.io/index.html">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="assets/css/global.css">
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Store",
-        "name": "STIKMANIA",
-        "image": "https://stikmania-tm.github.io/images/OG_IMAGE.png",
-        "description": "Tienda de stickers personalizados, etiquetas para negocios y empaques para artesanos en Cuba",
-        "address": { "@type": "PostalAddress", "addressLocality": "La Habana", "addressCountry": "CU" },
-        "telephone": "+5359758756",
-        "email": "stikmania795@gmail.com",
-        "url": "https://stikmania-tm.github.io",
-        "priceRange": "$$"
-    }
-    </script>
 </head>
 <body>
 
@@ -64,277 +28,103 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#top" class="logo">STIKMANIA</a>
-                <a href="#cotizador" class="btn btn-primary header-buy-btn" data-es="Comprar" data-en="Buy">Comprar</a>
-                <button class="menu-toggle" id="menuToggle" aria-label="Menú">
-                    <span></span><span></span><span></span>
-                </button>
-                <button class="lang-btn header-lang-btn" id="langToggle" aria-label="Cambiar idioma">EN</button>
-                <nav id="mainNav">
-                    <ul>
-                        <li><a href="#packs" data-es="Packs" data-en="Packs">Packs</a></li>
-                        <li><a href="#empresas" data-es="Empresas" data-en="Business">Empresas</a></li>
-                        <li><a href="#artesanos" data-es="Artesanos" data-en="Artisans">Artesanos</a></li>
-                        <li><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
-                    </ul>
-                </nav>
+                <a href="hero.html" class="logo">STIKMANIA</a>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar..." data-es-placeholder="Buscar..." data-en-placeholder="Search...">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                </div>
+                <div class="header-actions">
+                    <button class="cart-btn" id="cartBtn" aria-label="Carrito">
+                        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        <span class="cart-count hidden" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Menú"><span></span><span></span><span></span></button>
+                    <button class="header-lang-btn" id="langToggle" aria-label="Cambiar idioma">EN</button>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="hero" id="top">
-        <div class="container">
-            <img src="images/logoW.png" alt="STIKMANIA" class="hero-logo fade-in">
-            <h1 class="sr-only" data-es="Stickers, etiquetas y empaques personalizados en Cuba" data-en="Custom stickers, labels and packaging in Cuba">Stickers, etiquetas y empaques personalizados en Cuba</h1>
-            <p class="hero-subtitle fade-in" data-es="Para ti, tu negocio o tu arte. Vinilo impermeable, etiquetas profesionales y empaques personalizados en La Habana. Sin mínimo de compra." data-en="For you, your business or your art. Waterproof vinyl, professional labels and custom packaging in Havana. No minimum order.">Para ti, tu negocio o tu arte. Vinilo impermeable, etiquetas profesionales y empaques personalizados en La Habana. Sin mínimo de compra.</p>
-            
-            <div class="hero-ctas fade-in">
-                <a href="#packs" class="btn btn-primary btn-large">
-                    <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                    <span data-es="Ver packs" data-en="View packs">Ver packs</span>
-                </a>
-                <a href="#cotizador" class="btn btn-outline btn-large">
-                    <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/><path d="M8 16h.01"/><path d="M12 16h.01"/><path d="M16 16h.01"/></svg>
-                    <span data-es="Cotizar pedido" data-en="Get a quote">Cotizar pedido</span>
-                </a>
-                <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20asesoría" target="_blank" class="btn btn-outline btn-large">
-                    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                    <span data-es="Hablar por WhatsApp" data-en="Chat on WhatsApp">Hablar por WhatsApp</span>
-                </a>
-            </div>
-            
-            <div class="trust-badges fade-in">
-                <div class="trust-badge"><svg class="icon icon-md trust-badge-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-es="+50 clientes satisfechos" data-en="+50 happy customers">+50 clientes satisfechos</span></div>
-                <div class="trust-badge"><svg class="icon icon-md trust-badge-icon" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg><span data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</span></div>
-                <div class="trust-badge"><svg class="icon icon-md trust-badge-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span data-es="Entrega en 2-5 días" data-en="2-5 day delivery">Entrega en 2-5 días</span></div>
-                <div class="trust-badge"><svg class="icon icon-md trust-badge-icon" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span data-es="Diseño incluido" data-en="Design included">Diseño incluido</span></div>
-                <div class="trust-badge"><svg class="icon icon-md trust-badge-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span data-es="Hecho en Cuba" data-en="Made in Cuba">Hecho en Cuba</span></div>
-            </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="menu-drawer" id="menuDrawer">
+        <div class="menu-drawer-header">
+            <h3>STIKMANIA</h3>
+            <button class="menu-close" id="menuClose">&times;</button>
         </div>
-    </section>
+        <ul>
+            <li><a href="hero.html" data-es="🏠 Inicio" data-en=" Home">🏠 Inicio</a></li>
+            <li><a href="index.html" data-es="🏪 Tienda" data-en="🏪 Shop">🏪 Tienda</a></li>
+            <li><a href="empresas.html" data-es="🏢 Para empresas" data-en="🏢 For businesses"> Para empresas</a></li>
+            <li><a href="artesanos.html" data-es=" Para artesanos" data-en="🎨 For artisans">🎨 Para artesanos</a></li>
+            <li><a href="galeria.html" data-es="🖼️ Galería" data-en="🖼️ Gallery">️ Galería</a></li>
+        </ul>
+    </div>
 
-    <section id="packs" class="section section-dark">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Packs más vendidos" data-en="Best-selling packs">Packs más vendidos</h2>
-                <p data-es="Desliza para ver. Listos para pedir. Entrega en 2-5 días en La Habana." data-en="Swipe to view. Ready to order. 2-5 day delivery in Havana.">Desliza para ver. Listos para pedir. Entrega en 2-5 días en La Habana.</p>
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 data-es="Tu Carrito" data-en="Your Cart">Tu Carrito</h3>
+            <button class="cart-close" id="cartClose">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty" data-es="Tu carrito está vacío" data-en="Your cart is empty">Tu carrito está vacío</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span data-es="Total:" data-en="Total:">Total:</span>
+                <span class="cart-total-amount" id="cartTotal">$0.00 USD</span>
             </div>
-            
-            <div class="packs-carousel fade-in">
-                <div class="pack-card">
-                    <div class="pack-image">
-                        <svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M4 6c4-2 12-2 16 0"/><path d="M6 6v14"/><path d="M18 6v14"/><path d="M4 10h16"/><path d="M12 6v4"/></svg>
-                        <span class="pack-badge" data-es="Top ventas" data-en="Best seller">Top ventas</span>
-                    </div>
-                    <div class="pack-content">
-                        <h3 data-es="Pack Anime Legendario" data-en="Legendary Anime Pack">Pack Anime Legendario</h3>
-                        <p class="pack-desc" data-es="Los personajes más icónicos del anime en un solo pack." data-en="The most iconic anime characters in a single pack.">Los personajes más icónicos del anime en un solo pack.</p>
-                        <ul class="pack-specs">
-                            <li data-es="24 stickers variados" data-en="24 assorted stickers">24 stickers variados</li>
-                            <li data-es="Tamaños de 4 a 7 cm" data-en="Sizes from 4 to 7 cm">Tamaños de 4 a 7 cm</li>
-                            <li data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</li>
-                        </ul>
-                        <div class="pack-price">$3 USD <small data-es="/ pack" data-en="/ pack">/ pack</small></div>
-                        <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20el%20Pack%20Anime%20Legendario" target="_blank" class="btn btn-primary btn-block" data-es="Pedir ahora" data-en="Order now">Pedir ahora</a>
-                    </div>
-                </div>
-                
-                <div class="pack-card">
-                    <div class="pack-image" style="color: var(--cyan);">
-                        <svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M6 12h4"/><path d="M8 10v4"/><circle cx="15" cy="11" r="1"/><circle cx="17" cy="13" r="1"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
-                    </div>
-                    <div class="pack-content">
-                        <h3 data-es="Pack Gamer Ultimate" data-en="Ultimate Gamer Pack">Pack Gamer Ultimate</h3>
-                        <p class="pack-desc" data-es="Para verdaderos gamers. Logos, personajes y memes gaming." data-en="For true gamers. Logos, characters and gaming memes.">Para verdaderos gamers. Logos, personajes y memes gaming.</p>
-                        <ul class="pack-specs">
-                            <li data-es="30 stickers variados" data-en="30 assorted stickers">30 stickers variados</li>
-                            <li data-es="Tamaños de 4 a 8 cm" data-en="Sizes from 4 to 8 cm">Tamaños de 4 a 8 cm</li>
-                            <li data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</li>
-                        </ul>
-                        <div class="pack-price">$4 USD <small data-es="/ pack" data-en="/ pack">/ pack</small></div>
-                        <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20el%20Pack%20Gamer%20Ultimate" target="_blank" class="btn btn-primary btn-block" data-es="Pedir ahora" data-en="Order now">Pedir ahora</a>
-                    </div>
-                </div>
-                
-                <div class="pack-card">
-                    <div class="pack-image" style="color: var(--yellow);">
-                        <svg class="icon icon-xl" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14"/><path d="M17 5v14"/><path d="M3 10h4"/><path d="M3 14h4"/><path d="M17 10h4"/><path d="M17 14h4"/></svg>
-                        <span class="pack-badge" data-es="Nuevo" data-en="New">Nuevo</span>
-                    </div>
-                    <div class="pack-content">
-                        <h3 data-es="Pack Cine y Series" data-en="Movies and Series Pack">Pack Cine y Series</h3>
-                        <p class="pack-desc" data-es="Marvel, Star Wars, Netflix y tus series favoritas." data-en="Marvel, Star Wars, Netflix and your favorite series.">Marvel, Star Wars, Netflix y tus series favoritas.</p>
-                        <ul class="pack-specs">
-                            <li data-es="20 stickers premium" data-en="20 premium stickers">20 stickers premium</li>
-                            <li data-es="Tamaños de 5 a 8 cm" data-en="Sizes from 5 to 8 cm">Tamaños de 5 a 8 cm</li>
-                            <li data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</li>
-                        </ul>
-                        <div class="pack-price">$3 USD <small data-es="/ pack" data-en="/ pack">/ pack</small></div>
-                        <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20el%20Pack%20Cine%20y%20Series" target="_blank" class="btn btn-primary btn-block" data-es="Pedir ahora" data-en="Order now">Pedir ahora</a>
-                    </div>
-                </div>
-                
-                <div class="pack-card">
-                    <div class="pack-image" style="color: var(--pink);">
-                        <svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M3 14c0 1.5 1.5 2 3 2h12c1.5 0 3-.5 3-2"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/><path d="M7 16V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8"/></svg>
-                    </div>
-                    <div class="pack-content">
-                        <h3 data-es="Pack Street y Skate" data-en="Street and Skate Pack">Pack Street y Skate</h3>
-                        <p class="pack-desc" data-es="Estilo urbano puro. Thrasher, Santa Cruz y logos clásicos." data-en="Pure street style. Thrasher, Santa Cruz and classic logos.">Estilo urbano puro. Thrasher, Santa Cruz y logos clásicos.</p>
-                        <ul class="pack-specs">
-                            <li data-es="15 stickers grandes" data-en="15 large stickers">15 stickers grandes</li>
-                            <li data-es="Tamaños de 6 a 10 cm" data-en="Sizes from 6 to 10 cm">Tamaños de 6 a 10 cm</li>
-                            <li data-es="Vinilo de alta resistencia" data-en="High-resistance vinyl">Vinilo de alta resistencia</li>
-                        </ul>
-                        <div class="pack-price">$4 USD <small data-es="/ pack" data-en="/ pack">/ pack</small></div>
-                        <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20el%20Pack%20Street%20y%20Skate" target="_blank" class="btn btn-primary btn-block" data-es="Pedir ahora" data-en="Order now">Pedir ahora</a>
-                    </div>
-                </div>
-                
-                <div class="pack-card" style="border-color: var(--neon-green);">
-                    <div class="pack-image">
-                        <svg class="icon icon-xl" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>
-                        <span class="pack-badge" data-es="Exclusivo" data-en="Exclusive">Exclusivo</span>
-                    </div>
-                    <div class="pack-content">
-                        <h3 data-es="Pack Stikmania" data-en="Stikmania Pack">Pack Stikmania</h3>
-                        <p class="pack-desc">
-                            <span data-es="Stickers exclusivos del artista " data-en="Exclusive stickers from the artist ">Stickers exclusivos del artista </span>
-                            <a href="https://www.instagram.com/sti_kmania/" target="_blank" style="color: var(--neon-green); font-weight: 700; text-decoration: underline;">@sti_kmania</a>. 
-                            <span data-es="Diseños únicos y con la esencia de la marca." data-en="Unique designs with the brand's essence.">Diseños únicos y con la esencia de la marca.</span>
-                        </p>
-                        <ul class="pack-specs">
-                            <li data-es="18 stickers de autor" data-en="18 artist stickers">18 stickers de autor</li>
-                            <li data-es="Tamaños de 5 a 7 cm" data-en="Sizes from 5 to 7 cm">Tamaños de 5 a 7 cm</li>
-                            <li data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</li>
-                        </ul>
-                        <div class="pack-price">$3 USD <small data-es="/ pack" data-en="/ pack">/ pack</small></div>
-                        <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20el%20Pack%20Stikmania" target="_blank" class="btn btn-primary btn-block" data-es="Pedir ahora" data-en="Order now">Pedir ahora</a>
-                    </div>
-                </div>
+            <button class="checkout-btn" id="checkoutBtn" data-es="Finalizar compra por WhatsApp" data-en="Checkout via WhatsApp">Finalizar compra por WhatsApp</button>
+        </div>
+    </div>
 
-                <div class="pack-card">
-                    <div class="pack-image" style="background: linear-gradient(135deg, rgba(0,255,0,0.2), rgba(0,102,0,0.2)); display: flex; align-items: center; justify-content: center;">
-                        <svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                        <span class="pack-badge" data-es="Personalizable" data-en="Customizable">Personalizable</span>
-                    </div>
-                    <div class="pack-content">
-                        <h3 data-es="Pack Personalizado" data-en="Custom Pack">Pack Personalizado</h3>
-                        <p class="pack-desc" data-es="Envía tus diseños o elige los stickers que más te gusten." data-en="Send your designs or choose the stickers you like most.">Envía tus diseños o elige los stickers que más te gusten.</p>
-                        <ul class="pack-specs">
-                            <li data-es="Elige cantidad (10 a 100)" data-en="Choose quantity (10 to 100)">Elige cantidad (10 a 100)</li>
-                            <li data-es="Tú eliges los diseños" data-en="You choose the designs">Tú eliges los diseños</li>
-                            <li data-es="Diseño gratis incluido" data-en="Free design included">Diseño gratis incluido</li>
-                        </ul>
-                        <div class="pack-price" data-es="Desde $2 USD" data-en="From $2 USD">Desde $2 USD</div>
-                        <a href="#cotizador" class="btn btn-outline btn-block" data-es="Cotizar" data-en="Get a quote">Cotizar</a>
-                    </div>
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-image" id="modalImage"></div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="product-rating">
+                    <span class="stars" id="modalStars"></span>
+                    <span class="reviews" id="modalReviews"></span>
+                </div>
+                <p class="modal-description" id="modalDescription"></p>
+                <ul class="modal-specs" id="modalSpecs"></ul>
+                <div class="modal-price" id="modalPrice"></div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="modalAddToCart" data-es="Añadir al carrito" data-en="Add to cart">Añadir al carrito</button>
+                    <button class="btn btn-outline" id="modalBuyNow" data-es="Comprar ahora" data-en="Buy now">Comprar ahora</button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="empresas" class="section">
+    <!-- TIENDA DIRECTAMENTE -->
+    <section id="tienda" class="section" style="padding-top: 100px;">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Para empresas" data-en="For businesses">Para empresas</h2>
-                <p data-es="Etiquetas que hacen tu marca inolvidable" data-en="Labels that make your brand unforgettable">Etiquetas que hacen tu marca inolvidable</p>
+                <h2 class="text-gradient" data-es="Nuestra tienda" data-en="Our shop">Nuestra tienda</h2>
+                <p data-es="Listos para pedir. Entrega en 2-5 días en La Habana." data-en="Ready to order. 2-5 day delivery in Havana.">Listos para pedir. Entrega en 2-5 días en La Habana.</p>
             </div>
-            <div class="benefits-grid">
-                <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z"/><path d="M7 7h.01"/></svg>
-                    <h3 data-es="Etiquetas para envases" data-en="Container labels">Etiquetas para envases</h3>
-                    <p data-es="Botellas, frascos y contenedores de alimentos o cosméticos." data-en="Bottles, jars and food or cosmetic containers.">Botellas, frascos y contenedores de alimentos o cosméticos.</p>
-                </div>
-                <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
-                    <h3 data-es="Empaques" data-en="Packaging">Empaques</h3>
-                    <p data-es="Cajas, bolsas, sellos de seguridad y etiquetas de hecho a mano." data-en="Boxes, bags, security seals and handmade labels.">Cajas, bolsas, sellos de seguridad y etiquetas de hecho a mano.</p>
-                </div>
-                <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
-                    <h3 data-es="Corporativo" data-en="Corporate">Corporativo</h3>
-                    <p data-es="Laptops, señalética interna, carnets y material promocional." data-en="Laptops, internal signage, badges and promotional material.">Laptops, señalética interna, carnets y material promocional.</p>
-                </div>
-                <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
-                    <h3 data-es="Promocional" data-en="Promotional">Promocional</h3>
-                    <p data-es="Eventos, ferias comerciales y regalos para clientes." data-en="Events, trade shows and client gifts.">Eventos, ferias comerciales y regalos para clientes.</p>
-                </div>
+            <div class="filters-container fade-in">
+                <button class="filter-chip active" data-filter="all" data-es="Todos" data-en="All">Todos</button>
+                <button class="filter-chip" data-filter="anime" data-es="Anime" data-en="Anime">Anime</button>
+                <button class="filter-chip" data-filter="gamer" data-es="Gamer" data-en="Gamer">Gamer</button>
+                <button class="filter-chip" data-filter="cine" data-es="Cine" data-en="Movies">Cine</button>
+                <button class="filter-chip" data-filter="skate" data-es="Skate" data-en="Skate">Skate</button>
+                <button class="filter-chip" data-filter="stikmania" data-es="Stikmania" data-en="Stikmania">Stikmania</button>
+                <button class="filter-chip" data-filter="personalizado" data-es="Personalizado" data-en="Custom">Personalizado</button>
             </div>
-            <div style="text-align: center; margin-top: 40px;" class="fade-in">
-                <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 30px;">
-                    <li style="color: #ccc;" data-es="Descuentos desde 50 unidades" data-en="Discounts from 50 units">Descuentos desde 50 unidades</li>
-                    <li style="color: #ccc;" data-es="Archivos vectoriales" data-en="Vector files">Archivos vectoriales</li>
-                    <li style="color: #ccc;" data-es="Colores Pantone exactos" data-en="Exact Pantone colors">Colores Pantone exactos</li>
-                    <li style="color: #ccc;" data-es="Entrega en 3-7 días" data-en="3-7 day delivery">Entrega en 3-7 días</li>
-                </ul>
-                <a href="#cotizador" class="btn btn-outline btn-large" data-es="Cotizar para mi empresa" data-en="Quote for my business">Cotizar para mi empresa</a>
-            </div>
+            <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
 
-    <section id="artesanos" class="section section-dark">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Para artesanos" data-en="For artisans">Para artesanos</h2>
-                <p data-es="Empaques que elevan el valor de tu arte" data-en="Packaging that elevates the value of your art">Empaques que elevan el valor de tu arte</p>
-            </div>
-            <div class="benefits-grid">
-                <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="9" rx="4"/><circle cx="8" cy="6" r="1.5"/><circle cx="13" cy="4.5" r="1"/><circle cx="17" cy="6.5" r="1.2"/></svg>
-                    <h3 data-es="Jabones" data-en="Soaps">Jabones</h3>
-                    <p data-es="Etiquetas artesanales que transmiten naturalidad." data-en="Artisan labels that convey naturalness.">Etiquetas artesanales que transmiten naturalidad.</p>
-                </div>
-                <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
-                    <h3 data-es="Velas" data-en="Candles">Velas</h3>
-                    <p data-es="Empaques premium para productos aromáticos." data-en="Premium packaging for aromatic products.">Empaques premium para productos aromáticos.</p>
-                </div>
-                <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><path d="M9 2h6"/><path d="M10 2v3h4V2"/><path d="M7 5h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M5 12h14"/></svg>
-                    <h3 data-es="Alimentos" data-en="Food">Alimentos</h3>
-                    <p data-es="Mermeladas, mieles y conservas con identidad propia." data-en="Jams, honeys and preserves with their own identity.">Mermeladas, mieles y conservas con identidad propia.</p>
-                </div>
-                <div class="benefit fade-in">
-                    <svg class="icon icon-lg benefit-icon" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 10-10c0 2-2 3-4 3h-2a2 2 0 0 0-2 2c0 1 1 1.5 1 3 0 1-1 2-3 2z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/><circle cx="17" cy="11" r="1"/></svg>
-                    <h3 data-es="Arte y manualidades" data-en="Art and crafts">Arte y manualidades</h3>
-                    <p data-es="Productos únicos que merecen empaques únicos." data-en="Unique products that deserve unique packaging.">Productos únicos que merecen empaques únicos.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;" class="fade-in">
-                <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 30px;">
-                    <li style="color: #ccc;" data-es="Diseño coherente" data-en="Coherent design">Diseño coherente</li>
-                    <li style="color: #ccc;" data-es="Volúmenes medios" data-en="Medium volumes">Volúmenes medios</li>
-                    <li style="color: #ccc;" data-es="Asesoría de marca" data-en="Brand advice">Asesoría de marca</li>
-                    <li style="color: #ccc;" data-es="Precios de emprendedor" data-en="Entrepreneur prices">Precios de emprendedor</li>
-                </ul>
-                <a href="#cotizador" class="btn btn-outline btn-large" data-es="Cotizar para mi arte" data-en="Quote for my art">Cotizar para mi arte</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Confían en nosotros" data-en="They trust us">Confían en nosotros</h2>
-                <p data-es="Marcas cubanas que ya usan nuestros stickers y etiquetas" data-en="Cuban brands already using our stickers and labels">Marcas cubanas que ya usan nuestros stickers y etiquetas</p>
-            </div>
-            <div class="brands-logos fade-in">
-                <img src="images/Nova_LOGO.png" alt="Nova Events" loading="lazy">
-                <img src="images/ashsoap_logo.png" alt="Ash Soap Cuba" loading="lazy">
-                <img src="images/deli.png" alt="Deli" loading="lazy">
-                <img src="images/magnum_logo.png" alt="Magnum" loading="lazy">
-                <img src="images/Sin título-1.png" alt="Cliente" loading="lazy">
-            </div>
-        </div>
-    </section>
-
+    <!-- COTIZADOR -->
     <section id="cotizador" class="section section-dark">
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="text-gradient" data-es="Cotizador instantáneo" data-en="Instant quote">Cotizador instantáneo</h2>
-                <p data-es="Calcula tu inversión en segundos. Sin compromiso." data-en="Calculate your investment in seconds. No commitment.">Calcula tu inversión en segundos. Sin compromiso.</p>
+                <p data-es="Calcula tu inversión en segundos." data-en="Calculate your investment in seconds.">Calcula tu inversión en segundos.</p>
             </div>
             <div class="calc-wrapper fade-in">
                 <div class="form-row">
@@ -364,7 +154,7 @@
                 <div class="form-group" style="margin-top: 20px;">
                     <label data-es="¿Necesitas entrega a domicilio?" data-en="Do you need home delivery?">¿Necesitas entrega a domicilio?</label>
                     <select id="calc-delivery">
-                        <option value="no" data-es="No, recojo en el punto acordado" data-en="No, I'll pick up at the agreed point">No, recojo en el punto acordado</option>
+                        <option value="no" data-es="No, recojo en el punto acordado" data-en="No, I'll pick up">No, recojo en el punto acordado</option>
                         <option value="la-lisa">La Lisa (+$3 USD)</option>
                         <option value="playa">Playa (+$5 USD)</option>
                         <option value="marianao">Marianao (+$5 USD)</option>
@@ -383,7 +173,6 @@
                     </select>
                 </div>
                 <button class="btn btn-primary btn-block" id="calc-submit" style="padding: 16px; font-size: 1rem; margin-top: 20px;">
-                    <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/><path d="M8 16h.01"/><path d="M12 16h.01"/><path d="M16 16h.01"/></svg>
                     <span data-es="Calcular presupuesto" data-en="Calculate budget">Calcular presupuesto</span>
                 </button>
                 <div class="result-box" id="calc-result">
@@ -392,112 +181,37 @@
                     <p style="color: #00cc00; font-size: 0.9rem; margin-bottom: 20px;" id="calc-discount"></p>
                     <p style="color: var(--cyan); font-size: 0.85rem; margin-bottom: 20px;" id="calc-delivery-cost"></p>
                     <a id="calc-whatsapp" href="#" target="_blank" class="btn btn-primary btn-large">
-                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
                         <span data-es="Enviar pedido por WhatsApp" data-en="Send order via WhatsApp">Enviar pedido por WhatsApp</span>
                     </a>
-                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 15px;" data-es="Precio final sujeto a revisión de diseño. Se requiere 50% de anticipo." data-en="Final price subject to design review. 50% deposit required.">Precio final sujeto a revisión de diseño. Se requiere 50% de anticipo.</p>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 15px;" data-es="Se requiere 50% de anticipo." data-en="50% deposit required.">Se requiere 50% de anticipo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="galeria" class="section">
+    <!-- FAQ -->
+    <section id="faq" class="section">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Trabajos reales" data-en="Real work">Trabajos reales</h2>
-                <p data-es="Algunos de los stickers, etiquetas y empaques que hemos producido." data-en="Some of the stickers, labels and packaging we have produced.">Algunos de los stickers, etiquetas y empaques que hemos producido.</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item fade-in"><img src="images/delitaystickers_envase de cristal.png" alt="Sticker en envase de cristal" loading="lazy"><span class="industry-tag">Food</span></div>
-                <div class="gallery-item fade-in"><img src="images/munchies_stickers envoltorio.png" alt="Sticker en envoltorio" loading="lazy"><span class="industry-tag">Snacks</span></div>
-                <div class="gallery-item fade-in"><img src="images/sticker_envase de plastico.jpeg" alt="Etiqueta en envase plástico" loading="lazy"><span class="industry-tag" data-es="Branding" data-en="Branding">Branding</span></div>
-                <div class="gallery-item fade-in"><img src="images/verda_stickers.png" alt="Stickers Verda" loading="lazy"><span class="industry-tag" data-es="Cosmética" data-en="Cosmetics">Cosmética</span></div>
-                <div class="gallery-item fade-in"><img src="images/Laptop_HDD_iPhone.jpg" alt="Stickers en tecnología" loading="lazy"><span class="industry-tag">Tech</span></div>
-                <div class="gallery-item fade-in"><img src="images/B_and_W.jpg" alt="Stickers en blanco y negro" loading="lazy"><span class="industry-tag">B&W</span></div>
-                <div class="gallery-item fade-in"><img src="images/santa_cruz.jpg" alt="Stickers de skate" loading="lazy"><span class="industry-tag">Skate</span></div>
-                <div class="gallery-item fade-in"><img src="images/thrasher_en_finger.jpg" alt="Stickers en miniatura" loading="lazy"><span class="industry-tag">Mini</span></div>
-                <div class="gallery-item fade-in"><img src="images/atono.jpeg" alt="Sticker Café" loading="lazy"><span class="industry-tag">Café</span></div>
-                <div class="gallery-item fade-in"><img src="images/WhatsApp Image 2026-10-12 at 11.40.08 PM.jpeg" alt="Sticker Estudios" loading="lazy"><span class="industry-tag">Estudios</span></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section section-dark">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Lo que dicen nuestros clientes" data-en="What our clients say">Lo que dicen nuestros clientes</h2>
-                <p data-es="Empresas, artesanos y particulares que ya confían en nosotros." data-en="Businesses, artisans and individuals who already trust us.">Empresas, artesanos y particulares que ya confían en nosotros.</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial fade-in">
-                    <div class="stars">★★★★★</div>
-                    <p data-es="Las etiquetas transformaron la presentación de nuestros jabones. Pasamos de vender a granel a tener un producto premium." data-en="The labels transformed the presentation of our soaps. We went from selling in bulk to having a premium product.">Las etiquetas transformaron la presentación de nuestros jabones. Pasamos de vender a granel a tener un producto premium.</p>
-                    <div class="testimonial-author">Ash Soap Cuba</div>
-                    <div class="testimonial-role" data-es="Artesana cosmética" data-en="Cosmetic artisan">Artesana cosmética</div>
-                </div>
-                <div class="testimonial fade-in">
-                    <div class="stars">★★★★★</div>
-                    <p data-es="Calidad industrial del vinilo. Seis meses en exhibición y siguen como nuevos. Excelente relación calidad-precio." data-en="Industrial vinyl quality. Six months on display and they still look new. Excellent value for money.">Calidad industrial del vinilo. Seis meses en exhibición y siguen como nuevos. Excelente relación calidad-precio.</p>
-                    <div class="testimonial-author">Deli & Beverages</div>
-                    <div class="testimonial-role" data-es="Alimentos y bebidas" data-en="Food and beverage">Alimentos y bebidas</div>
-                </div>
-                <div class="testimonial fade-in">
-                    <div class="stars">★★★★★</div>
-                    <p data-es="Archivos vectoriales, diseño exacto a nuestro manual de marca y tiempos cumplidos. Proceso muy profesional." data-en="Vector files, design exact to our brand manual and deadlines met. Very professional process.">Archivos vectoriales, diseño exacto a nuestro manual de marca y tiempos cumplidos. Proceso muy profesional.</p>
-                    <div class="testimonial-author">Nova Events</div>
-                    <div class="testimonial-role" data-es="Eventos corporativos" data-en="Corporate events">Eventos corporativos</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Preguntas frecuentes" data-en="Frequently asked questions">Preguntas frecuentes</h2>
+                <h2 class="text-gradient" data-es="Preguntas frecuentes" data-en="FAQ">Preguntas frecuentes</h2>
             </div>
             <div style="max-width: 800px; margin: 0 auto;">
                 <div class="faq-item fade-in">
-                    <div class="faq-question"><span data-es="¿Los stickers se pueden mojar?" data-en="Can the stickers get wet?">¿Los stickers se pueden mojar?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="Sí. Todos nuestros stickers en vinilo impermeable resisten agua, lluvia y lavados. Perfectos para botellas, motos y exteriores." data-en="Yes. All our waterproof vinyl stickers resist water, rain and washing. Perfect for bottles, bikes and outdoors.">Sí. Todos nuestros stickers en vinilo impermeable resisten agua, lluvia y lavados. Perfectos para botellas, motos y exteriores.</p></div>
+                    <div class="faq-question"><span data-es="¿Los stickers se pueden mojar?" data-en="Can stickers get wet?">¿Los stickers se pueden mojar?</span><span>+</span></div>
+                    <div class="faq-answer"><p data-es="Sí. Todos nuestros stickers en vinilo impermeable resisten agua, lluvia y lavados." data-en="Yes. All our waterproof vinyl stickers resist water, rain and washing.">Sí. Todos nuestros stickers en vinilo impermeable resisten agua, lluvia y lavados.</p></div>
                 </div>
                 <div class="faq-item fade-in">
-                    <div class="faq-question"><span data-es="¿Cuál es el pedido mínimo para empresas?" data-en="What is the minimum order for businesses?">¿Cuál es el pedido mínimo para empresas?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="Para pedidos corporativos con precios de mayorista, el mínimo es de 50 unidades por diseño. A partir de 200 unidades aplican descuentos escalonados." data-en="For corporate orders with wholesale prices, the minimum is 50 units per design. From 200 units, tiered discounts apply.">Para pedidos corporativos con precios de mayorista, el mínimo es de 50 unidades por diseño. A partir de 200 unidades aplican descuentos escalonados.</p></div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question"><span data-es="¿Necesito enviar el diseño?" data-en="Do I need to send the design?">¿Necesito enviar el diseño?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="Puedes enviar tu diseño en formato vectorial (AI, EPS, PDF, SVG) o PNG/JPG de alta resolución. Si no tienes diseño, ofrecemos servicio de diseño gráfico por un costo adicional." data-en="You can send your design in vector format (AI, EPS, PDF, SVG) or high-resolution PNG/JPG. If you don't have a design, we offer graphic design service for an additional cost.">Puedes enviar tu diseño en formato vectorial (AI, EPS, PDF, SVG) o PNG/JPG de alta resolución. Si no tienes diseño, ofrecemos servicio de diseño gráfico por un costo adicional.</p></div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question"><span data-es="¿Hacen envíos a toda Cuba?" data-en="Do you ship to all of Cuba?">¿Hacen envíos a toda Cuba?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="Hacemos envíos directos en La Habana. Para otras provincias coordinamos con servicios de mensajería nacionales o recogida en punto acordado." data-en="We ship directly in Havana. For other provinces we coordinate with national courier services or pickup at an agreed point.">Hacemos envíos directos en La Habana. Para otras provincias coordinamos con servicios de mensajería nacionales o recogida en punto acordado.</p></div>
+                    <div class="faq-question"><span data-es="¿Cuál es el pedido mínimo?" data-en="What is the minimum order?">¿Cuál es el pedido mínimo?</span><span>+</span></div>
+                    <div class="faq-answer"><p data-es="Para pedidos corporativos, el mínimo es de 50 unidades por diseño." data-en="For corporate orders, the minimum is 50 units per design.">Para pedidos corporativos, el mínimo es de 50 unidades por diseño.</p></div>
                 </div>
                 <div class="faq-item fade-in">
                     <div class="faq-question"><span data-es="¿Cuánto tarda la entrega?" data-en="How long does delivery take?">¿Cuánto tarda la entrega?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="Packs predefinidos: 2 a 5 días hábiles. Pedidos personalizados o al por mayor: 3 a 7 días hábiles según volumen." data-en="Predefined packs: 2 to 5 business days. Custom or wholesale orders: 3 to 7 business days depending on volume.">Packs predefinidos: 2 a 5 días hábiles. Pedidos personalizados o al por mayor: 3 a 7 días hábiles según volumen.</p></div>
+                    <div class="faq-answer"><p data-es="Packs predefinidos: 2-5 días. Pedidos personalizados: 3-7 días." data-en="Predefined packs: 2-5 days. Custom orders: 3-7 days.">Packs predefinidos: 2-5 días. Pedidos personalizados: 3-7 días.</p></div>
                 </div>
                 <div class="faq-item fade-in">
                     <div class="faq-question"><span data-es="¿Cómo es el pago?" data-en="How does payment work?">¿Cómo es el pago?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="Se requiere 50% de anticipo para iniciar la producción y 50% contra entrega. Aceptamos efectivo (CUP, USD, EUR), transferencias bancarias y saldo móvil." data-en="A 50% deposit is required to start production and 50% upon delivery. We accept cash (CUP, USD, EUR), bank transfers and mobile balance.">Se requiere 50% de anticipo para iniciar la producción y 50% contra entrega. Aceptamos efectivo (CUP, USD, EUR), transferencias bancarias y saldo móvil.</p></div>
+                    <div class="faq-answer"><p data-es="50% de anticipo para iniciar producción, 50% contra entrega." data-en="50% deposit to start production, 50% upon delivery.">50% de anticipo para iniciar producción, 50% contra entrega.</p></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-final">
-        <div class="container fade-in">
-            <h2 class="text-gradient" data-es="¿Listo para pegar tu marca?" data-en="Ready to make your brand stick?">¿Listo para pegar tu marca?</h2>
-            <p data-es="Cotiza en segundos, pide por WhatsApp y recibe en días. Así de simple." data-en="Quote in seconds, order via WhatsApp and receive in days. That simple.">Cotiza en segundos, pide por WhatsApp y recibe en días. Así de simple.</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/5359758756?text=Hola!%20Quiero%20cotizar%20stickers" target="_blank" class="btn btn-primary btn-large">
-                    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                    <span data-es="Hablar por WhatsApp" data-en="Chat on WhatsApp">Hablar por WhatsApp</span>
-                </a>
-                <a href="#cotizador" class="btn btn-outline btn-large">
-                    <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/><path d="M8 16h.01"/><path d="M12 16h.01"/><path d="M16 16h.01"/></svg>
-                    <span data-es="Usar cotizador" data-en="Use the quote tool">Usar cotizador</span>
-                </a>
             </div>
         </div>
     </section>
@@ -507,46 +221,61 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>STIKMANIA</h3>
-                    <p data-es="Diseño que se pega. Stickers, etiquetas y empaques personalizados en La Habana, Cuba." data-en="Design that sticks. Custom stickers, labels and packaging in Havana, Cuba.">Diseño que se pega. Stickers, etiquetas y empaques personalizados en La Habana, Cuba.</p>
-                    <p style="margin-top: 15px;">© <span class="current-year">2026</span> STIKMANIA. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+                    <p data-es="Diseño que se pega." data-en="Design that sticks.">Diseño que se pega.</p>
+                    <p style="margin-top: 15px;">© <span class="current-year">2026</span> STIKMANIA.</p>
                 </div>
                 <div class="footer-col">
-                    <h4 data-es="Tienda" data-en="Shop">Tienda</h4>
+                    <h4 data-es="Navegación" data-en="Navigation">Navegación</h4>
                     <ul>
-                        <li><a href="#packs" data-es="Packs populares" data-en="Popular packs">Packs populares</a></li>
-                        <li><a href="#cotizador" data-es="Personalizado" data-en="Custom">Personalizado</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-es="Negocios" data-en="Business">Negocios</h4>
-                    <ul>
-                        <li><a href="#empresas" data-es="Para empresas" data-en="For businesses">Para empresas</a></li>
-                        <li><a href="#artesanos" data-es="Para artesanos" data-en="For artisans">Para artesanos</a></li>
-                        <li><a href="#cotizador" data-es="Cotizar volumen" data-en="Quote volume">Cotizar volumen</a></li>
+                        <li><a href="hero.html" data-es="Inicio" data-en="Home">Inicio</a></li>
+                        <li><a href="index.html" data-es="Tienda" data-en="Shop">Tienda</a></li>
+                        <li><a href="empresas.html" data-es="Empresas" data-en="Business">Empresas</a></li>
+                        <li><a href="artesanos.html" data-es="Artesanos" data-en="Artisans">Artesanos</a></li>
+                        <li><a href="galeria.html" data-es="Galería" data-en="Gallery">Galería</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
                     <ul>
                         <li><a href="https://wa.me/5359758756" target="_blank">WhatsApp</a></li>
-                        <li><a href="mailto:stikmania795@gmail.com" data-es="Correo" data-en="Email">Correo</a></li>
+                        <li><a href="mailto:stikmania795@gmail.com">Email</a></li>
                         <li><a href="https://instagram.com/sti_kmania" target="_blank">Instagram</a></li>
-                        <li><a href="tel:+5359758756">+53 5 975 8756</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-es="La Habana, Cuba. Diseño y producción 100% local." data-en="Havana, Cuba. 100% local design and production.">La Habana, Cuba. Diseño y producción 100% local.</p>
+                <p data-es="La Habana, Cuba." data-en="Havana, Cuba.">La Habana, Cuba.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/5359758756?text=Hola!%20Vengo%20de%20la%20web" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <nav class="bottom-nav">
+        <a href="hero.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span data-es="Inicio" data-en="Home">Inicio</span>
+        </a>
+        <a href="index.html" class="bottom-nav-item active">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span data-es="Tienda" data-en="Shop">Tienda</span>
+        </a>
+        <a href="empresas.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span data-es="Empresas" data-en="Business">Empresas</span>
+        </a>
+        <div class="bottom-nav-item" data-target="cart">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <span data-es="Carrito" data-en="Cart">Carrito</span>
+            <span class="cart-count hidden" id="cartCountBottom">0</span>
+        </div>
+    </nav>
+
+    <a href="https://wa.me/5359758756" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
+    <div class="toast-container" id="toastContainer"></div>
+
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/recent-purchase.js"></script>
     <script src="assets/js/calculator.js"></script>
 </body>
 </html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STIKMANIA | Empaques para Artesanos en Cuba</title>
+    <meta name="description" content="Empaques y etiquetas coherentes con la esencia de tu producto artesanal. Jabones, velas, alimentos y más.">
+    <meta name="keywords" content="empaques artesanales Cuba, etiquetas jabones, packaging velas, branding artesanal">
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00FF00">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <meta property="og:title" content="STIKMANIA | Empaques para Artesanos">
+    <meta property="og:description" content="Empaques que elevan el valor de tu arte.">
+    <meta property="og:image" content="https://stikmania-tm.github.io/images/OG_IMAGE.png">
+    <meta property="og:url" content="https://stikmania-tm.github.io/artesanos.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/global.css">
+</head>
+<body>
+
+    <div id="loader"><div class="loader-spinner"></div></div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="hero.html" class="logo">STIKMANIA</a>
+                <div class="header-actions">
+                    <button class="cart-btn" id="cartBtn" aria-label="Carrito">
+                        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        <span class="cart-count hidden" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Menú"><span></span><span></span><span></span></button>
+                    <button class="header-lang-btn" id="langToggle" aria-label="Cambiar idioma">EN</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="menu-drawer" id="menuDrawer">
+        <div class="menu-drawer-header">
+            <h3>STIKMANIA</h3>
+            <button class="menu-close" id="menuClose">&times;</button>
+        </div>
+        <ul>
+            <li><a href="hero.html" data-es=" Inicio" data-en="🏠 Home">🏠 Inicio</a></li>
+            <li><a href="index.html" data-es=" Tienda" data-en="🏪 Shop">🏪 Tienda</a></li>
+            <li><a href="empresas.html" data-es="🏢 Para empresas" data-en=" For businesses">🏢 Para empresas</a></li>
+            <li><a href="artesanos.html" data-es="🎨 Para artesanos" data-en="🎨 For artisans"> Para artesanos</a></li>
+            <li><a href="galeria.html" data-es="🖼️ Galería" data-en="️ Gallery">🖼️ Galería</a></li>
+        </ul>
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 data-es="Tu Carrito" data-en="Your Cart">Tu Carrito</h3>
+            <button class="cart-close" id="cartClose">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty" data-es="Tu carrito está vacío" data-en="Your cart is empty">Tu carrito está vacío</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span data-es="Total:" data-en="Total:">Total:</span>
+                <span class="cart-total-amount" id="cartTotal">$0.00 USD</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" data-es="Finalizar compra por WhatsApp" data-en="Checkout via WhatsApp">Finalizar compra por WhatsApp</button>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top: 80px;">
+        <div class="breadcrumbs fade-in">
+            <a href="hero.html" data-es="Inicio" data-en="Home">Inicio</a>
+            <span>›</span>
+            <span data-es="Para artesanos" data-en="For artisans">Para artesanos</span>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge fade-in" data-es="Hecho a mano con amor" data-en="Handmade with love">Hecho a mano con amor</div>
+            <h1 class="fade-in text-gradient" data-es="Empaques que elevan el valor de tu arte" data-en="Packaging that elevates the value of your art">Empaques que elevan el valor de tu arte</h1>
+            <p class="hero-subtitle fade-in" data-es="Diseñamos y producimos empaques y etiquetas coherentes con la esencia de tu producto artesanal. Diferenciamos tus creaciones y elevamos su valor percibido." data-en="We design and produce packaging and labels coherent with the essence of your artisan product.">Diseñamos y producimos empaques y etiquetas coherentes con la esencia de tu producto artesanal.</p>
+            <div class="hero-ctas fade-in">
+                <a href="index.html#cotizador" class="btn btn-primary btn-large" data-es="Cotizar para mi arte" data-en="Quote for my art">Cotizar para mi arte</a>
+                <a href="galeria.html" class="btn btn-outline btn-large" data-es="Ver trabajos" data-en="View work">Ver trabajos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="text-gradient" data-es="Para qué tipo de producto" data-en="For what type of product">Para qué tipo de producto</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="font-size: 2.5rem;">🧼</div>
+                    <h3 data-es="Jabones" data-en="Soaps">Jabones</h3>
+                    <p data-es="Etiquetas artesanales que transmiten naturalidad." data-en="Artisan labels that convey naturalness.">Etiquetas artesanales que transmiten naturalidad.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="font-size: 2.5rem;">🕯️</div>
+                    <h3 data-es="Velas" data-en="Candles">Velas</h3>
+                    <p data-es="Empaques premium para productos aromáticos." data-en="Premium packaging for aromatic products.">Empaques premium para productos aromáticos.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="font-size: 2.5rem;"></div>
+                    <h3 data-es="Alimentos" data-en="Food">Alimentos</h3>
+                    <p data-es="Mermeladas, mieles y conservas con identidad propia." data-en="Jams, honeys and preserves with their own identity.">Mermeladas, mieles y conservas con identidad propia.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="font-size: 2.5rem;">🎨</div>
+                    <h3 data-es="Arte y manualidades" data-en="Art and crafts">Arte y manualidades</h3>
+                    <p data-es="Productos únicos que merecen empaques únicos." data-en="Unique products that deserve unique packaging.">Productos únicos que merecen empaques únicos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="text-gradient" data-es="Lo que incluye" data-en="What's included">Lo que incluye</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="font-size: 2.5rem;">✨</div>
+                    <h3 data-es="Diseño coherente" data-en="Coherent design">Diseño coherente</h3>
+                    <p data-es="Alineado con la esencia de tu marca." data-en="Aligned with your brand essence.">Alineado con la esencia de tu marca.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="font-size: 2.5rem;">📦</div>
+                    <h3 data-es="Volúmenes medios" data-en="Medium volumes">Volúmenes medios</h3>
+                    <p data-es="Desde 20 hasta 500 unidades." data-en="From 20 to 500 units.">Desde 20 hasta 500 unidades.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="font-size: 2.5rem;">💡</div>
+                    <h3 data-es="Asesoría de marca" data-en="Brand advice">Asesoría de marca</h3>
+                    <p data-es="Te ayudamos a definir tu identidad." data-en="We help you define your identity.">Te ayudamos a definir tu identidad.</p>
+                </div>
+                <div class="benefit fade-in">
+                    <div class="benefit-icon" style="font-size: 2.5rem;">💰</div>
+                    <h3 data-es="Precios de emprendedor" data-en="Entrepreneur prices">Precios de emprendedor</h3>
+                    <p data-es="Accesibles para quien empieza." data-en="Affordable for those starting out.">Accesibles para quien empieza.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container fade-in">
+            <h2 class="text-gradient" data-es="¿Listo para darle valor a tu producto?" data-en="Ready to add value to your product?">¿Listo para darle valor a tu producto?</h2>
+            <p data-es="Cuéntanos sobre tu producto y te ayudamos a crear el empaque perfecto." data-en="Tell us about your product and we'll help you create the perfect packaging.">Cuéntanos sobre tu producto y te ayudamos a crear el empaque perfecto.</p>
+            <div class="cta-buttons">
+                <a href="index.html#cotizador" class="btn btn-primary btn-large" data-es="Ir al cotizador" data-en="Go to quote tool">Ir al cotizador</a>
+                <a href="https://wa.me/5359758756" target="_blank" class="btn btn-outline btn-large" data-es="Hablar por WhatsApp" data-en="Chat on WhatsApp">Hablar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>STIKMANIA</h3>
+                    <p data-es="Diseño que se pega." data-en="Design that sticks.">Diseño que se pega.</p>
+                    <p style="margin-top: 15px;">© <span class="current-year">2026</span> STIKMANIA.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-es="Navegación" data-en="Navigation">Navegación</h4>
+                    <ul>
+                        <li><a href="hero.html" data-es="Inicio" data-en="Home">Inicio</a></li>
+                        <li><a href="index.html" data-es="Tienda" data-en="Shop">Tienda</a></li>
+                        <li><a href="empresas.html" data-es="Empresas" data-en="Business">Empresas</a></li>
+                        <li><a href="artesanos.html" data-es="Artesanos" data-en="Artisans">Artesanos</a></li>
+                        <li><a href="galeria.html" data-es="Galería" data-en="Gallery">Galería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5359758756" target="_blank">WhatsApp</a></li>
+                        <li><a href="mailto:stikmania795@gmail.com">Email</a></li>
+                        <li><a href="https://instagram.com/sti_kmania" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-es="La Habana, Cuba." data-en="Havana, Cuba.">La Habana, Cuba.</p>
+            </div>
+        </div>
+    </footer>
+
+    <nav class="bottom-nav">
+        <a href="hero.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span data-es="Inicio" data-en="Home">Inicio</span>
+        </a>
+        <a href="index.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span data-es="Tienda" data-en="Shop">Tienda</span>
+        </a>
+        <a href="empresas.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span data-es="Empresas" data-en="Business">Empresas</span>
+        </a>
+        <div class="bottom-nav-item" data-target="cart">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <span data-es="Carrito" data-en="Cart">Carrito</span>
+            <span class="cart-count hidden" id="cartCountBottom">0</span>
+        </div>
+    </nav>
+
+    <a href="https://wa.me/5359758756" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
