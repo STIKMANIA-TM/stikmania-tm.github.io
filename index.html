@@ -4,54 +4,799 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STIKMANIA | Tienda de Stickers</title>
-    <meta name="description" content="Packs de stickers personalizados en Cuba. Anime, gamer, cine, skate y más.">
-    <meta name="keywords" content="stickers Cuba, pegatinas personalizadas, stickers anime, vinilo impermeable La Habana">
-    <meta name="author" content="STIKMANIA">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="Packs de stickers personalizados en Cuba.">
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00FF00">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="STIKMANIA">
     <link rel="apple-touch-icon" href="images/icon-192.png">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    
-    <meta property="og:title" content="STIKMANIA | Tienda">
-    <meta property="og:description" content="Packs de stickers personalizados.">
-    <meta property="og:image" content="https://stikmania-tm.github.io/images/OG_IMAGE.png">
-    <meta property="og:url" content="https://stikmania-tm.github.io/index.html">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/global.css">
+    
+    <style>
+        /* CSS CRÍTICO INLINE */
+        :root {
+            --neon-green: #00FF00;
+            --dark-green: #003300;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray: #1a1a1a;
+            --gray-light: #2a2a2a;
+            --gray-dark: #0a0a0a;
+            --cyan: #00FFFF;
+            --yellow: #FFD600;
+            --red: #FF3333;
+            --text-muted: #888888;
+            --font-display: 'Pirata One', display;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-full: 50px;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.5;
+            overflow-x: hidden;
+            padding-bottom: 65px;
+            position: relative;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('../images/var_malva.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px) brightness(0.3);
+            opacity: 0.5;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: 1.8rem; }
+        h2 { font-size: 1.5rem; }
+        h3 { font-size: 1.2rem; }
+        
+        p { margin-bottom: 0.8rem; }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        
+        .text-muted { color: var(--text-muted); }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, #00FF00, #00cc00, #00FF00);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .icon {
+            width: 20px; height: 20px;
+            stroke: currentColor; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+            display: inline-block; vertical-align: middle;
+            flex-shrink: 0;
+        }
+        
+        .icon-sm { width: 16px; height: 16px; }
+        .icon-md { width: 24px; height: 24px; }
+        .icon-lg { width: 32px; height: 32px; }
+        .icon-xl { width: 48px; height: 48px; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+        
+        .section { padding: 40px 0; }
+        .section-dark { background: rgba(26, 26, 26, 0.5); }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-header h2 { margin-bottom: 8px; }
+        .section-header p { color: var(--text-muted); font-size: 0.9rem; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        
+        .btn-primary { background: var(--neon-green); color: var(--black); }
+        .btn-primary:active { transform: scale(0.95); }
+        .btn-outline { background: transparent; border: 2px solid var(--neon-green); color: var(--neon-green); }
+        .btn-outline:active { background: var(--neon-green); color: var(--black); }
+        .btn-large { padding: 14px 28px; font-size: 0.9rem; }
+        .btn-block { width: 100%; display: block; }
+        
+        header {
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 8px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--dark-green);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--neon-green);
+            flex-shrink: 0;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .search-box { display: none; }
+        
+        .cart-btn {
+            position: relative;
+            background: none;
+            border: 1px solid var(--neon-green);
+            border-radius: var(--radius-sm);
+            padding: 5px;
+            cursor: pointer;
+            color: var(--neon-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-btn svg {
+            width: 16px; height: 16px;
+            stroke: currentColor; fill: none; stroke-width: 2;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -4px; right: -4px;
+            background: var(--red);
+            color: var(--white);
+            font-size: 0.6rem;
+            font-weight: 700;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-count.hidden { display: none; }
+        
+        .menu-toggle {
+            background: none;
+            border: 1px solid var(--neon-green);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 16px; height: 2px;
+            background: var(--neon-green);
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+        
+        .header-lang-btn {
+            background: var(--black);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 4px 6px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.65rem;
+            cursor: pointer;
+            min-width: 30px;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        
+        .menu-drawer {
+            position: fixed;
+            top: 0; right: 0;
+            width: 260px; height: 100%;
+            background: var(--gray-dark);
+            z-index: 1002;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .menu-drawer.active { transform: translateX(0); }
+        
+        .menu-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .menu-drawer-header h3 { color: var(--neon-green); font-size: 1.3rem; }
+        
+        .menu-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .menu-drawer ul { list-style: none; }
+        .menu-drawer li { margin-bottom: 5px; }
+        
+        .menu-drawer a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            color: var(--white);
+            font-size: 0.9rem;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+        
+        .menu-drawer a:hover { background: var(--gray); color: var(--neon-green); }
+        .menu-drawer a svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+        .menu-drawer .divider { height: 1px; background: var(--gray-light); margin: 15px 0; }
+        
+        .cart-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1004;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-overlay.active { opacity: 1; visibility: visible; }
+        
+        .cart-drawer {
+            position: fixed;
+            top: 0; right: 0;
+            width: 100%; max-width: 320px; height: 100%;
+            background: var(--gray-dark);
+            z-index: 1005;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cart-drawer.active { transform: translateX(0); }
+        
+        .cart-header {
+            padding: 15px;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cart-header h3 { color: var(--neon-green); font-size: 1.1rem; }
+        
+        .cart-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-items { flex: 1; overflow-y: auto; padding: 15px; }
+        
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .cart-item-image {
+            width: 50px; height: 50px;
+            background: var(--gray);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-item-image svg { width: 24px; height: 24px; stroke: var(--neon-green); fill: none; }
+        .cart-item-info { flex: 1; }
+        .cart-item-title { font-size: 0.85rem; margin-bottom: 4px; }
+        .cart-item-price { color: var(--neon-green); font-weight: 600; font-size: 0.85rem; }
+        .cart-item-remove { background: none; border: none; color: var(--red); cursor: pointer; font-size: 1.2rem; }
+        .cart-empty { text-align: center; padding: 30px 15px; color: var(--text-muted); }
+        
+        .cart-footer { padding: 15px; border-top: 1px solid var(--gray-light); }
+        .cart-total { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1rem; }
+        .cart-total-amount { color: var(--neon-green); font-family: var(--font-display); font-size: 1.3rem; }
+        
+        .checkout-btn {
+            width: 100%;
+            background: var(--neon-green);
+            color: var(--black);
+            border: none;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1003;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        
+        .modal-content {
+            background: var(--gray);
+            border: 2px solid var(--neon-green);
+            border-radius: var(--radius-lg);
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-overlay.active .modal-content { transform: scale(1); }
+        
+        .modal-close {
+            position: absolute;
+            top: 10px; right: 10px;
+            background: var(--black);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .modal-image {
+            height: 180px;
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.15), rgba(0, 102, 0, 0.15));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-image svg { width: 60px; height: 60px; stroke: var(--neon-green); fill: none; }
+        .modal-body { padding: 20px; }
+        .modal-title { font-size: 1.3rem; color: var(--neon-green); margin-bottom: 8px; }
+        .modal-description { color: var(--text-muted); margin-bottom: 15px; font-size: 0.9rem; }
+        .modal-specs { list-style: none; margin-bottom: 15px; }
+        .modal-specs li { padding: 6px 0; color: var(--white); border-bottom: 1px solid var(--gray-light); font-size: 0.9rem; }
+        .modal-specs li::before { content: "✓ "; color: var(--neon-green); font-weight: bold; }
+        .modal-price { font-family: var(--font-display); font-size: 1.8rem; color: var(--neon-green); margin-bottom: 15px; }
+        .modal-actions { display: flex; gap: 8px; }
+        .modal-actions .btn { flex: 1; padding: 10px; font-size: 0.85rem; }
+        
+        .hero {
+            min-height: 85vh;
+            padding: 100px 0 50px 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 255, 0, 0.15), transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero-subtitle { font-size: 1rem; color: #ccc; margin-bottom: 25px; }
+        .hero-ctas { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+        .hero-ctas .btn { width: 100%; padding: 14px; font-size: 0.9rem; }
+        .hero-logo { max-width: 300px; width: 85%; margin: 0 auto 20px auto; }
+        
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            justify-content: center;
+        }
+        
+        .trust-badge { display: flex; align-items: center; gap: 8px; color: #aaa; font-size: 0.8rem; }
+        .trust-badge svg { width: 18px; height: 18px; stroke: var(--neon-green); fill: none; }
+        
+        .filters-container {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 12px 0;
+            margin-bottom: 15px;
+            scrollbar-width: none;
+        }
+        
+        .filters-container::-webkit-scrollbar { display: none; }
+        
+        .filter-chip {
+            background: var(--gray);
+            border: 1px solid var(--gray-light);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        
+        .filter-chip.active {
+            background: var(--neon-green);
+            color: var(--black);
+            border-color: var(--neon-green);
+            font-weight: 600;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .product-card {
+            background: var(--gray);
+            border: 2px solid var(--gray-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .product-card:active { transform: scale(0.98); }
+        
+        .product-image {
+            height: 110px;
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.15), rgba(0, 102, 0, 0.15));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .product-image svg { width: 40px; height: 40px; stroke: var(--neon-green); fill: none; }
+        
+        .product-badge {
+            position: absolute;
+            top: 6px; left: 6px;
+            background: var(--red);
+            color: var(--white);
+            padding: 3px 6px;
+            border-radius: var(--radius-sm);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .product-badge.new { background: var(--cyan); color: var(--black); }
+        
+        .product-info { padding: 10px; }
+        .product-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; color: var(--white); }
+        
+        .product-rating { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; font-size: 0.75rem; }
+        .stars { color: var(--yellow); }
+        .reviews { color: var(--text-muted); font-size: 0.7rem; }
+        
+        .product-price { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+        .price-current { font-family: var(--font-display); font-size: 1.1rem; color: var(--neon-green); }
+        .price-old { font-size: 0.75rem; color: var(--text-muted); text-decoration: line-through; }
+        .discount-badge { background: var(--red); color: var(--white); padding: 2px 5px; border-radius: var(--radius-sm); font-size: 0.65rem; font-weight: 700; }
+        
+        .add-to-cart-btn {
+            width: 100%;
+            background: var(--neon-green);
+            color: var(--black);
+            border: none;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        
+        .add-to-cart-btn:active { transform: scale(0.95); }
+        
+        .bottom-nav {
+            position: fixed;
+            bottom: 0; left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            border-top: 1px solid var(--dark-green);
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            z-index: 999;
+        }
+        
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            padding: 4px 8px;
+        }
+        
+        .bottom-nav-item.active { color: var(--neon-green); }
+        .bottom-nav-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+        
+        .calc-wrapper {
+            background: rgba(26, 26, 26, 0.95);
+            border: 2px solid var(--dark-green);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+        }
+        
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 6px; color: var(--neon-green); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            background: var(--black);
+            border: 1px solid var(--dark-green);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            border-radius: var(--radius-sm);
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--neon-green); }
+        
+        .result-box {
+            background: linear-gradient(135deg, rgba(0, 51, 0, 0.9), rgba(0, 0, 0, 0.9));
+            border: 2px solid var(--neon-green);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        .result-box.show { display: block; }
+        .result-price { font-family: var(--font-display); font-size: 2rem; color: var(--neon-green); margin: 10px 0; }
+        
+        .faq-item { background: var(--gray); margin-bottom: 10px; border-radius: var(--radius-md); border: 1px solid var(--gray-light); }
+        .faq-question { padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.9rem; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 15px; color: #ccc; font-size: 0.85rem; }
+        .faq-answer.show { max-height: 200px; padding: 0 15px 15px 15px; }
+        
+        .cta-final {
+            padding: 50px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 51, 0, 0.4), rgba(0, 0, 0, 0.8));
+            border-top: 2px solid var(--neon-green);
+            border-bottom: 2px solid var(--neon-green);
+        }
+        
+        .cta-final h2 { margin-bottom: 15px; }
+        .cta-final p { color: #ccc; font-size: 1rem; margin-bottom: 25px; }
+        .cta-buttons { display: flex; flex-direction: column; gap: 10px; }
+        .cta-buttons .btn { width: 100%; padding: 14px; font-size: 0.9rem; }
+        
+        footer {
+            background: #000;
+            padding: 40px 0 20px 0;
+            border-top: 1px solid var(--dark-green);
+            margin-bottom: 65px;
+        }
+        
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-bottom: 30px; }
+        .footer-brand h3 { font-family: var(--font-display); color: var(--neon-green); font-size: 1.5rem; margin-bottom: 10px; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-col h4 { color: var(--white); font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a { color: #999; font-size: 0.85rem; }
+        .footer-col a:hover { color: var(--neon-green); }
+        .footer-bottom { padding-top: 20px; border-top: 1px solid var(--gray-light); text-align: center; color: #666; font-size: 0.8rem; }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px; right: 15px;
+            width: 50px; height: 50px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 998;
+        }
+        
+        .whatsapp-float svg { width: 26px; height: 26px; fill: white; }
+        
+        #loader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .loader-spinner {
+            width: 50px; height: 50px;
+            border: 3px solid var(--dark-green);
+            border-top: 3px solid var(--neon-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        
+        .fade-in { opacity: 0; transform: translateY(15px); transition: all 0.6s ease; }
+        .fade-in.active { opacity: 1; transform: translateY(0); }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0; right: 0;
+            width: 3px; height: 0%;
+            background: linear-gradient(180deg, var(--neon-green), var(--cyan));
+            z-index: 1003;
+            transition: height 0.1s ease;
+        }
+        
+        .toast-container {
+            position: fixed;
+            bottom: 90px; left: 50%;
+            transform: translateX(-50%);
+            z-index: 1006;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            pointer-events: none;
+        }
+        
+        .toast {
+            background: var(--gray);
+            border: 1px solid var(--neon-green);
+            border-radius: var(--radius-md);
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            animation: slideUp 0.3s ease;
+            pointer-events: auto;
+            min-width: 220px;
+            font-size: 0.85rem;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
 
     <div id="loader"><div class="loader-spinner"></div></div>
 
-    <!-- HEADER -->
     <header>
         <div class="container">
             <div class="header-content">
                 <a href="hero.html" class="logo">STIKMANIA</a>
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Buscar..." data-es-placeholder="Buscar..." data-en-placeholder="Search...">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-                </div>
                 <div class="header-actions">
                     <button class="cart-btn" id="cartBtn" aria-label="Carrito">
                         <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                         <span class="cart-count hidden" id="cartCount">0</span>
                     </button>
                     <button class="menu-toggle" id="menuToggle" aria-label="Menú"><span></span><span></span><span></span></button>
-                    <button class="header-lang-btn" id="langToggle" aria-label="Cambiar idioma">EN</button>
+                    <button class="header-lang-btn" id="langToggle">EN</button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- MENÚ DRAWER -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-drawer" id="menuDrawer">
         <div class="menu-drawer-header">
@@ -59,221 +804,101 @@
             <button class="menu-close" id="menuClose">&times;</button>
         </div>
         <ul>
-            <li><a href="hero.html" data-es="Inicio" data-en="Home">
-                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                Inicio
-            </a></li>
-            <li><a href="index.html" data-es="Tienda" data-en="Shop">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                Tienda
-            </a></li>
-            <li><a href="empresas.html" data-es="Para empresas" data-en="For businesses">
-                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
-                Para empresas
-            </a></li>
-            <li><a href="artesanos.html" data-es="Para artesanos" data-en="For artisans">
-                <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
-                Para artesanos
-            </a></li>
-            <li><a href="galeria.html" data-es="Galería" data-en="Gallery">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"></polyline></svg>
-                Galería
-            </a></li>
-        </ul>
-        <div class="divider"></div>
-        <ul>
-            <li><a href="#" data-es="Términos y condiciones" data-en="Terms and conditions">
-                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                Términos y condiciones
-            </a></li>
-            <li><a href="#" data-es="Política de privacidad" data-en="Privacy policy">
-                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                Política de privacidad
-            </a></li>
+            <li><a href="hero.html">Inicio</a></li>
+            <li><a href="index.html">Tienda</a></li>
+            <li><a href="empresas.html">Empresas</a></li>
+            <li><a href="artesanos.html">Artesanos</a></li>
+            <li><a href="galeria.html">Galería</a></li>
         </ul>
     </div>
 
-    <!-- CARRITO DRAWER -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
-            <h3 data-es="Tu Carrito" data-en="Your Cart">Tu Carrito</h3>
+            <h3>Tu Carrito</h3>
             <button class="cart-close" id="cartClose">&times;</button>
         </div>
         <div class="cart-items" id="cartItems">
-            <div class="cart-empty" data-es="Tu carrito está vacío" data-en="Your cart is empty">Tu carrito está vacío</div>
+            <div class="cart-empty">Tu carrito está vacío</div>
         </div>
         <div class="cart-footer">
             <div class="cart-total">
-                <span data-es="Total:" data-en="Total:">Total:</span>
+                <span>Total:</span>
                 <span class="cart-total-amount" id="cartTotal">$0.00 USD</span>
             </div>
-            <button class="checkout-btn" id="checkoutBtn" data-es="Finalizar compra por WhatsApp" data-en="Checkout via WhatsApp">Finalizar compra por WhatsApp</button>
+            <button class="checkout-btn" id="checkoutBtn">Finalizar por WhatsApp</button>
         </div>
     </div>
 
-    <!-- MODAL DE PRODUCTO -->
-    <div class="modal-overlay" id="productModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <div class="modal-image" id="modalImage"></div>
-            <div class="modal-body">
-                <h2 class="modal-title" id="modalTitle"></h2>
-                <div class="product-rating">
-                    <span class="stars" id="modalStars"></span>
-                    <span class="reviews" id="modalReviews"></span>
-                </div>
-                <p class="modal-description" id="modalDescription"></p>
-                <ul class="modal-specs" id="modalSpecs"></ul>
-                <div class="modal-price" id="modalPrice"></div>
-                <div class="modal-actions">
-                    <button class="btn btn-primary" id="modalAddToCart" data-es="Añadir al carrito" data-en="Add to cart">Añadir al carrito</button>
-                    <button class="btn btn-outline" id="modalBuyNow" data-es="Comprar ahora" data-en="Buy now">Comprar ahora</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TIENDA -->
     <section id="tienda" class="section" style="padding-top: 80px;">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Nuestra tienda" data-en="Our shop">Nuestra tienda</h2>
-                <p data-es="Listos para pedir. Entrega en 2-5 días en La Habana." data-en="Ready to order. 2-5 day delivery in Havana.">Listos para pedir. Entrega en 2-5 días en La Habana.</p>
+                <h2 class="text-gradient">Nuestra tienda</h2>
+                <p>Entrega en 2-5 días en La Habana.</p>
             </div>
-            
             <div class="filters-container fade-in">
-                <button class="filter-chip active" data-filter="all" data-es="Todos" data-en="All">Todos</button>
-                <button class="filter-chip" data-filter="anime" data-es="Anime" data-en="Anime">Anime</button>
-                <button class="filter-chip" data-filter="gamer" data-es="Gamer" data-en="Gamer">Gamer</button>
-                <button class="filter-chip" data-filter="cine" data-es="Cine" data-en="Movies">Cine</button>
-                <button class="filter-chip" data-filter="skate" data-es="Skate" data-en="Skate">Skate</button>
-                <button class="filter-chip" data-filter="stikmania" data-es="Stikmania" data-en="Stikmania">Stikmania</button>
-                <button class="filter-chip" data-filter="personalizado" data-es="Personalizado" data-en="Custom">Personalizado</button>
+                <button class="filter-chip active" data-filter="all">Todos</button>
+                <button class="filter-chip" data-filter="anime">Anime</button>
+                <button class="filter-chip" data-filter="gamer">Gamer</button>
+                <button class="filter-chip" data-filter="cine">Cine</button>
+                <button class="filter-chip" data-filter="skate">Skate</button>
+                <button class="filter-chip" data-filter="stikmania">Stikmania</button>
             </div>
-            
             <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
 
-    <!-- COTIZADOR -->
     <section id="cotizador" class="section section-dark">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Cotizador instantáneo" data-en="Instant quote">Cotizador instantáneo</h2>
-                <p data-es="Calcula tu inversión en segundos." data-en="Calculate your investment in seconds.">Calcula tu inversión en segundos.</p>
+                <h2 class="text-gradient">Cotizador</h2>
+                <p>Calcula tu inversión en segundos.</p>
             </div>
             <div class="calc-wrapper fade-in">
                 <div class="form-row">
                     <div class="form-group">
-                        <label data-es="Cantidad" data-en="Quantity">Cantidad</label>
+                        <label>Cantidad</label>
                         <input type="number" id="calc-qty" value="50" min="10" step="10">
                     </div>
                     <div class="form-group">
-                        <label data-es="Material" data-en="Material">Material</label>
+                        <label>Material</label>
                         <select id="calc-material">
-                            <option value="vinyl" data-es="Vinilo impermeable" data-en="Waterproof vinyl">Vinilo impermeable</option>
-                            <option value="photo" data-es="Papel fotográfico" data-en="Photo paper">Papel fotográfico</option>
-                            <option value="transparent" data-es="Vinilo transparente" data-en="Transparent vinyl">Vinilo transparente</option>
+                            <option value="vinyl">Vinilo impermeable</option>
+                            <option value="photo">Papel fotográfico</option>
+                            <option value="transparent">Vinilo transparente</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label data-es="Ancho (cm)" data-en="Width (cm)">Ancho (cm)</label>
+                        <label>Ancho (cm)</label>
                         <input type="number" id="calc-width" value="5" step="0.5" min="2" max="30">
                     </div>
                     <div class="form-group">
-                        <label data-es="Alto (cm)" data-en="Height (cm)">Alto (cm)</label>
+                        <label>Alto (cm)</label>
                         <input type="number" id="calc-height" value="5" step="0.5" min="2" max="30">
                     </div>
                 </div>
-                <div class="form-group" style="margin-top: 20px;">
-                    <label data-es="¿Necesitas entrega a domicilio?" data-en="Do you need home delivery?">¿Necesitas entrega a domicilio?</label>
-                    <select id="calc-delivery">
-                        <option value="no" data-es="No, recojo en el punto acordado" data-en="No, I'll pick up">No, recojo en el punto acordado</option>
-                        <option value="la-lisa">La Lisa (+$3 USD)</option>
-                        <option value="playa">Playa (+$5 USD)</option>
-                        <option value="marianao">Marianao (+$5 USD)</option>
-                        <option value="boyeros">Boyeros (+$7 USD)</option>
-                        <option value="plaza">Plaza (+$7 USD)</option>
-                        <option value="cerro">Cerro (+$7 USD)</option>
-                        <option value="centro-habana">Centro Habana (+$7 USD)</option>
-                        <option value="habana-vieja">Habana Vieja (+$8 USD)</option>
-                        <option value="diez-de-octubre">Diez de Octubre (+$8 USD)</option>
-                        <option value="arroyo-naranjo">Arroyo Naranjo (+$8 USD)</option>
-                        <option value="regla">Regla (+$10 USD)</option>
-                        <option value="san-miguel">San Miguel del Padrón (+$10 USD)</option>
-                        <option value="cotorro">Cotorro (+$12 USD)</option>
-                        <option value="habana-del-este">Habana del Este (+$12 USD)</option>
-                        <option value="guanabacoa">Guanabacoa (+$12 USD)</option>
-                    </select>
-                </div>
-                <button class="btn btn-primary btn-block" id="calc-submit" style="padding: 14px; font-size: 0.9rem; margin-top: 20px;">
-                    <span data-es="Calcular presupuesto" data-en="Calculate budget">Calcular presupuesto</span>
-                </button>
+                <button class="btn btn-primary btn-block" id="calc-submit" style="padding: 14px; margin-top: 20px;">Calcular</button>
                 <div class="result-box" id="calc-result">
-                    <p style="color: #ccc;"><span data-es="Presupuesto para" data-en="Quote for">Presupuesto para</span> <span id="calc-summary"></span></p>
+                    <p style="color: #ccc;">Presupuesto: <span id="calc-summary"></span></p>
                     <div class="result-price" id="calc-price">$0.00 USD</div>
-                    <p style="color: #00cc00; font-size: 0.9rem; margin-bottom: 20px;" id="calc-discount"></p>
-                    <p style="color: var(--cyan); font-size: 0.85rem; margin-bottom: 20px;" id="calc-delivery-cost"></p>
-                    <a id="calc-whatsapp" href="#" target="_blank" class="btn btn-primary btn-large">
-                        <span data-es="Enviar pedido por WhatsApp" data-en="Send order via WhatsApp">Enviar pedido por WhatsApp</span>
-                    </a>
-                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 15px;" data-es="Se requiere 50% de anticipo." data-en="50% deposit required.">Se requiere 50% de anticipo.</p>
+                    <a id="calc-whatsapp" href="#" target="_blank" class="btn btn-primary btn-large">Enviar por WhatsApp</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="text-gradient" data-es="Preguntas frecuentes" data-en="FAQ">Preguntas frecuentes</h2>
-            </div>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div class="faq-item fade-in">
-                    <div class="faq-question"><span data-es="¿Los stickers se pueden mojar?" data-en="Can stickers get wet?">¿Los stickers se pueden mojar?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="Sí. Todos nuestros stickers en vinilo impermeable resisten agua, lluvia y lavados." data-en="Yes. All our waterproof vinyl stickers resist water, rain and washing.">Sí. Todos nuestros stickers en vinilo impermeable resisten agua, lluvia y lavados.</p></div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question"><span data-es="¿Cuál es el pedido mínimo?" data-en="What is the minimum order?">¿Cuál es el pedido mínimo?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="Para pedidos corporativos, el mínimo es de 50 unidades por diseño." data-en="For corporate orders, the minimum is 50 units per design.">Para pedidos corporativos, el mínimo es de 50 unidades por diseño.</p></div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question"><span data-es="¿Cuánto tarda la entrega?" data-en="How long does delivery take?">¿Cuánto tarda la entrega?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="Packs predefinidos: 2-5 días. Pedidos personalizados: 3-7 días." data-en="Predefined packs: 2-5 days. Custom orders: 3-7 days.">Packs predefinidos: 2-5 días. Pedidos personalizados: 3-7 días.</p></div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question"><span data-es="¿Cómo es el pago?" data-en="How does payment work?">¿Cómo es el pago?</span><span>+</span></div>
-                    <div class="faq-answer"><p data-es="50% de anticipo para iniciar producción, 50% contra entrega." data-en="50% deposit to start production, 50% upon delivery.">50% de anticipo para iniciar producción, 50% contra entrega.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>STIKMANIA</h3>
-                    <p data-es="Diseño que se pega." data-en="Design that sticks.">Diseño que se pega.</p>
-                    <p style="margin-top: 15px;">© <span class="current-year">2026</span> STIKMANIA.</p>
+                    <p>Diseño que se pega.</p>
+                    <p style="margin-top: 15px;">© 2026 STIKMANIA.</p>
                 </div>
                 <div class="footer-col">
-                    <h4 data-es="Navegación" data-en="Navigation">Navegación</h4>
-                    <ul>
-                        <li><a href="hero.html" data-es="Inicio" data-en="Home">Inicio</a></li>
-                        <li><a href="index.html" data-es="Tienda" data-en="Shop">Tienda</a></li>
-                        <li><a href="empresas.html" data-es="Empresas" data-en="Business">Empresas</a></li>
-                        <li><a href="artesanos.html" data-es="Artesanos" data-en="Artisans">Artesanos</a></li>
-                        <li><a href="galeria.html" data-es="Galería" data-en="Gallery">Galería</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+                    <h4>Contacto</h4>
                     <ul>
                         <li><a href="https://wa.me/5359758756" target="_blank">WhatsApp</a></li>
                         <li><a href="mailto:stikmania795@gmail.com">Email</a></li>
@@ -281,39 +906,32 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p data-es="La Habana, Cuba." data-en="Havana, Cuba.">La Habana, Cuba.</p>
-            </div>
         </div>
     </footer>
 
-    <!-- BOTTOM NAV -->
     <nav class="bottom-nav">
         <a href="hero.html" class="bottom-nav-item">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span data-es="Inicio" data-en="Home">Inicio</span>
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            <span>Inicio</span>
         </a>
         <a href="index.html" class="bottom-nav-item active">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            <span data-es="Tienda" data-en="Shop">Tienda</span>
+            <span>Tienda</span>
         </a>
         <a href="empresas.html" class="bottom-nav-item">
-            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>
-            <span data-es="Empresas" data-en="Business">Empresas</span>
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/></svg>
+            <span>Empresas</span>
         </a>
         <div class="bottom-nav-item" data-target="cart">
             <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-            <span data-es="Carrito" data-en="Cart">Carrito</span>
-            <span class="cart-count hidden" id="cartCountBottom">0</span>
+            <span>Carrito</span>
         </div>
     </nav>
 
-    <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/5359758756" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <a href="https://wa.me/5359758756" target="_blank" class="whatsapp-float">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
-    <!-- TOAST CONTAINER -->
     <div class="toast-container" id="toastContainer"></div>
 
     <script src="assets/js/main.js"></script>
