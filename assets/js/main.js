@@ -1,69 +1,10 @@
-/* ============================================
-   STIKMANIA APP - JavaScript Principal
-   Versión 5.3 - Defensivo (funciona en todas las páginas)
-   ============================================ */
-
 const products = [
-    {
-        id: 1, name: "Pack Anime Legendario", nameEn: "Legendary Anime Pack",
-        category: "anime", price: 3, oldPrice: 4, discount: 25,
-        rating: 5, reviews: 24, badge: "TOP", badgeType: "hot",
-        description: "Los personajes más icónicos del anime en un solo pack.",
-        descriptionEn: "The most iconic anime characters in a single pack.",
-        specs: ["24 stickers variados", "Tamaños de 4 a 7 cm", "Vinilo impermeable", "+2 años de duración"],
-        specsEn: ["24 assorted stickers", "Sizes from 4 to 7 cm", "Waterproof vinyl", "Over 2 years durability"],
-        icon: "anime"
-    },
-    {
-        id: 2, name: "Pack Gamer Ultimate", nameEn: "Ultimate Gamer Pack",
-        category: "gamer", price: 4, oldPrice: null, discount: 0,
-        rating: 5, reviews: 18, badge: null, badgeType: null,
-        description: "Para verdaderos gamers. Logos, personajes y memes gaming.",
-        descriptionEn: "For true gamers. Logos, characters and gaming memes.",
-        specs: ["30 stickers variados", "Tamaños de 4 a 8 cm", "Vinilo impermeable", "Ideal para laptops"],
-        specsEn: ["30 assorted stickers", "Sizes from 4 to 8 cm", "Waterproof vinyl", "Ideal for laptops"],
-        icon: "gamer"
-    },
-    {
-        id: 3, name: "Pack Cine y Series", nameEn: "Movies and Series Pack",
-        category: "cine", price: 3, oldPrice: null, discount: 0,
-        rating: 4, reviews: 15, badge: "NEW", badgeType: "new",
-        description: "Marvel, Star Wars, Netflix y tus series favoritas.",
-        descriptionEn: "Marvel, Star Wars, Netflix and your favorite series.",
-        specs: ["20 stickers premium", "Tamaños de 5 a 8 cm", "Vinilo impermeable", "Colores vibrantes"],
-        specsEn: ["20 premium stickers", "Sizes from 5 to 8 cm", "Waterproof vinyl", "Vibrant colors"],
-        icon: "cine"
-    },
-    {
-        id: 4, name: "Pack Street y Skate", nameEn: "Street and Skate Pack",
-        category: "skate", price: 4, oldPrice: null, discount: 0,
-        rating: 5, reviews: 12, badge: null, badgeType: null,
-        description: "Estilo urbano puro. Thrasher, Santa Cruz y logos clásicos.",
-        descriptionEn: "Pure street style. Thrasher, Santa Cruz and classic logos.",
-        specs: ["15 stickers grandes", "Tamaños de 6 a 10 cm", "Vinilo de alta resistencia", "Para skate y motos"],
-        specsEn: ["15 large stickers", "Sizes from 6 to 10 cm", "High-resistance vinyl", "For skate and bikes"],
-        icon: "skate"
-    },
-    {
-        id: 5, name: "Pack Stikmania", nameEn: "Stikmania Pack",
-        category: "stikmania", price: 3, oldPrice: null, discount: 0,
-        rating: 5, reviews: 30, badge: "EXCLUSIVE", badgeType: "hot",
-        description: "Stickers exclusivos del artista @sti_kmania. Diseños únicos.",
-        descriptionEn: "Exclusive stickers from artist @sti_kmania. Unique designs.",
-        specs: ["18 stickers de autor", "Tamaños de 5 a 7 cm", "Vinilo impermeable", "Diseños originales"],
-        specsEn: ["18 artist stickers", "Sizes from 5 to 7 cm", "Waterproof vinyl", "Original designs"],
-        icon: "stikmania"
-    },
-    {
-        id: 6, name: "Pack Personalizado", nameEn: "Custom Pack",
-        category: "personalizado", price: 2, oldPrice: null, discount: 0,
-        rating: 5, reviews: 45, badge: null, badgeType: null,
-        description: "Envía tus diseños o elige los stickers que más te gusten.",
-        descriptionEn: "Send your designs or choose the stickers you like most.",
-        specs: ["Elige cantidad (10-100)", "Tú eliges los diseños", "Material premium", "Diseño gratis incluido"],
-        specsEn: ["Choose quantity (10-100)", "You choose the designs", "Premium material", "Free design included"],
-        icon: "custom"
-    }
+    { id: 1, name: "Pack Anime Legendario", nameEn: "Legendary Anime Pack", category: "anime", price: 3, oldPrice: 4, discount: 25, rating: 5, reviews: 24, badge: "TOP", badgeType: "hot", description: "Los personajes más icónicos del anime en un solo pack.", descriptionEn: "The most iconic anime characters in a single pack.", specs: ["24 stickers variados", "Tamaños de 4 a 7 cm", "Vinilo impermeable", "+2 años de duración"], specsEn: ["24 assorted stickers", "Sizes from 4 to 7 cm", "Waterproof vinyl", "Over 2 years durability"], icon: "anime" },
+    { id: 2, name: "Pack Gamer Ultimate", nameEn: "Ultimate Gamer Pack", category: "gamer", price: 4, oldPrice: null, discount: 0, rating: 5, reviews: 18, badge: null, badgeType: null, description: "Para verdaderos gamers. Logos, personajes y memes gaming.", descriptionEn: "For true gamers. Logos, characters and gaming memes.", specs: ["30 stickers variados", "Tamaños de 4 a 8 cm", "Vinilo impermeable", "Ideal para laptops"], specsEn: ["30 assorted stickers", "Sizes from 4 to 8 cm", "Waterproof vinyl", "Ideal for laptops"], icon: "gamer" },
+    { id: 3, name: "Pack Cine y Series", nameEn: "Movies and Series Pack", category: "cine", price: 3, oldPrice: null, discount: 0, rating: 4, reviews: 15, badge: "NEW", badgeType: "new", description: "Marvel, Star Wars, Netflix y tus series favoritas.", descriptionEn: "Marvel, Star Wars, Netflix and your favorite series.", specs: ["20 stickers premium", "Tamaños de 5 a 8 cm", "Vinilo impermeable", "Colores vibrantes"], specsEn: ["20 premium stickers", "Sizes from 5 to 8 cm", "Waterproof vinyl", "Vibrant colors"], icon: "cine" },
+    { id: 4, name: "Pack Street y Skate", nameEn: "Street and Skate Pack", category: "skate", price: 4, oldPrice: null, discount: 0, rating: 5, reviews: 12, badge: null, badgeType: null, description: "Estilo urbano puro. Thrasher, Santa Cruz y logos clásicos.", descriptionEn: "Pure street style. Thrasher, Santa Cruz and classic logos.", specs: ["15 stickers grandes", "Tamaños de 6 a 10 cm", "Vinilo de alta resistencia", "Para skate y motos"], specsEn: ["15 large stickers", "Sizes from 6 to 10 cm", "High-resistance vinyl", "For skate and bikes"], icon: "skate" },
+    { id: 5, name: "Pack Stikmania", nameEn: "Stikmania Pack", category: "stikmania", price: 3, oldPrice: null, discount: 0, rating: 5, reviews: 30, badge: "EXCLUSIVE", badgeType: "hot", description: "Stickers exclusivos del artista @sti_kmania. Diseños únicos.", descriptionEn: "Exclusive stickers from artist @sti_kmania. Unique designs.", specs: ["18 stickers de autor", "Tamaños de 5 a 7 cm", "Vinilo impermeable", "Diseños originales"], specsEn: ["18 artist stickers", "Sizes from 5 to 7 cm", "Waterproof vinyl", "Original designs"], icon: "stikmania" },
+    { id: 6, name: "Pack Personalizado", nameEn: "Custom Pack", category: "personalizado", price: 2, oldPrice: null, discount: 0, rating: 5, reviews: 45, badge: null, badgeType: null, description: "Envía tus diseños o elige los stickers que más te gusten.", descriptionEn: "Send your designs or choose the stickers you like most.", specs: ["Elige cantidad (10-100)", "Tú eliges los diseños", "Material premium", "Diseño gratis incluido"], specsEn: ["Choose quantity (10-100)", "You choose the designs", "Premium material", "Free design included"], icon: "custom" }
 ];
 
 const productIcons = {
@@ -75,40 +16,35 @@ const productIcons = {
     custom: '<svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>'
 };
 
-let cart = JSON.parse(localStorage.getItem('stikmania_cart')) || [];
+let cart = JSON.parse(localStorage.getItem('stikmania_cart') || '[]');
 let currentFilter = 'all';
 let currentLang = localStorage.getItem('stikmania_lang') || 'es';
 
-// === INICIALIZACIÓN DEFENSIVA ===
 document.addEventListener('DOMContentLoaded', function() {
-    initLoader();
-    initMenu();
-    initCart();
-    initLanguage();
-    initBottomNav();
-    initScrollReveal();
-    initScrollProgress();
-    initDynamicYear();
-    initFAQ();
-    initSmoothScroll();
+    try { initLoader(); } catch(e) { console.log('Loader error:', e); }
+    try { initMenu(); } catch(e) { console.log('Menu error:', e); }
+    try { initCart(); } catch(e) { console.log('Cart error:', e); }
+    try { initLanguage(); } catch(e) { console.log('Language error:', e); }
+    try { initBottomNav(); } catch(e) { console.log('BottomNav error:', e); }
+    try { initScrollReveal(); } catch(e) { console.log('ScrollReveal error:', e); }
+    try { initScrollProgress(); } catch(e) { console.log('ScrollProgress error:', e); }
+    try { initDynamicYear(); } catch(e) { console.log('Year error:', e); }
+    try { initFAQ(); } catch(e) { console.log('FAQ error:', e); }
+    try { initSmoothScroll(); } catch(e) { console.log('SmoothScroll error:', e); }
     
-    // Solo en páginas que tienen tienda
     if (document.getElementById('productsGrid')) {
-        initProducts();
-        initFilters();
-        initSearch();
-        initModal();
-        initCountdown();
+        try { renderProducts(products); } catch(e) { console.log('Products error:', e); }
+        try { initFilters(); } catch(e) { console.log('Filters error:', e); }
+        try { initSearch(); } catch(e) { console.log('Search error:', e); }
+        try { initModal(); } catch(e) { console.log('Modal error:', e); }
+        try { initCountdown(); } catch(e) { console.log('Countdown error:', e); }
     }
 });
 
 function initLoader() {
     const loader = document.getElementById('loader');
     if (loader) {
-        setTimeout(() => {
-            loader.style.opacity = '0';
-            setTimeout(() => loader.remove(), 500);
-        }, 400);
+        setTimeout(() => { loader.style.opacity = '0'; setTimeout(() => loader.remove(), 500); }, 400);
     }
 }
 
@@ -117,7 +53,6 @@ function initMenu() {
     const drawer = document.getElementById('menuDrawer');
     const overlay = document.getElementById('menuOverlay');
     const close = document.getElementById('menuClose');
-    
     if (!toggle || !drawer) return;
     
     toggle.addEventListener('click', () => {
@@ -127,7 +62,6 @@ function initMenu() {
     
     if (close) close.addEventListener('click', closeMenu);
     if (overlay) overlay.addEventListener('click', closeMenu);
-    
     drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
     
     function closeMenu() {
@@ -142,7 +76,6 @@ function initCart() {
     const cartOverlay = document.getElementById('cartOverlay');
     const cartClose = document.getElementById('cartClose');
     const checkoutBtn = document.getElementById('checkoutBtn');
-    
     if (!cartBtn || !cartDrawer) return;
     
     updateCartUI();
@@ -163,15 +96,12 @@ function initCart() {
 }
 
 function addToCart(product) {
-    const existingItem = cart.find(item => item.id === product.id);
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({ ...product, quantity: 1 });
-    }
+    const existing = cart.find(item => item.id === product.id);
+    if (existing) existing.quantity++;
+    else cart.push({ ...product, quantity: 1 });
     saveCart();
     updateCartUI();
-    showToast(currentLang === 'es' ? '✅ Añadido al carrito' : '✅ Added to cart', 'success');
+    showToast(currentLang === 'es' ? 'Añadido al carrito' : 'Added to cart', 'success');
 }
 
 function removeFromCart(productId) {
@@ -180,100 +110,45 @@ function removeFromCart(productId) {
     updateCartUI();
 }
 
-function saveCart() {
-    localStorage.setItem('stikmania_cart', JSON.stringify(cart));
-}
+function saveCart() { localStorage.setItem('stikmania_cart', JSON.stringify(cart)); }
 
 function updateCartUI() {
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
     const cartCount = document.getElementById('cartCount');
-    const cartCountBottom = document.getElementById('cartCountBottom');
-    
     if (!cartItems) return;
     
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
     if (totalItems > 0) {
-        if (cartCount) {
-            cartCount.textContent = totalItems;
-            cartCount.classList.remove('hidden');
-        }
-        if (cartCountBottom) {
-            cartCountBottom.textContent = totalItems;
-            cartCountBottom.classList.remove('hidden');
-        }
+        if (cartCount) { cartCount.textContent = totalItems; cartCount.classList.remove('hidden'); }
     } else {
         if (cartCount) cartCount.classList.add('hidden');
-        if (cartCountBottom) cartCountBottom.classList.add('hidden');
     }
     
-    if (cartTotal) cartTotal.textContent = `$${totalPrice.toFixed(2)} USD`;
+    if (cartTotal) cartTotal.textContent = '$' + totalPrice.toFixed(2) + ' USD';
     
     if (cart.length === 0) {
-        cartItems.innerHTML = `<div class="cart-empty">${currentLang === 'es' ? 'Tu carrito está vacío' : 'Your cart is empty'}</div>`;
+        cartItems.innerHTML = '<div class="cart-empty">' + (currentLang === 'es' ? 'Tu carrito está vacío' : 'Your cart is empty') + '</div>';
     } else {
-        cartItems.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <div class="cart-item-image">${productIcons[item.icon] || ''}</div>
-                <div class="cart-item-info">
-                    <div class="cart-item-title">${currentLang === 'es' ? item.name : item.nameEn}</div>
-                    <div class="cart-item-price">$${item.price} USD x ${item.quantity}</div>
-                </div>
-                <button class="cart-item-remove" onclick="removeFromCart(${item.id})">&times;</button>
-            </div>
-        `).join('');
+        cartItems.innerHTML = cart.map(item => '<div class="cart-item"><div class="cart-item-image">' + (productIcons[item.icon] || '') + '</div><div class="cart-item-info"><div class="cart-item-title">' + (currentLang === 'es' ? item.name : item.nameEn) + '</div><div class="cart-item-price">$' + item.price + ' USD x ' + item.quantity + '</div></div><button class="cart-item-remove" onclick="removeFromCart(' + item.id + ')">&times;</button></div>').join('');
     }
 }
 
 function checkout() {
-    if (cart.length === 0) {
-        showToast(currentLang === 'es' ? '❌ Carrito vacío' : '❌ Cart is empty', 'error');
-        return;
-    }
+    if (cart.length === 0) { showToast(currentLang === 'es' ? 'Carrito vacío' : 'Cart is empty', 'error'); return; }
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     let message = '*PEDIDO STIKMANIA*\n\n';
-    cart.forEach(item => {
-        message += `• ${currentLang === 'es' ? item.name : item.nameEn} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)} USD\n`;
-    });
-    message += `\n*Total: $${total.toFixed(2)} USD*`;
-    window.open(`https://wa.me/5359758756?text=${encodeURIComponent(message)}`, '_blank');
-}
-
-function initProducts() {
-    const grid = document.getElementById('productsGrid');
-    if (!grid) return;
-    renderProducts(products);
+    cart.forEach(item => { message += '• ' + (currentLang === 'es' ? item.name : item.nameEn) + ' x' + item.quantity + ' - $' + (item.price * item.quantity).toFixed(2) + ' USD\n'; });
+    message += '\n*Total: $' + total.toFixed(2) + ' USD*';
+    window.open('https://wa.me/5359758756?text=' + encodeURIComponent(message), '_blank');
 }
 
 function renderProducts(productsToRender) {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
-    
-    grid.innerHTML = productsToRender.map(product => `
-        <div class="product-card" data-category="${product.category}" onclick="openProductModal(${product.id})">
-            <div class="product-image">
-                ${product.badge ? `<span class="product-badge ${product.badgeType}">${product.badge}</span>` : ''}
-                ${productIcons[product.icon] || ''}
-            </div>
-            <div class="product-info">
-                <div class="product-title">${currentLang === 'es' ? product.name : product.nameEn}</div>
-                <div class="product-rating">
-                    <span class="stars">${'★'.repeat(product.rating)}${'☆'.repeat(5 - product.rating)}</span>
-                    <span class="reviews">(${product.reviews})</span>
-                </div>
-                <div class="product-price">
-                    <span class="price-current">$${product.price} USD</span>
-                    ${product.oldPrice ? `<span class="price-old">$${product.oldPrice}</span>` : ''}
-                    ${product.discount > 0 ? `<span class="discount-badge">-${product.discount}%</span>` : ''}
-                </div>
-                <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(products.find(p => p.id === ${product.id}))">
-                    ${currentLang === 'es' ? '🛒 Añadir' : '🛒 Add'}
-                </button>
-            </div>
-        </div>
-    `).join('');
+    grid.innerHTML = productsToRender.map(product => '<div class="product-card" data-category="' + product.category + '" onclick="openProductModal(' + product.id + ')"><div class="product-image">' + (product.badge ? '<span class="product-badge ' + product.badgeType + '">' + product.badge + '</span>' : '') + (productIcons[product.icon] || '') + '</div><div class="product-info"><div class="product-title">' + (currentLang === 'es' ? product.name : product.nameEn) + '</div><div class="product-rating"><span class="stars">' + '★'.repeat(product.rating) + '☆'.repeat(5 - product.rating) + '</span><span class="reviews">(' + product.reviews + ')</span></div><div class="product-price"><span class="price-current">$' + product.price + ' USD</span>' + (product.oldPrice ? '<span class="price-old">$' + product.oldPrice + '</span>' : '') + (product.discount > 0 ? '<span class="discount-badge">-' + product.discount + '%</span>' : '') + '</div><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(products.find(p => p.id === ' + product.id + '))">' + (currentLang === 'es' ? 'Añadir' : 'Add') + '</button></div></div>').join('');
 }
 
 function initFilters() {
@@ -284,11 +159,7 @@ function initFilters() {
             chip.classList.add('active');
             const filter = chip.dataset.filter;
             currentFilter = filter;
-            if (filter === 'all') {
-                renderProducts(products);
-            } else {
-                renderProducts(products.filter(p => p.category === filter));
-            }
+            renderProducts(filter === 'all' ? products : products.filter(p => p.category === filter));
         });
     });
 }
@@ -298,12 +169,7 @@ function initSearch() {
     if (!searchInput) return;
     searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
-        const filtered = products.filter(p => 
-            p.name.toLowerCase().includes(query) || 
-            p.nameEn.toLowerCase().includes(query) ||
-            p.category.toLowerCase().includes(query)
-        );
-        renderProducts(filtered);
+        renderProducts(products.filter(p => p.name.toLowerCase().includes(query) || p.nameEn.toLowerCase().includes(query) || p.category.toLowerCase().includes(query)));
     });
 }
 
@@ -312,27 +178,20 @@ function initModal() {
     const close = document.getElementById('modalClose');
     const addToCartBtn = document.getElementById('modalAddToCart');
     const buyNowBtn = document.getElementById('modalBuyNow');
-    
     if (!modal) return;
     
     if (close) close.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     
-    if (addToCartBtn) {
-        addToCartBtn.addEventListener('click', () => {
-            const productId = parseInt(addToCartBtn.dataset.productId);
-            const product = products.find(p => p.id === productId);
-            if (product) { addToCart(product); closeModal(); }
-        });
-    }
+    if (addToCartBtn) addToCartBtn.addEventListener('click', () => {
+        const product = products.find(p => p.id === parseInt(addToCartBtn.dataset.productId));
+        if (product) { addToCart(product); closeModal(); }
+    });
     
-    if (buyNowBtn) {
-        buyNowBtn.addEventListener('click', () => {
-            const productId = parseInt(buyNowBtn.dataset.productId);
-            const product = products.find(p => p.id === productId);
-            if (product) { addToCart(product); closeModal(); document.getElementById('cartBtn').click(); }
-        });
-    }
+    if (buyNowBtn) buyNowBtn.addEventListener('click', () => {
+        const product = products.find(p => p.id === parseInt(buyNowBtn.dataset.productId));
+        if (product) { addToCart(product); closeModal(); document.getElementById('cartBtn').click(); }
+    });
 }
 
 function openProductModal(productId) {
@@ -353,20 +212,17 @@ function openProductModal(productId) {
     if (modalImage) modalImage.innerHTML = productIcons[product.icon] || '';
     if (modalTitle) modalTitle.textContent = currentLang === 'es' ? product.name : product.nameEn;
     if (modalStars) modalStars.textContent = '★'.repeat(product.rating) + '☆'.repeat(5 - product.rating);
-    if (modalReviews) modalReviews.textContent = `(${product.reviews} reviews)`;
+    if (modalReviews) modalReviews.textContent = '(' + product.reviews + ' reviews)';
     if (modalDescription) modalDescription.textContent = currentLang === 'es' ? product.description : product.descriptionEn;
-    if (modalSpecs) modalSpecs.innerHTML = (currentLang === 'es' ? product.specs : product.specsEn).map(s => `<li>${s}</li>`).join('');
-    if (modalPrice) modalPrice.textContent = `$${product.price} USD`;
+    if (modalSpecs) modalSpecs.innerHTML = (currentLang === 'es' ? product.specs : product.specsEn).map(s => '<li>' + s + '</li>').join('');
+    if (modalPrice) modalPrice.textContent = '$' + product.price + ' USD';
     if (addToCartBtn) addToCartBtn.dataset.productId = productId;
     if (buyNowBtn) buyNowBtn.dataset.productId = productId;
     
     if (modal) modal.classList.add('active');
 }
 
-function closeModal() {
-    const modal = document.getElementById('productModal');
-    if (modal) modal.classList.remove('active');
-}
+function closeModal() { const modal = document.getElementById('productModal'); if (modal) modal.classList.remove('active'); }
 
 function initCountdown() {
     let hours = 4, minutes = 23, seconds = 15;
@@ -400,11 +256,8 @@ function initLanguage() {
         });
         document.documentElement.lang = currentLang;
         
-        // Re-renderizar productos si estamos en la tienda
         const grid = document.getElementById('productsGrid');
-        if (grid) {
-            renderProducts(currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter));
-        }
+        if (grid) renderProducts(currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter));
         updateCartUI();
     }
     
@@ -421,9 +274,7 @@ function initBottomNav() {
     const items = document.querySelectorAll('.bottom-nav-item');
     items.forEach(item => {
         item.addEventListener('click', (e) => {
-            // Si es un enlace <a>, dejar que navegue normalmente
             if (item.tagName === 'A') return;
-            
             items.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
             const target = item.dataset.target;
@@ -439,8 +290,8 @@ function showToast(message, type = 'success') {
     const container = document.getElementById('toastContainer');
     if (!container) return;
     const toast = document.createElement('div');
-    toast.className = `toast ${type}`;
-    toast.innerHTML = `<span class="toast-icon">${type === 'success' ? '✅' : '❌'}</span><span class="toast-message">${message}</span>`;
+    toast.className = 'toast ' + type;
+    toast.innerHTML = '<span>' + (type === 'success' ? '✅' : '❌') + '</span><span>' + message + '</span>';
     container.appendChild(toast);
     setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 3000);
 }
@@ -469,9 +320,7 @@ function initSmoothScroll() {
             const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                const offset = 80;
-                const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top: position, behavior: 'smooth' });
+                window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
             }
         });
     });
@@ -480,9 +329,7 @@ function initSmoothScroll() {
 function initScrollReveal() {
     function reveal() {
         document.querySelectorAll('.fade-in').forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-                el.classList.add('active');
-            }
+            if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
         });
     }
     window.addEventListener('scroll', reveal);
@@ -493,18 +340,14 @@ function initScrollReveal() {
 function initScrollProgress() {
     const existing = document.getElementById('scrollProgress');
     if (existing) return;
-    
     const bar = document.createElement('div');
     bar.className = 'scroll-progress';
     bar.id = 'scrollProgress';
     document.body.appendChild(bar);
-    
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset;
         const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        if (scrollHeight > 0) {
-            bar.style.height = (scrollTop / scrollHeight * 100) + '%';
-        }
+        if (scrollHeight > 0) bar.style.height = (scrollTop / scrollHeight * 100) + '%';
     });
 }
 
