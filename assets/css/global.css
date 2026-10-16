@@ -1,6 +1,6 @@
 /* ============================================
    STIKMANIA APP - Sistema de Diseño
-   Versión 5.2 - Multi-página con Hero separado
+   Versión 5.4 - Íconos SVG, sin emojis
    ============================================ */
 
 :root {
@@ -88,6 +88,7 @@ img { max-width: 100%; display: block; }
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
 
+/* === SISTEMA DE ÍCONOS SVG === */
 .icon {
   width: 24px; height: 24px; stroke: currentColor; fill: none;
   stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
@@ -259,10 +260,12 @@ header {
 .menu-drawer ul { list-style: none; }
 .menu-drawer li { margin-bottom: 5px; }
 .menu-drawer a {
-  display: block; padding: 12px 15px; color: var(--white); font-size: 0.95rem;
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 15px; color: var(--white); font-size: 0.95rem;
   border-radius: var(--radius-sm); transition: all var(--transition-fast);
 }
 .menu-drawer a:hover { background: var(--gray); color: var(--neon-green); }
+.menu-drawer a svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
 .menu-drawer .divider { height: 1px; background: var(--gray-light); margin: 20px 0; }
 
 /* === CARRITO DRAWER === */
@@ -488,7 +491,6 @@ header {
 .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
 .testimonial { background: var(--gray); padding: 30px; border-radius: var(--radius-lg); border-left: 4px solid var(--neon-green); position: relative; }
 .testimonial::before { content: '"'; position: absolute; top: 10px; right: 20px; font-family: var(--font-display); font-size: 4rem; color: var(--neon-green); opacity: 0.2; line-height: 1; }
-.stars { color: var(--yellow); margin-bottom: 10px; font-size: 1.1rem; }
 .testimonial p { color: #ccc; font-style: italic; margin-bottom: 20px; }
 .testimonial-author { color: var(--neon-green); font-weight: 700; font-style: normal; }
 .testimonial-role { color: var(--text-muted); font-size: 0.8rem; margin-top: 3px; }
@@ -584,7 +586,6 @@ footer { background: #000; padding: 60px 0 30px 0; border-top: 1px solid var(--d
   .trust-badge { font-size: 0.8rem; }
   .brands-logos { gap: 25px; }
   .brands-logos img { height: 50px; }
-  .icon-xl { width: 72px; height: 72px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .product-image { height: 120px; }
   .offer-banner { margin: 10px 0 20px 0; padding: 20px; }
@@ -595,6 +596,19 @@ footer { background: #000; padding: 60px 0 30px 0; border-top: 1px solid var(--d
   .whatsapp-float svg { width: 26px; height: 26px; }
   .page-hero { padding: 30px 0 40px 0; }
   .page-hero h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+  
+  /* === AJUSTE DE ÍCONOS EN MÓVIL === */
+  .product-image svg { width: 40px; height: 40px; }
+  .benefit-icon { font-size: 2rem !important; }
+  .benefit-icon.icon-lg { width: 36px; height: 36px; }
+  .trust-badge-icon.icon-md { width: 22px; height: 22px; }
+  .bottom-nav-item svg { width: 20px; height: 20px; }
+  .bottom-nav-item { font-size: 0.6rem; }
+  .hero-ctas .icon-sm { width: 16px; height: 16px; }
+  .modal-image svg { width: 60px; height: 60px; }
+  .cart-item-image svg { width: 24px; height: 24px; }
+  .icon-xl { width: 60px; height: 60px; }
+  .menu-drawer a svg { width: 18px; height: 18px; }
 }
 
 @media (min-width: 769px) {
